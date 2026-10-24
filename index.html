@@ -44,6 +44,8 @@ body{font:15px/1.5 var(--read);color:var(--ink);overflow:hidden;
 .nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:12px;align-items:center;z-index:6}
 .nav .btn{width:44px;height:40px;justify-content:center;padding:0;font-size:20px}
 .nav span{font:18px var(--hand);min-width:70px;text-align:center}
+.nav .count{font:18px var(--hand);min-width:78px;min-height:40px;justify-content:center;box-shadow:none;background:transparent;border:0;padding:3px 8px}
+.nav .count:hover{background:var(--fill);box-shadow:none;transform:none}
 
 /* ---------- slides ---------- */
 .track{display:flex;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1)}
@@ -221,12 +223,12 @@ body.demo .sc{display:none}
  body{overflow:hidden}
  .track{height:100dvh}
  .slide{
-  grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:stretch;align-content:start;
-  height:100dvh;min-height:100dvh;gap:18px;overflow-x:hidden;overflow-y:auto;
+  display:block;height:100dvh;min-height:100dvh;overflow-x:hidden;overflow-y:auto;
   padding:calc(68px + env(safe-area-inset-top)) 18px calc(96px + env(safe-area-inset-bottom));
   overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch
  }
- .frame{aspect-ratio:auto;min-height:min(520px,54dvh);padding:26px 22px 46px;border-radius:14px;box-shadow:5px 5px 0 var(--accent);overflow:hidden}
+ .frame{display:block;aspect-ratio:auto;height:auto;min-height:min(520px,54dvh);padding:26px 22px 46px;border-radius:14px;box-shadow:5px 5px 0 var(--accent);overflow:visible}
+ .frame.center{display:flex}
  .frame h2{font-size:clamp(21px,5vw,28px);max-width:100%;margin-bottom:18px}
  .frame .big{font-size:clamp(25px,6.2vw,36px);max-width:100%;line-height:1.2}
  .frame .sub{font-size:15px;line-height:1.45}
@@ -254,8 +256,22 @@ body.demo .sc{display:none}
  .frame .bars{min-height:150px;padding:0 6%;gap:10%}
  .frame .bars .b{font-size:12px}
  .frame .tag{font-size:13px;line-height:1.4;white-space:normal}
- .frame .dz{width:58px;max-width:58px;opacity:.85}
- .notes{max-height:none;gap:10px;padding:0 2px 8px}
+ .frame .dz{display:none}
+ .frame .dossier-parts{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important;margin-bottom:18px!important}
+ .frame .dossier-parts>*{width:auto;min-height:50px;display:grid;place-items:center;padding:8px!important;font-size:15px}
+ .frame .dossier-timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:0;counter-reset:dossier-step}
+ .frame .dossier-timeline div{min-height:70px;padding:10px 8px 10px 40px;border:1.5px solid var(--ink);border-radius:10px;background:var(--fill2);counter-increment:dossier-step}
+ .frame .dossier-timeline div.k{background:var(--fill)}
+ .frame .dossier-timeline div:before{content:counter(dossier-step);top:10px;left:9px;width:23px;height:23px;margin:0;display:grid;place-items:center;font:700 12px var(--read);color:var(--blue);background:#fff}
+ .frame .dossier-timeline div.k:before{color:#fff;background:var(--blue)}
+ .frame .dossier-timeline div:after{display:none}
+ .frame .compact-grid,.frame .method-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px;max-width:100%!important}
+ .frame .compact-grid .cell{min-height:58px;display:grid;place-items:center;padding:10px}
+ .frame .method-grid .cell{padding:12px;overflow-wrap:anywhere}
+ .frame .method-grid .cell b{font-size:16px}
+ .frame .slide-shot{height:220px;max-height:220px!important;overflow:hidden}
+ .frame .slide-shot img{height:100%!important;object-fit:cover;object-position:top}
+ .notes{max-height:none;gap:10px;padding:0 2px 8px;margin-top:18px}
  .notes .k{font-size:14px}
  .notes .msg{font-size:clamp(20px,5.5vw,24px);line-height:1.3}
  .notes .tip,.notes .bridge{font-size:14px;line-height:1.5;padding:11px 13px}
@@ -267,8 +283,8 @@ body.demo .sc{display:none}
  .top .btn svg{width:17px;height:17px}
  .nav{bottom:calc(9px + env(safe-area-inset-bottom));gap:9px;padding:5px 9px;background:rgba(255,255,255,.97);border:1px solid #d8dee8;border-radius:16px;box-shadow:0 5px 18px rgba(30,45,70,.12);backdrop-filter:blur(10px)}
  .nav .btn{width:48px;height:44px;font-size:21px}
- .nav span{font-size:16px;min-width:66px}
- .sc{left:12px;right:12px;bottom:calc(72px + env(safe-area-inset-bottom));width:auto;border-radius:14px;box-shadow:4px 4px 0 var(--accent)}
+ .nav .count{font-size:17px;min-width:78px;min-height:44px}
+ .sc{display:none}
  .sc.on{width:auto}
  .sc.on .sc-full{max-height:min(48dvh,420px)}
  .sc-peek{padding:11px 13px}
@@ -343,7 +359,7 @@ body.demo .sc{display:none}
  <button class="btn" id="openD" title="Discours (D)"><svg viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h10l4 4v13H5z"/><path d="M15 3.5v4h4M8 11h8M8 14.5h8M8 18h5"/></svg>Discours</button>
 </div>
 <div class="track" id="track"></div>
-<div class="nav"><button class="btn" id="prev" aria-label="Précédent">←</button><span id="count"></span><button class="btn" id="next" aria-label="Suivant">→</button></div>
+<nav class="nav" aria-label="Navigation des diapositives"><button class="btn" id="prev" aria-label="Diapositive précédente">←</button><button class="btn count" id="count" aria-label="Choisir une diapositive" title="Choisir une diapositive"></button><button class="btn" id="next" aria-label="Diapositive suivante">→</button></nav>
 
 <div class="sc" id="sc">
  <button class="sc-peek" id="scPeek" aria-label="Afficher le discours de cette slide"><svg viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z" fill="#DCE6F5"/><path d="M6 10.5a6 6 0 0 0 12 0M12 16.5V20"/></svg><span><b id="scT1"></b><small id="scEx"></small></span></button>
@@ -413,13 +429,13 @@ const S=[
  sp:"Le FMFP, c'est le fonds qui finance la formation professionnelle à Madagascar. Le principe est simple. Les entreprises cotisent : 1 % de leur masse salariale. Ce fonds est géré ensemble par les employeurs, les syndicats et l'État. Et il sert à former les salariés, mais aussi les jeunes et les travailleurs du secteur informel. Depuis 2019, plus de 70 000 salariés ont été formés, dans les 23 régions du pays."},
 
 {sec:1,t:"50 s",
- f:`<h2>Un dossier, et le chemin qu'il parcourt</h2><div class="row" style="flex:0 0 auto;gap:2%;margin-bottom:3%">${['Projet','Modules','Bénéficiaires','Budget','Prestataire','Pièces'].map((x,k)=>`<div class="cell ${k%2?'light':''}" style="text-align:center;padding:2.5% 1%">${x}</div>`).join('')}</div><div class="tl" style="flex:0 0 auto">${[['Dépôt','entreprise'],['Complétude','FMFP'],['Éligibilité','FMFP'],['Évaluation','évaluateur'],['Décision','direction'],['Convention','FMFP + entreprise']].map((x,k)=>`<div class="${k===3?'k':''}">${k===3?'<b style="font-weight:400;font-size:1.2em">'+x[0]+'</b>':x[0]}<br><span class="sub">${x[1]}</span></div>`).join('')}</div>${dz('folder','tr')}`,
+ f:`<h2>Un dossier, et le chemin qu'il parcourt</h2><div class="row dossier-parts" style="flex:0 0 auto;gap:2%;margin-bottom:3%">${['Projet','Modules','Bénéficiaires','Budget','Prestataire','Pièces'].map((x,k)=>`<div class="cell ${k%2?'light':''}" style="text-align:center;padding:2.5% 1%">${x}</div>`).join('')}</div><div class="tl dossier-timeline" style="flex:0 0 auto">${[['Dépôt','entreprise'],['Complétude','FMFP'],['Éligibilité','FMFP'],['Évaluation','évaluateur'],['Décision','direction'],['Convention','FMFP + entreprise']].map((x,k)=>`<div class="${k===3?'k':''}">${k===3?'<b style="font-weight:400;font-size:1.2em">'+x[0]+'</b>':x[0]}<br><span class="sub">${x[1]}</span></div>`).join('')}</div>${dz('folder','tr')}`,
  m:"Ce qu'est un dossier, et où se situe l'évaluateur.",
  b:"C'est cet évaluateur que nous allons suivre.",
  sp:"Dans ce dossier, on trouve son projet, les modules de formation, les salariés concernés, le budget, le prestataire, et les pièces justificatives. Ce dossier passe ensuite par plusieurs étapes : on vérifie qu'il est complet, qu'il est éligible, puis vient l'étape clé — l'évaluation. Un évaluateur analyse le dossier avec une grille de critères, lui donne une note et rédige un avis. Ensuite seulement, la direction décide."},
 
 {sec:1,t:"45 s",
- f:`<h2>Un lundi matin, un évaluateur ouvre un dossier…</h2><div class="grid" style="grid-template-columns:repeat(4,1fr);max-width:84%">${['Budget','Pièces','Cotisations','Modules','Bénéficiaires','Objectifs','Historique','Statut'].map((x,k)=>`<div class="cell ${k%3?'light':''}" style="text-align:center">${x}</div>`).join('')}</div>${dz('thinker','tr')}`,
+ f:`<h2>Un lundi matin, un évaluateur ouvre un dossier…</h2><div class="grid compact-grid" style="grid-template-columns:repeat(4,1fr);max-width:84%">${['Budget','Pièces','Cotisations','Modules','Bénéficiaires','Objectifs','Historique','Statut'].map((x,k)=>`<div class="cell ${k%3?'light':''}" style="text-align:center">${x}</div>`).join('')}</div>${dz('thinker','tr')}`,
  m:"Faire vivre la scène : le public doit se mettre à la place de l'évaluateur.",
  tip:"Ce dossier BTP devient le fil rouge de toute la présentation.",
  b:"Et en observant ce travail, j'ai relevé trois difficultés.",
@@ -452,7 +468,7 @@ const S=[
 
 /* ---------- 03 ---------- */
 {sec:3,t:"50 s",
- f:`<h2>Choisir des méthodes qu'on peut expliquer</h2><div class="grid" style="grid-template-columns:repeat(4,1fr)"><div class="cell"><b>Score</b>gradient boosting<br><span class="sub">fiable sur ce type de données</span></div><div class="cell light"><b>Orientation</b>règles FMFP + contenu<br><span class="sub">pas assez d'historique pour plus</span></div><div class="cell"><b>Alertes</b>règles explicites<br><span class="sub">chaque alerte a une raison</span></div><div class="cell light"><b>Intégration</b>service séparé<br><span class="sub">on peut le retirer</span></div></div>${dz('doc','tr')}`,
+ f:`<h2>Choisir des méthodes qu'on peut expliquer</h2><div class="grid method-grid" style="grid-template-columns:repeat(4,1fr)"><div class="cell"><b>Score</b>gradient boosting<br><span class="sub">fiable sur ce type de données</span></div><div class="cell light"><b>Orientation</b>règles FMFP + contenu<br><span class="sub">pas assez d'historique pour plus</span></div><div class="cell"><b>Alertes</b>règles explicites<br><span class="sub">chaque alerte a une raison</span></div><div class="cell light"><b>Intégration</b>service séparé<br><span class="sub">on peut le retirer</span></div></div>${dz('doc','tr')}`,
  m:"Un critère avant tout : pouvoir expliquer chaque résultat.",
  tip:"Si le jury creuse : l'état de l'art complet est au chapitre 3 du mémoire.",
  b:"Mais il y avait une contrainte forte.",
@@ -485,7 +501,7 @@ const S=[
  sp:"Notre entreprise ne sait pas quel financement demander. Elle décrit son besoin. L'outil regarde son secteur, sa taille, ses cotisations… et lui propose le guichet adapté, en expliquant pourquoi. Et s'il n'y a rien de compatible ? Il ne propose rien. [pause] C'est voulu : mieux vaut aucune réponse qu'une mauvaise réponse."},
 
 {sec:4,t:"1 min",
- f:`<h2>② Vérifier : ce qui cloche, en un coup d'œil</h2><div class="sub" style="margin:-3% 0 2%">l'assistant de l'évaluateur, sur le dossier reçu de l'entreprise</div><div class="row"><button class="shot" data-zoom="img/assistant-dossier-btp.png" style="align-self:stretch;max-height:100%"><img src="img/assistant-dossier-btp.png" alt="Assistant IA sur le dossier BTP" style="height:100%;width:100%;object-fit:cover;object-position:top"></button><div class="col"><div class="cell w"><b>Bénéficiaires : 11 d'un côté, 15 de l'autre</b></div><div class="cell w"><b>Problématique non renseignée</b></div>${li(['Pour chaque point : ce qu’il faut faire'])}</div></div>`,
+ f:`<h2>② Vérifier : ce qui cloche, en un coup d'œil</h2><div class="sub" style="margin:-3% 0 2%">l'assistant de l'évaluateur, sur le dossier reçu de l'entreprise</div><div class="row"><button class="shot slide-shot" data-zoom="img/assistant-dossier-btp.png" style="align-self:stretch;max-height:100%"><img src="img/assistant-dossier-btp.png" alt="Assistant IA sur le dossier BTP" style="height:100%;width:100%;object-fit:cover;object-position:top"></button><div class="col"><div class="cell w"><b>Bénéficiaires : 11 d'un côté, 15 de l'autre</b></div><div class="cell w"><b>Problématique non renseignée</b></div>${li(['Pour chaque point : ce qu’il faut faire'])}</div></div>`,
  m:"Deux assistants : un pour l'entreprise, un pour l'évaluateur. Ici, celui de l'évaluateur.",
  tip:"Preuve si on vous la demande : les 144 champs des formulaires ont été audités, aucun n'est oublié.",
  b:"Le dossier est vérifié. L'évaluateur peut maintenant l'évaluer.",
@@ -584,11 +600,13 @@ const $=id=>document.getElementById(id);
 const sync=(inst)=>{document.querySelectorAll('.sp').forEach(e=>e.classList.toggle('on',+e.dataset.i===i));
  if(document.body.classList.contains('open')){const on=document.querySelector('.sp.on');on&&on.scrollIntoView({block:'center',behavior:inst?'auto':'smooth'})}};
 const go=n=>{i=Math.max(0,Math.min(S.length-1,n));$('track').style.transform=`translateX(-${i*100}%)`;
+ document.querySelectorAll('.slide')[i].scrollTop=0;
  $('count').textContent=`${i+1} / ${S.length}`;$('act').textContent=secName(S[i]);
  $('bar').style.width=((i+1)/S.length*100)+'%';$('prev').disabled=i===0;$('next').disabled=i===S.length-1;
  try{history.replaceState(null,'','#'+(i+1))}catch(e){};sync();if(window.fillSc)fillSc();};
 const openD=v=>{document.body.classList.toggle('open',v);if(v)setTimeout(()=>sync(true),360)};
 $('prev').onclick=()=>go(i-1);$('next').onclick=()=>go(i+1);
+$('count').onclick=()=>openD(true);
 $('openD').onclick=()=>openD(!document.body.classList.contains('open'));
 $('closeD').onclick=()=>openD(false);$('scrim').onclick=()=>openD(false);
 const sc=document.getElementById('sc');
@@ -596,7 +614,7 @@ const closePops=()=>sc.classList.remove('on');
 window.fillSc=()=>{const t=`Discours · slide ${i+1}`;$('scT1').textContent=t;$('scT2').textContent=t;$('scEx').textContent=S[i].sp;$('scBd').innerHTML=`<p>${S[i].sp}</p>${S[i].b?`<p class="trn">→ ${S[i].b}</p>`:''}`;$('scBd').scrollTop=0};
 $('scPeek').onclick=()=>sc.classList.add('on');fillSc();$('scX').onclick=closePops;
 document.addEventListener('click',e=>{
- if(e.target.closest('[data-open]')){closePops();openD(true);return}const sp=e.target.closest('.sp');if(sp)go(+sp.dataset.i)});
+ if(e.target.closest('[data-open]')){closePops();openD(true);return}const sp=e.target.closest('.sp');if(sp){go(+sp.dataset.i);if(matchMedia('(max-width:900px)').matches)openD(false)}});
 addEventListener('keydown',e=>{
  if(dmEl().classList.contains('on')){
   const zo=document.getElementById('zoom');if(zo.classList.contains('on')){if(e.key==='Escape')zo.classList.remove('on');return}
