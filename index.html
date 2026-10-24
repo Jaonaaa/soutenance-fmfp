@@ -43,9 +43,9 @@ body{font:15px/1.5 var(--read);color:var(--ink);overflow:hidden;
 .btn svg{width:18px;height:18px}
 .nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:12px;align-items:center;z-index:6}
 .nav .btn{width:44px;height:40px;justify-content:center;padding:0;font-size:20px}
-.nav span{font:18px var(--hand);min-width:70px;text-align:center}
-.nav .count{font:18px var(--hand);min-width:78px;min-height:40px;justify-content:center;box-shadow:none;background:transparent;border:0;padding:3px 8px}
+.nav .count{font:18px var(--hand);min-width:92px;min-height:40px;justify-content:center;white-space:nowrap;box-shadow:none;background:transparent;border:0;padding:3px 8px}
 .nav .count:hover{background:var(--fill);box-shadow:none;transform:none}
+.nav .count:after{content:"⌄";font:18px var(--read);line-height:1;transform:translateY(-2px)}
 
 /* ---------- slides ---------- */
 .track{display:flex;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1)}
@@ -127,9 +127,11 @@ body.open .sc{display:none}
 .notes .msg{font:24px/1.25 var(--hand)}
 .notes .tip,.notes .bridge{font-size:14px;line-height:1.5;background:#fff;border:1.5px solid var(--ink);border-radius:var(--r2);padding:10px 14px}
 .notes .tip{background:var(--warnfill)}
-.notes .bridge{background:var(--fill2)}
+.notes .bridge{background:var(--fill2);border-color:var(--blue);box-shadow:3px 3px 0 var(--accent2);color:var(--ink);font-style:normal}
+.notes .bridge .lbl{color:var(--blue)}
 .notes .lbl{font:15px var(--hand);display:block;margin-bottom:2px}
 .notes .time{font:17px var(--hand);color:var(--ink2)}
+.speech-label,.speech-text{display:none}
 
 /* ---------- drawer ---------- */
 .scrim{position:fixed;inset:0;background:rgba(36,36,36,.18);opacity:0;pointer-events:none;transition:opacity .25s;z-index:10}
@@ -139,17 +141,17 @@ body.open .scrim{opacity:1;pointer-events:auto}
 .dh{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1.6px solid var(--ink)}
 .dh h3{font:400 26px var(--hand)}
 .dh .x{margin-left:auto}
-.dsub{font-size:13px;color:var(--ink2);padding:10px 20px 0}
 .db{flex:1;overflow:auto;padding:12px 20px 40px}
 .dsec{font:20px var(--hand);color:var(--blue);margin:22px 0 8px}
+.dsec:first-child{margin-top:4px}
 .sp{padding:12px 14px;border:1.5px solid transparent;border-radius:var(--r2);cursor:pointer;margin-bottom:6px;transition:background .15s}
 .sp:hover{background:var(--fill2)}
 .sp.on{background:var(--fill);border-color:var(--ink);box-shadow:4px 4px 0 var(--accent2)}
 .sp .h{font:16px var(--hand);color:var(--ink2);display:flex;gap:8px;margin-bottom:4px}
 .sp .h b{font-weight:400;color:var(--ink)}
 .sp p{font-size:15.5px;line-height:1.65}
-.trn{margin-top:10px;padding:8px 12px;border-left:3px solid var(--accent);background:var(--fill2);border-radius:0 8px 8px 0;font-style:italic;color:var(--blue);font-size:15px;line-height:1.5}
-.sp .trn:before,.sc-bd .trn:before{content:"Transition";display:block;font:normal 14px var(--hand);color:var(--ink2);margin-bottom:2px}
+.trn{margin-top:14px;padding:11px 14px;border:1.5px solid var(--blue);background:var(--fill2);border-radius:var(--r2);box-shadow:3px 3px 0 var(--accent2);font-style:normal;color:var(--ink);font-size:15px;line-height:1.5}
+.sp .trn:before,.sc-bd .trn:before{content:"→ Transition";display:block;font:15px var(--hand);color:var(--blue);margin-bottom:5px}
 
 /* ---------- demo modal ---------- */
 .dm{position:fixed;inset:0;z-index:30;background-color:#fff;background-image:radial-gradient(#d9dee7 1px,transparent 1px);background-size:22px 22px;display:none;flex-direction:column}
@@ -221,14 +223,16 @@ body.demo .sc{display:none}
 @media (max-width:900px){
  html,body{height:100%;min-height:100%}
  body{overflow:hidden}
- .track{height:100dvh}
+ .track{height:calc(100dvh - 74px - env(safe-area-inset-bottom));overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;transform:none!important}
+ .track::-webkit-scrollbar{display:none}
  .slide{
-  display:block;height:100dvh;min-height:100dvh;overflow-x:hidden;overflow-y:auto;
-  padding:calc(68px + env(safe-area-inset-top)) 18px calc(96px + env(safe-area-inset-bottom));
-  overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch
+  display:block;height:100%;min-height:0;overflow-x:hidden;overflow-y:auto;scroll-snap-align:start;scroll-snap-stop:always;
+  padding:calc(68px + env(safe-area-inset-top)) 18px 20px;
+  overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;
  }
  .frame{display:block;aspect-ratio:auto;height:auto;min-height:min(520px,54dvh);padding:26px 22px 46px;border-radius:14px;box-shadow:5px 5px 0 var(--accent);overflow:visible}
  .frame.center{display:flex}
+ .frame .chip,.frame .num{display:none}
  .frame h2{font-size:clamp(21px,5vw,28px);max-width:100%;margin-bottom:18px}
  .frame .big{font-size:clamp(25px,6.2vw,36px);max-width:100%;line-height:1.2}
  .frame .sub{font-size:15px;line-height:1.45}
@@ -271,7 +275,10 @@ body.demo .sc{display:none}
  .frame .method-grid .cell b{font-size:16px}
  .frame .slide-shot{height:220px;max-height:220px!important;overflow:hidden}
  .frame .slide-shot img{height:100%!important;object-fit:cover;object-position:top}
- .notes{max-height:none;gap:10px;padding:0 2px 8px;margin-top:18px}
+ .notes{display:flex;max-height:none;overflow:visible;gap:10px;padding:16px;margin-top:18px;border:1.5px solid var(--ink);border-radius:14px;background:#fff;box-shadow:4px 4px 0 var(--accent2)}
+ .notes .k,.notes .msg,.notes .tip,.notes .time{display:none}
+ .notes .speech-label{display:block;font:18px var(--hand);color:var(--blue)}
+ .notes .speech-text{display:block;font:15px/1.55 var(--read);color:var(--ink)}
  .notes .k{font-size:14px}
  .notes .msg{font-size:clamp(20px,5.5vw,24px);line-height:1.3}
  .notes .tip,.notes .bridge{font-size:14px;line-height:1.5;padding:11px 13px}
@@ -283,7 +290,7 @@ body.demo .sc{display:none}
  .top .btn svg{width:17px;height:17px}
  .nav{bottom:calc(9px + env(safe-area-inset-bottom));gap:9px;padding:5px 9px;background:rgba(255,255,255,.97);border:1px solid #d8dee8;border-radius:16px;box-shadow:0 5px 18px rgba(30,45,70,.12);backdrop-filter:blur(10px)}
  .nav .btn{width:48px;height:44px;font-size:21px}
- .nav .count{font-size:17px;min-width:78px;min-height:44px}
+ .nav .count{font-size:17px;min-width:92px;min-height:44px}
  .sc{display:none}
  .sc.on{width:auto}
  .sc.on .sc-full{max-height:min(48dvh,420px)}
@@ -297,7 +304,6 @@ body.demo .sc{display:none}
  .dh{padding:calc(12px + env(safe-area-inset-top)) 16px 12px}
  .dh h3{font-size:22px}
  .dh .btn{min-height:42px;padding:6px 10px;font-size:14px}
- .dsub{padding:8px 16px 0;font-size:12px;line-height:1.45}
  .db{padding:10px 14px calc(22px + env(safe-area-inset-bottom))}
  .dsec{font-size:18px;margin:18px 0 8px}
  .sp{padding:12px;margin-bottom:8px}
@@ -337,7 +343,14 @@ body.demo .sc{display:none}
 
 @media (max-width:380px){
  .slide{padding-left:13px;padding-right:13px}
- .frame{padding-left:17px;padding-right:17px}
+ .frame{padding:20px 17px 40px}
+ .frame h2{margin-bottom:12px}
+ .frame .dossier-parts{gap:6px!important;margin-bottom:12px!important}
+ .frame .dossier-parts>*{min-height:40px;padding:5px!important;font-size:14px}
+ .frame .dossier-timeline{gap:6px}
+ .frame .dossier-timeline div{min-height:58px;padding:7px 5px 7px 34px;font-size:13px}
+ .frame .dossier-timeline div:before{top:8px;left:7px;width:21px;height:21px}
+ .frame .dossier-timeline .sub{font-size:12px}
  .top{padding-left:10px;padding-right:10px}
  .top .act{max-width:calc(100vw - 132px)}
  .nav{gap:6px;padding:4px 7px}
@@ -377,7 +390,6 @@ body.demo .sc{display:none}
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" aria-label="Discours">
  <div class="dh"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.6" stroke-linecap="round"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z" fill="#DCE6F5"/><path d="M6 11.5a6 6 0 0 0 12 0M12 17.5V21M9 21h6"/></svg><h3>Discours</h3><button class="btn x" id="closeD">Fermer ✕</button></div>
- <div class="dsub">Texte complet à dire devant le jury · cliquez un passage pour aller à la slide · touche D pour ouvrir/fermer</div>
  <div class="db" id="db"></div>
 </aside>
 
@@ -585,6 +597,8 @@ document.getElementById('track').innerHTML=S.map((x,i)=>`<section class="slide">
  <div class="notes">
   <div class="k">Slide ${i+1} · ${secName(x)}</div>
   <div class="msg">${x.m}</div>
+  <div class="speech-label">Discours · slide ${i+1} · ${x.t}</div>
+  <p class="speech-text">${x.sp}</p>
   ${x.tip?`<div class="tip"><span class="lbl">À ne pas oublier</span>${x.tip}</div>`:''}
   ${x.b?`<div class="bridge"><span class="lbl">→ Transition</span>« ${x.b} »</div>`:''}
   <div class="time">⏱ ${x.t}</div>
@@ -593,17 +607,30 @@ document.getElementById('track').innerHTML=S.map((x,i)=>`<section class="slide">
 let last=-1;
 document.getElementById('db').innerHTML=S.map((x,i)=>{
  const h=x.sec!==last?`<div class="dsec">${secName(x)}</div>`:'';last=x.sec;
- return `${h}<div class="sp" data-i="${i}"><div class="h"><b>Slide ${i+1}</b>· ${x.t}</div><p>${x.sp}</p>${x.b?`<p class="trn">→ ${x.b}</p>`:''}</div>`;}).join('');
+ return `${h}<div class="sp" data-i="${i}"><div class="h"><b>Slide ${i+1}</b>· ${x.t}</div><p>${x.sp}</p>${x.b?`<p class="trn">« ${x.b} »</p>`:''}</div>`;}).join('');
 
 let i=0;try{i=+(location.hash.slice(1))-1||0}catch(e){}
 const $=id=>document.getElementById(id);
 const sync=(inst)=>{document.querySelectorAll('.sp').forEach(e=>e.classList.toggle('on',+e.dataset.i===i));
  if(document.body.classList.contains('open')){const on=document.querySelector('.sp.on');on&&on.scrollIntoView({block:'center',behavior:inst?'auto':'smooth'})}};
-const go=n=>{i=Math.max(0,Math.min(S.length-1,n));$('track').style.transform=`translateX(-${i*100}%)`;
- document.querySelectorAll('.slide')[i].scrollTop=0;
+const isMobile=()=>matchMedia('(max-width:900px)').matches;
+const updateSlide=n=>{const next=Math.max(0,Math.min(S.length-1,n));if(next!==i)document.querySelectorAll('.slide')[next].scrollTop=0;i=next;
  $('count').textContent=`${i+1} / ${S.length}`;$('act').textContent=secName(S[i]);
  $('bar').style.width=((i+1)/S.length*100)+'%';$('prev').disabled=i===0;$('next').disabled=i===S.length-1;
  try{history.replaceState(null,'','#'+(i+1))}catch(e){};sync();if(window.fillSc)fillSc();};
+const go=(n,instant=false)=>{const next=Math.max(0,Math.min(S.length-1,n));updateSlide(next);
+ if(isMobile()){
+  const track=$('track');track.style.transform='none';
+  if(instant){track.style.scrollBehavior='auto';track.scrollLeft=next*track.clientWidth;requestAnimationFrame(()=>track.style.scrollBehavior='')}
+  else track.scrollTo({left:next*track.clientWidth,behavior:'smooth'});
+ }else $('track').style.transform=`translateX(-${next*100}%)`;
+};
+$('track').addEventListener('scroll',()=>{if(isMobile()){
+ const next=Math.round($('track').scrollLeft/$('track').clientWidth);
+ if(next!==i)updateSlide(next);
+}},{passive:true});
+addEventListener('resize',()=>{if(isMobile()){$('track').style.transform='none';$('track').scrollLeft=i*$('track').clientWidth}
+ else $('track').style.transform=`translateX(-${i*100}%)`});
 const openD=v=>{document.body.classList.toggle('open',v);if(v)setTimeout(()=>sync(true),360)};
 $('prev').onclick=()=>go(i-1);$('next').onclick=()=>go(i+1);
 $('count').onclick=()=>openD(true);
@@ -611,10 +638,10 @@ $('openD').onclick=()=>openD(!document.body.classList.contains('open'));
 $('closeD').onclick=()=>openD(false);$('scrim').onclick=()=>openD(false);
 const sc=document.getElementById('sc');
 const closePops=()=>sc.classList.remove('on');
-window.fillSc=()=>{const t=`Discours · slide ${i+1}`;$('scT1').textContent=t;$('scT2').textContent=t;$('scEx').textContent=S[i].sp;$('scBd').innerHTML=`<p>${S[i].sp}</p>${S[i].b?`<p class="trn">→ ${S[i].b}</p>`:''}`;$('scBd').scrollTop=0};
+window.fillSc=()=>{const t=`Discours · slide ${i+1}`;$('scT1').textContent=t;$('scT2').textContent=t;$('scEx').textContent=S[i].sp;$('scBd').innerHTML=`<p>${S[i].sp}</p>${S[i].b?`<p class="trn">« ${S[i].b} »</p>`:''}`;$('scBd').scrollTop=0};
 $('scPeek').onclick=()=>sc.classList.add('on');fillSc();$('scX').onclick=closePops;
 document.addEventListener('click',e=>{
- if(e.target.closest('[data-open]')){closePops();openD(true);return}const sp=e.target.closest('.sp');if(sp){go(+sp.dataset.i);if(matchMedia('(max-width:900px)').matches)openD(false)}});
+ if(e.target.closest('[data-open]')){closePops();openD(true);return}const sp=e.target.closest('.sp');if(sp){go(+sp.dataset.i,isMobile());if(isMobile())openD(false)}});
 addEventListener('keydown',e=>{
  if(dmEl().classList.contains('on')){
   const zo=document.getElementById('zoom');if(zo.classList.contains('on')){if(e.key==='Escape')zo.classList.remove('on');return}
@@ -630,7 +657,7 @@ addEventListener('keydown',e=>{
  if(e.key==='Home')go(0);if(e.key==='End')go(S.length-1)});
 let swipeStart=null;addEventListener('touchstart',e=>{
  const t=e.target;
- if(!t.closest('.slide')||t.closest('.drawer,.dm,.zoom,.sc,button,a,input,textarea,select,[data-zoom]')){swipeStart=null;return}
+ if(isMobile()||!t.closest('.slide')||t.closest('.drawer,.dm,.zoom,.sc,input,textarea,select')){swipeStart=null;return}
  swipeStart={x:e.touches[0].clientX,y:e.touches[0].clientY};
 },{passive:true});
 addEventListener('touchend',e=>{
@@ -737,7 +764,7 @@ document.addEventListener('click',e=>{
 document.getElementById('dmPrev').onclick=()=>{if(di>0){di--;renderDemo()}};
 document.getElementById('dmNext').onclick=()=>{if(di<DEMO.length-1){di++;renderDemo()}};
 
-go(i);
+go(i,true);
 if('serviceWorker' in navigator && location.protocol === 'https:'){
  addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));
 }
