@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Soutenance FMFP — dossier vérifié</title>
+  <rect x="23" y="23" width="466" height="466" rx="112" fill="#DCE6F5"/>
+  <path d="M136 39c-58 1-96 42-98 101l-2 227c0 61 42 102 101 105l238 2c62-1 99-42 101-102l-2-231c-1-60-44-99-102-102Z" fill="none" stroke="#2D5AA6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="rotate(-5 255 255)">
+    <path d="M157 103c-17 0-27 11-27 29l2 250c0 17 10 28 27 29l195-1c17-1 28-12 28-29V174l-68-70Z" fill="#fff" stroke="#242424" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M314 104v57c0 10 6 15 16 15h52" fill="#F2F6FC" stroke="#242424" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m178 226 95-1m-95 33 60-1" fill="none" stroke="#9EB9E0" stroke-width="13" stroke-linecap="round"/>
+    <path d="m177 317 52 47 104-114" fill="none" stroke="#2D5AA6" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="m408 91 11-16m15 36 17-7" fill="none" stroke="#C9741F" stroke-width="10" stroke-linecap="round"/>
+</svg>
