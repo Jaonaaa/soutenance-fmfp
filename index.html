@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Présentation de soutenance — aide à la décision pour les dossiers de financement du FMFP.">
+<title>Soutenance FMFP — Aide à la décision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Virgil";src:url("https://cdn.jsdelivr.net/npm/@excalidraw/excalidraw@0.17.6/dist/excalidraw-assets/Virgil.woff2") format("woff2");font-display:swap}
+:root{
+ --ink:#242424;--ink2:#555b66;--ink3:#8b919c;
+ --blue:#2D5AA6;--fill:#DCE6F5;--fill2:#F2F6FC;--accent:#2D5AA6;--accent2:#7FA0D6;
+ --warn:#C9741F;--warnfill:#FBEBD9;
+ --paper:#FFFFFF;--hand:"Virgil","Kalam",cursive;--read:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+ --r:16px 11px 17px 10px / 11px 16px 10px 15px;
+ --r2:12px 9px 13px 8px / 9px 12px 8px 12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font:15px/1.5 var(--read);color:var(--ink);overflow:hidden;
+ background-color:var(--paper);
+ background-image:radial-gradient(#d9dee7 1px,transparent 1px);background-size:22px 22px}
+
+/* ---------- top & nav ---------- */
+.bar{position:fixed;top:0;left:0;height:4px;background:var(--blue);transition:width .3s;z-index:9}
+.top{position:fixed;inset:0 0 auto 0;height:54px;display:flex;align-items:center;gap:14px;padding:0 22px;z-index:6}
+.top .t{font:700 20px var(--hand)}
+.top .act{margin-left:auto;font:16px var(--hand);padding:3px 14px;border:1.6px solid var(--ink);border-radius:var(--r2);background:var(--fill2)}
+.btn{font:16px var(--hand);color:var(--ink);background:#fff;border:1.6px solid var(--ink);border-radius:var(--r2);padding:5px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--accent);display:inline-flex;align-items:center;gap:8px;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--accent)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--accent)}
+.btn:disabled{opacity:.35;cursor:default;transform:none}
+.btn svg{width:18px;height:18px}
+.nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:12px;align-items:center;z-index:6}
+.nav .btn{width:44px;height:40px;justify-content:center;padding:0;font-size:20px}
+.nav span{font:18px var(--hand);min-width:70px;text-align:center}
+
+/* ---------- slides ---------- */
+.track{display:flex;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.slide{flex:0 0 100%;height:100%;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px;padding:72px 40px 80px;align-items:center}
+.frame{font-family:var(--hand);background:#fff;border:1.8px solid var(--ink);border-radius:var(--r);box-shadow:8px 8px 0 var(--accent);aspect-ratio:16/10;width:100%;padding:5% 5.5%;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.frame h2{font-size:clamp(16px,2.1vw,30px);font-weight:400;margin-bottom:4%;max-width:82%;line-height:1.2}
+.frame h2:after{content:"";display:block;width:56px;height:6px;margin-top:6px;border-bottom:2.5px solid var(--accent2);border-radius:0 0 40% 60%}
+.frame.center{justify-content:center;align-items:center;text-align:center}
+.frame.center h2:after{margin:6px auto 0}
+.frame.hero{background:var(--fill)}
+.num{position:absolute;right:16px;bottom:10px;font-size:14px;color:var(--ink3)}
+.chip{position:absolute;left:16px;bottom:10px;font-size:13px;color:var(--ink2)}
+.big{font-size:clamp(18px,2.7vw,40px);line-height:1.25;max-width:88%}
+.sub{color:var(--ink2);font-size:clamp(11px,1.25vw,17px);margin-top:2%}
+
+.card,.cell{background:var(--fill);border:1.6px solid var(--ink);border-radius:var(--r2);box-shadow:5px 5px 0 var(--accent2)}
+.cell{padding:7% 8%;font-size:clamp(10px,1.15vw,16px);display:flex;flex-direction:column;justify-content:center;gap:4px;line-height:1.3}
+.cell b{font-weight:400;font-size:clamp(12px,1.45vw,20px)}
+.cell.light{background:var(--fill2)}
+.cell.w{background:var(--warnfill);box-shadow:5px 5px 0 #E6B98A}
+.grid{display:grid;gap:5% 4%;flex:1;align-content:center}
+.row{display:flex;gap:4%;flex:1;min-height:0;align-items:center}
+.row>*{flex:1}
+.col{display:flex;flex-direction:column;gap:6%;justify-content:center;align-self:stretch}
+.li{display:flex;gap:10px;align-items:flex-start;font-size:clamp(11px,1.25vw,17px);line-height:1.3}
+.li:before{content:"";flex:0 0 11px;height:11px;margin-top:.35em;border:1.6px solid var(--ink);border-radius:50% 40% 55% 45%;background:var(--fill)}
+.ph{border:1.6px dashed var(--ink2);border-radius:var(--r2);background:var(--fill2);color:var(--ink2);display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(10px,1.1vw,15px);padding:8px;align-self:stretch;line-height:1.3}
+.kpi{font-size:clamp(20px,3vw,44px);line-height:1;color:var(--blue)}
+.tag{display:inline-block;padding:2px 12px;border:1.5px solid var(--ink);border-radius:var(--r2);background:var(--fill2);font-size:clamp(10px,1.05vw,15px)}
+.tag.w{background:var(--warnfill)}
+.arrow{flex:0 0 5%;align-self:center;height:auto}
+.box{background:var(--fill);border:1.6px solid var(--ink);border-radius:var(--r2);box-shadow:5px 5px 0 var(--accent2);padding:5% 4%;text-align:center;font-size:clamp(10px,1.15vw,16px);line-height:1.3;align-self:center}
+.box.light{background:var(--fill2)}
+.tl{display:flex;align-items:flex-start;flex:1;align-content:center;padding-top:4%}
+.tl div{flex:1;text-align:center;font-size:clamp(10px,1.1vw,15px);position:relative;padding-top:34px;line-height:1.3}
+.tl div:before{content:"";position:absolute;top:4px;left:50%;width:20px;height:20px;margin-left:-10px;border:1.6px solid var(--ink);border-radius:50% 45% 55% 48%;background:var(--fill);z-index:1}
+.tl div.k:before{background:var(--blue)}
+.tl div:after{content:"";position:absolute;top:13px;left:50%;right:-50%;border-top:1.8px solid var(--ink)}
+.tl div:last-child:after{display:none}
+.bars{display:flex;gap:14%;align-items:flex-end;flex:1;padding:0 8%}
+.bars .b{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:clamp(10px,1.1vw,15px);height:100%;justify-content:flex-end}
+.bars i{display:block;width:70%;background:var(--fill2);border:1.6px solid var(--ink);border-bottom:none;border-radius:8px 6px 0 0;box-shadow:4px 0 0 var(--accent2)}
+.bars i.v2{background:var(--fill);box-shadow:4px 0 0 var(--accent)}
+.base{border-top:1.8px solid var(--ink);margin:0 4%}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:clamp(11px,1.2vw,17px);border:1.6px solid var(--ink);border-radius:var(--r2);overflow:hidden;box-shadow:5px 5px 0 var(--accent2)}
+td,th{padding:2.2% 4%;text-align:left;border-bottom:1.4px solid var(--ink);font-weight:400}
+tr:last-child td{border-bottom:none}
+th{background:var(--fill)}
+td:first-child,th:first-child{border-right:1.4px solid var(--ink)}
+.som{display:grid;grid-template-columns:repeat(2,1fr);gap:7% 6%;flex:1;align-content:center}
+.som div{display:flex;gap:14px;align-items:center;font-size:clamp(12px,1.45vw,20px);background:var(--fill2);border:1.6px solid var(--ink);border-radius:var(--r2);box-shadow:4px 4px 0 var(--accent2);padding:3.5% 5%;line-height:1.2}
+.som b{font-weight:400;font-size:clamp(18px,2.3vw,32px);color:var(--blue);min-width:1.6em}
+
+/* doodles */
+.dz{position:absolute;width:10%;max-width:96px;pointer-events:none}
+.dz.p-tr{right:4%;top:5%}.dz.p-br{right:4.5%;bottom:9%}.dz.p-bl{left:4%;bottom:9%}.dz.p-tl{left:4%;top:6%}
+.dz svg{width:100%;height:auto;display:block}
+
+/* ---------- floating speech card ---------- */
+.sc{position:fixed;right:22px;bottom:20px;z-index:8;width:280px;background:#fff;border:1.8px solid var(--ink);border-radius:var(--r);box-shadow:6px 6px 0 var(--accent);transition:width .25s cubic-bezier(.4,0,.2,1)}
+.sc-peek{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:12px 14px;color:var(--ink)}
+.sc-peek svg{flex:0 0 22px;width:22px;height:22px;margin-top:2px}
+.sc-peek b{display:block;font:400 17px var(--hand)}
+.sc-peek small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:13px/1.45 var(--read);color:var(--ink2)}
+.sc-full{display:none}
+.sc.on{width:min(440px,calc(100vw - 44px))}
+.sc.on .sc-peek{display:none}
+.sc.on .sc-full{display:flex;flex-direction:column;max-height:min(60vh,520px)}
+.sc-hd{display:flex;align-items:center;gap:8px;padding:10px 12px 10px 14px;border-bottom:1.5px solid var(--ink);background:var(--fill2);border-radius:15px 10px 0 0}
+.sc-hd span{font:18px var(--hand);margin-right:auto}
+.btn.sm{font-size:14px;padding:2px 10px;box-shadow:2px 2px 0 var(--accent)}
+.sc-x{border:none;background:none;font-size:16px;cursor:pointer;color:var(--ink);padding:2px 6px}
+.sc-bd{font:15.5px/1.65 var(--read);padding:14px 18px 18px;overflow:auto}
+body.open .sc{display:none}
+
+/* ---------- notes ---------- */
+.notes{align-self:center;display:flex;flex-direction:column;gap:16px;max-height:100%;overflow:auto;padding:4px 6px 4px 2px}
+.notes .k{font:15px var(--hand);color:var(--ink2)}
+.notes .msg{font:24px/1.25 var(--hand)}
+.notes .tip,.notes .bridge{font-size:14px;line-height:1.5;background:#fff;border:1.5px solid var(--ink);border-radius:var(--r2);padding:10px 14px}
+.notes .tip{background:var(--warnfill)}
+.notes .bridge{background:var(--fill2)}
+.notes .lbl{font:15px var(--hand);display:block;margin-bottom:2px}
+.notes .time{font:17px var(--hand);color:var(--ink2)}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(36,36,36,.18);opacity:0;pointer-events:none;transition:opacity .25s;z-index:10}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(520px,100%);background:#fff;border-left:1.8px solid var(--ink);box-shadow:-8px 0 0 var(--fill);transform:translateX(105%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:11;display:flex;flex-direction:column}
+body.open .drawer{transform:none}
+body.open .scrim{opacity:1;pointer-events:auto}
+.dh{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1.6px solid var(--ink)}
+.dh h3{font:400 26px var(--hand)}
+.dh .x{margin-left:auto}
+.dsub{font-size:13px;color:var(--ink2);padding:10px 20px 0}
+.db{flex:1;overflow:auto;padding:12px 20px 40px}
+.dsec{font:20px var(--hand);color:var(--blue);margin:22px 0 8px}
+.sp{padding:12px 14px;border:1.5px solid transparent;border-radius:var(--r2);cursor:pointer;margin-bottom:6px;transition:background .15s}
+.sp:hover{background:var(--fill2)}
+.sp.on{background:var(--fill);border-color:var(--ink);box-shadow:4px 4px 0 var(--accent2)}
+.sp .h{font:16px var(--hand);color:var(--ink2);display:flex;gap:8px;margin-bottom:4px}
+.sp .h b{font-weight:400;color:var(--ink)}
+.sp p{font-size:15.5px;line-height:1.65}
+.trn{margin-top:10px;padding:8px 12px;border-left:3px solid var(--accent);background:var(--fill2);border-radius:0 8px 8px 0;font-style:italic;color:var(--blue);font-size:15px;line-height:1.5}
+.sp .trn:before,.sc-bd .trn:before{content:"Transition";display:block;font:normal 14px var(--hand);color:var(--ink2);margin-bottom:2px}
+
+/* ---------- demo modal ---------- */
+.dm{position:fixed;inset:0;z-index:30;background-color:#fff;background-image:radial-gradient(#d9dee7 1px,transparent 1px);background-size:22px 22px;display:none;flex-direction:column}
+.dm.on{display:flex}
+body.demo .sc{display:none}
+.dm-hd{display:flex;align-items:center;gap:18px;padding:12px 24px;border-bottom:1.8px solid var(--ink);background:#fff}
+.dm-hd h2{font:400 24px var(--hand);white-space:nowrap}
+.dm-steps{flex:1;display:flex;align-items:center;justify-content:center;gap:0;min-width:0;overflow-x:auto;padding:4px 0}
+.dm-dot{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;cursor:pointer;color:var(--ink2);font:13px var(--hand);min-width:86px;position:relative}
+.dm-dot i{font-style:normal;width:34px;height:34px;display:grid;place-items:center;border:1.6px solid var(--ink);border-radius:50% 45% 52% 47%;background:#fff;font:17px var(--hand);color:var(--ink);transition:transform .15s}
+.dm-dot.done i{background:var(--fill)}
+.dm-dot.on i{background:var(--blue);color:#fff;transform:scale(1.12);box-shadow:3px 3px 0 var(--accent2)}
+.dm-dot.on{color:var(--ink)}
+.dm-dot:not(:last-child):after{content:"";position:absolute;top:17px;left:calc(50% + 20px);width:calc(100% - 40px);border-top:1.6px dashed var(--ink3)}
+.dm-dot.done:not(:last-child):after{border-top:1.8px solid var(--ink)}
+.dm-body{flex:1;overflow:auto;padding:22px 32px 24px}
+.dm-wrap{max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.dm-head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.dm-title{font:400 clamp(26px,2.8vw,40px)/1.1 var(--hand);margin-right:auto}
+.dm-meta{display:flex;gap:10px;align-items:center}
+.dm-time{font:18px var(--hand);padding:3px 12px;border:1.5px solid var(--ink);border-radius:var(--r2);background:#fff}
+.dm-cols{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:start}
+.dm-left{position:sticky;top:0;display:flex;flex-direction:column;gap:14px}
+.dm-right{display:flex;flex-direction:column;gap:16px}
+.dm-right .dm-see{margin-top:0}
+.dm-say{grid-template-columns:44px 1fr!important;padding:16px 18px!important}
+.dm-say svg{width:40px!important;height:40px!important}
+.dm-say p{font-size:clamp(16px,1.25vw,19px)!important}
+.shot{display:block;width:100%;padding:0;border:1.8px solid var(--ink);border-radius:var(--r);background:#fff;box-shadow:7px 7px 0 var(--accent);overflow:hidden;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto}
+.zoom{position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.96);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.zoom.on{display:flex}
+.zoom img{max-width:100%;max-height:100%;border:1.8px solid var(--ink);border-radius:var(--r);box-shadow:8px 8px 0 var(--accent);background:#fff}
+.lbl{font:15px var(--hand);color:var(--ink2);display:block;margin-bottom:6px}
+/* mock screen */
+.mk{border:1.8px solid var(--ink);border-radius:var(--r);background:#fff;box-shadow:7px 7px 0 var(--accent);overflow:hidden}
+.mk-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1.6px solid var(--ink);background:var(--fill2)}
+.mk-bar s{width:10px;height:10px;border:1.4px solid var(--ink);border-radius:50%;background:#fff}
+.mk-url{flex:1;margin-left:6px;font:13px var(--read);color:var(--ink2);border:1.4px solid var(--ink);border-radius:20px;background:#fff;padding:2px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mk-tabs{display:flex;gap:4px;padding:6px 10px 0;background:var(--fill2);border-bottom:1.6px solid var(--ink)}
+.mk-tabs span{font:12px var(--hand);padding:3px 8px;border:1.4px solid var(--ink);border-bottom:none;border-radius:8px 8px 0 0;background:#fff}
+.mk-tabs span.on{background:var(--fill)}
+.mk-body{position:relative;aspect-ratio:16/10;font-family:var(--hand)}
+.mk-b{position:absolute;border:1.5px solid var(--ink);border-radius:var(--r2);background:#fff;font-size:clamp(9px,.85vw,13px);padding:6px 8px;line-height:1.25;overflow:hidden}
+.mk-b.f{background:var(--fill)}.mk-b.l{background:var(--fill2)}.mk-b.w{background:var(--warnfill)}
+.mk-b.hl{box-shadow:0 0 0 4px rgba(45,90,166,.18);border-color:var(--blue)}
+.mk-ln{display:block;height:6px;border-radius:3px;background:#e3e7ee;margin:6px 0}
+.mk-red{color:#B3261E;text-decoration:line-through}.mk-green{color:#1E7B3C}
+.pin{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;display:grid;place-items:center;border-radius:50%;background:var(--blue);color:#fff;font:15px var(--hand);border:2px solid #fff;box-shadow:0 0 0 1.6px var(--ink),3px 3px 0 var(--accent2);z-index:2}
+.mk-cap{font:13px var(--read);color:var(--ink2);margin-top:12px}
+/* right column */
+.dm-do{background:#fff;border:1.6px solid var(--ink);border-radius:var(--r);box-shadow:5px 5px 0 var(--accent2);padding:16px 18px}
+.dm-do ol{list-style:none;display:flex;flex-direction:column;gap:10px;counter-reset:n}
+.dm-do li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.45}
+.dm-do li:before{counter-increment:n;content:counter(n);flex:0 0 26px;height:26px;display:grid;place-items:center;border-radius:50%;background:var(--blue);color:#fff;font:14px var(--hand);margin-top:1px}
+.dm-see{margin-top:16px;background:var(--fill);border:1.6px solid var(--ink);border-radius:var(--r);padding:14px 18px}
+.dm-see ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.dm-see li{display:flex;gap:10px;font-size:15.5px;line-height:1.4}
+.dm-see li:before{content:"";flex:0 0 18px;height:18px;margin-top:1px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232D5AA6' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6'/%3E%3C/svg%3E") center/contain no-repeat}
+.dm-say{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;border:1.8px solid var(--ink);border-radius:var(--r);background:#fff;padding:18px 22px;box-shadow:7px 7px 0 var(--accent)}
+.dm-say svg{width:46px;height:46px}
+.dm-say p{font-size:clamp(17px,1.35vw,21px);line-height:1.6}
+.dm-fb{display:inline-flex;gap:10px;align-items:center;font-size:14.5px;padding:8px 14px;border:1.5px solid var(--ink);border-radius:var(--r2);background:var(--warnfill);align-self:flex-start}
+.dm-fb b{font:400 15px var(--hand)}
+.dm-ft{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 24px;border-top:1.8px solid var(--ink);background:#fff}
+.dm-ft .mid{font:16px var(--hand);color:var(--ink2)}
+@media (max-width:900px){.dm-cols{grid-template-columns:1fr}.dm-body{padding:16px}.dm-hd h2{display:none}.dm-dot{min-width:64px}}
+
+@media (max-width:900px){
+ html,body{height:100%;min-height:100%}
+ body{overflow:hidden}
+ .track{height:100dvh}
+ .slide{
+  grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:stretch;align-content:start;
+  height:100dvh;min-height:100dvh;gap:18px;overflow-x:hidden;overflow-y:auto;
+  padding:calc(68px + env(safe-area-inset-top)) 18px calc(96px + env(safe-area-inset-bottom));
+  overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch
+ }
+ .frame{aspect-ratio:auto;min-height:min(520px,54dvh);padding:26px 22px 46px;border-radius:14px;box-shadow:5px 5px 0 var(--accent);overflow:hidden}
+ .frame h2{font-size:clamp(21px,5vw,28px);max-width:100%;margin-bottom:18px}
+ .frame .big{font-size:clamp(25px,6.2vw,36px);max-width:100%;line-height:1.2}
+ .frame .sub{font-size:15px;line-height:1.45}
+ .frame .grid{grid-template-columns:minmax(0,1fr)!important;gap:12px;flex:0 0 auto;width:100%;align-content:start}
+ .frame .row{flex-direction:column;align-items:stretch;gap:12px;flex:0 0 auto;width:100%;min-height:0}
+ .frame .row>*{flex:0 0 auto;width:100%;min-width:0}
+ .frame .col{gap:12px;width:100%;align-self:auto}
+ .frame .cell{padding:14px 16px;font-size:15px;line-height:1.45}
+ .frame .cell b{font-size:17px}
+ .frame .li{font-size:15px;line-height:1.45}
+ .frame .ph{min-height:112px;font-size:14px}
+ .frame .box{padding:14px;font-size:14px}
+ .frame .arrow{width:28px;flex:0 0 28px;transform:rotate(90deg)}
+ .frame .som{grid-template-columns:minmax(0,1fr);gap:10px;flex:0 0 auto;width:100%}
+ .frame .som div{font-size:15px;padding:12px 14px}
+ .frame .som b{font-size:22px}
+ .frame .tl{flex-direction:column;gap:12px;flex:0 0 auto;padding:8px 0 8px 4px}
+ .frame .tl div{text-align:left;font-size:14px;line-height:1.4;padding:0 0 0 36px;min-height:24px}
+ .frame .tl div:before{top:0;left:0;width:20px;height:20px;margin:0}
+ .frame .tl div:after{top:22px;bottom:-12px;left:9px;right:auto;height:auto;border-top:0;border-left:1.8px solid var(--ink)}
+ .frame .tl div:last-child:after{display:none}
+ .frame table{font-size:14px;table-layout:fixed;overflow-wrap:anywhere}
+ .frame td,.frame th{padding:11px 9px;line-height:1.4}
+ .frame td:first-child,.frame th:first-child{width:39%}
+ .frame .bars{min-height:150px;padding:0 6%;gap:10%}
+ .frame .bars .b{font-size:12px}
+ .frame .tag{font-size:13px;line-height:1.4;white-space:normal}
+ .frame .dz{width:58px;max-width:58px;opacity:.85}
+ .notes{max-height:none;gap:10px;padding:0 2px 8px}
+ .notes .k{font-size:14px}
+ .notes .msg{font-size:clamp(20px,5.5vw,24px);line-height:1.3}
+ .notes .tip,.notes .bridge{font-size:14px;line-height:1.5;padding:11px 13px}
+ .notes .time{font-size:15px}
+ .top{height:calc(58px + env(safe-area-inset-top));gap:8px;padding:env(safe-area-inset-top) 14px 0}
+ .top .t{display:none}
+ .top .act{max-width:calc(100vw - 142px);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;padding:5px 10px}
+ .top .btn{min-height:44px;padding:7px 11px;font-size:15px;gap:6px;box-shadow:2px 2px 0 var(--accent)}
+ .top .btn svg{width:17px;height:17px}
+ .nav{bottom:calc(9px + env(safe-area-inset-bottom));gap:9px;padding:5px 9px;background:rgba(255,255,255,.97);border:1px solid #d8dee8;border-radius:16px;box-shadow:0 5px 18px rgba(30,45,70,.12);backdrop-filter:blur(10px)}
+ .nav .btn{width:48px;height:44px;font-size:21px}
+ .nav span{font-size:16px;min-width:66px}
+ .sc{left:12px;right:12px;bottom:calc(72px + env(safe-area-inset-bottom));width:auto;border-radius:14px;box-shadow:4px 4px 0 var(--accent)}
+ .sc.on{width:auto}
+ .sc.on .sc-full{max-height:min(48dvh,420px)}
+ .sc-peek{padding:11px 13px}
+ .sc-peek b{font-size:16px}
+ .sc-peek small{font-size:12px}
+ .sc-hd{padding:9px 10px 9px 12px}
+ .sc-hd span{font-size:16px}
+ .sc-bd{font-size:14px;line-height:1.55;padding:12px 14px 16px}
+ .drawer{width:100%;height:100dvh;border:0;box-shadow:none;padding-bottom:env(safe-area-inset-bottom)}
+ .dh{padding:calc(12px + env(safe-area-inset-top)) 16px 12px}
+ .dh h3{font-size:22px}
+ .dh .btn{min-height:42px;padding:6px 10px;font-size:14px}
+ .dsub{padding:8px 16px 0;font-size:12px;line-height:1.45}
+ .db{padding:10px 14px calc(22px + env(safe-area-inset-bottom))}
+ .dsec{font-size:18px;margin:18px 0 8px}
+ .sp{padding:12px;margin-bottom:8px}
+ .sp .h{font-size:14px}
+ .sp p{font-size:15px;line-height:1.6}
+ .trn{font-size:14px;line-height:1.5}
+ .dm-hd{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:calc(9px + env(safe-area-inset-top)) 12px 8px}
+ .dm-hd h2{display:none}
+ .dm-steps{grid-column:1/-1;grid-row:2;justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:4px 0 7px}
+ .dm-steps::-webkit-scrollbar{display:none}
+ .dm-dot{flex:0 0 66px;min-width:66px;font-size:11px}
+ .dm-dot i{width:30px;height:30px;font-size:15px}
+ .dm-dot:not(:last-child):after{top:15px}
+ .dm-hd>.btn{min-height:42px;padding:6px 10px;font-size:14px}
+ .dm-body{padding:14px 12px calc(14px + env(safe-area-inset-bottom))}
+ .dm-wrap{gap:14px}
+ .dm-head{display:flex;align-items:flex-start;flex-direction:column;gap:9px}
+ .dm-title{font-size:clamp(24px,6vw,30px);line-height:1.12;margin:0}
+ .dm-meta{flex-wrap:wrap;gap:7px}
+ .dm-time{font-size:14px;padding:4px 9px}
+ .dm-cols{grid-template-columns:minmax(0,1fr);gap:15px}
+ .dm-left{position:static;gap:10px}
+ .dm-right{gap:12px}
+ .dm-say{grid-template-columns:34px minmax(0,1fr)!important;gap:10px;padding:13px 14px!important}
+ .dm-say svg{width:32px!important;height:32px!important}
+ .dm-say p{font-size:15px!important;line-height:1.55}
+ .dm-do,.dm-see{padding:13px 14px}
+ .dm-do li,.dm-see li{font-size:14px;line-height:1.45}
+ .dm-do li:before{flex-basis:24px;height:24px}
+ .dm-ft{gap:7px;padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+ .dm-ft .btn{min-height:42px;font-size:13px;padding:7px 9px;gap:4px;box-shadow:2px 2px 0 var(--accent)}
+ .dm-ft .mid{font-size:13px;white-space:nowrap}
+ .mk-body{aspect-ratio:4/3}
+ .zoom{padding:calc(12px + env(safe-area-inset-top)) 12px calc(12px + env(safe-area-inset-bottom))}
+ .zoom img{max-width:100%;max-height:100%;object-fit:contain}
+}
+
+@media (max-width:380px){
+ .slide{padding-left:13px;padding-right:13px}
+ .frame{padding-left:17px;padding-right:17px}
+ .top{padding-left:10px;padding-right:10px}
+ .top .act{max-width:calc(100vw - 132px)}
+ .nav{gap:6px;padding:4px 7px}
+ .nav .btn{width:44px;height:42px}
+ .dm-dot{flex-basis:60px;min-width:60px}
+ .dm-ft .btn{font-size:12px;padding:7px 7px}
+}
+
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="top">
+ <span class="t">Soutenance FMFP</span>
+ <span class="act" id="act"></span>
+ <button class="btn" id="openD" title="Discours (D)"><svg viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h10l4 4v13H5z"/><path d="M15 3.5v4h4M8 11h8M8 14.5h8M8 18h5"/></svg>Discours</button>
+</div>
+<div class="track" id="track"></div>
+<div class="nav"><button class="btn" id="prev" aria-label="Précédent">←</button><span id="count"></span><button class="btn" id="next" aria-label="Suivant">→</button></div>
+
+<div class="sc" id="sc">
+ <button class="sc-peek" id="scPeek" aria-label="Afficher le discours de cette slide"><svg viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z" fill="#DCE6F5"/><path d="M6 10.5a6 6 0 0 0 12 0M12 16.5V20"/></svg><span><b id="scT1"></b><small id="scEx"></small></span></button>
+ <div class="sc-full" role="dialog" aria-label="Discours de la slide">
+  <div class="sc-hd"><span id="scT2"></span><button class="btn sm" data-open>Tout le discours</button><button class="sc-x" id="scX" aria-label="Réduire">✕</button></div>
+  <div class="sc-bd" id="scBd"></div>
+ </div>
+</div>
+<div class="dm" id="dm" role="dialog" aria-label="Scénario de démonstration">
+ <div class="dm-hd"><h2>Scénario de démo</h2><nav class="dm-steps" id="dmList"></nav><button class="btn" id="dmClose">Fermer ✕</button></div>
+ <div class="dm-body"><div class="dm-wrap" id="dmMain"></div></div>
+ <div class="dm-ft"><button class="btn" id="dmPrev">← Précédente</button><span class="mid" id="dmCount"></span><button class="btn" id="dmNext">Suivante →</button></div>
+</div>
+<div class="zoom" id="zoom"><img alt=""></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" aria-label="Discours">
+ <div class="dh"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.6" stroke-linecap="round"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z" fill="#DCE6F5"/><path d="M6 11.5a6 6 0 0 0 12 0M12 17.5V21M9 21h6"/></svg><h3>Discours</h3><button class="btn x" id="closeD">Fermer ✕</button></div>
+ <div class="dsub">Texte complet à dire devant le jury · cliquez un passage pour aller à la slide · touche D pour ouvrir/fermer</div>
+ <div class="db" id="db"></div>
+</aside>
+
+<script>
+/* ---------- doodles (hand-drawn line art) ---------- */
+const st='fill="none" stroke="#242424" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"';
+const DZ={
+ laptopGuy:`<svg viewBox="0 0 100 90"><g ${st}><circle cx="44" cy="20" r="10" fill="#fff"/><path d="M40 19.5h.1M48 19.5h.1M41 24c2 1.6 4.5 1.6 6.5 0"/><path d="M44 30c-2 10-1 18 0 26M44 40l-12 10M44 40l14 6"/><path d="M30 58l40 0-6 18H36z" fill="#DCE6F5"/><path d="M58 46l14-8 10 22-14 6z" fill="#F2F6FC"/></g></svg>`,
+ thinker:`<svg viewBox="0 0 100 100"><g ${st}><circle cx="40" cy="38" r="11" fill="#fff"/><path d="M36 37h.1M44 37h.1M37 43c2-1 4.5-1 6.5 0"/><path d="M40 49v26M40 57l-11 9M40 57l9-6 3-10"/><path d="M40 75l-8 16M40 75l9 16"/><path d="M66 14c0-6 10-6 10 0 0 5-5 5-5 10M71 30v.5"/><path d="M57 34c4-2 4-6 7-8" stroke-dasharray="2 4"/></g></svg>`,
+ bulb:`<svg viewBox="0 0 80 90"><g ${st}><path d="M40 12c-14 0-22 10-22 21 0 9 6 13 9 19 1 3 1 6 1 8h24c0-2 0-5 1-8 3-6 9-10 9-19 0-11-8-21-22-21z" fill="#DCE6F5"/><path d="M30 68h20M32 75h16M36 82h8"/><path d="M40 2v4M10 14l4 3M70 14l-4 3M4 38h5M71 38h5"/></g></svg>`,
+ magnifier:`<svg viewBox="0 0 90 90"><g ${st}><circle cx="36" cy="36" r="22" fill="#F2F6FC"/><path d="M26 30c2-5 6-8 11-8"/><path d="M52 53l22 22" stroke-width="5"/></g></svg>`,
+ doc:`<svg viewBox="0 0 80 90"><g ${st}><path d="M14 8h36l16 16v58H14z" fill="#fff"/><path d="M50 8v16h16"/><path d="M24 40h30M24 50h30M24 60h20"/><path d="M48 66l6 6 12-14" stroke="#2D5AA6" stroke-width="2.2"/></g></svg>`,
+ gear:`<svg viewBox="0 0 90 90"><g ${st}><circle cx="45" cy="45" r="18" fill="#DCE6F5"/><circle cx="45" cy="45" r="7" fill="#fff"/><path d="M45 15v9M45 66v9M15 45h9M66 45h9M24 24l6 6M60 60l6 6M66 24l-6 6M30 60l-6 6"/></g></svg>`,
+ check:`<svg viewBox="0 0 90 90"><g ${st}><path d="M45 8c20 0 37 15 37 37S66 82 45 82 8 66 8 45 24 8 45 8z" fill="#DCE6F5"/><path d="M27 46l12 12 25-27" stroke-width="3"/></g></svg>`,
+ chart:`<svg viewBox="0 0 90 80"><g ${st}><path d="M10 6v64h74"/><path d="M20 70V46h12v24M40 70V30h12v40M60 70V16h12v54" fill="#DCE6F5"/><path d="M18 36l20-14 18 6 20-18" stroke="#2D5AA6"/></g></svg>`,
+ pointer:`<svg viewBox="0 0 100 100"><g ${st}><circle cx="62" cy="26" r="11" fill="#fff"/><path d="M58 25h.1M66 25h.1M58 31c2.5 1.6 5 1.6 7.5 0"/><path d="M62 37v28M62 46l-26-10M62 46l12 12"/><path d="M62 65l-9 18M62 65l9 18"/><path d="M30 34l-8-3 3 8" /></g></svg>`,
+ folder:`<svg viewBox="0 0 90 80"><g ${st}><path d="M8 18h26l8 8h40v44H8z" fill="#DCE6F5"/><path d="M8 32h74"/></g></svg>`
+};
+const dz=(n,p)=>`<div class="dz p-${p}">${DZ[n]}</div>`;
+const AR=`<svg class="arrow" viewBox="0 0 40 20"><g ${st}><path d="M3 10c10-1 22 1 32 0"/><path d="M28 4l7 6-7 6"/></g></svg>`;
+const AR2=`<svg class="arrow" viewBox="0 0 40 20"><g ${st}><path d="M6 6c9 0 20 0 30 0M30 1l6 5-6 5M34 14c-9 0-20 0-30 0M10 9l-6 5 6 5"/></g></svg>`;
+const ph=t=>`<div class="ph">${t}</div>`;
+const li=a=>a.map(x=>`<div class="li"><span>${x}</span></div>`).join('');
+const SEC=["Introduction et contexte","Problématique et objectifs","Démarche de réalisation","Architecture et fonctionnalités","Résultats et garde-fous","Conclusion et échanges"];
+const som=()=>`<div class="som">${SEC.map((x,k)=>`<div><b>0${k+1}</b>${x}</div>`).join('')}</div>`;
+
+/* ---------- slides ---------- */
+const S=[
+/* ---------- Ouverture ---------- */
+{sec:0,t:"40 s",cls:"center hero",
+ f:`<div class="big">Conception d'un système intelligent de scoring, de recommandations et d'aide à la décision</div><div class="sub">pour la gestion des financements de la formation professionnelle · FMFP Madagascar</div><div class="sub" style="margin-top:4%">SOLOARIJAONA Paul Ferdinah · Master of Science eBIHAR · ESTIA</div>${dz('laptopGuy','br')}${dz('bulb','tl')}`,
+ m:"Saluer, se présenter, puis poser une question qui accroche.",
+ tip:"Regarder le jury, pas l'écran. Marquer une vraie pause après la question.",
+ b:"Pour y répondre, voici le chemin que je vous propose.",
+ sp:"Madame, Messieurs les membres du jury, bonjour, et merci de votre présence. Je m'appelle Paul Ferdinah SOLOARIJAONA, et j'ai effectué mon stage de Master au Fonds Malgache de Formation Professionnelle. Je voudrais commencer par une question. [pause] Quand un dossier de financement contient des dizaines d'informations réparties partout, comment s'assurer qu'on ne passe à côté de rien ? Et surtout, comment utiliser l'intelligence artificielle pour aider… sans qu'elle décide à notre place ? C'est tout le sujet de mon travail."},
+
+{sec:0,t:"20 s",
+ f:`<h2>Sommaire</h2>${som()}`,
+ m:"Annoncer le plan en une phrase, sans le lire.",
+ b:"Et pour commencer, il faut comprendre ce qu'est le FMFP.",
+ sp:"Je vais d'abord vous présenter le contexte et le problème rencontré. Puis la façon dont j'ai travaillé, ce que j'ai construit, ce que ça donne vraiment — avec ses limites — et enfin ce que j'en retiens."},
+
+/* ---------- 01 ---------- */
+{sec:1,t:"50 s",
+ f:`<h2>Le FMFP : former les salariés malgaches</h2><div class="grid" style="grid-template-columns:repeat(3,1fr)"><div class="cell"><b>Qui finance ?</b>les entreprises, par une cotisation de 1 % de leur masse salariale</div><div class="cell light"><b>Qui gère ?</b>employeurs, syndicats et État, ensemble</div><div class="cell"><b>Pour qui ?</b>les salariés, les jeunes et le secteur informel</div></div><div style="text-align:center;margin-top:4%"><span class="tag">depuis 2019 · plus de 70 000 salariés formés · 23 régions</span></div>`,
+ m:"Trois questions simples : qui paie, qui gère, pour qui.",
+ tip:"Chiffres : bilan public 2024 (fmfp.mg). Les dire de mémoire, sans lire.",
+ b:"Pour obtenir ce financement, une entreprise doit déposer un dossier.",
+ sp:"Le FMFP, c'est le fonds qui finance la formation professionnelle à Madagascar. Le principe est simple. Les entreprises cotisent : 1 % de leur masse salariale. Ce fonds est géré ensemble par les employeurs, les syndicats et l'État. Et il sert à former les salariés, mais aussi les jeunes et les travailleurs du secteur informel. Depuis 2019, plus de 70 000 salariés ont été formés, dans les 23 régions du pays."},
+
+{sec:1,t:"50 s",
+ f:`<h2>Un dossier, et le chemin qu'il parcourt</h2><div class="row" style="flex:0 0 auto;gap:2%;margin-bottom:3%">${['Projet','Modules','Bénéficiaires','Budget','Prestataire','Pièces'].map((x,k)=>`<div class="cell ${k%2?'light':''}" style="text-align:center;padding:2.5% 1%">${x}</div>`).join('')}</div><div class="tl" style="flex:0 0 auto">${[['Dépôt','entreprise'],['Complétude','FMFP'],['Éligibilité','FMFP'],['Évaluation','évaluateur'],['Décision','direction'],['Convention','FMFP + entreprise']].map((x,k)=>`<div class="${k===3?'k':''}">${k===3?'<b style="font-weight:400;font-size:1.2em">'+x[0]+'</b>':x[0]}<br><span class="sub">${x[1]}</span></div>`).join('')}</div>${dz('folder','tr')}`,
+ m:"Ce qu'est un dossier, et où se situe l'évaluateur.",
+ b:"C'est cet évaluateur que nous allons suivre.",
+ sp:"Dans ce dossier, on trouve son projet, les modules de formation, les salariés concernés, le budget, le prestataire, et les pièces justificatives. Ce dossier passe ensuite par plusieurs étapes : on vérifie qu'il est complet, qu'il est éligible, puis vient l'étape clé — l'évaluation. Un évaluateur analyse le dossier avec une grille de critères, lui donne une note et rédige un avis. Ensuite seulement, la direction décide."},
+
+{sec:1,t:"45 s",
+ f:`<h2>Un lundi matin, un évaluateur ouvre un dossier…</h2><div class="grid" style="grid-template-columns:repeat(4,1fr);max-width:84%">${['Budget','Pièces','Cotisations','Modules','Bénéficiaires','Objectifs','Historique','Statut'].map((x,k)=>`<div class="cell ${k%3?'light':''}" style="text-align:center">${x}</div>`).join('')}</div>${dz('thinker','tr')}`,
+ m:"Faire vivre la scène : le public doit se mettre à la place de l'évaluateur.",
+ tip:"Ce dossier BTP devient le fil rouge de toute la présentation.",
+ b:"Et en observant ce travail, j'ai relevé trois difficultés.",
+ sp:"Imaginez. Lundi matin. Un évaluateur ouvre le dossier d'un projet du BTP : quinze bénéficiaires, qui veulent se former à AutoCAD, à la planification et à l'établissement des devis. Pour se faire un avis, il doit ouvrir le budget… les pièces… les cotisations… les modules… les bénéficiaires… Huit rubriques. [pause] Rien ne manque vraiment. Mais tout est dispersé. Gardez ce dossier en tête : il va nous accompagner jusqu'à la fin."},
+
+/* ---------- 02 ---------- */
+{sec:2,t:"40 s",
+ f:`<h2>Trois difficultés</h2><div class="grid" style="grid-template-columns:repeat(3,1fr)"><div class="cell"><b>Tout est dispersé</b>il faut croiser plusieurs rubriques</div><div class="cell light"><b>Les règles changent</b>selon le type de financement</div><div class="cell"><b>Tout est vérifié à la main</b>une incohérence peut passer inaperçue</div></div>${dz('magnifier','tr')}`,
+ m:"Trois constats, une phrase chacun.",
+ b:"D'où la question qui a guidé tout mon stage.",
+ sp:"Première difficulté : l'information est dispersée. Deuxième : les règles changent selon le type de financement demandé. Troisième : presque tout est vérifié à la main. Résultat : un nombre de bénéficiaires qui change d'une rubrique à l'autre, ou une rubrique laissée vide, peut tout simplement passer inaperçu."},
+
+{sec:2,t:"30 s",cls:"center",
+ f:`<span class="tag">Problématique</span><div class="big" style="margin-top:4%">Comment aider les équipes du FMFP à analyser les dossiers plus clairement, tout en gardant une décision humaine, expliquée et conforme aux règles ?</div>${dz('thinker','bl')}`,
+ m:"Lire lentement. Laisser la phrase respirer.",
+ b:"Et pour y répondre, je me suis fixé une règle dès le premier jour.",
+ sp:"Comment aider les équipes du FMFP à analyser les dossiers plus clairement, tout en gardant une décision humaine, expliquée et conforme aux règles ? [pause] Mon objectif était double : ne plus rien oublier dans un dossier… et traiter chaque dossier plus rapidement."},
+
+{sec:2,t:"20 s",cls:"center hero",
+ f:`<div class="big">L'IA conseille.<br>Elle ne décide jamais.</div>${dz('bulb','tr')}`,
+ m:"La phrase à retenir — on la reprend en conclusion.",
+ b:"Concrètement, l'équipe avait quatre besoins.",
+ sp:"L'IA conseille. Elle ne décide jamais. [pause] Un score, une alerte, une suggestion : ce sont des aides à la lecture. La décision reste toujours celle d'une personne. Tout ce que je vais vous montrer découle de cette règle."},
+
+{sec:2,t:"40 s",
+ f:`<h2>4 besoins, 4 réponses</h2><table><tr><th>L'équipe veut…</th><th>Ce que j'ai construit</th></tr><tr><td>voir ce qui manque</td><td>des alertes automatiques</td></tr><tr><td>comprendre un risque</td><td>un score expliqué</td></tr><tr><td>bien orienter l'entreprise</td><td>un conseiller de guichet</td></tr><tr><td>suivre le dossier</td><td>historique, versions et messagerie</td></tr></table>`,
+ m:"Chaque fonctionnalité répond à un besoin réel.",
+ b:"Restait à choisir comment les construire.",
+ sp:"Voir ce qui manque : ce seront des alertes automatiques. Comprendre un risque : un score, toujours expliqué. Bien orienter l'entreprise : un conseiller de guichet. Et suivre le dossier dans le temps : un historique, une comparaison des versions et une messagerie."},
+
+/* ---------- 03 ---------- */
+{sec:3,t:"50 s",
+ f:`<h2>Choisir des méthodes qu'on peut expliquer</h2><div class="grid" style="grid-template-columns:repeat(4,1fr)"><div class="cell"><b>Score</b>gradient boosting<br><span class="sub">fiable sur ce type de données</span></div><div class="cell light"><b>Orientation</b>règles FMFP + contenu<br><span class="sub">pas assez d'historique pour plus</span></div><div class="cell"><b>Alertes</b>règles explicites<br><span class="sub">chaque alerte a une raison</span></div><div class="cell light"><b>Intégration</b>service séparé<br><span class="sub">on peut le retirer</span></div></div>${dz('doc','tr')}`,
+ m:"Un critère avant tout : pouvoir expliquer chaque résultat.",
+ tip:"Si le jury creuse : l'état de l'art complet est au chapitre 3 du mémoire.",
+ b:"Mais il y avait une contrainte forte.",
+ sp:"J'ai d'abord étudié ce qui existe. Et j'ai choisi avec un critère principal : pouvoir expliquer chaque résultat à un évaluateur. Pour le score, un modèle de gradient boosting, reconnu sur ce type de données. Pour l'orientation, les règles du FMFP, parce qu'il n'y avait pas assez d'historique pour faire plus complexe. Pour les alertes, des règles explicites : chaque alerte a une raison lisible. Et un service séparé, qu'on peut retirer sans rien casser."},
+
+{sec:3,t:"50 s",
+ f:`<h2>Moderniser… sans rien casser</h2><div class="sub" style="margin-top:-2%;margin-bottom:2%">Une plateforme en production, utilisée chaque jour</div><div class="tl"><div>Cadrage<br><span class="sub">comprendre le besoin</span></div><div class="k">Prototype<br><span class="sub">valider la chaîne</span></div><div>Intégration<br><span class="sub">dans les écrans</span></div><div>Agent IA<br><span class="sub">vérifier les dossiers</span></div><div class="k">En production<br><span class="sub">utilisé au FMFP</span></div></div><div style="text-align:center;margin-top:2%"><span class="tag">petites étapes · chacune testée avant la suivante</span></div>`,
+ m:"Le vrai défi : ajouter de l'IA à un système qui tourne tous les jours.",
+ b:"Voyons maintenant comment tout cela s'organise.",
+ sp:"La contrainte, c'est que la plateforme du FMFP tourne en production. Tous les jours, des entreprises et des évaluateurs l'utilisent. Pas question de tout réécrire. J'ai donc avancé par petites étapes. D'abord un premier prototype, juste pour vérifier que toute la chaîne fonctionnait. Puis l'intégration dans les écrans, l'assistant IA… et enfin la mise en production. Chaque étape testée avant de passer à la suivante."},
+
+/* ---------- 04 ---------- */
+{sec:4,t:"50 s",
+ f:`<h2>La plateforme décide, le service calcule</h2><div class="row" style="gap:1.5%"><div class="box" style="flex:1.1">Plateforme FMFP<br><span class="sub">utilisateurs · règles · décision</span></div>${AR2}<div class="box light" style="flex:.9">Échange sécurisé<br><span class="sub">tracé</span></div>${AR}<div class="box" style="flex:1.1">Service d'analyse<br><span class="sub">calcule et explique</span></div>${AR}<div class="box light" style="flex:.8">Base de données<br><span class="sub">lecture seule</span></div></div>${dz('gear','tr')}`,
+ m:"Une idée : séparer celui qui décide de celui qui calcule.",
+ tip:"Détail technique si on vous le demande : CodeIgniter 3 / FastAPI, contrat JSON validé, jeton Bearer, request_id.",
+ b:"Et maintenant, reprenons notre dossier BTP.",
+ sp:"L'idée centrale est simple : séparer celui qui décide de celui qui calcule. La plateforme garde les utilisateurs, les règles et la décision. À côté, un service d'analyse lit les données — sans jamais les modifier — calcule, et explique. Chaque échange est sécurisé et tracé. Et si le service tombe en panne ? La plateforme continue de fonctionner, comme avant."},
+
+{sec:4,t:"25 s",
+ f:`<h2>La vie de notre dossier en 5 étapes</h2><div class="row" style="gap:1%">${['① Orienter','② Vérifier','③ Évaluer','④ Corriger','⑤ Échanger'].map((x,k)=>`<div class="box ${k%2?'light':''}" style="flex:1">${x}</div>${k<4?AR:''}`).join('')}</div>${dz('folder','bl')}`,
+ m:"Une carte du parcours, pour que le public ne se perde pas.",
+ b:"Tout commence avant même que le dossier soit déposé.",
+ sp:"Plutôt que de vous lister des modules, nous allons le suivre du début à la fin. Cinq étapes : orienter, vérifier, évaluer, corriger… et échanger. [pause] Et à chaque étape, l'IA aide la bonne personne : l'entreprise quand elle prépare son dossier, l'évaluateur quand il l'analyse."},
+
+{sec:4,t:"50 s",
+ f:`<h2>① Orienter : quel financement demander ?</h2><div class="row">${ph('Capture<br>conseiller de guichet')}<div class="col">${li(['L’entreprise décrit son besoin','L’outil propose le bon guichet, et explique pourquoi','Rien de compatible ? Il ne propose rien'])}</div></div>`,
+ m:"Bien orienter, sans jamais promettre un financement.",
+ b:"Le dossier est déposé. Il faut maintenant le vérifier.",
+ sp:"Notre entreprise ne sait pas quel financement demander. Elle décrit son besoin. L'outil regarde son secteur, sa taille, ses cotisations… et lui propose le guichet adapté, en expliquant pourquoi. Et s'il n'y a rien de compatible ? Il ne propose rien. [pause] C'est voulu : mieux vaut aucune réponse qu'une mauvaise réponse."},
+
+{sec:4,t:"1 min",
+ f:`<h2>② Vérifier : ce qui cloche, en un coup d'œil</h2><div class="sub" style="margin:-3% 0 2%">l'assistant de l'évaluateur, sur le dossier reçu de l'entreprise</div><div class="row"><button class="shot" data-zoom="img/assistant-dossier-btp.png" style="align-self:stretch;max-height:100%"><img src="img/assistant-dossier-btp.png" alt="Assistant IA sur le dossier BTP" style="height:100%;width:100%;object-fit:cover;object-position:top"></button><div class="col"><div class="cell w"><b>Bénéficiaires : 11 d'un côté, 15 de l'autre</b></div><div class="cell w"><b>Problématique non renseignée</b></div>${li(['Pour chaque point : ce qu’il faut faire'])}</div></div>`,
+ m:"Deux assistants : un pour l'entreprise, un pour l'évaluateur. Ici, celui de l'évaluateur.",
+ tip:"Preuve si on vous la demande : les 144 champs des formulaires ont été audités, aucun n'est oublié.",
+ b:"Le dossier est vérifié. L'évaluateur peut maintenant l'évaluer.",
+ sp:"Il y a en fait deux assistants. Le premier accompagne l'entreprise : il l'aide à compléter son dossier avant de le soumettre. Le second accompagne l'évaluateur, quand le dossier arrive au FMFP. [pause] Vous vous souvenez de notre lundi matin ? Cette fois, l'évaluateur demande simplement : qu'est-ce qui manque dans ce dossier ? Et l'assistant relève huit points, classés par priorité. Ici, la problématique du projet n'est pas renseignée. Là, le nombre de bénéficiaires n'est pas le même d'une rubrique à l'autre : 11 d'un côté, 15 de l'autre. Il ne corrige rien : il dit à l'évaluateur quoi vérifier."},
+
+{sec:4,t:"1 min",
+ f:`<h2>③ Évaluer : un avis, pas un verdict</h2><div class="row">${ph('Capture<br>écran d’évaluation')}<div class="col"><div class="cell"><b>La grille</b>la note officielle, celle de l'évaluateur</div><div class="cell light"><b>L'indicateur IA</b>un signal de risque, expliqué</div></div></div>`,
+ m:"Bien distinguer la note officielle et l'indicateur.",
+ tip:"Si on vous le demande : trois scores en réalité — grille, modèle, et final (modèle + règles FMFP).",
+ b:"Imaginons maintenant que l'évaluateur demande une correction.",
+ sp:"La grille reste au centre : c'est elle, la note officielle. À côté, l'assistant affiche un indicateur de risque, toujours accompagné de ses raisons. L'évaluateur le lit… mais c'est lui qui décide. Il répond à la grille, il rédige son avis. L'IA donne un avis, jamais un verdict."},
+
+{sec:4,t:"1 min",
+ f:`<h2>④ Corriger : qu'est-ce qui a changé ?</h2><div class="row">${ph('Capture<br>comparaison des versions')}<div class="col">${li(['Chaque modification est tracée : qui, quand, avant → après','En réserve : les deux versions côte à côte','En rouge ce qui est retiré, en vert ce qui est ajouté'])}</div></div>`,
+ m:"Rendre visible la correction en quelques secondes.",
+ b:"Mais comment la demande de correction arrive-t-elle à l'entreprise ?",
+ sp:"L'évaluateur trouve le budget trop élevé. Il met le dossier en réserve. L'entreprise corrige et renvoie. Avant, une question revenait sans cesse : qu'est-ce qui a changé ? Il fallait tout relire. Maintenant, chaque modification est tracée : qui, quand, avant, après. Et l'évaluateur voit les deux versions côte à côte. En rouge ce qui a été retiré, en vert ce qui a été ajouté. Quelques secondes suffisent."},
+
+{sec:4,t:"45 s",
+ f:`<h2>⑤ Échanger : la conversation reste dans le dossier</h2><div class="row">${ph('Capture<br>messagerie du dossier')}<div class="col">${li(['Un fil de discussion par dossier','Pièces jointes, accusé de lecture','La réserve ouvre le fil automatiquement'])}</div></div>`,
+ m:"Plus de demande perdue dans les e-mails.",
+ b:"Et pour la direction, il fallait une vue d'ensemble.",
+ sp:"Avant, la demande de correction partait par e-mail… et parfois se perdait. Maintenant, chaque dossier a sa propre messagerie. Dès la mise en réserve, la discussion s'ouvre automatiquement. L'entreprise répond, joint son nouveau devis… et tout reste attaché au dossier."},
+
+{sec:4,t:"30 s",
+ f:`<h2>Pour la direction : où ça bloque ?</h2><div class="grid" style="grid-template-columns:repeat(4,1fr);flex:0 0 26%">${['En traitement','Étape la plus lente','Conventionnés','Taux de validation'].map((x,k)=>`<div class="cell ${k%2?'light':''}" style="text-align:center">${x}</div>`).join('')}</div><div style="flex:1;margin-top:4%;display:flex">${ph('Capture<br>tableau de bord')}</div>${dz('chart','tr')}`,
+ m:"Une réponse simple à une question de direction.",
+ b:"Tout cela fonctionne. Mais est-ce fiable ?",
+ sp:"Une seule question compte : où est-ce que ça bloque ? Le tableau de bord y répond d'un coup d'œil : combien de dossiers sont en cours, à quelle étape ils attendent le plus, et combien aboutissent."},
+
+/* ---------- 05 ---------- */
+{sec:5,t:"1 min",
+ f:`<h2>Un score plus juste et plus honnête</h2><div class="row" style="align-items:stretch"><div class="col" style="gap:3%"><div class="sub" style="text-align:center">Qualité globale (F1 macro)</div><div class="bars"><div class="b"><i style="height:64%"></i>V1 · 0,64</div><div class="b"><i class="v2" style="height:73%"></i>V2 · 0,73</div></div><div class="base"></div></div><div class="col" style="gap:3%"><div class="sub" style="text-align:center">Erreur de calibration</div><div class="bars"><div class="b"><i style="height:87%"></i>V1 · 0,087</div><div class="b"><i class="v2" style="height:37%"></i>V2 · 0,037</div></div><div class="base"></div></div></div><div style="text-align:center;margin-top:3%"><span class="tag">testé sur 1 635 dossiers réels</span></div>`,
+ m:"Expliquer la calibration avec une image simple.",
+ tip:"Si on vous le demande : 96 variables, split par entreprise, 4 répétitions, ROC-AUC 0,848.",
+ b:"Mais je veux être honnête avec vous sur une limite.",
+ sp:"J'ai comparé deux versions du modèle sur 1 635 dossiers réels. La seconde est meilleure globalement. Mais surtout, elle est plus honnête. [pause] Qu'est-ce que ça veut dire ? Quand elle annonce un risque de 30 %, ce risque correspond beaucoup mieux à la réalité. Son erreur est divisée par plus de deux. C'est elle qui est en service aujourd'hui."},
+
+{sec:5,t:"40 s",cls:"center",
+ f:`<span class="tag w">Limite</span><div class="big" style="margin-top:4%">Sur des dossiers plus récents,<br>la qualité tombe à 0,53</div><div class="sub">les dossiers évoluent · l'historique est encore court</div><div class="cell w" style="margin-top:5%;padding:2% 4%">→ c'est exactement pour ça que l'IA ne décide pas</div>`,
+ m:"Annoncer soi-même la limite : c'est ce qui rend crédible.",
+ b:"C'est pourquoi tout le système est entouré de garde-fous.",
+ sp:"Quand je teste le modèle sur des dossiers plus récents que ceux qu'il a appris, sa qualité tombe à 0,53. Les dossiers évoluent, et l'historique est encore trop court. [pause] Et c'est exactement pour ça que l'IA ne décide pas."},
+
+{sec:5,t:"50 s",
+ f:`<h2>Fiable par construction</h2><div class="grid" style="grid-template-columns:repeat(2,1fr);flex:0 0 auto;max-width:90%;gap:8% 5%"><div class="cell"><b>La décision reste humaine</b></div><div class="cell light"><b>Aucune donnée modifiée</b></div><div class="cell light"><b>En cas de panne, tout continue</b></div><div class="cell"><b>Chaque réponse est tracée</b></div></div><div style="text-align:center;margin-top:6%"><span class="tag">1 252 tests automatiques · retour arrière automatique si une mise à jour échoue</span></div>${dz('check','br')}`,
+ m:"Quatre promesses + une preuve.",
+ b:"Mais plutôt que de vous le décrire, je vous propose de le voir.",
+ sp:"Quatre garanties encadrent tout le système. La décision reste humaine. Aucune donnée n'est jamais modifiée par l'IA. Si le service tombe en panne, le travail continue. Et chaque réponse est tracée. Côté technique, plus de 1 200 tests automatiques vérifient chaque mise à jour, et si une installation échoue, l'ancienne version revient automatiquement."},
+
+{sec:5,t:"3 min",cls:"center hero",
+ f:`<div class="big">Démonstration</div><div class="sub" style="margin-top:4%;max-width:80%">notre dossier BTP : ① orienter · ② vérifier · ③ évaluer · ④ corriger · ⑤ échanger</div><div style="margin-top:5%"><button class="btn" data-demo>Ouvrir le scénario pas à pas</button></div>${dz('pointer','bl')}${dz('laptopGuy','br')}`,
+ m:"Rejouer exactement le parcours du dossier BTP.",
+ tip:"Scénario complet : bouton « Ouvrir le scénario » ou touche S. Démo en direct, vidéo de secours découpée par étape.",
+ b:"Pour conclure, revenons à notre lundi matin.",
+ sp:"Je reprends notre dossier BTP, dans le même ordre que tout à l'heure. [démonstration]"},
+
+/* ---------- 06 ---------- */
+{sec:6,t:"1 min",
+ f:`<h2>Le lundi matin, avant / après</h2><table><tr><th>Avant</th><th>Après</th></tr><tr><td>8 rubriques à croiser</td><td>les points à vérifier, regroupés</td></tr><tr><td>« qu'est-ce qui a changé ? »</td><td>les deux versions côte à côte</td></tr><tr><td>des e-mails dispersés</td><td>une discussion par dossier</td></tr><tr><td>un score sans explication</td><td>un indicateur qui dit pourquoi</td></tr></table>`,
+ m:"Conclure par l'impact concret, pas par la technique.",
+ b:"Et pour la suite ?",
+ sp:"Avant, il croisait huit rubriques. Maintenant, les points à vérifier lui sont présentés, regroupés. Avant, il se demandait ce qui avait changé. Maintenant, il le voit. Avant, les échanges se perdaient dans les e-mails. Maintenant, tout est dans le dossier. Et le score ne tombe plus du ciel : il dit pourquoi."},
+
+{sec:6,t:"45 s",
+ f:`<h2>La suite, et ce que j'en retiens</h2><div class="grid" style="grid-template-columns:repeat(2,1fr)"><div class="cell light"><b>Pour le FMFP</b>suivre le modèle dans le temps · valider les contrôles avec les équipes · un tableau de bord pour les comités</div><div class="cell"><b>Pour moi</b>transformer un vrai besoin en une solution que l'équipe peut reprendre</div></div>`,
+ m:"Perspectives courtes, puis une phrase personnelle sincère.",
+ b:"Et je terminerai avec la phrase du début.",
+ sp:"Trois chantiers : suivre le modèle dans le temps, valider certains contrôles avec les équipes, et offrir un tableau de bord aux comités. Et personnellement ? Ce stage m'a appris quelque chose d'essentiel : un bon outil, ce n'est pas le plus intelligent. C'est celui que l'équipe comprend, utilise… et peut reprendre après vous."},
+
+{sec:6,t:"—",cls:"center hero",
+ f:`<div class="big">L'IA conseille.<br>Elle ne décide jamais.</div><div class="sub" style="margin-top:5%">Merci — place à vos questions</div>${dz('bulb','tr')}${dz('thinker','bl')}`,
+ m:"Boucler l'histoire. Sourire. Se taire.",
+ sp:"L'IA conseille. Elle ne décide jamais. [pause] Je remercie mes tuteurs et les équipes du FMFP pour leur confiance, et vous, membres du jury, pour votre attention. Je suis prêt à répondre à vos questions."}
+];
+
+/* ---------- render ---------- */
+const secName=x=>x.sec?`0${x.sec} · ${SEC[x.sec-1]}`:'Ouverture';
+document.getElementById('track').innerHTML=S.map((x,i)=>`<section class="slide">
+ <div class="frame ${x.cls||''}">${x.f}${x.sec?`<span class="chip">${secName(x)}</span>`:''}<span class="num">${i+1}</span></div>
+ <div class="notes">
+  <div class="k">Slide ${i+1} · ${secName(x)}</div>
+  <div class="msg">${x.m}</div>
+  ${x.tip?`<div class="tip"><span class="lbl">À ne pas oublier</span>${x.tip}</div>`:''}
+  ${x.b?`<div class="bridge"><span class="lbl">→ Transition</span>« ${x.b} »</div>`:''}
+  <div class="time">⏱ ${x.t}</div>
+ </div></section>`).join('');
+
+let last=-1;
+document.getElementById('db').innerHTML=S.map((x,i)=>{
+ const h=x.sec!==last?`<div class="dsec">${secName(x)}</div>`:'';last=x.sec;
+ return `${h}<div class="sp" data-i="${i}"><div class="h"><b>Slide ${i+1}</b>· ${x.t}</div><p>${x.sp}</p>${x.b?`<p class="trn">→ ${x.b}</p>`:''}</div>`;}).join('');
+
+let i=0;try{i=+(location.hash.slice(1))-1||0}catch(e){}
+const $=id=>document.getElementById(id);
+const sync=(inst)=>{document.querySelectorAll('.sp').forEach(e=>e.classList.toggle('on',+e.dataset.i===i));
+ if(document.body.classList.contains('open')){const on=document.querySelector('.sp.on');on&&on.scrollIntoView({block:'center',behavior:inst?'auto':'smooth'})}};
+const go=n=>{i=Math.max(0,Math.min(S.length-1,n));$('track').style.transform=`translateX(-${i*100}%)`;
+ $('count').textContent=`${i+1} / ${S.length}`;$('act').textContent=secName(S[i]);
+ $('bar').style.width=((i+1)/S.length*100)+'%';$('prev').disabled=i===0;$('next').disabled=i===S.length-1;
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){};sync();if(window.fillSc)fillSc();};
+const openD=v=>{document.body.classList.toggle('open',v);if(v)setTimeout(()=>sync(true),360)};
+$('prev').onclick=()=>go(i-1);$('next').onclick=()=>go(i+1);
+$('openD').onclick=()=>openD(!document.body.classList.contains('open'));
+$('closeD').onclick=()=>openD(false);$('scrim').onclick=()=>openD(false);
+const sc=document.getElementById('sc');
+const closePops=()=>sc.classList.remove('on');
+window.fillSc=()=>{const t=`Discours · slide ${i+1}`;$('scT1').textContent=t;$('scT2').textContent=t;$('scEx').textContent=S[i].sp;$('scBd').innerHTML=`<p>${S[i].sp}</p>${S[i].b?`<p class="trn">→ ${S[i].b}</p>`:''}`;$('scBd').scrollTop=0};
+$('scPeek').onclick=()=>sc.classList.add('on');fillSc();$('scX').onclick=closePops;
+document.addEventListener('click',e=>{
+ if(e.target.closest('[data-open]')){closePops();openD(true);return}const sp=e.target.closest('.sp');if(sp)go(+sp.dataset.i)});
+addEventListener('keydown',e=>{
+ if(dmEl().classList.contains('on')){
+  const zo=document.getElementById('zoom');if(zo.classList.contains('on')){if(e.key==='Escape')zo.classList.remove('on');return}
+  if(e.key==='Escape'){openDemo(false)}
+  else if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();document.getElementById('dmNext').click()}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();document.getElementById('dmPrev').click()}
+  return}
+ if(e.key==='s'||e.key==='S'){openDemo(true);return}
+ if(e.key==='d'||e.key==='D'){openD(!document.body.classList.contains('open'));return}
+ if(e.key==='Escape'){closePops();openD(false);return}
+ if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
+ if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}
+ if(e.key==='Home')go(0);if(e.key==='End')go(S.length-1)});
+let swipeStart=null;addEventListener('touchstart',e=>{
+ const t=e.target;
+ if(!t.closest('.slide')||t.closest('.drawer,.dm,.zoom,.sc,button,a,input,textarea,select,[data-zoom]')){swipeStart=null;return}
+ swipeStart={x:e.touches[0].clientX,y:e.touches[0].clientY};
+},{passive:true});
+addEventListener('touchend',e=>{
+ if(!swipeStart)return;
+ const dx=e.changedTouches[0].clientX-swipeStart.x,dy=e.changedTouches[0].clientY-swipeStart.y;
+ if(Math.abs(dx)>52&&Math.abs(dx)>Math.abs(dy)*1.25)go(i+(dx<0?1:-1));
+ swipeStart=null;
+},{passive:true});
+
+/* ---------- scénario de démonstration ---------- */
+const DEMO=[
+{k:"0",ill:"prep",short:"Préparer",title:"Préparation",time:"la veille + 15 min avant",where:"Votre poste de démonstration",
+ steps:["Utiliser le dossier BTP de la capture (AutoCAD, planification et devis, 15 bénéficiaires), assigné à votre compte évaluateur — de préférence une copie anonymisée : l'en-tête de l'écran affiche le nom de l'entreprise","Le mettre en réserve une fois, faire corriger le budget côté entreprise et resoumettre → la comparaison et le fil « Réserve » existent","Ouvrir les onglets dans l'ordre : ① portail entreprise (appels à projet) ② saisie d'évaluation du dossier ③ résultats / historique ④ comparaison réserve ⑤ messagerie ⑥ tableau de bord","Deux navigateurs : un connecté en entreprise, un connecté en évaluateur / admin","Zoom navigateur 125 %, notifications coupées, mode plein écran (F11)","Lancer une première analyse IA à l'avance (le service est « chaud », réponse plus rapide)","Vidéo de secours sur le bureau, découpée par étape"],
+ show:["Rien : cette étape est invisible pour le jury"],
+ say:"",
+ fb:"Si le service IA ne répond pas au test : passer directement en mode vidéo pour toute la démo."},
+
+{k:"1",ill:"advisor",img:["figure-11.png"],short:"Orienter",title:"Orienter — le conseiller de guichet",time:"35 s",where:"Portail entreprise → Appels à projet → Conseiller de guichet",
+ steps:["Onglet ①, déjà connecté en entreprise","Taper dans le champ : « Former nos équipes à AutoCAD et à l'établissement des devis »","Cliquer sur le bouton d'analyse","Attendre la suggestion, puis survoler les motifs"],
+ show:["Le guichet suggéré","Les motifs : secteur, effectif, cotisations","Le bouton « Voir les appels »"],
+ say:"Je suis maintenant l'entreprise du BTP. Je décris simplement mon besoin… [taper] Et l'outil me propose un guichet, en m'expliquant pourquoi : mon secteur, ma taille, mes cotisations à jour. Il ne me promet rien : il m'oriente.",
+ fb:"Montrer la capture ci-contre, ou la vidéo, segment ①."},
+
+{k:"2",ill:"assistant",img:["assistant-dossier-btp.png"],short:"Vérifier",title:"Vérifier — l'assistant repère les problèmes",time:"40 s",where:"Back-office → Évaluation → Saisie → dossier BTP",
+ steps:["Onglet ②, connecté en évaluateur","Ouvrir le panneau « Assistant IA — Aide à l’évaluation », onglet Dossier","Cliquer sur « Qu’est-ce qui manque ? » : la question s’affiche « … dans ce dossier ? »","Faire défiler jusqu’au point « nombre de bénéficiaires »"],
+ show:["Les points classés : bloquant, à corriger, recommandé","Bénéficiaires 11 ≠ 15 et problématique non renseignée","Pour chaque point : ce qu'il faut faire"],
+ say:"Je passe maintenant côté FMFP, avec l'assistant de l'évaluateur. Ce n'est pas le dossier de l'évaluateur : c'est celui que l'entreprise a envoyé. Je lui demande : qu'est-ce qui manque dans ce dossier ? [cliquer] Il relève huit points, classés par priorité. Ici, la problématique n'est pas renseignée. Et là, le nombre de bénéficiaires n'est pas le même d'une rubrique à l'autre : 11 d'un côté, 15 de l'autre. Il ne corrige rien : il me dit quoi vérifier.",
+ fb:"Montrer la capture ci-contre, ou la vidéo, segment ②."},
+
+{k:"3",ill:"grid",img:["figure-05-analyse-annotated.png"],short:"Évaluer",title:"Évaluer — un avis, pas un verdict",time:"35 s",where:"Même écran : grille d'évaluation + assistant",
+ steps:["Revenir à la grille","Montrer le résumé du score dans l'assistant","Déplier les motifs du score","Cocher une réponse de la grille pour montrer que l'évaluateur garde la main"],
+ show:["La grille au centre (note officielle)","Les scores séparés : grille / modèle / final","Les motifs qui expliquent le score"],
+ say:"La grille reste au centre : c'est la note officielle, c'est moi qui la remplis. À côté, l'assistant me donne un indicateur de risque… et surtout, il me dit pourquoi. [déplier] Je le lis, mais c'est moi qui décide.",
+ fb:"Montrer la capture ci-contre, ou la vidéo, segment ③."},
+
+{k:"4",ill:"compare",img:["figure-17-historique-annotated.png", "figure-18-comparaison-annotated.png"],short:"Corriger",title:"Corriger — voir ce qui a changé",time:"40 s",where:"Évaluation → Résultat → « Voir l'historique », puis comparaison de la réserve",
+ steps:["Onglet ③ : cliquer sur « Voir l'historique » du dossier BTP","Montrer une ligne : qui, quand, avant → après","Onglet ④ : ouvrir la comparaison de la réserve","Pointer la ligne du budget : rouge → vert"],
+ show:["L'historique rangé par étape","La comparaison côte à côte, seuls les champs modifiés","Le budget corrigé en rouge / vert"],
+ say:"Le dossier a été mis en réserve : budget trop élevé. L'entreprise a corrigé. Avant, il aurait fallu tout relire. Ici, je vois chaque modification : qui, quand, avant, après. [ouvrir la comparaison] Et voici les deux versions côte à côte : en rouge l'ancien budget, en vert le nouveau. Quelques secondes suffisent.",
+ fb:"Montrer les captures ci-contre, ou la vidéo, segment ④."},
+
+{k:"5",ill:"chat",img:["figure-19-messagerie-annotated.png"],short:"Échanger",title:"Échanger — la discussion du dossier",time:"25 s",where:"Messagerie → fil « Réserve » du dossier BTP",
+ steps:["Onglet ⑤ : ouvrir la messagerie","Ouvrir le fil « Réserve » du dossier BTP","Montrer le commentaire de réserve publié automatiquement","Montrer la réponse de l'entreprise avec son devis joint"],
+ show:["Le fil créé automatiquement à la réserve","La pièce jointe et l'accusé de lecture"],
+ say:"Et la demande de correction n'est pas partie par e-mail. Elle est ici, dans la discussion du dossier, ouverte automatiquement. L'entreprise a répondu et joint son nouveau devis. Tout reste dans le dossier.",
+ fb:"Montrer la capture ci-contre, ou la vidéo, segment ⑤."},
+
+{k:"6",ill:"dash",img:["figure-20-tableau-de-bord-annotated.png"],short:"Bonus",title:"Bonus — le tableau de bord",time:"15 s (si le temps le permet)",where:"Back-office → Tableau de bord",
+ steps:["Onglet ⑥ : afficher le tableau de bord","Pointer l'étape la plus lente"],
+ show:["Les 4 indicateurs","La carte appels × étapes"],
+ say:"Enfin, pour la direction : en un coup d'œil, on voit où les dossiers attendent le plus.",
+ fb:"À sauter si vous dépassez 3 minutes."},
+
+{k:"✓",ill:"back",short:"Fin",title:"Retour aux slides",time:"5 s",where:"Revenir à la présentation (slide suivante)",
+ steps:["Quitter le plein écran du navigateur","Revenir à l'onglet de la présentation","Passer à la slide suivante (avant / après)"],
+ show:["—"],
+ say:"Voilà le parcours complet de notre dossier, de l'orientation jusqu'à l'échange avec l'entreprise.",
+ fb:"—"}
+];
+let di=0;
+const dmEl=()=>document.getElementById('dm');
+const B=(x,y,w,h,c,t)=>`<div class="mk-b ${c||''}" style="left:${x}%;top:${y}%;width:${w}%;height:${h}%">${t||''}</div>`;
+const P=(n,x,y)=>`<span class="pin" style="left:${x}%;top:${y}%">${n}</span>`;
+const LN=(n)=>Array.from({length:n},(_,k)=>`<span class="mk-ln" style="width:${90-k*12}%"></span>`).join('');
+const TABS=(on)=>`<div class="mk-tabs">${['① Entreprise','② Évaluation','③ Historique','④ Comparaison','⑤ Messagerie','⑥ Tableau de bord'].map((t,k)=>`<span class="${k===on?'on':''}">${t}</span>`).join('')}</div>`;
+const MOCK={
+ prep:{url:'navigateur prêt · plein écran · zoom 125 %',tab:-1,body:B(4,8,40,84,'l','<b>Dossier BTP de démo</b>'+LN(2)+'<div class="mk-b w" style="position:static;margin:6px 0">bénéficiaires 11 ≠ 15</div><div class="mk-b w" style="position:static">problématique vide</div>')+B(50,8,46,38,'f','<b>2 navigateurs</b><br>entreprise · évaluateur')+B(50,54,22,38,'','<b>Vidéo</b><br>de secours')+B(74,54,22,38,'l','<b>IA</b><br>déjà lancée')+P(1,6,10)+P(3,50,6)+P(7,72,56)+P(6,94,56)},
+ advisor:{url:'/entreprises · appels à projet',tab:0,body:B(4,6,92,10,'','<b>Conseiller de guichet</b>')+B(4,22,58,26,'l','« Former nos 15 salariés à la sécurité sur les chantiers »')+B(4,54,22,10,'f','Analyser')+B(4,70,92,24,'f hl','<b>Guichet suggéré : RI</b> · secteur BTP · 15 salariés · cotisations à jour')+B(66,22,30,26,'','Contexte<br>secteur · effectif')+P(1,10,0)+P(2,60,24)+P(3,24,56)+P(4,94,72)},
+ assistant:{url:'/evaluation/saisie · dossier BTP',tab:1,body:B(4,6,52,88,'','<b>Grille d’évaluation</b>'+LN(3)+'<div class="mk-b hl" style="position:static;margin-top:8px">Budget détaillé</div>'+LN(2))+B(60,6,36,12,'f','<b>Assistant IA</b>')+B(60,24,36,16,'w','Montant demandé > budget')+B(60,44,36,16,'w','Objectif sans module')+B(60,64,36,30,'l',LN(3))+P(1,28,0)+P(2,94,8)+P(3,94,26)+P(4,58,32)},
+ grid:{url:'/evaluation/saisie · dossier BTP',tab:1,body:B(4,6,52,88,'hl','<b>Grille (note officielle)</b><br>Critère 1 · Oui / Non<br>Critère 2 · Oui / Non<br>Critère 3 · Oui / Non')+B(60,6,36,26,'f','<b>Scores</b><br>grille · modèle · final')+B(60,38,36,32,'l','<b>Pourquoi ?</b>'+LN(3))+B(60,76,36,18,'','Avis de l’évaluateur')+P(1,30,4)+P(2,94,8)+P(3,94,40)+P(4,10,40)},
+ compare:{url:'/formulaire/traitement/comparaison_reserve',tab:3,body:B(4,6,28,88,'l','<b>Historique</b><br>qui · quand<br>avant → après'+LN(3))+B(36,6,60,12,'f','<b>Avant la réserve | Après correction</b>')+B(36,24,60,20,'hl','Budget : <span class="mk-red">ancien montant</span> → <span class="mk-green">montant corrigé</span>')+B(36,50,60,20,'','Autre champ : <span class="mk-red">avant</span> → <span class="mk-green">après</span>')+B(36,76,60,18,'l','Export PDF')+P(1,10,4)+P(2,30,30)+P(3,94,8)+P(4,94,28)},
+ chat:{url:'/messagerie · dossier BTP',tab:4,body:B(4,6,28,88,'l','<b>Fils</b><div class="mk-b f" style="position:static;margin:6px 0">Réserve · BTP</div>'+LN(3))+B(36,6,60,20,'f','<b>FMFP :</b> réserve — budget trop élevé')+B(44,32,52,20,'','<b>Entreprise :</b> budget corrigé, voici le devis')+B(44,58,28,14,'hl','pièce jointe : devis.pdf')+B(36,80,60,14,'l','Écrire un message…')+P(1,10,4)+P(2,30,14)+P(3,94,8)+P(4,70,60)},
+ dash:{url:'/admin/dashboard',tab:5,body:[0,1,2,3].map(k=>B(4+k*23.5,6,21.5,20,k%2?'l':'f',['En traitement','Étape la plus lente','Conventionnés','Taux de validation'][k])).join('')+B(4,32,60,62,'','<b>Appels × étapes</b>'+LN(4))+B(68,32,28,62,'l','<b>Délais</b>'+LN(3))+P(1,6,4)+P(2,30,6)},
+ back:{url:'présentation · slide suivante',tab:-1,body:B(18,14,64,72,'f','<div style="text-align:center;margin-top:12%;font-size:1.4em">Le lundi matin,<br>avant / après</div>')+P(3,80,16)}
+};
+const mock=t=>{const m=MOCK[t];return `<div class="mk"><div class="mk-bar"><s></s><s></s><s></s><span class="mk-url">${m.url}</span></div>${m.tab>=0?TABS(m.tab):''}<div class="mk-body">${m.body}</div></div>`};
+const MIC=`<svg viewBox="0 0 48 48" fill="none" stroke="#242424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="21" fill="#DCE6F5"/><path d="M24 29a5 5 0 0 0 5-5v-9a5 5 0 0 0-10 0v9a5 5 0 0 0 5 5z" fill="#fff"/><path d="M15 23a9 9 0 0 0 18 0M24 32v5M19 37h10"/></svg>`;
+const renderDemo=()=>{
+ const x=DEMO[di];
+ document.getElementById('dmList').innerHTML=DEMO.map((s,k)=>`<button class="dm-dot ${k===di?'on':''} ${k<di?'done':''}" data-dm="${k}" title="${s.title}"><i>${s.k}</i>${s.short}</button>`).join('');
+ document.getElementById('dmMain').innerHTML=`
+  <div class="dm-head"><h3 class="dm-title">${x.title}</h3><div class="dm-meta"><span class="tag">${x.k==='0'?'Avant la soutenance':x.k==='✓'?'Fin de la démo':'Étape '+x.k}</span><span class="dm-time">⏱ ${x.time}</span></div></div>
+  <div class="dm-cols">
+   <div class="dm-left">${x.img?`<span class="lbl">Capture réelle de la plateforme (anonymisée) · cliquer pour agrandir</span>${x.img.map(f=>`<button class="shot" data-zoom="img/${f}"><img src="img/${f}" alt="${x.title}" loading="lazy"></button>`).join('')}`:`<span class="lbl">À l'écran — les numéros suivent les actions</span>${mock(x.ill)}`}<div class="mk-cap">${x.where}</div></div>
+   <div class="dm-right">
+    ${x.say?`<div class="dm-say">${MIC}<div><span class="lbl">Ce que je dis</span><p>${x.say}</p></div></div>`:''}
+    <div class="dm-do"><span class="lbl">Ce que je fais</span><ol>${x.steps.map(s=>`<li><span>${s}</span></li>`).join('')}</ol></div>
+    <div class="dm-see"><span class="lbl">Ce que le jury doit voir</span><ul>${x.show.map(s=>`<li><span>${s}</span></li>`).join('')}</ul></div>
+    ${x.fb&&x.fb!=='—'?`<div class="dm-fb"><b>Si ça bloque :</b> ${x.fb}</div>`:''}
+   </div>
+  </div>`;
+ document.getElementById('dmCount').textContent=`Étape ${di+1} / ${DEMO.length}`;
+ document.getElementById('dmPrev').disabled=di===0;document.getElementById('dmNext').disabled=di===DEMO.length-1;
+ document.querySelector('.dm-body').scrollTop=0;
+};
+const openDemo=(v)=>{dmEl().classList.toggle('on',v);document.body.classList.toggle('demo',v);if(v){closePops();renderDemo()}};
+document.addEventListener('click',e=>{
+ if(e.target.closest('[data-demo]')){openDemo(true);return}
+ if(e.target.closest('#dmClose')){openDemo(false);return}
+ const z=e.target.closest('[data-zoom]');if(z){const o=document.getElementById('zoom');o.querySelector('img').src=z.dataset.zoom;o.classList.add('on');return}
+ if(e.target.closest('#zoom')){document.getElementById('zoom').classList.remove('on');return}
+ const s=e.target.closest('[data-dm]');if(s){di=+s.dataset.dm;renderDemo()}
+});
+document.getElementById('dmPrev').onclick=()=>{if(di>0){di--;renderDemo()}};
+document.getElementById('dmNext').onclick=()=>{if(di<DEMO.length-1){di++;renderDemo()}};
+
+go(i);
+</script>
+</body>
+</html>
