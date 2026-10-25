@@ -56,6 +56,10 @@ body{font:15px/1.5 var(--read);color:var(--ink);overflow:hidden;
 .frame.center{justify-content:center;align-items:center;text-align:center}
 .frame.center h2:after{margin:6px auto 0}
 .frame.hero{background:var(--fill)}
+.frame.section-divider{background:var(--fill2)}
+.section-divider__number{color:var(--blue);font-size:clamp(68px,9vw,128px);line-height:1;transform:rotate(-5deg)}
+.frame.section-divider h2{max-width:90%;margin:2% 0 0;font-size:clamp(28px,3.5vw,52px);line-height:1.15;text-wrap:balance}
+.frame.section-divider h2:after{width:96px;margin:16px auto 0}
 .num{position:absolute;right:16px;bottom:10px;font-size:14px;color:var(--ink3)}
 .chip{position:absolute;left:16px;bottom:10px;font-size:13px;color:var(--ink2)}
 .big{font-size:clamp(18px,2.7vw,40px);line-height:1.25;max-width:88%}
@@ -415,16 +419,22 @@ const ph=t=>`<div class="ph">${t}</div>`;
 const li=a=>a.map(x=>`<div class="li"><span>${x}</span></div>`).join('');
 const SEC=["Introduction et contexte","Problématique et objectifs","Démarche de réalisation","Architecture et fonctionnalités","Résultats et garde-fous","Conclusion et échanges"];
 const som=()=>`<div class="som">${SEC.map((x,k)=>`<div><b>0${k+1}</b>${x}</div>`).join('')}</div>`;
+const sectionDivider=n=>({
+ sec:n,t:"—",cls:"center hero section-divider",divider:true,
+ f:`<span class="section-divider__number" aria-hidden="true">0${n}</span><h2>${SEC[n-1]}</h2>`,
+ m:"Laisser apparaître le titre de cette partie avant de poursuivre.",
+ sp:""
+});
 
 /* ---------- slides ---------- */
 const S=[
 /* ---------- Ouverture ---------- */
 {sec:0,t:"40 s",cls:"center hero",
  f:`<div class="big">Conception d'un système intelligent de scoring, de recommandations et d'aide à la décision</div><div class="sub">pour la gestion des financements de la formation professionnelle · FMFP Madagascar</div><div class="sub" style="margin-top:4%">SOLOARIJAONA Paul Ferdinah · Master of Science eBIHAR · ESTIA</div>${dz('laptopGuy','br')}${dz('bulb','tl')}`,
- m:"Saluer, se présenter, puis poser une question qui accroche.",
- tip:"Regarder le jury, pas l'écran. Marquer une vraie pause après la question.",
- b:"Pour y répondre, voici le chemin que je vous propose.",
- sp:"Madame, Messieurs les membres du jury, bonjour, et merci de votre présence. Je m'appelle Paul Ferdinah SOLOARIJAONA, et j'ai effectué mon stage de Master au Fonds Malgache de Formation Professionnelle. Je voudrais commencer par une question. [pause] Quand un dossier de financement contient des dizaines d'informations réparties partout, comment s'assurer qu'on ne passe à côté de rien ? Et surtout, comment utiliser l'intelligence artificielle pour aider… sans qu'elle décide à notre place ? C'est tout le sujet de mon travail."},
+ m:"Remercier le public, annoncer le travail, puis présenter le problème et la solution.",
+ tip:"Marquer une courte pause après le problème ; garder les détails pour la suite.",
+ b:"Voici le parcours de cette présentation.",
+ sp:"Bonjour à toutes et à tous, merci d'être présents aujourd'hui. Je vais vous présenter le fruit de mon travail au Fonds Malgache de Formation Professionnelle, le FMFP. Mon travail est parti d'une question concrète : comment aider les équipes à évaluer les demandes de financement quand les informations utiles sont réparties entre plusieurs parties du dossier ? J'ai conçu un système d'aide à la décision qui rassemble ces éléments, met en évidence les points à vérifier et propose des repères pour l'évaluation. Je vais vous présenter le problème rencontré, la démarche suivie, puis vous montrer ce que le système apporte en pratique."},
 
 {sec:0,t:"20 s",
  f:`<h2>Sommaire</h2>${som()}`,
@@ -433,12 +443,13 @@ const S=[
  sp:"Je vais d'abord vous présenter le contexte et le problème rencontré. Puis la façon dont j'ai travaillé, ce que j'ai construit, ce que ça donne vraiment — avec ses limites — et enfin ce que j'en retiens."},
 
 /* ---------- 01 ---------- */
+sectionDivider(1),
 {sec:1,t:"50 s",
  f:`<h2>Le FMFP : former les salariés malgaches</h2><div class="grid" style="grid-template-columns:repeat(3,1fr)"><div class="cell"><b>Qui finance ?</b>les entreprises, par une cotisation de 1 % de leur masse salariale</div><div class="cell light"><b>Qui gère ?</b>employeurs, syndicats et État, ensemble</div><div class="cell"><b>Pour qui ?</b>les salariés, les jeunes et le secteur informel</div></div><div style="text-align:center;margin-top:4%"><span class="tag">depuis 2019 · plus de 70 000 salariés formés · 23 régions</span></div>`,
- m:"Trois questions simples : qui paie, qui gère, pour qui.",
+ m:"Expliquer d'où viennent les ressources, qui les gère et à qui elles servent.",
  tip:"Chiffres : bilan public 2024 (fmfp.mg). Les dire de mémoire, sans lire.",
- b:"Pour obtenir ce financement, une entreprise doit déposer un dossier.",
- sp:"Le FMFP, c'est le fonds qui finance la formation professionnelle à Madagascar. Le principe est simple. Les entreprises cotisent : 1 % de leur masse salariale. Ce fonds est géré ensemble par les employeurs, les syndicats et l'État. Et il sert à former les salariés, mais aussi les jeunes et les travailleurs du secteur informel. Depuis 2019, plus de 70 000 salariés ont été formés, dans les 23 régions du pays."},
+ b:"Voyons ce que contient ce dossier et comment il est traité.",
+ sp:"Au FMFP, les entreprises versent une cotisation égale à 1 % des salaires qu'elles paient. Le fonds est géré par les employeurs, les syndicats et l'État. [pause] Cet argent finance des formations pour les salariés, les jeunes et les travailleurs du secteur informel. Depuis 2019, plus de 70 000 salariés ont été formés dans les 23 régions. Pour obtenir cette aide, une entreprise doit déposer un dossier."},
 
 {sec:1,t:"50 s",
  f:`<h2>Un dossier, et le chemin qu'il parcourt</h2><div class="row dossier-parts" style="flex:0 0 auto;gap:2%;margin-bottom:3%">${['Projet','Modules','Bénéficiaires','Budget','Prestataire','Pièces'].map((x,k)=>`<div class="cell ${k%2?'light':''}" style="text-align:center;padding:2.5% 1%">${x}</div>`).join('')}</div><div class="tl dossier-timeline" style="flex:0 0 auto">${[['Dépôt','entreprise'],['Complétude','FMFP'],['Éligibilité','FMFP'],['Évaluation','évaluateur'],['Décision','direction'],['Convention','FMFP + entreprise']].map((x,k)=>`<div class="${k===3?'k':''}">${k===3?'<b style="font-weight:400;font-size:1.2em">'+x[0]+'</b>':x[0]}<br><span class="sub">${x[1]}</span></div>`).join('')}</div>${dz('folder','tr')}`,
@@ -454,6 +465,7 @@ const S=[
  sp:"Imaginez. Lundi matin. Un évaluateur ouvre le dossier d'un projet du BTP : quinze bénéficiaires, qui veulent se former à AutoCAD, à la planification et à l'établissement des devis. Pour se faire un avis, il doit ouvrir le budget… les pièces… les cotisations… les modules… les bénéficiaires… Huit rubriques. [pause] Rien ne manque vraiment. Mais tout est dispersé. Gardez ce dossier en tête : il va nous accompagner jusqu'à la fin."},
 
 /* ---------- 02 ---------- */
+sectionDivider(2),
 {sec:2,t:"40 s",
  f:`<h2>Trois difficultés</h2><div class="grid" style="grid-template-columns:repeat(3,1fr)"><div class="cell"><b>Tout est dispersé</b>il faut croiser plusieurs rubriques</div><div class="cell light"><b>Les règles changent</b>selon le type de financement</div><div class="cell"><b>Tout est vérifié à la main</b>une incohérence peut passer inaperçue</div></div>${dz('magnifier','tr')}`,
  m:"Trois constats, une phrase chacun.",
@@ -464,7 +476,7 @@ const S=[
  f:`<span class="tag">Problématique</span><div class="big" style="margin-top:4%">Comment aider les équipes du FMFP à analyser les dossiers plus clairement, tout en gardant une décision humaine, expliquée et conforme aux règles ?</div>${dz('thinker','bl')}`,
  m:"Lire lentement. Laisser la phrase respirer.",
  b:"Et pour y répondre, je me suis fixé une règle dès le premier jour.",
- sp:"Comment aider les équipes du FMFP à analyser les dossiers plus clairement, tout en gardant une décision humaine, expliquée et conforme aux règles ? [pause] Mon objectif était double : ne plus rien oublier dans un dossier… et traiter chaque dossier plus rapidement."},
+ sp:"Comment aider les équipes du FMFP à analyser les dossiers plus clairement, tout en gardant une décision humaine, expliquée et conforme aux règles ? [pause] Mon objectif était de rendre les points à vérifier plus visibles et de faciliter la première lecture du dossier. Le gain de temps sur l'instruction complète reste à mesurer."},
 
 {sec:2,t:"20 s",cls:"center hero",
  f:`<div class="big">L'IA conseille.<br>Elle ne décide jamais.</div>${dz('bulb','tr')}`,
@@ -479,6 +491,7 @@ const S=[
  sp:"Voir ce qui manque : ce seront des alertes automatiques. Comprendre un risque : un score, toujours expliqué. Bien orienter l'entreprise : un conseiller de guichet. Et suivre le dossier dans le temps : un historique, une comparaison des versions et une messagerie."},
 
 /* ---------- 03 ---------- */
+sectionDivider(3),
 {sec:3,t:"50 s",
  f:`<h2>Choisir des méthodes qu'on peut expliquer</h2><div class="grid method-grid" style="grid-template-columns:repeat(4,1fr)"><div class="cell"><b>Score</b>gradient boosting<br><span class="sub">fiable sur ce type de données</span></div><div class="cell light"><b>Orientation</b>règles FMFP + contenu<br><span class="sub">pas assez d'historique pour plus</span></div><div class="cell"><b>Alertes</b>règles explicites<br><span class="sub">chaque alerte a une raison</span></div><div class="cell light"><b>Intégration</b>service séparé<br><span class="sub">on peut le retirer</span></div></div>${dz('doc','tr')}`,
  m:"Un critère avant tout : pouvoir expliquer chaque résultat.",
@@ -493,6 +506,7 @@ const S=[
  sp:"La contrainte, c'est que la plateforme du FMFP tourne en production. Tous les jours, des entreprises et des évaluateurs l'utilisent. Pas question de tout réécrire. J'ai donc avancé par petites étapes. D'abord un premier prototype, juste pour vérifier que toute la chaîne fonctionnait. Puis l'intégration dans les écrans, l'assistant IA… et enfin la mise en production. Chaque étape testée avant de passer à la suivante."},
 
 /* ---------- 04 ---------- */
+sectionDivider(4),
 {sec:4,t:"50 s",
  f:`<h2>La plateforme décide, le service calcule</h2><div class="row" style="gap:1.5%"><div class="box" style="flex:1.1">Plateforme FMFP<br><span class="sub">utilisateurs · règles · décision</span></div>${AR2}<div class="box light" style="flex:.9">Échange sécurisé<br><span class="sub">tracé</span></div>${AR}<div class="box" style="flex:1.1">Service d'analyse<br><span class="sub">calcule et explique</span></div>${AR}<div class="box light" style="flex:.8">Base de données<br><span class="sub">lecture seule</span></div></div>${dz('gear','tr')}`,
  m:"Une idée : séparer celui qui décide de celui qui calcule.",
@@ -524,13 +538,13 @@ const S=[
  m:"Bien distinguer la note officielle et l'indicateur.",
  tip:"Si on vous le demande : trois scores en réalité — grille, modèle, et final (modèle + règles FMFP).",
  b:"Imaginons maintenant que l'évaluateur demande une correction.",
- sp:"La grille reste au centre : c'est elle, la note officielle. À côté, l'assistant affiche un indicateur de risque, toujours accompagné de ses raisons. L'évaluateur le lit… mais c'est lui qui décide. Il répond à la grille, il rédige son avis. L'IA donne un avis, jamais un verdict."},
+ sp:"La grille reste au centre : seule la note saisie par l'évaluateur devient officielle. À côté, l'assistant affiche un risque de rejet calculé par le modèle, puis un score indicatif ajusté par les règles du FMFP. Il peut aussi proposer des notes par critère de la grille. Ces trois valeurs sont des aides à vérifier ; l'évaluateur remplit la grille et rédige lui-même son avis."},
 
 {sec:4,t:"1 min",
  f:`<h2>④ Corriger : qu'est-ce qui a changé ?</h2><div class="row">${ph('Capture<br>comparaison des versions')}<div class="col">${li(['Chaque modification est tracée : qui, quand, avant → après','En réserve : les deux versions côte à côte','En rouge ce qui est retiré, en vert ce qui est ajouté'])}</div></div>`,
  m:"Rendre visible la correction en quelques secondes.",
- b:"Mais comment la demande de correction arrive-t-elle à l'entreprise ?",
- sp:"L'évaluateur trouve le budget trop élevé. Il met le dossier en réserve. L'entreprise corrige et renvoie. Avant, une question revenait sans cesse : qu'est-ce qui a changé ? Il fallait tout relire. Maintenant, chaque modification est tracée : qui, quand, avant, après. Et l'évaluateur voit les deux versions côte à côte. En rouge ce qui a été retiré, en vert ce qui a été ajouté. Quelques secondes suffisent."},
+ b:"Pour que cette correction se fasse sans perdre le fil, les échanges restent dans le dossier.",
+ sp:"L'évaluateur trouve le budget trop élevé. Il met le dossier en réserve. L'entreprise corrige et renvoie. Avant, une question revenait sans cesse : qu'est-ce qui a changé ? Il fallait tout relire. Maintenant, chaque modification est tracée : qui, quand, avant, après. Et l'évaluateur voit les deux versions côte à côte. En rouge ce qui a été retiré, en vert ce qui a été ajouté. Il repère les changements sans relire tout le dossier."},
 
 {sec:4,t:"45 s",
  f:`<h2>⑤ Échanger : la conversation reste dans le dossier</h2><div class="row">${ph('Capture<br>messagerie du dossier')}<div class="col">${li(['Un fil de discussion par dossier','Pièces jointes, accusé de lecture','La réserve ouvre le fil automatiquement'])}</div></div>`,
@@ -541,28 +555,29 @@ const S=[
 {sec:4,t:"30 s",
  f:`<h2>Pour la direction : où ça bloque ?</h2><div class="grid" style="grid-template-columns:repeat(4,1fr);flex:0 0 26%">${['En traitement','Étape la plus lente','Conventionnés','Taux de validation'].map((x,k)=>`<div class="cell ${k%2?'light':''}" style="text-align:center">${x}</div>`).join('')}</div><div style="flex:1;margin-top:4%;display:flex">${ph('Capture<br>tableau de bord')}</div>${dz('chart','tr')}`,
  m:"Une réponse simple à une question de direction.",
- b:"Tout cela fonctionne. Mais est-ce fiable ?",
+ b:"Voyons maintenant ce que montrent les tests, et les limites du système.",
  sp:"Une seule question compte : où est-ce que ça bloque ? Le tableau de bord y répond d'un coup d'œil : combien de dossiers sont en cours, à quelle étape ils attendent le plus, et combien aboutissent."},
 
 /* ---------- 05 ---------- */
+sectionDivider(5),
 {sec:5,t:"1 min",
- f:`<h2>Un score plus juste et plus honnête</h2><div class="row" style="align-items:stretch"><div class="col" style="gap:3%"><div class="sub" style="text-align:center">Qualité globale (F1 macro)</div><div class="bars"><div class="b"><i style="height:64%"></i>V1 · 0,64</div><div class="b"><i class="v2" style="height:73%"></i>V2 · 0,73</div></div><div class="base"></div></div><div class="col" style="gap:3%"><div class="sub" style="text-align:center">Erreur de calibration</div><div class="bars"><div class="b"><i style="height:87%"></i>V1 · 0,087</div><div class="b"><i class="v2" style="height:37%"></i>V2 · 0,037</div></div><div class="base"></div></div></div><div style="text-align:center;margin-top:3%"><span class="tag">testé sur 1 635 dossiers réels</span></div>`,
- m:"Expliquer la calibration avec une image simple.",
- tip:"Si on vous le demande : 96 variables, split par entreprise, 4 répétitions, ROC-AUC 0,848.",
- b:"Mais je veux être honnête avec vous sur une limite.",
- sp:"J'ai comparé deux versions du modèle sur 1 635 dossiers réels. La seconde est meilleure globalement. Mais surtout, elle est plus honnête. [pause] Qu'est-ce que ça veut dire ? Quand elle annonce un risque de 30 %, ce risque correspond beaucoup mieux à la réalité. Son erreur est divisée par plus de deux. C'est elle qui est en service aujourd'hui."},
+ f:`<h2>V2 : moins d'alertes, mais des rejets manqués</h2><div class="sub" style="margin:-2% 0 3%">Au seuil d'avertissement de 25 %</div><div class="grid" style="grid-template-columns:repeat(2,1fr)"><div class="cell light"><b>V1</b>26 % des dossiers signalés<br>80 % des rejets retrouvés<br>17 % d'alertes justes</div><div class="cell"><b>V2 · retenue</b>6 % des dossiers signalés<br>46 % des rejets retrouvés<br>37 % d'alertes justes</div></div><div style="text-align:center;margin-top:4%"><span class="tag">1 635 dossiers décidés · partage par entreprise · 4 tirages</span></div>`,
+ m:"Expliquer le compromis entre la charge d'alertes et les rejets retrouvés.",
+ tip:"À nombre d'alertes égal, V1 et V2 se valent. Le seuil doit être validé avec le FMFP.",
+ b:"Ce choix reste limité par ce que montre le test dans le temps.",
+ sp:"J'ai comparé deux modèles sur 1 635 dossiers déjà décidés. Au seuil qui déclenche l'avertissement, V2 signale environ 6 % des dossiers. Parmi ses alertes, 37 % concernent effectivement un rejet, et elle retrouve 46 % des rejets. V1 en retrouve davantage, 80 %, mais signale 26 % des dossiers, avec beaucoup plus de fausses alertes. J'ai retenu V2 pour limiter la charge de vérification. Ce choix a un prix : plus d'un rejet sur deux n'est pas signalé. Le seuil devra être discuté avec les évaluateurs du FMFP."},
 
 {sec:5,t:"40 s",cls:"center",
- f:`<span class="tag w">Limite</span><div class="big" style="margin-top:4%">Sur des dossiers plus récents,<br>la qualité tombe à 0,53</div><div class="sub">les dossiers évoluent · l'historique est encore court</div><div class="cell w" style="margin-top:5%;padding:2% 4%">→ c'est exactement pour ça que l'IA ne décide pas</div>`,
- m:"Annoncer soi-même la limite : c'est ce qui rend crédible.",
+ f:`<span class="tag w">Limite</span><div class="big" style="margin-top:4%">Test chronologique :<br>F1 macro autour de 0,53</div><div class="sub">261 dossiers pour apprendre · évolution possible des dossiers</div><div class="cell w" style="margin-top:5%;padding:2% 4%">→ le score reste un repère, jamais une décision</div>`,
+ m:"Distinguer le résultat observé de ses causes possibles.",
  b:"C'est pourquoi tout le système est entouré de garde-fous.",
- sp:"Quand je teste le modèle sur des dossiers plus récents que ceux qu'il a appris, sa qualité tombe à 0,53. Les dossiers évoluent, et l'historique est encore trop court. [pause] Et c'est exactement pour ça que l'IA ne décide pas."},
+ sp:"Dans un test plus exigeant, j'ai appris sur les dossiers les plus anciens pour prédire les suivants. Le F1 macro tombe autour de 0,53, et très peu de rejets sont retrouvés. [pause] Deux causes sont possibles : seulement 261 dossiers étaient disponibles pour l'apprentissage, et les dossiers ont peut-être évolué dans le temps. Je ne peux pas encore les séparer. Le score reste donc un repère à vérifier, pas une prédiction fiable pour une nouvelle période."},
 
 {sec:5,t:"50 s",
- f:`<h2>Fiable par construction</h2><div class="grid" style="grid-template-columns:repeat(2,1fr);flex:0 0 auto;max-width:90%;gap:8% 5%"><div class="cell"><b>La décision reste humaine</b></div><div class="cell light"><b>Aucune donnée modifiée</b></div><div class="cell light"><b>En cas de panne, tout continue</b></div><div class="cell"><b>Chaque réponse est tracée</b></div></div><div style="text-align:center;margin-top:6%"><span class="tag">1 252 tests automatiques · retour arrière automatique si une mise à jour échoue</span></div>${dz('check','br')}`,
- m:"Quatre promesses + une preuve.",
+ f:`<h2>Des garde-fous testés, d'autres à confirmer</h2><div class="grid" style="grid-template-columns:repeat(2,1fr);flex:0 0 auto;max-width:90%;gap:8% 5%"><div class="cell"><b>La décision reste humaine</b></div><div class="cell light"><b>Le service lit sans modifier le dossier</b></div><div class="cell light"><b>En cas de panne, parcours manuel</b></div><div class="cell"><b>Chaque appel est tracé</b></div></div><div style="text-align:center;margin-top:6%"><span class="tag">1 252 tests réussis · retour arrière à tester en préproduction</span></div>${dz('check','br')}`,
+ m:"Distinguer les protections vérifiées du retour arrière encore à éprouver.",
  b:"Mais plutôt que de vous le décrire, je vous propose de le voir.",
- sp:"Quatre garanties encadrent tout le système. La décision reste humaine. Aucune donnée n'est jamais modifiée par l'IA. Si le service tombe en panne, le travail continue. Et chaque réponse est tracée. Côté technique, plus de 1 200 tests automatiques vérifient chaque mise à jour, et si une installation échoue, l'ancienne version revient automatiquement."},
+ sp:"Le système a plusieurs garde-fous. La décision reste humaine. Le service d'analyse lit le dossier sans modifier les données métier. Si ce service est indisponible, l'évaluateur peut continuer son travail à la main, et chaque appel est tracé. Plus de 1 200 tests automatiques vérifient le logiciel. La procédure de retour à la version précédente est développée, mais son déclenchement volontaire reste à tester en préproduction."},
 
 {sec:5,t:"3 min",cls:"center hero",
  f:`<div class="big">Démonstration</div><div class="sub" style="margin-top:4%;max-width:80%">notre dossier BTP : ① orienter · ② vérifier · ③ évaluer · ④ corriger · ⑤ échanger</div><div style="margin-top:5%"><button class="btn" data-demo>Ouvrir le scénario pas à pas</button></div>${dz('pointer','bl')}${dz('laptopGuy','br')}`,
@@ -572,11 +587,12 @@ const S=[
  sp:"Je reprends notre dossier BTP, dans le même ordre que tout à l'heure. [démonstration]"},
 
 /* ---------- 06 ---------- */
+sectionDivider(6),
 {sec:6,t:"1 min",
  f:`<h2>Le lundi matin, avant / après</h2><table><tr><th>Avant</th><th>Après</th></tr><tr><td>8 rubriques à croiser</td><td>les points à vérifier, regroupés</td></tr><tr><td>« qu'est-ce qui a changé ? »</td><td>les deux versions côte à côte</td></tr><tr><td>des e-mails dispersés</td><td>une discussion par dossier</td></tr><tr><td>un score sans explication</td><td>un indicateur qui dit pourquoi</td></tr></table>`,
- m:"Conclure par l'impact concret, pas par la technique.",
+ m:"Montrer le changement dans le parcours, sans annoncer de gain de temps non mesuré.",
  b:"Et pour la suite ?",
- sp:"Avant, il croisait huit rubriques. Maintenant, les points à vérifier lui sont présentés, regroupés. Avant, il se demandait ce qui avait changé. Maintenant, il le voit. Avant, les échanges se perdaient dans les e-mails. Maintenant, tout est dans le dossier. Et le score ne tombe plus du ciel : il dit pourquoi."},
+ sp:"Avant, l'évaluateur devait croiser plusieurs rubriques pour commencer son analyse. Maintenant, les points à vérifier sont regroupés, les modifications sont visibles côte à côte et les échanges restent liés au dossier. Cela facilite sa première lecture et devrait lui faire gagner du temps. Le gain sur la durée complète d'instruction n'a pas encore été chronométré : c'est une mesure à mener avec les équipes du FMFP."},
 
 {sec:6,t:"45 s",
  f:`<h2>La suite, et ce que j'en retiens</h2><div class="grid" style="grid-template-columns:repeat(2,1fr)"><div class="cell light"><b>Pour le FMFP</b>suivre le modèle dans le temps · valider les contrôles avec les équipes · un tableau de bord pour les comités</div><div class="cell"><b>Pour moi</b>transformer un vrai besoin en une solution que l'équipe peut reprendre</div></div>`,
@@ -593,21 +609,20 @@ const S=[
 /* ---------- render ---------- */
 const secName=x=>x.sec?`0${x.sec} · ${SEC[x.sec-1]}`:'Ouverture';
 document.getElementById('track').innerHTML=S.map((x,i)=>`<section class="slide">
- <div class="frame ${x.cls||''}">${x.f}${x.sec?`<span class="chip">${secName(x)}</span>`:''}<span class="num">${i+1}</span></div>
+ <div class="frame ${x.cls||''}">${x.f}${x.sec&&!x.divider?`<span class="chip">${secName(x)}</span>`:''}<span class="num">${i+1}</span></div>
  <div class="notes">
   <div class="k">Slide ${i+1} · ${secName(x)}</div>
   <div class="msg">${x.m}</div>
-  <div class="speech-label">Discours · slide ${i+1} · ${x.t}</div>
-  <p class="speech-text">${x.sp}</p>
+  ${x.divider?'':`<div class="speech-label">Discours · slide ${i+1} · ${x.t}</div><p class="speech-text">${x.sp}</p>`}
   ${x.tip?`<div class="tip"><span class="lbl">À ne pas oublier</span>${x.tip}</div>`:''}
   ${x.b?`<div class="bridge"><span class="lbl">→ Transition</span>« ${x.b} »</div>`:''}
-  <div class="time">⏱ ${x.t}</div>
+  ${x.divider?'':`<div class="time">⏱ ${x.t}</div>`}
  </div></section>`).join('');
 
 let last=-1;
 document.getElementById('db').innerHTML=S.map((x,i)=>{
  const h=x.sec!==last?`<div class="dsec">${secName(x)}</div>`:'';last=x.sec;
- return `${h}<div class="sp" data-i="${i}"><div class="h"><b>Slide ${i+1}</b>· ${x.t}</div><p>${x.sp}</p>${x.b?`<p class="trn">« ${x.b} »</p>`:''}</div>`;}).join('');
+ return `${h}<div class="sp" data-i="${i}"><div class="h"><b>Slide ${i+1}</b>· ${x.divider?'Intercalaire':x.t}</div>${x.divider?'':`<p>${x.sp}</p>`}${x.b?`<p class="trn">« ${x.b} »</p>`:''}</div>`;}).join('');
 
 let i=0;try{i=+(location.hash.slice(1))-1||0}catch(e){}
 const $=id=>document.getElementById(id);
@@ -638,7 +653,7 @@ $('openD').onclick=()=>openD(!document.body.classList.contains('open'));
 $('closeD').onclick=()=>openD(false);$('scrim').onclick=()=>openD(false);
 const sc=document.getElementById('sc');
 const closePops=()=>sc.classList.remove('on');
-window.fillSc=()=>{const t=`Discours · slide ${i+1}`;$('scT1').textContent=t;$('scT2').textContent=t;$('scEx').textContent=S[i].sp;$('scBd').innerHTML=`<p>${S[i].sp}</p>${S[i].b?`<p class="trn">« ${S[i].b} »</p>`:''}`;$('scBd').scrollTop=0};
+window.fillSc=()=>{const t=`${S[i].divider?'Intercalaire':'Discours'} · slide ${i+1}`;$('scT1').textContent=t;$('scT2').textContent=t;$('scEx').textContent=S[i].divider?SEC[S[i].sec-1]:S[i].sp;$('scBd').innerHTML=S[i].divider?`<p>${SEC[S[i].sec-1]}</p>`:`<p>${S[i].sp}</p>${S[i].b?`<p class="trn">« ${S[i].b} »</p>`:''}`;$('scBd').scrollTop=0};
 $('scPeek').onclick=()=>sc.classList.add('on');fillSc();$('scX').onclick=closePops;
 document.addEventListener('click',e=>{
  if(e.target.closest('[data-open]')){closePops();openD(true);return}const sp=e.target.closest('.sp');if(sp){go(+sp.dataset.i,isMobile());if(isMobile())openD(false)}});
@@ -696,7 +711,7 @@ const DEMO=[
 {k:"4",ill:"compare",img:["figure-17-historique-annotated.png", "figure-18-comparaison-annotated.png"],short:"Corriger",title:"Corriger — voir ce qui a changé",time:"40 s",where:"Évaluation → Résultat → « Voir l'historique », puis comparaison de la réserve",
  steps:["Onglet ③ : cliquer sur « Voir l'historique » du dossier BTP","Montrer une ligne : qui, quand, avant → après","Onglet ④ : ouvrir la comparaison de la réserve","Pointer la ligne du budget : rouge → vert"],
  show:["L'historique rangé par étape","La comparaison côte à côte, seuls les champs modifiés","Le budget corrigé en rouge / vert"],
- say:"Le dossier a été mis en réserve : budget trop élevé. L'entreprise a corrigé. Avant, il aurait fallu tout relire. Ici, je vois chaque modification : qui, quand, avant, après. [ouvrir la comparaison] Et voici les deux versions côte à côte : en rouge l'ancien budget, en vert le nouveau. Quelques secondes suffisent.",
+ say:"Le dossier a été mis en réserve : budget trop élevé. L'entreprise a corrigé. Avant, il aurait fallu tout relire. Ici, je vois chaque modification : qui, quand, avant, après. [ouvrir la comparaison] Et voici les deux versions côte à côte : en rouge l'ancien budget, en vert le nouveau. Je repère les changements sans relire tout le dossier.",
  fb:"Montrer les captures ci-contre, ou la vidéo, segment ④."},
 
 {k:"5",ill:"chat",img:["figure-19-messagerie-annotated.png"],short:"Échanger",title:"Échanger — la discussion du dossier",time:"25 s",where:"Messagerie → fil « Réserve » du dossier BTP",
