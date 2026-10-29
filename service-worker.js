@@ -1,4 +1,4 @@
-const CACHE_NAME = 'soutenance-fmfp-v8';
+const CACHE_NAME = 'soutenance-fmfp-v10';
 const APP_SCOPE = self.registration.scope;
 const VIRGIL_FONT = 'https://cdn.jsdelivr.net/npm/@excalidraw/excalidraw@0.17.6/dist/excalidraw-assets/Virgil.woff2';
 const asset = (path) => new URL(path, APP_SCOPE).toString();

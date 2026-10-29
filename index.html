@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#2D5AA6">
-<meta name="description" content="Présentation de soutenance — aide à la décision pour les dossiers de financement du FMFP.">
+<meta name="description" content="Soutenance : assistance à la préparation, à l’analyse et au suivi des dossiers de financement FMFP.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Soutenance FMFP">
-<title>Soutenance FMFP — Aide à la décision</title>
+<title>Soutenance FMFP — Assistance au parcours du dossier</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icons/app-icon.svg" type="image/svg+xml">
 <link rel="icon" href="./icons/icon-32.png" type="image/png" sizes="32x32">
@@ -366,6 +366,45 @@ body.demo .sc{display:none}
 @media (prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+/* Dispositions du nouveau récit, avec le style manuscrit du support original. */
+.duo,.triptych,.proof-grid,.tool-matrix,.evidence-chain{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5% 4%;flex:1;align-content:center;min-height:0}
+.triptych,.proof-grid,.evidence-chain{grid-template-columns:repeat(3,minmax(0,1fr))}
+.role-card,.tool-matrix>div{background:var(--fill);border:1.6px solid var(--ink);border-radius:var(--r2);box-shadow:5px 5px 0 var(--accent2);padding:7% 8%;min-width:0}
+.role-card.evaluator,.compact .role-card:nth-child(2),.role-card:nth-child(even),.tool-matrix>div:nth-child(even){background:var(--fill2)}
+.role-card h3,.evidence-chain h3{font:400 clamp(12px,1.45vw,20px)/1.25 var(--hand);margin-bottom:9px}
+.role-card p,.evidence-chain p{font:clamp(10px,1.15vw,16px)/1.35 var(--hand)}
+.role-card.warning{background:var(--warnfill);box-shadow:5px 5px 0 #E6B98A}
+.eyebrow{font:clamp(10px,1.05vw,15px) var(--hand);color:var(--ink2);margin-bottom:12px;display:block}
+.takeaway{font:clamp(10px,1.1vw,16px)/1.35 var(--hand);margin:5% auto 0;padding:6px 12px;text-align:center;background:var(--fill2);border:1.5px solid var(--ink);border-radius:var(--r2)}
+.question{margin:3% 0;text-wrap:balance}
+.case-title{font-size:clamp(13px,1.5vw,21px);color:var(--blue);margin:-1% 0 3%}
+.case-number{font:clamp(20px,3vw,44px)/1.1 var(--hand);color:var(--blue);margin-bottom:9px}
+.step-no{font-size:30px;color:var(--blue);display:block;margin-bottom:12px}
+.status{display:inline-block;font:clamp(10px,1vw,14px) var(--hand);padding:3px 8px;border:1.5px solid var(--ink);border-radius:var(--r2);background:#fff;margin-bottom:10px}
+.status.pending{background:var(--warnfill)}
+.journey{display:flex;gap:8px;align-items:stretch;margin:4% 0 6%}
+.journey>div{flex:1;position:relative;border-top:1.8px solid var(--ink);padding-top:12px;font-size:clamp(11px,1.2vw,17px)}
+.journey span{display:block;font:20px var(--hand);color:var(--blue);margin-bottom:6px}
+.journey small{display:block;font:clamp(10px,1vw,14px)/1.4 var(--hand);color:var(--ink2);margin-top:8px}
+.compact .role-card{padding:5%}
+.tool-matrix b{display:block;font:clamp(10px,1.05vw,15px) var(--hand);color:var(--ink2);margin-bottom:6px}
+.tool-matrix span{font:clamp(12px,1.45vw,20px) var(--hand)}
+.architecture{display:grid;grid-template-columns:1fr .5fr 1fr;align-items:center;gap:12px;flex:1}
+.flow-link{text-align:center;font-size:36px}.flow-link small{display:block;font:clamp(9px,.9vw,13px)/1.4 var(--hand)}
+.architecture-foot{display:flex;gap:15px;font:clamp(10px,1vw,14px)/1.3 var(--hand);color:var(--ink2);margin-top:18px}.architecture-foot span{flex:1}
+.product-view{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:4%;flex:1;min-height:0;align-items:center}
+.product-shot{padding:0;min-height:0;align-self:stretch;overflow:hidden}.product-shot img{display:block;width:100%;height:100%;object-fit:contain;background:var(--fill2)}
+.product-points{display:grid;gap:18px}.product-points>div{display:flex;gap:10px;align-items:flex-start}.product-points span{font:18px var(--hand);color:var(--blue)}.product-points p{font:clamp(11px,1.25vw,17px)/1.3 var(--hand)}
+.evidence-chain>div{padding:10px 4px}.evidence-chain span{font:28px var(--hand);color:var(--blue)}.evidence-chain h3{margin:12px 0}
+.demo-launch{margin-top:5%}
+@media(max-width:900px){
+ .duo,.triptych,.proof-grid,.tool-matrix,.evidence-chain{gap:15px;margin:18px 0;grid-template-columns:1fr}
+ .role-card{padding:18px}.role-card h3,.evidence-chain h3{font-size:22px}.role-card p,.evidence-chain p{font-size:16px}.eyebrow{font-size:14px}
+ .takeaway{font-size:15px;margin-top:20px}.journey{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0}.journey>div{font-size:17px}.journey small{font-size:14px}
+ .architecture{grid-template-columns:1fr;margin:20px 0}.flow-link{font-size:24px}.architecture-foot{font-size:14px;flex-direction:column}
+ .product-view{grid-template-columns:1fr;gap:20px}.product-shot{aspect-ratio:4/3}.product-points p{font-size:18px}.product-points{gap:15px}
+ .case-number{font-size:36px}.tool-matrix span{font-size:20px}.roadmap{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -417,7 +456,7 @@ const AR=`<svg class="arrow" viewBox="0 0 40 20"><g ${st}><path d="M3 10c10-1 22
 const AR2=`<svg class="arrow" viewBox="0 0 40 20"><g ${st}><path d="M6 6c9 0 20 0 30 0M30 1l6 5-6 5M34 14c-9 0-20 0-30 0M10 9l-6 5 6 5"/></g></svg>`;
 const ph=t=>`<div class="ph">${t}</div>`;
 const li=a=>a.map(x=>`<div class="li"><span>${x}</span></div>`).join('');
-const SEC=["Introduction et contexte","Problématique et objectifs","Démarche de réalisation","Architecture et fonctionnalités","Résultats et garde-fous","Conclusion et échanges"];
+const SEC=["Un dossier, deux utilisateurs","La réponse au besoin","Construire dans l’existant","L’assistance en action","Preuves et limites","Mesurer et poursuivre"];
 const som=()=>`<div class="som">${SEC.map((x,k)=>`<div><b>0${k+1}</b>${x}</div>`).join('')}</div>`;
 const sectionDivider=n=>({
  sec:n,t:"—",cls:"center hero section-divider",divider:true,
@@ -427,184 +466,49 @@ const sectionDivider=n=>({
 });
 
 /* ---------- slides ---------- */
+const screen=(file,alt,points)=>`<div class="product-view"><button class="shot product-shot" data-zoom="img/${file}" aria-label="Agrandir : ${alt}"><img src="img/${file}" alt="${alt}" loading="lazy"></button><div class="product-points">${points.map((x,k)=>`<div><span>0${k+1}</span><p>${x}</p></div>`).join('')}</div></div>`;
 const S=[
-/* ---------- Ouverture ---------- */
 {sec:0,t:"40 s",cls:"center hero",
  f:`<div class="big">Conception d'un système intelligent de scoring, de recommandations et d'aide à la décision</div><div class="sub">pour la gestion des financements de la formation professionnelle · FMFP Madagascar</div><div class="sub" style="margin-top:4%">SOLOARIJAONA Paul Ferdinah · Master of Science eBIHAR · ESTIA</div>${dz('laptopGuy','br')}${dz('bulb','tl')}`,
  m:"Remercier le public, annoncer le travail, puis présenter le problème et la solution.",
  tip:"Marquer une courte pause après le problème ; garder les détails pour la suite.",
  b:"Voici le parcours de cette présentation.",
  sp:"Bonjour à toutes et à tous, merci d'être présents aujourd'hui. Je vais vous présenter le fruit de mon travail au Fonds Malgache de Formation Professionnelle, le FMFP. Mon travail est parti d'une question concrète : comment aider les équipes à évaluer les demandes de financement quand les informations utiles sont réparties entre plusieurs parties du dossier ? J'ai conçu un système d'aide à la décision qui rassemble ces éléments, met en évidence les points à vérifier et propose des repères pour l'évaluation. Je vais vous présenter le problème rencontré, la démarche suivie, puis vous montrer ce que le système apporte en pratique."},
-
-{sec:0,t:"20 s",
- f:`<h2>Sommaire</h2>${som()}`,
- m:"Annoncer le plan en une phrase, sans le lire.",
- b:"Et pour commencer, il faut comprendre ce qu'est le FMFP.",
- sp:"Je vais d'abord vous présenter le contexte et le problème rencontré. Puis la façon dont j'ai travaillé, ce que j'ai construit, ce que ça donne vraiment — avec ses limites — et enfin ce que j'en retiens."},
-
-/* ---------- 01 ---------- */
+{sec:0,t:"20 s",f:`<h2>Le fil de la présentation</h2>${som()}`,m:"Annoncer une progression, sans réciter le sommaire.",b:"Voici d’abord le parcours que nous voulons améliorer.",sp:"Je pars d’un dossier et des difficultés rencontrées par ses utilisateurs. Je présente ensuite la réponse construite et les choix qui la rendent possible. Nous suivrons cette assistance à l’écran, avant d’examiner ses résultats, ses limites et les prochaines étapes."},
 sectionDivider(1),
-{sec:1,t:"50 s",
- f:`<h2>Le FMFP : former les salariés malgaches</h2><div class="grid" style="grid-template-columns:repeat(3,1fr)"><div class="cell"><b>Qui finance ?</b>les entreprises, par une cotisation de 1 % de leur masse salariale</div><div class="cell light"><b>Qui gère ?</b>employeurs, syndicats et État, ensemble</div><div class="cell"><b>Pour qui ?</b>les salariés, les jeunes et le secteur informel</div></div><div style="text-align:center;margin-top:4%"><span class="tag">depuis 2019 · plus de 70 000 salariés formés · 23 régions</span></div>`,
- m:"Expliquer d'où viennent les ressources, qui les gère et à qui elles servent.",
- tip:"Chiffres : bilan public 2024 (fmfp.mg). Les dire de mémoire, sans lire.",
- b:"Voyons ce que contient ce dossier et comment il est traité.",
- sp:"Au FMFP, les entreprises versent une cotisation égale à 1 % des salaires qu'elles paient. Le fonds est géré par les employeurs, les syndicats et l'État. [pause] Cet argent finance des formations pour les salariés, les jeunes et les travailleurs du secteur informel. Depuis 2019, plus de 70 000 salariés ont été formés dans les 23 régions. Pour obtenir cette aide, une entreprise doit déposer un dossier."},
-
-{sec:1,t:"50 s",
- f:`<h2>Un dossier, et le chemin qu'il parcourt</h2><div class="row dossier-parts" style="flex:0 0 auto;gap:2%;margin-bottom:3%">${['Projet','Modules','Bénéficiaires','Budget','Prestataire','Pièces'].map((x,k)=>`<div class="cell ${k%2?'light':''}" style="text-align:center;padding:2.5% 1%">${x}</div>`).join('')}</div><div class="tl dossier-timeline" style="flex:0 0 auto">${[['Dépôt','entreprise'],['Complétude','FMFP'],['Éligibilité','FMFP'],['Évaluation','évaluateur'],['Décision','direction'],['Convention','FMFP + entreprise']].map((x,k)=>`<div class="${k===3?'k':''}">${k===3?'<b style="font-weight:400;font-size:1.2em">'+x[0]+'</b>':x[0]}<br><span class="sub">${x[1]}</span></div>`).join('')}</div>${dz('folder','tr')}`,
- m:"Ce qu'est un dossier, et où se situe l'évaluateur.",
- b:"C'est cet évaluateur que nous allons suivre.",
- sp:"Dans ce dossier, on trouve son projet, les modules de formation, les salariés concernés, le budget, le prestataire, et les pièces justificatives. Ce dossier passe ensuite par plusieurs étapes : on vérifie qu'il est complet, qu'il est éligible, puis vient l'étape clé — l'évaluation. Un évaluateur analyse le dossier avec une grille de critères, lui donne une note et rédige un avis. Ensuite seulement, la direction décide."},
-
-{sec:1,t:"45 s",
- f:`<h2>Un lundi matin, un évaluateur ouvre un dossier…</h2><div class="grid compact-grid" style="grid-template-columns:repeat(4,1fr);max-width:84%">${['Budget','Pièces','Cotisations','Modules','Bénéficiaires','Objectifs','Historique','Statut'].map((x,k)=>`<div class="cell ${k%3?'light':''}" style="text-align:center">${x}</div>`).join('')}</div>${dz('thinker','tr')}`,
- m:"Faire vivre la scène : le public doit se mettre à la place de l'évaluateur.",
- tip:"Ce dossier BTP devient le fil rouge de toute la présentation.",
- b:"Et en observant ce travail, j'ai relevé trois difficultés.",
- sp:"Imaginez. Lundi matin. Un évaluateur ouvre le dossier d'un projet du BTP : quinze bénéficiaires, qui veulent se former à AutoCAD, à la planification et à l'établissement des devis. Pour se faire un avis, il doit ouvrir le budget… les pièces… les cotisations… les modules… les bénéficiaires… Huit rubriques. [pause] Rien ne manque vraiment. Mais tout est dispersé. Gardez ce dossier en tête : il va nous accompagner jusqu'à la fin."},
-
-/* ---------- 02 ---------- */
+{sec:1,t:"40 s",f:`<h2>Une demande de financement, deux besoins</h2><div class="duo"><div class="role-card"><span class="eyebrow">Entreprise</span><h3>Présenter un projet compréhensible</h3><p>Choisir le dispositif, décrire le besoin, réunir les informations.</p></div><div class="role-card evaluator"><span class="eyebrow">Équipe d’instruction et évaluateur</span><h3>Comprendre et vérifier le dossier</h3><p>Appliquer les règles, examiner les pièces, motiver l’avis.</p></div></div><div class="takeaway">Un même dossier relie les deux côtés.</div>`,m:"Présenter les utilisateurs avant les technologies.",b:"Ces deux besoins se rencontrent dans la plateforme.",sp:"Le Fonds Malgache de Formation Professionnelle accompagne le financement de la formation à Madagascar. Pour l’entreprise, la difficulté est de choisir un dispositif et de rendre son projet compréhensible. Côté instruction et évaluation, il faut rapprocher les informations, appliquer les règles et motiver un avis. Mon travail se place à cette rencontre : un même dossier, mais des besoins différents selon l’étape et l’utilisateur."},
+{sec:1,t:"45 s",f:`<h2>Le parcours existe déjà</h2><div class="journey">${['Préparer','Déposer','Instruire','Évaluer','Décider','Suivre'].map((x,k)=>`<div><span>0${k+1}</span>${x}</div>`).join('')}</div><div class="duo compact"><div class="role-card"><h3>Le dossier</h3><p>Besoin · objectifs · modules · bénéficiaires · budget · pièces</p></div><div class="role-card"><h3>La difficulté</h3><p>Les éléments sont répartis entre plusieurs rubriques.</p></div></div><div class="takeaway">Ajouter de l’aide dans le parcours de travail.</div>`,m:"Montrer où intervient l’assistance dans le système existant.",b:"Prenons un exemple qui nous accompagnera pendant la démonstration.",sp:"La plateforme porte déjà les étapes du dépôt à la décision et au suivi. Le dossier rassemble un besoin, des objectifs, des modules, des bénéficiaires, un budget et des pièces. Pourtant, rassembler les informations dans une application ne suffit pas à les rendre faciles à analyser : elles restent réparties dans plusieurs rubriques. L’enjeu est donc d’apporter une aide au bon endroit, au moment où la personne en a besoin."},
+{sec:1,t:"45 s",f:`<h2>Un dossier BTP : que faut-il vérifier ?</h2><div class="case-title">AutoCAD · planification · devis</div><div class="duo"><div class="role-card warning"><span class="eyebrow">Deux rubriques</span><div class="case-number">11 ≠ 15</div><p>Le nombre de bénéficiaires diffère.</p></div><div class="role-card warning"><span class="eyebrow">Une information attendue</span><h3>Problématique non renseignée</h3><p>Le besoin de formation doit être clarifié.</p></div></div><div class="takeaway">Repérer le point, retrouver sa source, demander une correction.</div>`,m:"Utiliser les deux constats visibles dans la capture de démonstration.",tip:"Exemple du dossier de démonstration ; ce n’est pas une statistique sur les dossiers FMFP.",b:"C’est à partir de ces difficultés que j’ai formulé ma question.",sp:"Dans le dossier BTP de la démonstration, le projet porte sur AutoCAD, la planification et les devis. Deux points attirent l’attention : une rubrique indique onze bénéficiaires et une autre quinze ; la problématique du projet n’est pas renseignée. Le besoin n’est pas d’obtenir immédiatement une note. Il faut d’abord retrouver les informations concernées, vérifier le constat, puis demander à l’entreprise de clarifier ou corriger."},
 sectionDivider(2),
-{sec:2,t:"40 s",
- f:`<h2>Trois difficultés</h2><div class="grid" style="grid-template-columns:repeat(3,1fr)"><div class="cell"><b>Tout est dispersé</b>il faut croiser plusieurs rubriques</div><div class="cell light"><b>Les règles changent</b>selon le type de financement</div><div class="cell"><b>Tout est vérifié à la main</b>une incohérence peut passer inaperçue</div></div>${dz('magnifier','tr')}`,
- m:"Trois constats, une phrase chacun.",
- b:"D'où la question qui a guidé tout mon stage.",
- sp:"Première difficulté : l'information est dispersée. Deuxième : les règles changent selon le type de financement demandé. Troisième : presque tout est vérifié à la main. Résultat : un nombre de bénéficiaires qui change d'une rubrique à l'autre, ou une rubrique laissée vide, peut tout simplement passer inaperçu."},
-
-{sec:2,t:"30 s",cls:"center",
- f:`<span class="tag">Problématique</span><div class="big" style="margin-top:4%">Comment aider les équipes du FMFP à analyser les dossiers plus clairement, tout en gardant une décision humaine, expliquée et conforme aux règles ?</div>${dz('thinker','bl')}`,
- m:"Lire lentement. Laisser la phrase respirer.",
- b:"Et pour y répondre, je me suis fixé une règle dès le premier jour.",
- sp:"Comment aider les équipes du FMFP à analyser les dossiers plus clairement, tout en gardant une décision humaine, expliquée et conforme aux règles ? [pause] Mon objectif était de rendre les points à vérifier plus visibles et de faciliter la première lecture du dossier. Le gain de temps sur l'instruction complète reste à mesurer."},
-
-{sec:2,t:"20 s",cls:"center hero",
- f:`<div class="big">L'IA conseille.<br>Elle ne décide jamais.</div>${dz('bulb','tr')}`,
- m:"La phrase à retenir — on la reprend en conclusion.",
- b:"Concrètement, l'équipe avait quatre besoins.",
- sp:"L'IA conseille. Elle ne décide jamais. [pause] Un score, une alerte, une suggestion : ce sont des aides à la lecture. La décision reste toujours celle d'une personne. Tout ce que je vais vous montrer découle de cette règle."},
-
-{sec:2,t:"40 s",
- f:`<h2>4 besoins, 4 réponses</h2><table><tr><th>L'équipe veut…</th><th>Ce que j'ai construit</th></tr><tr><td>voir ce qui manque</td><td>des alertes automatiques</td></tr><tr><td>comprendre un risque</td><td>un score expliqué</td></tr><tr><td>bien orienter l'entreprise</td><td>un conseiller de guichet</td></tr><tr><td>suivre le dossier</td><td>historique, versions et messagerie</td></tr></table>`,
- m:"Chaque fonctionnalité répond à un besoin réel.",
- b:"Restait à choisir comment les construire.",
- sp:"Voir ce qui manque : ce seront des alertes automatiques. Comprendre un risque : un score, toujours expliqué. Bien orienter l'entreprise : un conseiller de guichet. Et suivre le dossier dans le temps : un historique, une comparaison des versions et une messagerie."},
-
-/* ---------- 03 ---------- */
+{sec:2,t:"35 s",cls:"center",f:`<span class="eyebrow">La question du projet</span><div class="big question">Comment aider les entreprises à préparer des dossiers plus complets et cohérents, tout en facilitant leur analyse ?</div><div class="takeaway">Une assistance intégrée, dont les résultats restent vérifiables.</div>`,m:"Relier la problématique aux deux utilisateurs.",b:"Cette question conduit à trois objectifs concrets.",sp:"Comment aider les entreprises à préparer des dossiers plus complets et cohérents, tout en facilitant leur analyse ? C’est la question du mémoire. Elle dépasse le calcul d’un score : elle concerne l’orientation, les informations manquantes, les contradictions et les corrections. Pour y répondre, l’assistance doit s’intégrer à la plateforme et permettre de vérifier chaque point avant de l’utiliser."},
+{sec:2,t:"40 s",f:`<h2>Trois objectifs pour le dossier</h2><div class="triptych"><div class="role-card"><span class="step-no">01</span><h3>Mieux orienter</h3><p>Comprendre quel dispositif peut correspondre au besoin.</p></div><div class="role-card"><span class="step-no">02</span><h3>Mieux analyser</h3><p>Repérer les manques et rapprocher les informations.</p></div><div class="role-card"><span class="step-no">03</span><h3>Mieux suivre</h3><p>Relier les demandes de correction, les versions et les échanges.</p></div></div><div class="takeaway">Qualité du dossier · effort de vérification · continuité du suivi</div>`,m:"Énoncer les résultats recherchés, pas une liste de modèles.",b:"Il faut aussi préciser jusqu’où va la réalisation actuelle.",sp:"Je retiens trois objectifs. Mieux orienter l’entreprise vers un dispositif compatible. Mieux assister l’analyse, en signalant les manques et certaines incohérences. Et mieux suivre les corrections, pour que les échanges et les versions restent liés au dossier. Ce sont les effets recherchés. Leur réalisation technique et leur bénéfice pour les utilisateurs doivent ensuite être évalués séparément."},
+{sec:2,t:"45 s",f:`<h2>Un périmètre à annoncer clairement</h2><div class="duo"><div class="role-card"><span class="status">Intégré</span><h3>Orientation, contrôles et suivi</h3><p>Assistance au dossier surtout côté évaluateur.</p></div><div class="role-card warning"><span class="status pending">À étendre et à valider</span><h3>Préparation guidée de bout en bout</h3><p>Lecture des pièces, pertinence métier et bénéfices à mesurer.</p></div></div><div class="takeaway">L’orientation avant dépôt est disponible ; l’accompagnement complet reste à construire.</div>`,m:"Assumer la différence entre la vision du projet et le périmètre réalisé.",b:"Pour ce périmètre, j’ai retenu une combinaison de méthodes.",sp:"Le périmètre réalisé comprend une orientation avant dépôt, des contrôles et des outils de suivi. L’assistant du dossier intervient surtout auprès de l’évaluateur, sur le dossier reçu. Il serait inexact de présenter une préparation entièrement guidée pour l’entreprise comme déjà livrée. L’extension à cette préparation et la validation de la lecture des pièces restent des étapes à mener, tout comme la mesure des bénéfices métier."},
 sectionDivider(3),
-{sec:3,t:"50 s",
- f:`<h2>Choisir des méthodes qu'on peut expliquer</h2><div class="grid method-grid" style="grid-template-columns:repeat(4,1fr)"><div class="cell"><b>Score</b>gradient boosting<br><span class="sub">fiable sur ce type de données</span></div><div class="cell light"><b>Orientation</b>règles FMFP + contenu<br><span class="sub">pas assez d'historique pour plus</span></div><div class="cell"><b>Alertes</b>règles explicites<br><span class="sub">chaque alerte a une raison</span></div><div class="cell light"><b>Intégration</b>service séparé<br><span class="sub">on peut le retirer</span></div></div>${dz('doc','tr')}`,
- m:"Un critère avant tout : pouvoir expliquer chaque résultat.",
- tip:"Si le jury creuse : l'état de l'art complet est au chapitre 3 du mémoire.",
- b:"Mais il y avait une contrainte forte.",
- sp:"J'ai d'abord étudié ce qui existe. Et j'ai choisi avec un critère principal : pouvoir expliquer chaque résultat à un évaluateur. Pour le score, un modèle de gradient boosting, reconnu sur ce type de données. Pour l'orientation, les règles du FMFP, parce qu'il n'y avait pas assez d'historique pour faire plus complexe. Pour les alertes, des règles explicites : chaque alerte a une raison lisible. Et un service séparé, qu'on peut retirer sans rien casser."},
-
-{sec:3,t:"50 s",
- f:`<h2>Moderniser… sans rien casser</h2><div class="sub" style="margin-top:-2%;margin-bottom:2%">Une plateforme en production, utilisée chaque jour</div><div class="tl"><div>Cadrage<br><span class="sub">comprendre le besoin</span></div><div class="k">Prototype<br><span class="sub">valider la chaîne</span></div><div>Intégration<br><span class="sub">dans les écrans</span></div><div>Agent IA<br><span class="sub">vérifier les dossiers</span></div><div class="k">En production<br><span class="sub">utilisé au FMFP</span></div></div><div style="text-align:center;margin-top:2%"><span class="tag">petites étapes · chacune testée avant la suivante</span></div>`,
- m:"Le vrai défi : ajouter de l'IA à un système qui tourne tous les jours.",
- b:"Voyons maintenant comment tout cela s'organise.",
- sp:"La contrainte, c'est que la plateforme du FMFP tourne en production. Tous les jours, des entreprises et des évaluateurs l'utilisent. Pas question de tout réécrire. J'ai donc avancé par petites étapes. D'abord un premier prototype, juste pour vérifier que toute la chaîne fonctionnait. Puis l'intégration dans les écrans, l'assistant IA… et enfin la mise en production. Chaque étape testée avant de passer à la suivante."},
-
-/* ---------- 04 ---------- */
+{sec:3,t:"45 s",f:`<h2>Le bon outil pour chaque tâche</h2><div class="tool-matrix"><div><b>Exigence connue</b><span>Règle explicite</span></div><div><b>Suite d’étapes stable</b><span>Workflow contrôlé</span></div><div><b>Question sur le dossier</b><span>Assistant et outils autorisés</span></div><div><b>Tendance historique</b><span>Score complémentaire</span></div></div><div class="takeaway">Architecture hybride : la complexité doit apporter un gain mesurable.</div>`,m:"Justifier le choix des méthodes à partir des tâches.",tip:"Mémoire, sections 3.3 et 3.4. Le multi-agents reste une piste à comparer à un workflow fixe.",b:"Ces méthodes devaient entrer dans une application déjà en production.",sp:"Une règle explicite convient pour vérifier une exigence connue. Un workflow organise une séquence stable de contrôles. Pour une question sur le dossier, l’assistant peut mobiliser les informations et les outils autorisés. Le modèle prédictif ajoute un signal issu de l’historique. Cette combinaison est plus adaptée que de demander à un modèle unique de tout faire. Plusieurs agents ne seraient justifiés que s’ils apportaient un gain par rapport à une orchestration plus simple."},
+{sec:3,t:"45 s",f:`<h2>Construire par étapes vérifiables</h2><div class="journey">${['Cadrer','Prototyper','Intégrer','Tester','Déployer'].map((x,k)=>`<div><span>0${k+1}</span>${x}</div>`).join('')}</div><div class="duo compact"><div class="role-card"><h3>Avec les équipes</h3><p>Comprendre les règles et revoir chaque livraison.</p></div><div class="role-card"><h3>Dans l’existant</h3><p>Conserver les droits, les formulaires et le parcours officiel.</p></div></div><div class="takeaway">Stage : 8 juin au 2 octobre 2026 · vérifications complémentaires en octobre</div>`,m:"Distinguer les livraisons du stage et les observations postérieures.",b:"Cette progression se retrouve dans l’architecture.",sp:"J’ai commencé par comprendre les règles et les données, puis par un prototype qui vérifiait toute la chaîne. L’intégration s’est faite par étapes, avec des revues et des tests. La plateforme conservait ses formulaires, ses droits et ses décisions. Le stage se termine le 2 octobre ; les vérifications et captures ultérieures complètent les preuves, mais ne permettent pas de dater une fonction comme livrée avant cette échéance."},
+{sec:3,t:"50 s",f:`<h2>Des responsabilités séparées</h2><div class="architecture"><div class="role-card"><span class="eyebrow">Plateforme</span><h3>Accès et parcours officiel</h3><p>Écrans · droits · grille · suivi</p></div><div class="flow-link">↔<small>demande et réponse validées</small></div><div class="role-card"><span class="eyebrow">Service analytique</span><h3>Contrôles et assistance</h3><p>Règles · outils · explications</p></div></div><div class="architecture-foot"><span>Données du dossier : lecture seule</span><span>Appels IA externes : confidentialité à valider</span></div><div class="takeaway">L’évaluateur vérifie les propositions et renseigne la grille.</div>`,m:"Inclure le fournisseur externe et sa limite de confidentialité.",tip:"Détail si demandé : CodeIgniter 3, service Python/FastAPI, contrat JSON versionné, droits vérifiés côté plateforme.",b:"Voyons maintenant cette assistance dans le parcours d’un dossier.",sp:"La plateforme gère les accès, les écrans et le circuit officiel. Le service analytique effectue les contrôles et prépare les aides. Les échanges sont validés et tracés ; le service consulte les données métier en lecture seule. Certains traitements appellent un fournisseur de modèle de langage. Le filtrage des identifiants réduit l’exposition, mais ne clôt pas le risque de confidentialité. Enfin, les propositions reviennent à l’évaluateur : il les vérifie et renseigne sa grille."},
 sectionDivider(4),
-{sec:4,t:"50 s",
- f:`<h2>La plateforme décide, le service calcule</h2><div class="row" style="gap:1.5%"><div class="box" style="flex:1.1">Plateforme FMFP<br><span class="sub">utilisateurs · règles · décision</span></div>${AR2}<div class="box light" style="flex:.9">Échange sécurisé<br><span class="sub">tracé</span></div>${AR}<div class="box" style="flex:1.1">Service d'analyse<br><span class="sub">calcule et explique</span></div>${AR}<div class="box light" style="flex:.8">Base de données<br><span class="sub">lecture seule</span></div></div>${dz('gear','tr')}`,
- m:"Une idée : séparer celui qui décide de celui qui calcule.",
- tip:"Détail technique si on vous le demande : CodeIgniter 3 / FastAPI, contrat JSON validé, jeton Bearer, request_id.",
- b:"Et maintenant, reprenons notre dossier BTP.",
- sp:"L'idée centrale est simple : séparer celui qui décide de celui qui calcule. La plateforme garde les utilisateurs, les règles et la décision. À côté, un service d'analyse lit les données — sans jamais les modifier — calcule, et explique. Chaque échange est sécurisé et tracé. Et si le service tombe en panne ? La plateforme continue de fonctionner, comme avant."},
-
-{sec:4,t:"25 s",
- f:`<h2>La vie de notre dossier en 5 étapes</h2><div class="row" style="gap:1%">${['① Orienter','② Vérifier','③ Évaluer','④ Corriger','⑤ Échanger'].map((x,k)=>`<div class="box ${k%2?'light':''}" style="flex:1">${x}</div>${k<4?AR:''}`).join('')}</div>${dz('folder','bl')}`,
- m:"Une carte du parcours, pour que le public ne se perde pas.",
- b:"Tout commence avant même que le dossier soit déposé.",
- sp:"Plutôt que de vous lister des modules, nous allons le suivre du début à la fin. Cinq étapes : orienter, vérifier, évaluer, corriger… et échanger. [pause] Et à chaque étape, l'IA aide la bonne personne : l'entreprise quand elle prépare son dossier, l'évaluateur quand il l'analyse."},
-
-{sec:4,t:"50 s",
- f:`<h2>① Orienter : quel financement demander ?</h2><div class="row">${ph('Capture<br>conseiller de guichet')}<div class="col">${li(['L’entreprise décrit son besoin','L’outil propose le bon guichet, et explique pourquoi','Rien de compatible ? Il ne propose rien'])}</div></div>`,
- m:"Bien orienter, sans jamais promettre un financement.",
- b:"Le dossier est déposé. Il faut maintenant le vérifier.",
- sp:"Notre entreprise ne sait pas quel financement demander. Elle décrit son besoin. L'outil regarde son secteur, sa taille, ses cotisations… et lui propose le guichet adapté, en expliquant pourquoi. Et s'il n'y a rien de compatible ? Il ne propose rien. [pause] C'est voulu : mieux vaut aucune réponse qu'une mauvaise réponse."},
-
-{sec:4,t:"1 min",
- f:`<h2>② Vérifier : ce qui cloche, en un coup d'œil</h2><div class="sub" style="margin:-3% 0 2%">l'assistant de l'évaluateur, sur le dossier reçu de l'entreprise</div><div class="row"><button class="shot slide-shot" data-zoom="img/assistant-dossier-btp.png" style="align-self:stretch;max-height:100%"><img src="img/assistant-dossier-btp.png" alt="Assistant IA sur le dossier BTP" style="height:100%;width:100%;object-fit:cover;object-position:top"></button><div class="col"><div class="cell w"><b>Bénéficiaires : 11 d'un côté, 15 de l'autre</b></div><div class="cell w"><b>Problématique non renseignée</b></div>${li(['Pour chaque point : ce qu’il faut faire'])}</div></div>`,
- m:"Deux assistants : un pour l'entreprise, un pour l'évaluateur. Ici, celui de l'évaluateur.",
- tip:"Preuve si on vous la demande : les 144 champs des formulaires ont été audités, aucun n'est oublié.",
- b:"Le dossier est vérifié. L'évaluateur peut maintenant l'évaluer.",
- sp:"Il y a en fait deux assistants. Le premier accompagne l'entreprise : il l'aide à compléter son dossier avant de le soumettre. Le second accompagne l'évaluateur, quand le dossier arrive au FMFP. [pause] Vous vous souvenez de notre lundi matin ? Cette fois, l'évaluateur demande simplement : qu'est-ce qui manque dans ce dossier ? Et l'assistant relève huit points, classés par priorité. Ici, la problématique du projet n'est pas renseignée. Là, le nombre de bénéficiaires n'est pas le même d'une rubrique à l'autre : 11 d'un côté, 15 de l'autre. Il ne corrige rien : il dit à l'évaluateur quoi vérifier."},
-
-{sec:4,t:"1 min",
- f:`<h2>③ Évaluer : un avis, pas un verdict</h2><div class="row">${ph('Capture<br>écran d’évaluation')}<div class="col"><div class="cell"><b>La grille</b>la note officielle, celle de l'évaluateur</div><div class="cell light"><b>L'indicateur IA</b>un signal de risque, expliqué</div></div></div>`,
- m:"Bien distinguer la note officielle et l'indicateur.",
- tip:"Si on vous le demande : trois scores en réalité — grille, modèle, et final (modèle + règles FMFP).",
- b:"Imaginons maintenant que l'évaluateur demande une correction.",
- sp:"La grille reste au centre : seule la note saisie par l'évaluateur devient officielle. À côté, l'assistant affiche un risque de rejet calculé par le modèle, puis un score indicatif ajusté par les règles du FMFP. Il peut aussi proposer des notes par critère de la grille. Ces trois valeurs sont des aides à vérifier ; l'évaluateur remplit la grille et rédige lui-même son avis."},
-
-{sec:4,t:"1 min",
- f:`<h2>④ Corriger : qu'est-ce qui a changé ?</h2><div class="row">${ph('Capture<br>comparaison des versions')}<div class="col">${li(['Chaque modification est tracée : qui, quand, avant → après','En réserve : les deux versions côte à côte','En rouge ce qui est retiré, en vert ce qui est ajouté'])}</div></div>`,
- m:"Rendre visible la correction en quelques secondes.",
- b:"Pour que cette correction se fasse sans perdre le fil, les échanges restent dans le dossier.",
- sp:"L'évaluateur trouve le budget trop élevé. Il met le dossier en réserve. L'entreprise corrige et renvoie. Avant, une question revenait sans cesse : qu'est-ce qui a changé ? Il fallait tout relire. Maintenant, chaque modification est tracée : qui, quand, avant, après. Et l'évaluateur voit les deux versions côte à côte. En rouge ce qui a été retiré, en vert ce qui a été ajouté. Il repère les changements sans relire tout le dossier."},
-
-{sec:4,t:"45 s",
- f:`<h2>⑤ Échanger : la conversation reste dans le dossier</h2><div class="row">${ph('Capture<br>messagerie du dossier')}<div class="col">${li(['Un fil de discussion par dossier','Pièces jointes, accusé de lecture','La réserve ouvre le fil automatiquement'])}</div></div>`,
- m:"Plus de demande perdue dans les e-mails.",
- b:"Et pour la direction, il fallait une vue d'ensemble.",
- sp:"Avant, la demande de correction partait par e-mail… et parfois se perdait. Maintenant, chaque dossier a sa propre messagerie. Dès la mise en réserve, la discussion s'ouvre automatiquement. L'entreprise répond, joint son nouveau devis… et tout reste attaché au dossier."},
-
-{sec:4,t:"30 s",
- f:`<h2>Pour la direction : où ça bloque ?</h2><div class="grid" style="grid-template-columns:repeat(4,1fr);flex:0 0 26%">${['En traitement','Étape la plus lente','Conventionnés','Taux de validation'].map((x,k)=>`<div class="cell ${k%2?'light':''}" style="text-align:center">${x}</div>`).join('')}</div><div style="flex:1;margin-top:4%;display:flex">${ph('Capture<br>tableau de bord')}</div>${dz('chart','tr')}`,
- m:"Une réponse simple à une question de direction.",
- b:"Voyons maintenant ce que montrent les tests, et les limites du système.",
- sp:"Une seule question compte : où est-ce que ça bloque ? Le tableau de bord y répond d'un coup d'œil : combien de dossiers sont en cours, à quelle étape ils attendent le plus, et combien aboutissent."},
-
-/* ---------- 05 ---------- */
+{sec:4,t:"40 s",f:`<h2>Avant le dépôt : trouver une orientation</h2>${screen('figure-11.png','Conseiller de guichet',['Décrire le besoin','Filtrer les dispositifs incompatibles','Expliquer la proposition'])}`,m:"Parler d’orientation, sans promettre l’éligibilité ni le financement.",b:"Le dossier reçu, le besoin change : il faut vérifier ce qu’il contient.",sp:"L’entreprise décrit son besoin. Le conseiller utilise son contexte, les règles de guichet et les appels disponibles pour proposer une orientation expliquée. Les options incompatibles sont écartées avant le classement. Si les informations ne suffisent pas, l’outil peut demander une précision ou ne rien proposer. L’instruction confirmera ensuite l’éligibilité selon les règles du dispositif."},
+{sec:4,t:"45 s",f:`<h2>Côté évaluateur : par où commencer ?</h2><div class="grid" style="grid-template-columns:repeat(2,1fr);gap:14px"><div class="cell" style="padding:5% 6%"><b>Que manque-t-il ?</b>Repérer ce qu’il faut demander.</div><div class="cell light" style="padding:5% 6%"><b>Où est l’écart ?</b>Croiser les rubriques concernées.</div><div class="cell light" style="padding:5% 6%"><b>Sur quoi fonder mon avis ?</b>Examiner les motifs et les sources.</div><div class="cell" style="padding:5% 6%"><b>Qu’a-t-on corrigé ?</b>Retrouver les échanges et les versions.</div></div>`,m:"Se placer dans la situation de l’évaluateur, avant de montrer les fonctions.",b:"Ma première question est donc : que faut-il vérifier dans ce dossier ?",sp:"Je me place maintenant dans le rôle de l’évaluateur. J’ouvre le dossier : est-ce qu’il est suffisamment renseigné pour être analysé ? Est-ce que le budget correspond aux modules et aux bénéficiaires ? Sur quels éléments vais-je fonder mon avis ? Et s’il revient après une réserve, la correction répond-elle à ce qui était demandé ? L’assistant m’aide à préparer ces vérifications. C’est moi qui examine les informations et qui motive mon appréciation."},
+{sec:4,t:"55 s",f:`<h2>Je repère les points à vérifier</h2>${screen('assistant-dossier-btp.png','Assistant du dossier BTP',['Une question : « Qu’est-ce qui manque ? »','Des constats classés par priorité','Des points à vérifier dans les rubriques'])}`,m:"L’agent aide l’évaluateur sur le dossier envoyé par l’entreprise.",tip:"Ne pas annoncer un assistant complet de préparation côté entreprise.",b:"La réponse utile doit permettre de revenir à l’information d’origine.",sp:"Dans le rôle de l’évaluateur, je retrouve le dossier BTP. Je demande ce qui manque et je consulte les points classés par priorité. Ici, la problématique n’est pas renseignée ; là, deux rubriques donnent des nombres de bénéficiaires différents. Je sais où commencer ma vérification et ce que je dois demander à l’entreprise. L’assistant laisse les déclarations intactes : la correction appartient à l’entreprise."},
+{sec:4,t:"55 s",f:`<h2>Je vérifie le constat dans le dossier</h2><div class="evidence-chain"><div><span>1</span><h3>Observer</h3><p>11 bénéficiaires dans une rubrique, 15 dans une autre.</p></div><div><span>2</span><h3>Retrouver</h3><p>Consulter les champs et les sections concernés.</p></div><div><span>3</span><h3>Clarifier</h3><p>Vérifier, puis demander une correction à l’entreprise.</p></div></div><div class="takeaway">Règles croisées + contexte du dossier + restitution à vérifier</div>`,m:"Expliquer le mécanisme de l’assistance avant de parler d’agents.",tip:"Une référence affichée doit aussi être vérifiée : sa pertinence métier n’est pas encore mesurée systématiquement.",b:"Cette même logique accompagne l’appréciation du projet.",sp:"Je ne reprends pas un constat parce que l’assistant l’affiche. J’ouvre les rubriques concernées et je vérifie les nombres : onze ici, quinze là. Je dois comprendre si cet écart est une erreur ou s’il a une explication. Si le dossier ne permet pas de trancher, je demande une clarification. L’aide utile me ramène donc aux informations du dossier et à une action précise ; la justesse des constats et des références reste à évaluer."},
+{sec:4,t:"45 s",f:`<h2>Je prépare mon avis, je renseigne ma grille</h2>${screen('figure-05-analyse-annotated.png','Écran d’analyse assistée',['Retrouver les points à examiner','Lire les motifs et les propositions','Saisir soi-même la grille officielle'])}`,m:"Le score est un élément de l’aide, pas le centre de la démonstration.",tip:"Trois valeurs : risque issu du modèle, indicateur sur 100 ajusté par des règles, note proposée de grille. Aucune n’est la note officielle.",b:"Après une réserve, il faut retrouver les corrections.",sp:"Une fois les points vérifiés, je prépare mon appréciation. À côté de la grille, je consulte les motifs proposés et les informations qui les soutiennent. Les dossiers comparables peuvent m’apporter un contexte, mais je ne transpose pas leur note au projet en cours. Le score reste un signal supplémentaire. Je renseigne les critères, je rédige mon commentaire et je valide ma note ; la décision de financement reste dans le circuit officiel."},
+{sec:4,t:"50 s",f:`<h2>Après la réserve : je retrouve les corrections</h2>${screen('figure-18-comparaison-annotated.png','Comparaison après réserve',['Comparer les versions avant et après réserve','Retrouver les modifications dans l’historique','Garder les échanges liés au dossier'])}`,m:"Présenter le suivi comme une fonction métier ; toute aide n’est pas de l’IA.",b:"Je vous propose de suivre ce parcours à l’écran.",sp:"Quand le dossier revient après une réserve, il faut savoir si les points demandés ont été corrigés. Les personnes habilitées retrouvent les versions et l’historique ; les échanges restent attachés au dossier. Je peux ainsi relier une correction à la demande initiale, puis vérifier son effet sur mon appréciation. L’accès à la comparaison dépend du rôle : il ne faut pas confondre cette fonction de suivi avec un droit donné à tous les évaluateurs. Le gain de temps reste à mesurer."},
+{sec:4,t:"3 min",cls:"center hero",f:`<div class="eyebrow">Démonstration guidée</div><div class="big">Un dossier.<br>Des points à vérifier.<br>Une correction à suivre.</div><div class="sub">Orienter → vérifier → apprécier → corriger → échanger</div><button class="btn demo-launch" data-demo>Suivre le dossier BTP ↗</button>`,m:"Montrer les captures anonymisées ou un environnement de démonstration préparé.",tip:"Touche S : scénario et discours de démonstration. Aucun changement sur un dossier de production.",b:"Cette démonstration montre le fonctionnement. Voyons maintenant les preuves et les limites.",sp:"Nous allons suivre le même dossier du début à la fin : l’orientation côté entreprise, les contrôles côté évaluateur, puis les corrections et les échanges. Je vais surtout montrer comment passer d’un constat à une vérification. [Ouvrir le scénario de démonstration.]"},
 sectionDivider(5),
-{sec:5,t:"1 min",
- f:`<h2>V2 : moins d'alertes, mais des rejets manqués</h2><div class="sub" style="margin:-2% 0 3%">Au seuil d'avertissement de 25 %</div><div class="grid" style="grid-template-columns:repeat(2,1fr)"><div class="cell light"><b>V1</b>26 % des dossiers signalés<br>80 % des rejets retrouvés<br>17 % d'alertes justes</div><div class="cell"><b>V2 · retenue</b>6 % des dossiers signalés<br>46 % des rejets retrouvés<br>37 % d'alertes justes</div></div><div style="text-align:center;margin-top:4%"><span class="tag">1 635 dossiers décidés · partage par entreprise · 4 tirages</span></div>`,
- m:"Expliquer le compromis entre la charge d'alertes et les rejets retrouvés.",
- tip:"À nombre d'alertes égal, V1 et V2 se valent. Le seuil doit être validé avec le FMFP.",
- b:"Ce choix reste limité par ce que montre le test dans le temps.",
- sp:"J'ai comparé deux modèles sur 1 635 dossiers déjà décidés. Au seuil qui déclenche l'avertissement, V2 signale environ 6 % des dossiers. Parmi ses alertes, 37 % concernent effectivement un rejet, et elle retrouve 46 % des rejets. V1 en retrouve davantage, 80 %, mais signale 26 % des dossiers, avec beaucoup plus de fausses alertes. J'ai retenu V2 pour limiter la charge de vérification. Ce choix a un prix : plus d'un rejet sur deux n'est pas signalé. Le seuil devra être discuté avec les évaluateurs du FMFP."},
-
-{sec:5,t:"40 s",cls:"center",
- f:`<span class="tag w">Limite</span><div class="big" style="margin-top:4%">Test chronologique :<br>F1 macro autour de 0,53</div><div class="sub">261 dossiers pour apprendre · évolution possible des dossiers</div><div class="cell w" style="margin-top:5%;padding:2% 4%">→ le score reste un repère, jamais une décision</div>`,
- m:"Distinguer le résultat observé de ses causes possibles.",
- b:"C'est pourquoi tout le système est entouré de garde-fous.",
- sp:"Dans un test plus exigeant, j'ai appris sur les dossiers les plus anciens pour prédire les suivants. Le F1 macro tombe autour de 0,53, et très peu de rejets sont retrouvés. [pause] Deux causes sont possibles : seulement 261 dossiers étaient disponibles pour l'apprentissage, et les dossiers ont peut-être évolué dans le temps. Je ne peux pas encore les séparer. Le score reste donc un repère à vérifier, pas une prédiction fiable pour une nouvelle période."},
-
-{sec:5,t:"50 s",
- f:`<h2>Des garde-fous testés, d'autres à confirmer</h2><div class="grid" style="grid-template-columns:repeat(2,1fr);flex:0 0 auto;max-width:90%;gap:8% 5%"><div class="cell"><b>La décision reste humaine</b></div><div class="cell light"><b>Le service lit sans modifier le dossier</b></div><div class="cell light"><b>En cas de panne, parcours manuel</b></div><div class="cell"><b>Chaque appel est tracé</b></div></div><div style="text-align:center;margin-top:6%"><span class="tag">1 252 tests réussis · retour arrière à tester en préproduction</span></div>${dz('check','br')}`,
- m:"Distinguer les protections vérifiées du retour arrière encore à éprouver.",
- b:"Mais plutôt que de vous le décrire, je vous propose de le voir.",
- sp:"Le système a plusieurs garde-fous. La décision reste humaine. Le service d'analyse lit le dossier sans modifier les données métier. Si ce service est indisponible, l'évaluateur peut continuer son travail à la main, et chaque appel est tracé. Plus de 1 200 tests automatiques vérifient le logiciel. La procédure de retour à la version précédente est développée, mais son déclenchement volontaire reste à tester en préproduction."},
-
-{sec:5,t:"3 min",cls:"center hero",
- f:`<div class="big">Démonstration</div><div class="sub" style="margin-top:4%;max-width:80%">notre dossier BTP : ① orienter · ② vérifier · ③ évaluer · ④ corriger · ⑤ échanger</div><div style="margin-top:5%"><button class="btn" data-demo>Ouvrir le scénario pas à pas</button></div>${dz('pointer','bl')}${dz('laptopGuy','br')}`,
- m:"Rejouer exactement le parcours du dossier BTP.",
- tip:"Scénario complet : bouton « Ouvrir le scénario » ou touche S. Démo en direct, vidéo de secours découpée par étape.",
- b:"Pour conclure, revenons à notre lundi matin.",
- sp:"Je reprends notre dossier BTP, dans le même ordre que tout à l'heure. [démonstration]"},
-
-/* ---------- 06 ---------- */
+{sec:5,t:"55 s",f:`<h2>Ce qui est vérifié, ce qui reste à démontrer</h2><div class="proof-grid"><div class="role-card"><span class="eyebrow">Logiciel · audit du 30 septembre</span><div class="case-number">1 252</div><p>tests réussis · couverture de 87,79 %</p></div><div class="role-card"><span class="eyebrow">Contrôles · essai à blanc</span><div class="case-number">150</div><p>dossiers · alertes ajustées de 143 à 88 dossiers</p></div><div class="role-card warning"><span class="eyebrow">Utilité pour les équipes</span><h3>À mesurer</h3><p>Justesse des constats, erreurs évitées, temps actif.</p></div></div><div class="takeaway">Moins d’alertes ne prouve pas que les alertes sont meilleures.</div>`,m:"Présenter la qualité technique sans la transformer en efficacité métier.",tip:"Mémoire 9.3 : absence d’annotations métier systématiques pour établir la pertinence des constats.",b:"Le scoring illustre justement pourquoi cette distinction compte.",sp:"Les tests techniques et les essais métier ne répondent pas à la même question. L’audit du 30 septembre rapporte 1 252 tests réussis et une couverture de 87,79 %. Un essai du préflight sur 150 dossiers a permis d’ajuster les règles : les dossiers signalés passent de 143 à 88. Mais cette baisse ne suffit pas à prouver la justesse des alertes. Il faut encore faire annoter les constats par les équipes et mesurer leur utilité dans le travail réel."},
+{sec:5,t:"50 s",f:`<h2>Le score : un signal aux limites importantes</h2><div class="duo"><div class="role-card"><span class="eyebrow">Ce qu’il apprend</span><h3>Des décisions historiques</h3><p>1 635 dossiers décidés ; validations directes et avec réserves regroupées.</p></div><div class="role-card warning"><span class="eyebrow">Test sur une période ultérieure</span><div class="case-number">5 à 8 / 100</div><p>rejets détectés dans ce test.</p></div></div><div class="takeaway">La fiabilité sur une nouvelle période n’est pas démontrée.</div>`,m:"Expliquer ce que prédit le modèle et pourquoi il ne mesure pas la qualité du projet.",tip:"Si demandé : V1 initiale = forêt 20 variables ; comparaison principale = forêt de réglage V1 et HGB V2 sur 96 variables. F1 macro 0,643 / 0,713 ; rappel 0,489 / 0,372 ; ECE 0,087 / 0,042. Ne pas confondre seuil de classification et seuil d’alerte.",b:"Les limites concernent aussi l’exploitation et les données.",sp:"Le score reproduit une tendance des décisions passées ; il ne mesure pas directement la qualité d’un projet. Les expériences comparent plusieurs réglages, mais le test temporel est le point le plus important : seuls cinq à huit rejets sur cent y sont détectés. Le faible volume d’apprentissage et une évolution des dossiers peuvent contribuer à cette baisse, sans que je puisse séparer leurs effets. Ce résultat empêche de présenter le score comme fiable pour une nouvelle période."},
+{sec:5,t:"55 s",f:`<h2>Des protections, et des points encore ouverts</h2><div class="duo"><div class="role-card"><span class="status">Contrôles en place</span><p>Droits d’accès · lecture seule du dossier · trace des appels · parcours manuel en cas d’échec</p></div><div class="role-card warning"><span class="status pending">À valider</span><p>Confidentialité des appels externes · reprise après retour arrière · charge et supervision</p></div></div><div class="takeaway">Une décision humaine n’élimine pas l’influence possible d’un résultat IA.</div>`,m:"Exposer les limites de confidentialité sans présenter les contrôles comme une garantie totale.",tip:"Mémoire 8.6 : autorisation formelle et validation juridique restantes ; non-conservation non configurée sur l’ensemble des appels.",b:"La prochaine étape doit donc mesurer le travail réellement accompli avec l’aide.",sp:"Les droits, la lecture seule des données métier, la trace des appels et le parcours manuel encadrent l’usage. D’autres points restent ouverts : les autorisations et conditions de conservation des données envoyées aux fournisseurs, la reprise après retour arrière, les essais de charge et la supervision. Garder un évaluateur dans le circuit est essentiel, mais ne supprime pas l’influence d’un score ou d’une proposition sur son jugement."},
 sectionDivider(6),
-{sec:6,t:"1 min",
- f:`<h2>Le lundi matin, avant / après</h2><table><tr><th>Avant</th><th>Après</th></tr><tr><td>8 rubriques à croiser</td><td>les points à vérifier, regroupés</td></tr><tr><td>« qu'est-ce qui a changé ? »</td><td>les deux versions côte à côte</td></tr><tr><td>des e-mails dispersés</td><td>une discussion par dossier</td></tr><tr><td>un score sans explication</td><td>un indicateur qui dit pourquoi</td></tr></table>`,
- m:"Montrer le changement dans le parcours, sans annoncer de gain de temps non mesuré.",
- b:"Et pour la suite ?",
- sp:"Avant, l'évaluateur devait croiser plusieurs rubriques pour commencer son analyse. Maintenant, les points à vérifier sont regroupés, les modifications sont visibles côte à côte et les échanges restent liés au dossier. Cela facilite sa première lecture et devrait lui faire gagner du temps. Le gain sur la durée complète d'instruction n'a pas encore été chronométré : c'est une mesure à mener avec les équipes du FMFP."},
-
-{sec:6,t:"45 s",
- f:`<h2>La suite, et ce que j'en retiens</h2><div class="grid" style="grid-template-columns:repeat(2,1fr)"><div class="cell light"><b>Pour le FMFP</b>suivre le modèle dans le temps · valider les contrôles avec les équipes · un tableau de bord pour les comités</div><div class="cell"><b>Pour moi</b>transformer un vrai besoin en une solution que l'équipe peut reprendre</div></div>`,
- m:"Perspectives courtes, puis une phrase personnelle sincère.",
- b:"Et je terminerai avec la phrase du début.",
- sp:"Trois chantiers : suivre le modèle dans le temps, valider certains contrôles avec les équipes, et offrir un tableau de bord aux comités. Et personnellement ? Ce stage m'a appris quelque chose d'essentiel : un bon outil, ce n'est pas le plus intelligent. C'est celui que l'équipe comprend, utilise… et peut reprendre après vous."},
-
-{sec:6,t:"—",cls:"center hero",
- f:`<div class="big">L'IA conseille.<br>Elle ne décide jamais.</div><div class="sub" style="margin-top:5%">Merci — place à vos questions</div>${dz('bulb','tr')}${dz('thinker','bl')}`,
- m:"Boucler l'histoire. Sourire. Se taire.",
- sp:"L'IA conseille. Elle ne décide jamais. [pause] Je remercie mes tuteurs et les équipes du FMFP pour leur confiance, et vous, membres du jury, pour votre attention. Je suis prêt à répondre à vos questions."}
+{sec:6,t:"50 s",f:`<h2>Mesurer le progrès sur le travail réel</h2><div class="triptych"><div class="role-card"><h3>Qualité du dépôt</h3><p>Complétude initiale<br>Erreurs évitables<br>Cycles de correction</p></div><div class="role-card"><h3>Qualité de l’aide</h3><p>Constats corrects<br>Références valides<br>Problèmes importants détectés</p></div><div class="role-card"><h3>Effort total</h3><p>Temps de préparation<br>Temps de vérification<br>Coût par dossier</p></div></div><div class="takeaway">Pilote proposé : dossiers annotés, avec et sans assistance.</div>`,m:"Le pilote est proposé, pas encore exécuté.",tip:"Hypothèses à valider : +15 points de complétude, −25 % d’erreurs évitables, −20 % de cycles et de temps actif d’instruction. Ce ne sont pas des résultats.",b:"Ces mesures guideront aussi les prochaines évolutions.",sp:"La prochaine étape est un pilote avec des dossiers annotés par deux experts, puis comparés avec et sans assistance. Nous mesurerons la complétude initiale, les erreurs et les cycles de correction, la justesse des constats et le temps actif. Ce temps doit inclure la vérification des réponses de l’assistant. Une réponse rapide n’apporte rien si sa correction prend plus de temps ou si elle fait manquer un problème important."},
+{sec:6,t:"45 s",f:`<h2>La suite : étendre l’aide, prouver son intérêt</h2><div class="journey roadmap"><div><span>1</span>Valider les constats<small>avec les utilisateurs</small></div><div><span>2</span>Guider la préparation<small>côté entreprise</small></div><div><span>3</span>Approfondir les outils<small>pièces et clarifications</small></div></div><div class="takeaway">Un agent ou plusieurs ? Décider à qualité, effort et coût comparables.</div>`,m:"Prioriser le besoin avant la complexité technique.",tip:"Cadre proposé du mémoire : qualité 30 %, effort 25 %, fréquence 15 %, preuves 15 %, maintenance 15 %. Conditions d’accès et de repli préalables.",b:"C’est le principal enseignement que je retiens de ce stage.",sp:"Je commencerais par valider les constats déjà produits et lever les questions d’exploitation. Ensuite, j’étendrais l’assistance à la préparation côté entreprise, avant d’approfondir la lecture des pièces et les clarifications. Le choix d’un agent plus autonome ou de plusieurs agents viendra d’une comparaison avec le workflow actuel : qualité de l’analyse, effort total, coût et facilité de maintenance. La sophistication technique ne suffit pas à justifier une évolution."},
+{sec:6,t:"35 s",cls:"center hero",f:`<span class="eyebrow">L’apport du stage</span><div class="big">L’IA éclaire le dossier.<br>L’humain garde la décision.</div><div class="sub">Merci pour votre attention · Place aux questions</div>`,m:"Terminer sur la contribution et sa limite, puis laisser le jury parler.",sp:"Ce stage m’a appris à relier un besoin, des règles, des données et une interface, puis à vérifier ce que la solution apporte réellement. La contribution est une assistance intégrée au parcours du dossier, qui rend des informations et des points de contrôle plus accessibles. Son bénéfice sur la qualité et le temps de travail doit maintenant être établi avec les utilisateurs. Je remercie les équipes et mes tuteurs pour leur accompagnement, et vous remercie pour votre attention."}
 ];
+
+
+// Décorations d’origine, conservées dans le nouveau parcours.
+const slideDoodles=['doc','folder','magnifier','thinker','bulb','check','doc','gear','laptopGuy','pointer'];
+S.forEach((slide,k)=>{if(k>0&&!slide.divider)slide.f+=dz(slideDoodles[k%slideDoodles.length],'tr')});
 
 /* ---------- render ---------- */
 const secName=x=>x.sec?`0${x.sec} · ${SEC[x.sec-1]}`:'Ouverture';
@@ -624,7 +528,7 @@ document.getElementById('db').innerHTML=S.map((x,i)=>{
  const h=x.sec!==last?`<div class="dsec">${secName(x)}</div>`:'';last=x.sec;
  return `${h}<div class="sp" data-i="${i}"><div class="h"><b>Slide ${i+1}</b>· ${x.divider?'Intercalaire':x.t}</div>${x.divider?'':`<p>${x.sp}</p>`}${x.b?`<p class="trn">« ${x.b} »</p>`:''}</div>`;}).join('');
 
-let i=0;try{i=+(location.hash.slice(1))-1||0}catch(e){}
+let i=0;try{const requested=Number.parseInt(location.hash.slice(1),10);if(Number.isFinite(requested))i=Math.max(0,Math.min(S.length-1,requested-1))}catch(e){}
 const $=id=>document.getElementById(id);
 const sync=(inst)=>{document.querySelectorAll('.sp').forEach(e=>e.classList.toggle('on',+e.dataset.i===i));
  if(document.body.classList.contains('open')){const on=document.querySelector('.sp.on');on&&on.scrollIntoView({block:'center',behavior:inst?'auto':'smooth'})}};
@@ -638,14 +542,14 @@ const go=(n,instant=false)=>{const next=Math.max(0,Math.min(S.length-1,n));updat
   const track=$('track');track.style.transform='none';
   if(instant){track.style.scrollBehavior='auto';track.scrollLeft=next*track.clientWidth;requestAnimationFrame(()=>track.style.scrollBehavior='')}
   else track.scrollTo({left:next*track.clientWidth,behavior:'smooth'});
- }else $('track').style.transform=`translateX(-${next*100}%)`;
+ }else{$('track').scrollLeft=0;$('track').style.transform=`translateX(-${next*100}%)`;}
 };
 $('track').addEventListener('scroll',()=>{if(isMobile()){
  const next=Math.round($('track').scrollLeft/$('track').clientWidth);
  if(next!==i)updateSlide(next);
 }},{passive:true});
 addEventListener('resize',()=>{if(isMobile()){$('track').style.transform='none';$('track').scrollLeft=i*$('track').clientWidth}
- else $('track').style.transform=`translateX(-${i*100}%)`});
+ else{$('track').scrollLeft=0;$('track').style.transform=`translateX(-${i*100}%)`;}});
 const openD=v=>{document.body.classList.toggle('open',v);if(v)setTimeout(()=>sync(true),360)};
 $('prev').onclick=()=>go(i-1);$('next').onclick=()=>go(i+1);
 $('count').onclick=()=>openD(true);
@@ -684,53 +588,159 @@ addEventListener('touchend',e=>{
 
 /* ---------- scénario de démonstration ---------- */
 const DEMO=[
-{k:"0",ill:"prep",short:"Préparer",title:"Préparation",time:"la veille + 15 min avant",where:"Votre poste de démonstration",
- steps:["Utiliser le dossier BTP de la capture (AutoCAD, planification et devis, 15 bénéficiaires), assigné à votre compte évaluateur — de préférence une copie anonymisée : l'en-tête de l'écran affiche le nom de l'entreprise","Le mettre en réserve une fois, faire corriger le budget côté entreprise et resoumettre → la comparaison et le fil « Réserve » existent","Ouvrir les onglets dans l'ordre : ① portail entreprise (appels à projet) ② saisie d'évaluation du dossier ③ résultats / historique ④ comparaison réserve ⑤ messagerie ⑥ tableau de bord","Deux navigateurs : un connecté en entreprise, un connecté en évaluateur / admin","Zoom navigateur 125 %, notifications coupées, mode plein écran (F11)","Lancer une première analyse IA à l'avance (le service est « chaud », réponse plus rapide)","Vidéo de secours sur le bureau, découpée par étape"],
- show:["Rien : cette étape est invisible pour le jury"],
- say:"",
- fb:"Si le service IA ne répond pas au test : passer directement en mode vidéo pour toute la démo."},
-
-{k:"1",ill:"advisor",img:["figure-11.png"],short:"Orienter",title:"Orienter — le conseiller de guichet",time:"35 s",where:"Portail entreprise → Appels à projet → Conseiller de guichet",
- steps:["Onglet ①, déjà connecté en entreprise","Taper dans le champ : « Former nos équipes à AutoCAD et à l'établissement des devis »","Cliquer sur le bouton d'analyse","Attendre la suggestion, puis survoler les motifs"],
- show:["Le guichet suggéré","Les motifs : secteur, effectif, cotisations","Le bouton « Voir les appels »"],
- say:"Je suis maintenant l'entreprise du BTP. Je décris simplement mon besoin… [taper] Et l'outil me propose un guichet, en m'expliquant pourquoi : mon secteur, ma taille, mes cotisations à jour. Il ne me promet rien : il m'oriente.",
- fb:"Montrer la capture ci-contre, ou la vidéo, segment ①."},
-
-{k:"2",ill:"assistant",img:["assistant-dossier-btp.png"],short:"Vérifier",title:"Vérifier — l'assistant repère les problèmes",time:"40 s",where:"Back-office → Évaluation → Saisie → dossier BTP",
- steps:["Onglet ②, connecté en évaluateur","Ouvrir le panneau « Assistant IA — Aide à l’évaluation », onglet Dossier","Cliquer sur « Qu’est-ce qui manque ? » : la question s’affiche « … dans ce dossier ? »","Faire défiler jusqu’au point « nombre de bénéficiaires »"],
- show:["Les points classés : bloquant, à corriger, recommandé","Bénéficiaires 11 ≠ 15 et problématique non renseignée","Pour chaque point : ce qu'il faut faire"],
- say:"Je passe maintenant côté FMFP, avec l'assistant de l'évaluateur. Ce n'est pas le dossier de l'évaluateur : c'est celui que l'entreprise a envoyé. Je lui demande : qu'est-ce qui manque dans ce dossier ? [cliquer] Il relève huit points, classés par priorité. Ici, la problématique n'est pas renseignée. Et là, le nombre de bénéficiaires n'est pas le même d'une rubrique à l'autre : 11 d'un côté, 15 de l'autre. Il ne corrige rien : il me dit quoi vérifier.",
- fb:"Montrer la capture ci-contre, ou la vidéo, segment ②."},
-
-{k:"3",ill:"grid",img:["figure-05-analyse-annotated.png"],short:"Évaluer",title:"Évaluer — un avis, pas un verdict",time:"35 s",where:"Même écran : grille d'évaluation + assistant",
- steps:["Revenir à la grille","Montrer le résumé du score dans l'assistant","Déplier les motifs du score","Cocher une réponse de la grille pour montrer que l'évaluateur garde la main"],
- show:["La grille au centre (note officielle)","Les scores séparés : grille / modèle / final","Les motifs qui expliquent le score"],
- say:"La grille reste au centre : c'est la note officielle, c'est moi qui la remplis. À côté, l'assistant me donne un indicateur de risque… et surtout, il me dit pourquoi. [déplier] Je le lis, mais c'est moi qui décide.",
- fb:"Montrer la capture ci-contre, ou la vidéo, segment ③."},
-
-{k:"4",ill:"compare",img:["figure-17-historique-annotated.png", "figure-18-comparaison-annotated.png"],short:"Corriger",title:"Corriger — voir ce qui a changé",time:"40 s",where:"Évaluation → Résultat → « Voir l'historique », puis comparaison de la réserve",
- steps:["Onglet ③ : cliquer sur « Voir l'historique » du dossier BTP","Montrer une ligne : qui, quand, avant → après","Onglet ④ : ouvrir la comparaison de la réserve","Pointer la ligne du budget : rouge → vert"],
- show:["L'historique rangé par étape","La comparaison côte à côte, seuls les champs modifiés","Le budget corrigé en rouge / vert"],
- say:"Le dossier a été mis en réserve : budget trop élevé. L'entreprise a corrigé. Avant, il aurait fallu tout relire. Ici, je vois chaque modification : qui, quand, avant, après. [ouvrir la comparaison] Et voici les deux versions côte à côte : en rouge l'ancien budget, en vert le nouveau. Je repère les changements sans relire tout le dossier.",
- fb:"Montrer les captures ci-contre, ou la vidéo, segment ④."},
-
-{k:"5",ill:"chat",img:["figure-19-messagerie-annotated.png"],short:"Échanger",title:"Échanger — la discussion du dossier",time:"25 s",where:"Messagerie → fil « Réserve » du dossier BTP",
- steps:["Onglet ⑤ : ouvrir la messagerie","Ouvrir le fil « Réserve » du dossier BTP","Montrer le commentaire de réserve publié automatiquement","Montrer la réponse de l'entreprise avec son devis joint"],
- show:["Le fil créé automatiquement à la réserve","La pièce jointe et l'accusé de lecture"],
- say:"Et la demande de correction n'est pas partie par e-mail. Elle est ici, dans la discussion du dossier, ouverte automatiquement. L'entreprise a répondu et joint son nouveau devis. Tout reste dans le dossier.",
- fb:"Montrer la capture ci-contre, ou la vidéo, segment ⑤."},
-
-{k:"6",ill:"dash",img:["figure-20-tableau-de-bord-annotated.png"],short:"Bonus",title:"Bonus — le tableau de bord",time:"15 s (si le temps le permet)",where:"Back-office → Tableau de bord",
- steps:["Onglet ⑥ : afficher le tableau de bord","Pointer l'étape la plus lente"],
- show:["Les 4 indicateurs","La carte appels × étapes"],
- say:"Enfin, pour la direction : en un coup d'œil, on voit où les dossiers attendent le plus.",
- fb:"À sauter si vous dépassez 3 minutes."},
-
-{k:"✓",ill:"back",short:"Fin",title:"Retour aux slides",time:"5 s",where:"Revenir à la présentation (slide suivante)",
- steps:["Quitter le plein écran du navigateur","Revenir à l'onglet de la présentation","Passer à la slide suivante (avant / après)"],
- show:["—"],
- say:"Voilà le parcours complet de notre dossier, de l'orientation jusqu'à l'échange avec l'entreprise.",
- fb:"—"}
+ {
+  "k": "0",
+  "ill": "prep",
+  "short": "Préparer",
+  "title": "Préparer la démonstration",
+  "time": "avant la soutenance",
+  "where": "Environnement de démonstration ou captures anonymisées",
+  "steps": [
+   "Utiliser un dossier de démonstration autorisé, sans données personnelles visibles.",
+   "Préparer un accès entreprise et un accès évaluateur sur deux sessions distinctes.",
+   "Préparer la correction et le renvoi du dossier dans cet environnement, puis ouvrir les cinq écrans.",
+   "Vérifier les captures anonymisées ; les utiliser si le service est indisponible.",
+   "Annoncer au jury si la démonstration utilise des captures ou un scénario préparé."
+  ],
+  "show": [
+   "Cette préparation ne fait pas partie du parcours présenté au jury."
+  ],
+  "say": "",
+  "fb": "Utiliser les captures anonymisées disponibles ici ; ne pas improviser sur un dossier de production."
+ },
+ {
+  "k": "1",
+  "ill": "advisor",
+  "img": [
+   "figure-11.png"
+  ],
+  "short": "Orienter",
+  "title": "Orienter l’entreprise vers un dispositif",
+  "time": "30 s",
+  "where": "Portail entreprise → Conseiller de guichet",
+  "steps": [
+   "Décrire le besoin : formation à AutoCAD, à la planification et aux devis.",
+   "Demander une orientation.",
+   "Montrer la proposition et ses motifs, ou la capture préparée."
+  ],
+  "show": [
+   "Le besoin formulé",
+   "Le contexte utilisé",
+   "Une proposition expliquée"
+  ],
+  "say": "Je commence côté entreprise. Je décris le besoin de formation. Le conseiller applique les règles disponibles et propose une orientation avec ses motifs. Ce résultat aide à choisir où déposer ; l’instruction devra encore confirmer l’éligibilité.",
+  "fb": "Montrer la capture en indiquant qu’il s’agit d’un résultat préparé."
+ },
+ {
+  "k": "2",
+  "ill": "assistant",
+  "img": [
+   "assistant-dossier-btp.png"
+  ],
+  "short": "Vérifier",
+  "title": "Retrouver les manques et les incohérences",
+  "time": "45 s",
+  "where": "Dossier reçu → Espace d’aide à l’évaluation → Assistant du dossier",
+  "steps": [
+   "Passer sur la session évaluateur.",
+   "Ouvrir l’assistant et demander ce qui manque dans le dossier.",
+   "Repérer la problématique non renseignée et l’écart de bénéficiaires.",
+   "Revenir aux rubriques correspondantes pour vérifier le constat."
+  ],
+  "show": [
+   "L’écart entre 11 et 15 bénéficiaires",
+   "La problématique non renseignée",
+   "Les éléments à vérifier"
+  ],
+  "say": "Je passe côté évaluateur, sur le dossier envoyé par l’entreprise. Je demande ce qui manque. Ici, l’assistant signale une problématique non renseignée et un écart entre onze et quinze bénéficiaires. Je reviens aux rubriques pour vérifier. L’aide donne un point de départ ; elle ne corrige pas la déclaration à la place de l’entreprise.",
+  "fb": "Utiliser la capture ; ne pas garantir que toute réponse générée sera identique."
+ },
+ {
+  "k": "3",
+  "ill": "grid",
+  "img": [
+   "figure-05-analyse-annotated.png"
+  ],
+  "short": "Apprécier",
+  "title": "Vérifier les propositions avant de renseigner la grille",
+  "time": "30 s",
+  "where": "Même dossier → Analyse et grille d’évaluation",
+  "steps": [
+   "Présenter la grille officielle.",
+   "Déplier les motifs de l’analyse.",
+   "Montrer que les réponses et la note restent saisies par l’évaluateur."
+  ],
+  "show": [
+   "La grille officielle",
+   "Les motifs proposés",
+   "La distinction entre indicateurs et note validée"
+  ],
+  "say": "L’analyse propose des points à examiner à côté de la grille. Je peux lire les motifs, consulter le contexte et décider si la proposition est pertinente. Le risque issu du modèle, l’indicateur ajusté et les propositions par critère restent indicatifs. La note officielle est celle que je saisis et valide.",
+  "fb": "Montrer l’écran préparé sans lancer de validation."
+ },
+ {
+  "k": "4",
+  "ill": "compare",
+  "img": [
+   "figure-17-historique-annotated.png",
+   "figure-18-comparaison-annotated.png"
+  ],
+  "short": "Corriger",
+  "title": "Retrouver ce qui a changé après la réserve",
+  "time": "35 s",
+  "where": "Accès habilité → Historique et comparaison après réserve",
+  "steps": [
+   "Ouvrir l’historique du dossier préparé.",
+   "Présenter les versions avant réserve et après renvoi.",
+   "Repérer une modification du budget dans le scénario de démonstration."
+  ],
+  "show": [
+   "Les modifications et leurs dates",
+   "Les deux versions du dossier",
+   "Les éléments à vérifier après correction"
+  ],
+  "say": "Le dossier a été mis en réserve dans notre scénario. L’entreprise a apporté une correction, puis renvoyé sa demande. L’agent habilité retrouve les changements dans l’historique et compare les deux versions. Il peut ainsi cibler sa vérification. Le temps économisé doit encore être mesuré avec les utilisateurs.",
+  "fb": "Utiliser les captures de versions autorisées, sans modifier de dossier en production."
+ },
+ {
+  "k": "5",
+  "ill": "chat",
+  "img": [
+   "figure-19-messagerie-annotated.png"
+  ],
+  "short": "Échanger",
+  "title": "Conserver les échanges dans le contexte du dossier",
+  "time": "25 s",
+  "where": "Messagerie → Fil lié au dossier et à la réserve",
+  "steps": [
+   "Ouvrir le fil de réserve préparé.",
+   "Montrer la demande de correction et la réponse.",
+   "Montrer la pièce jointe anonymisée, si elle fait partie du scénario."
+  ],
+  "show": [
+   "Le lien entre demande de correction et réponse",
+   "La pièce utile à la vérification"
+  ],
+  "say": "La demande de correction et la réponse restent liées au dossier. L’agent peut retrouver le contexte de l’échange et les pièces associées. Ce suivi complète l’assistance à l’analyse : il permet de garder le fil entre un problème repéré et la correction apportée.",
+  "fb": "Montrer la capture du fil, sans envoyer de message pendant la démonstration."
+ },
+ {
+  "k": "✓",
+  "ill": "back",
+  "short": "Fin",
+  "title": "Revenir aux preuves et aux limites",
+  "time": "5 s",
+  "where": "Retour à la présentation",
+  "steps": [
+   "Fermer le scénario.",
+   "Passer à la partie « Preuves et limites »."
+  ],
+  "show": [
+   "La distinction entre fonctionnement visible et bénéfice mesuré"
+  ],
+  "say": "Nous avons vu comment retrouver un point, le vérifier et suivre sa correction. Cette démonstration montre le fonctionnement ; elle ne mesure pas encore un gain de temps ou une amélioration des dépôts.",
+  "fb": "—"
+ }
 ];
 let di=0;
 const dmEl=()=>document.getElementById('dm');
@@ -740,13 +750,13 @@ const LN=(n)=>Array.from({length:n},(_,k)=>`<span class="mk-ln" style="width:${9
 const TABS=(on)=>`<div class="mk-tabs">${['① Entreprise','② Évaluation','③ Historique','④ Comparaison','⑤ Messagerie','⑥ Tableau de bord'].map((t,k)=>`<span class="${k===on?'on':''}">${t}</span>`).join('')}</div>`;
 const MOCK={
  prep:{url:'navigateur prêt · plein écran · zoom 125 %',tab:-1,body:B(4,8,40,84,'l','<b>Dossier BTP de démo</b>'+LN(2)+'<div class="mk-b w" style="position:static;margin:6px 0">bénéficiaires 11 ≠ 15</div><div class="mk-b w" style="position:static">problématique vide</div>')+B(50,8,46,38,'f','<b>2 navigateurs</b><br>entreprise · évaluateur')+B(50,54,22,38,'','<b>Vidéo</b><br>de secours')+B(74,54,22,38,'l','<b>IA</b><br>déjà lancée')+P(1,6,10)+P(3,50,6)+P(7,72,56)+P(6,94,56)},
- advisor:{url:'/entreprises · appels à projet',tab:0,body:B(4,6,92,10,'','<b>Conseiller de guichet</b>')+B(4,22,58,26,'l','« Former nos 15 salariés à la sécurité sur les chantiers »')+B(4,54,22,10,'f','Analyser')+B(4,70,92,24,'f hl','<b>Guichet suggéré : RI</b> · secteur BTP · 15 salariés · cotisations à jour')+B(66,22,30,26,'','Contexte<br>secteur · effectif')+P(1,10,0)+P(2,60,24)+P(3,24,56)+P(4,94,72)},
+ advisor:{url:'/entreprises · appels à projet',tab:0,body:B(4,6,92,10,'','<b>Conseiller de guichet</b>')+B(4,22,58,26,'l','« Former nos équipes à AutoCAD, à la planification et aux devis »')+B(4,54,22,10,'f','Analyser')+B(4,70,92,24,'f hl','<b>Guichet suggéré : RI</b> · secteur BTP · 15 salariés · cotisations à jour')+B(66,22,30,26,'','Contexte<br>secteur · effectif')+P(1,10,0)+P(2,60,24)+P(3,24,56)+P(4,94,72)},
  assistant:{url:'/evaluation/saisie · dossier BTP',tab:1,body:B(4,6,52,88,'','<b>Grille d’évaluation</b>'+LN(3)+'<div class="mk-b hl" style="position:static;margin-top:8px">Budget détaillé</div>'+LN(2))+B(60,6,36,12,'f','<b>Assistant IA</b>')+B(60,24,36,16,'w','Montant demandé > budget')+B(60,44,36,16,'w','Objectif sans module')+B(60,64,36,30,'l',LN(3))+P(1,28,0)+P(2,94,8)+P(3,94,26)+P(4,58,32)},
- grid:{url:'/evaluation/saisie · dossier BTP',tab:1,body:B(4,6,52,88,'hl','<b>Grille (note officielle)</b><br>Critère 1 · Oui / Non<br>Critère 2 · Oui / Non<br>Critère 3 · Oui / Non')+B(60,6,36,26,'f','<b>Scores</b><br>grille · modèle · final')+B(60,38,36,32,'l','<b>Pourquoi ?</b>'+LN(3))+B(60,76,36,18,'','Avis de l’évaluateur')+P(1,30,4)+P(2,94,8)+P(3,94,40)+P(4,10,40)},
+ grid:{url:'/evaluation/saisie · dossier BTP',tab:1,body:B(4,6,52,88,'hl','<b>Grille (note officielle)</b><br>Critère 1 · Oui / Non<br>Critère 2 · Oui / Non<br>Critère 3 · Oui / Non')+B(60,6,36,26,'f','<b>Aides indicatives</b><br>risque · règles · propositions')+B(60,38,36,32,'l','<b>Pourquoi ?</b>'+LN(3))+B(60,76,36,18,'','Avis de l’évaluateur')+P(1,30,4)+P(2,94,8)+P(3,94,40)+P(4,10,40)},
  compare:{url:'/formulaire/traitement/comparaison_reserve',tab:3,body:B(4,6,28,88,'l','<b>Historique</b><br>qui · quand<br>avant → après'+LN(3))+B(36,6,60,12,'f','<b>Avant la réserve | Après correction</b>')+B(36,24,60,20,'hl','Budget : <span class="mk-red">ancien montant</span> → <span class="mk-green">montant corrigé</span>')+B(36,50,60,20,'','Autre champ : <span class="mk-red">avant</span> → <span class="mk-green">après</span>')+B(36,76,60,18,'l','Export PDF')+P(1,10,4)+P(2,30,30)+P(3,94,8)+P(4,94,28)},
  chat:{url:'/messagerie · dossier BTP',tab:4,body:B(4,6,28,88,'l','<b>Fils</b><div class="mk-b f" style="position:static;margin:6px 0">Réserve · BTP</div>'+LN(3))+B(36,6,60,20,'f','<b>FMFP :</b> réserve — budget trop élevé')+B(44,32,52,20,'','<b>Entreprise :</b> budget corrigé, voici le devis')+B(44,58,28,14,'hl','pièce jointe : devis.pdf')+B(36,80,60,14,'l','Écrire un message…')+P(1,10,4)+P(2,30,14)+P(3,94,8)+P(4,70,60)},
  dash:{url:'/admin/dashboard',tab:5,body:[0,1,2,3].map(k=>B(4+k*23.5,6,21.5,20,k%2?'l':'f',['En traitement','Étape la plus lente','Conventionnés','Taux de validation'][k])).join('')+B(4,32,60,62,'','<b>Appels × étapes</b>'+LN(4))+B(68,32,28,62,'l','<b>Délais</b>'+LN(3))+P(1,6,4)+P(2,30,6)},
- back:{url:'présentation · slide suivante',tab:-1,body:B(18,14,64,72,'f','<div style="text-align:center;margin-top:12%;font-size:1.4em">Le lundi matin,<br>avant / après</div>')+P(3,80,16)}
+ back:{url:'présentation · slide suivante',tab:-1,body:B(18,14,64,72,'f','<div style="text-align:center;margin-top:12%;font-size:1.4em">Preuves et limites</div>')+P(3,80,16)}
 };
 const mock=t=>{const m=MOCK[t];return `<div class="mk"><div class="mk-bar"><s></s><s></s><s></s><span class="mk-url">${m.url}</span></div>${m.tab>=0?TABS(m.tab):''}<div class="mk-body">${m.body}</div></div>`};
 const MIC=`<svg viewBox="0 0 48 48" fill="none" stroke="#242424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="21" fill="#DCE6F5"/><path d="M24 29a5 5 0 0 0 5-5v-9a5 5 0 0 0-10 0v9a5 5 0 0 0 5 5z" fill="#fff"/><path d="M15 23a9 9 0 0 0 18 0M24 32v5M19 37h10"/></svg>`;
