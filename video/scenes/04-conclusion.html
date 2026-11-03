@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Résultats et limites · FMFP</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #07101d;
+      color: #f5f7fb;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body {
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(ellipse at 50% 94%, rgba(24, 78, 139, .38), transparent 52%),
+        radial-gradient(ellipse at 50% 0%, rgba(24, 45, 74, .42), transparent 57%),
+        #07101d;
+    }
+    body::before {
+      position: fixed;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      opacity: .3;
+      background-image:
+        linear-gradient(rgba(154, 180, 215, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(154, 180, 215, .08) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse at center, black 10%, transparent 78%);
+    }
+    body::after {
+      position: fixed;
+      inset: -12%;
+      content: "";
+      pointer-events: none;
+      opacity: .24;
+      background: radial-gradient(ellipse at 50% 88%, rgba(52, 132, 198, .28), transparent 42%);
+      animation: ambient-glow 5s ease-in-out infinite alternate;
+    }
+    main {
+      width: min(1120px, 84vw);
+      position: relative;
+      text-align: center;
+      animation: arrive .7s ease-out both;
+    }
+    .eyebrow {
+      color: #a9bfdc;
+      font-size: 15px;
+      font-weight: 650;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 38px 0 28px;
+      font: italic 76px/1.08 Georgia, "Times New Roman", serif;
+      letter-spacing: -.035em;
+      text-wrap: balance;
+    }
+    .rule {
+      width: 82px;
+      height: 2px;
+      margin: 0 auto 32px;
+      background: linear-gradient(90deg, #80b9ec, #d6e9ff);
+      box-shadow: 0 0 18px rgba(90, 164, 226, .45);
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      padding: 14px 22px;
+      border: 1px solid rgba(174, 201, 233, .32);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .045);
+      color: #d8e4f2;
+      font-size: 21px;
+      letter-spacing: .01em;
+    }
+    .status::before {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      content: "";
+      background: #7bc9a0;
+      box-shadow: 0 0 12px rgba(123, 201, 160, .7);
+    }
+    .footer {
+      margin-top: 92px;
+      color: rgba(190, 205, 225, .6);
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: .2em;
+    }
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes ambient-glow {
+      from { opacity: .17; transform: scale(.98); }
+      to { opacity: .34; transform: scale(1.03); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      main { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <main data-scene="conclusion">
+    <div class="eyebrow">Fin de la démonstration</div>
+    <h1>Résultats et limites</h1>
+    <div class="rule" aria-hidden="true"></div>
+    <div class="status">Dossier cohérent · brouillon non soumis</div>
+    <div class="footer">ORIENTATION · CONSEIL · VÉRIFICATION</div>
+  </main>
+</body>
+</html>

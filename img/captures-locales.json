@@ -1,0 +1,44 @@
+{
+  "captured_at": "2026-11-02T12:47:20.530023+00:00",
+  "environment": "local",
+  "origin": "http://plateforme-fmfp.local",
+  "status": "BEMA textile scenario; local PPTX and narration updated; Canva slides 6 and 16–22 saved.",
+  "redactions": "Fictitious annexes; names and references masked; notifications and toasts hidden during video capture.",
+  "views": [
+    {
+      "file": "figure-11-textile.svg",
+      "view": "Orientation BEMA · conseiller de guichet",
+      "sha256": "1a025ccd4b8b6b85462f9d8073aa3fd562518c4ff3123cf09da8d95cd187c17a"
+    },
+    {
+      "file": "bema-retombee-vague.png",
+      "view": "Retombée initiale trop vague dans le brouillon BEMA",
+      "sha256": "36d1ad40c6c30bfa9b04901a49a76fdbbb7a1d61a7a691d79197973d90d81c62"
+    },
+    {
+      "file": "bema-chat-conseil.png",
+      "view": "Conseil IA contextualisé · cible du cahier des charges",
+      "sha256": "1b580fce35968e4cc5cf1c369263dbc053b59468342eee732a0a44167a593c73"
+    },
+    {
+      "file": "bema-retombee-corrigee.png",
+      "view": "Cible 9/10 saisie par BEMA",
+      "sha256": "fa4ddcec77ccaa3e7cd138ffae75d3584fe12c27d02bd4d4fff2662bb043ae3a"
+    },
+    {
+      "file": "bema-cv-a-corriger.png",
+      "view": "Quatre constats sur le CV fictif",
+      "sha256": "b2ae9cdcb2bbe6bbc2b4bd42c3dc935296aa68990546e39cb6fccbf25f016e14"
+    },
+    {
+      "file": "bema-annexes-final.png",
+      "view": "Trois annexes BEMA après remplacement du CV",
+      "sha256": "a5c3cd1e2dce08292a1642f68717c3fa29e337eae1748e243a0618f2208617ff"
+    },
+    {
+      "file": "bema-audit-final.png",
+      "view": "Audit final « Dossier cohérent » avant soumission",
+      "sha256": "a13f337abec458441ed4833eac53cb06c3d74efe92469786e9aadd896c856f64"
+    }
+  ]
+}

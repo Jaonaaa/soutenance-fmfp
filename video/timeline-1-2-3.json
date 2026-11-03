@@ -1,0 +1,45 @@
+{
+  "output": "out/1&2&3.mp4",
+  "width": 1600,
+  "height": 900,
+  "fps": 30,
+  "crf": 18,
+  "preset": "medium",
+  "segments": [
+    {
+      "name": "01 · Orientation",
+      "file": "out/01-orienter-essai.mp4",
+      "start": 0,
+      "end": null,
+      "speed": 1.0
+    },
+    {
+      "name": "Transition · Préparer la demande",
+      "type": "image",
+      "file": "out/transitions/01-orientation-depot.png",
+      "duration": 2.4,
+      "speed": 1.0
+    },
+    {
+      "name": "02 · Dépôt et contrôles",
+      "file": "out/02-deposer.mp4",
+      "start": 0,
+      "end": null,
+      "speed": 1.0
+    },
+    {
+      "name": "Transition · Évaluation assistée",
+      "type": "image",
+      "file": "out/transitions/02-depot-evaluation.png",
+      "duration": 2.4,
+      "speed": 1.0
+    },
+    {
+      "name": "03 · Évaluation assistée",
+      "file": "out/03-evaluer.mp4",
+      "start": 0,
+      "end": null,
+      "speed": 1.0
+    }
+  ]
+}

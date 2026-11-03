@@ -1,3 +1,5 @@
 .DS_Store
 /stage_doc/
+/node_modules/
+/dist/
 /img/figure-05-dossier-annotated.png
