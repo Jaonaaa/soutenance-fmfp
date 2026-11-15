@@ -16,11 +16,11 @@ La partie 5 conserve les preuves techniques et les limites essentielles. Les dé
 
 Durée indicative : 55 s
 
-Bonjour à toutes et à tous. Mon projet de fin d’études porte sur l’aide à la gestion des financements de la formation professionnelle. Je l’ai réalisé au Fonds Malgache de Formation Professionnelle, le FMFP. Il aide les entreprises à s’orienter, les évaluateurs à examiner les demandes et les équipes à suivre les corrections. La décision reste aux équipes.
+Bonjour Mesdames et Messieurs les membres du jury. Je vais vous présenter le fruit du travail que j’ai réalisé durant mon stage au sein du Fonds Malgache de Formation Professionnelle, le FMFP. Mon travail s’intitule : « Conception d’un système intelligent de scoring, de recommandations et d’aide à la décision pour la gestion des financements de la formation professionnelle ». Il vise à faciliter l’examen des demandes de financement et le suivi des corrections, tout en laissant la décision finale aux équipes du FMFP.
 
 Transition : Voici les étapes de la présentation.
 
-Repère orateur — ne pas lire : Le titre complet reste affiché. Présenter le sujet avec des mots simples.
+Repère orateur — ne pas lire : Prononcer lentement le titre complet affiché, puis résumer l’objectif en une phrase.
 
 ## 02. Le fil de la présentation
 
