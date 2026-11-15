@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="822" height="174" viewBox="0 0 822 174" role="img" aria-labelledby="title">
+  <title id="title">IT University logo</title>
+    <path fill="#d5e952" d="M 74 7 L 143 43 L 143 122 L 74 88 Z"/>
+  <path fill="#9aba3d" d="M 216 7 L 147 43 L 147 122 L 216 88 Z"/>
+  <path fill="#d5e952" d="M 4 129 L 73 91 L 142 128 L 73 167 Z"/>
+  <path fill="#9aba3d" d="M 285 129 L 217 90 L 148 126 L 217 167 Z"/>
+  <path fill="#313799" d="M 312 62 H 343 V 70 H 335 V 118 H 343 V 126 H 312 V 118 H 320 V 70 H 312 Z M 349 62 H 395 V 76 H 378 V 126 H 366 V 76 H 349 Z"/>
+  <text x="405" y="126" fill="#313799" font-family="Avenir Next, Century Gothic, Arial, sans-serif" font-size="88" font-weight="200" textLength="412" lengthAdjust="spacingAndGlyphs">University</text>
+  <text x="316" y="167" fill="#424252" font-family="Avenir Next, Century Gothic, Arial, sans-serif" font-size="28" font-weight="400" textLength="358" lengthAdjust="spacingAndGlyphs">Education is Our Foundation</text>
+</svg>

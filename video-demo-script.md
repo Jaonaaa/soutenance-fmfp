@@ -6,15 +6,105 @@ Le brouillon entreprise reste non soumis. Le commentaire de l’évaluateur est 
 
 ## Montage et voix off
 
-Les temps de la colonne de gauche sont ceux du montage. Les repères de voix off sont relatifs au début de chaque prise. Les cartons sont volontairement muets.
+Les temps sont comptés depuis le début de chaque clip. Ce texte sert de repère : vous pouvez le dire avec vos mots. Laissez l’image montrer les détails, sans expliquer chaque clic. Les cartons sont muets.
 
-| Montage | Prise et image | Voix off |
-|---|---|---|
-| 0:00–0:22 | **Clip 1 · Orientation**. Besoin textile, demande au conseiller, recommandation RIE39 et conditions. | **0:00–0:07** — L’entreprise veut former ses équipes à la sécurité et à la qualité textile.<br>**0:07–0:14** — Le conseiller rapproche l’objectif, le secteur et le contexte des appels ouverts.<br>**0:14–0:22** — L’appel RIE39 est proposé, avec ses six conditions. C’est une orientation, pas un financement acquis. |
-| 0:22–0:25 | **Transition 1** · « On prépare la demande ». | *Silence — carton illustré.* |
-| 0:25–2:40 | **Clip 2 · Dépôt et contrôles**. Configuration du même appel, saisie, conseil IA, correction de la retombée, CV incorrect puis remplacé, trois annexes et audit. | **0:00–0:14** — Je reprends le brouillon préparé pour l’appel RIE39. Le secteur textile et l’intitulé sont identiques à l’orientation : je garde le même fil conducteur.<br><br>**0:14–0:27** — Je décris les besoins de formation. La première phrase des retombées, « les équipes seront mieux formées », reste trop générale : aucun indicateur n’y apparaît.<br><br>**0:27–0:43** — Je précise les objectifs techniques et comportementaux, le format présentiel, le nombre de bénéficiaires et le module, en reprenant les exigences du cahier des charges.<br><br>**0:43–0:57** — Je répartis les participants, puis j’examine les rubriques du budget. Le plan annuel et la lettre de demande sont déjà joints. Il reste à vérifier le CV.<br><br>**0:57–1:17** — Je demande au conseiller IA quels effets observer après la formation. Sa réponse retrouve la cible du cahier des charges : neuf contrôles de sécurité et de qualité sur dix, correctement appliqués en mise en situation.<br><br>**1:17–1:30** — Je reprends cette piste et reformule moi-même la retombée en cible vérifiable. La vérification confirme que la rubrique est complétée.<br><br>**1:30–1:37** — À l’audit, un seul blocage reste : le CV obligatoire n’est pas encore déposé.<br><br>**1:37–1:51** — Je charge un premier CV volontairement incomplet. Le contrôle relève quatre écarts de canevas : dates, sections, mise en page et signature.<br><br>**1:51–2:07** — Je retire ce fichier et ajoute le CV fictif préparé au bon format. Le contrôle porte sur la structure du document ; il ne juge pas les compétences du formateur.<br><br>**2:07–2:15** — Les trois annexes sont présentes et l’audit affiche « Dossier cohérent ». Je m’arrête sans soumettre la demande. |
-| 2:40–2:42 | **Transition 2** · « Place à l’évaluation ». | *Silence — carton illustré.* |
-| 2:42–5:36 | **Clip 3 · Évaluation assistée**. Analyse et preuves, cohérence, dossiers comparables, chat, reformulation puis enregistrement de l’appréciation. | **0:00–0:15** — Je passe au poste évaluateur. L’aide regroupe l’analyse, la cohérence du dossier, les comparables, l’appréciation et un chat contextualisé.<br><br>**0:15–0:58** — Le score global est un repère, pas une décision. Je distingue la prédiction issue des données historiques, son ajustement selon les règles FMFP et la grille, qui reste à remplir. L’analyse passe en revue quinze critères, regroupés en quatre rubriques. Chaque constat présente son raisonnement et des extraits du dossier. J’ouvre le passage du plan annuel, puis la preuve associée. Je remonte ainsi de l’alerte à sa source avant de confirmer la réponse à inscrire.<br><br>**0:58–1:22** — Le contrôle de cohérence rapproche les informations du dossier. J’ouvre un module pour retrouver les objectifs, la durée et les bénéficiaires qui expliquent le constat. L’outil signale les points à rapprocher ; il ne corrige pas le contenu à ma place.<br><br>**1:22–1:50** — Je consulte les dossiers antérieurs comparables. Le rapprochement sémantique par IA propose un thème proche et explique le lien. Je distingue ce signal de la similarité textuelle, puis regarde les différences de volume, le calendrier et la méthode. Ce sont des repères pour l’examen, pas une décision automatique.<br><br>**1:50–2:02** — Je demande au chat quels éléments étayent le projet et ce qui reste à vérifier. Je confronte sa réponse aux pièces.<br><br>**2:02–2:29** — Le brouillon rassemble cinq rubriques d’appréciation. Je demande une reformulation de Pertinence, en gardant le lien avec la sécurité et la qualité des finitions. Je lis la nouvelle proposition, vérifie qu’elle s’appuie sur le dossier et qu’elle reste modifiable, puis décide de l’appliquer.<br><br>**2:29–2:42** — J’applique la version relue à la rubrique Pertinence, puis j’insère le brouillon dans l’appréciation des évaluateurs. J’enregistre le commentaire sans l’envoyer.<br><br>**2:42–2:54** — Le commentaire apparaît à côté de la grille, encore vide. Aucun score n’est saisi, aucune décision n’est prise et le dossier n’est pas envoyé. |
+### Clip 1 · Orientation · montage 0:00–0:22
+
+**00:00–00:07**
+
+L’entreprise veut former ses équipes à la sécurité et à la qualité des finitions.
+
+**00:07–00:14**
+
+Le conseiller compare le besoin de l’entreprise aux aides disponibles.
+
+**00:14–00:22**
+
+Il propose une piste et en explique les conditions. Ce n’est pas un accord de financement.
+
+### Transition 1 · montage 0:22–0:25
+
+Silence — carton « On prépare la demande ».
+
+### Clip 2 · Dépôt et contrôles · montage 0:25–2:40
+
+**00:00–00:14**
+
+Après l’orientation, je reprends le dossier de la même entreprise.
+
+**00:14–00:27**
+
+Je décris le besoin. La première phrase sur les résultats est vague : « les équipes seront mieux formées ». On ne peut pas encore vérifier les progrès.
+
+**00:27–00:43**
+
+Je complète les objectifs de formation et les informations importantes en suivant le document de référence.
+
+**00:43–00:57**
+
+Je précise le nombre de participants et le budget. Le plan annuel et la lettre sont déjà joints. Il reste le CV.
+
+**00:57–01:17**
+
+Je demande au conseiller quels résultats on devrait observer après la formation. Il retrouve dans le document de référence un objectif : réussir au moins neuf contrôles sur dix pendant un exercice pratique.
+
+**01:17–01:30**
+
+Je précise le résultat attendu avec cette cible. Le contrôle confirme que cette partie est remplie.
+
+**01:30–01:37**
+
+Le contrôle signale qu’il manque le CV demandé.
+
+**01:37–01:51**
+
+Je teste le contrôle avec un CV volontairement incomplet. Il signale quatre points à corriger.
+
+**01:51–02:07**
+
+Je remplace le fichier par un CV fictif au bon format. Le contrôle vérifie la présentation, pas les compétences du formateur.
+
+**02:07–02:15**
+
+Le contrôle affiche « Dossier cohérent ». Je garde la demande en brouillon et je ne l’envoie pas.
+
+### Transition 2 · montage 2:40–2:42
+
+Silence — carton « Place à l’évaluation ».
+
+### Clip 3 · Évaluation assistée · montage 2:42–5:36
+
+**00:00–00:15**
+
+Je passe maintenant du côté de l’évaluateur. Je vais montrer comment il peut examiner le dossier et préparer son avis.
+
+**00:15–00:58**
+
+Le score général donne une indication. Ce n’est pas une décision. Il s’appuie sur les décisions passées et les règles du FMFP. L’évaluateur doit encore remplir la grille. Chaque remarque renvoie à une pièce du dossier. J’ouvre une pièce pour voir d’où vient l’alerte.
+
+**00:58–01:22**
+
+Le contrôle compare les informations du dossier. Ici, je vérifie les objectifs, la durée et le nombre de participants. L’outil signale ce qu’il faut regarder. Il ne corrige pas la demande à ma place.
+
+**01:22–01:50**
+
+Je regarde des dossiers précédents qui ressemblent à celui-ci. L’IA propose des exemples proches et explique pourquoi. Je vérifie ensuite les différences, comme le nombre de participants ou les dates. Ces exemples aident à examiner le dossier, mais ne donnent pas la décision.
+
+**01:50–02:02**
+
+Je demande à l’assistant quelles pièces appuient le projet et ce qu’il faut encore vérifier. Puis je compare sa réponse aux documents.
+
+**02:02–02:29**
+
+Je demande à l’assistant de reformuler l’avis sur la partie « Pertinence ». Il rappelle le lien avec la sécurité et la qualité des finitions. Je vérifie que le texte correspond au dossier. Je peux encore le modifier avant de l’utiliser.
+
+**02:29–02:42**
+
+Après relecture, j’ajoute le texte à la partie « Pertinence ». J’enregistre le commentaire sans l’envoyer.
+
+**02:42–02:54**
+
+Le commentaire est enregistré, mais la grille reste vide. Aucun score n’est saisi, aucune décision n’est prise et le dossier n’est pas envoyé.
 
 ## Repères de réalisation
 

@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { readFileSync } from 'node:fs';
+import { DECK_IMAGE_VERSION, slideImagePath } from './src/deck-assets.mjs';
 
 const base = '/soutenance-fmfp/';
 const publicAssets = [
@@ -14,7 +15,8 @@ const publicAssets = [
   'img/bema-chat-conseil.png',
   'img/bema-cv-a-corriger.png',
   'img/bema-audit-final.png',
-  ...Array.from({ length: 29 }, (_, index) => `slides-hifi/slide-${String(index + 1).padStart(2, '0')}.jpg`),
+  `img/reserves-delais.svg?v=${DECK_IMAGE_VERSION}`,
+  ...Array.from({ length: 29 }, (_, index) => slideImagePath(index + 1)),
 ];
 
 function offlineShell() {

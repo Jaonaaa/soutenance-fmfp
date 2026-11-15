@@ -1,6 +1,8 @@
-const CACHE_NAME = 'soutenance-fmfp-preparation-v41';
+const CACHE_NAME = 'soutenance-fmfp-preparation-v59';
 const APP_BASE = '__APP_BASE__';
 const PRECACHE = __PRECACHE__;
+// These same-origin static files are identical across the hosting server's Origin variants.
+const CACHE_MATCH_OPTIONS = { ignoreVary: true };
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -28,15 +30,15 @@ self.addEventListener('fetch', (event) => {
 
   if (request.mode === 'navigate') {
     event.respondWith(
-      (async () => (await caches.match(request))
-        || (await caches.match(`${APP_BASE}index.html`))
+      (async () => (await caches.match(request, CACHE_MATCH_OPTIONS))
+        || (await caches.match(`${APP_BASE}index.html`, CACHE_MATCH_OPTIONS))
         || fetch(request))(),
     );
     return;
   }
 
   event.respondWith(
-    caches.match(request).then((saved) => saved || fetch(request).then(async (response) => {
+    caches.match(request, CACHE_MATCH_OPTIONS).then((saved) => saved || fetch(request).then(async (response) => {
       if (response.ok) {
         const cache = await caches.open(CACHE_NAME);
         await cache.put(request, response.clone());

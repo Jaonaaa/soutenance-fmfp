@@ -1,7 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import Rehearsal from './Rehearsal';
 import slides from './data/slides.json';
 import timeline from './data/video-timeline.json';
-import demoVideoUrl from '../video/out/1&2&3.mp4?url';
+import { slideImagePath } from './deck-assets.mjs';
+
+const demoVideoUrl = import.meta.env.DEV
+  ? `${import.meta.env.BASE_URL}video/out/1&2&3.mp4`
+  : null;
 
 const STORAGE_KEY = 'soutenance-fmfp-preparation-v1';
 const MAX_DURATION = 3600;
@@ -147,6 +152,7 @@ function Icon({ name }) {
     export: <><path d="M12 3v12m-4-4 4 4 4-4" /><path d="M5 15v5h14v-5" /></>,
     close: <><path d="m6 6 12 12M18 6 6 18" /></>,
     play: <><path d="m8 5 11 7-11 7z" fill="currentColor" stroke="none" /></>,
+    repeat: <><path d="M20 8a8 8 0 0 0-14-2L3 9m0-5v5h5" /><path d="M4 16a8 8 0 0 0 14 2l3-3m0 5v-5h-5" /></>,
     pause: <><path d="M8 5h3v14H8zM15 5h3v14h-3z" fill="currentColor" stroke="none" /></>,
     back: <><path d="M11 5 4 12l7 7" /><path d="M20 5 13 12l7 7" /></>,
     fullscreen: <><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5" /></>,
@@ -168,6 +174,8 @@ function App() {
   const [slidesOpen, setSlidesOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerTab, setDrawerTab] = useState('narration');
+  const [rehearsal, setRehearsal] = useState(false);
+  const [rehearsalPlaying, setRehearsalPlaying] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
   const [saveMessage, setSaveMessage] = useState(initial.restored ? 'Modifications retrouvées' : 'Sauvegarde locale prête');
   const [notice, setNotice] = useState('');
@@ -188,6 +196,8 @@ function App() {
     ...scene,
     narration: sceneEdits[scene.id]?.narration ?? scene.narration,
   };
+  const narrationWordCount = currentSlide.narration.trim().split(/\s+/).filter(Boolean).length;
+  const slideProgress = ((currentSlide.number / slides.length) * 100).toFixed(2);
   const totalSlideSeconds = useMemo(() => slides.reduce(
     (total, item) => total + (slideEdits[item.id]?.durationSeconds ?? item.durationSeconds), 0,
   ), [slideEdits]);
@@ -197,6 +207,10 @@ function App() {
   const activeCueIndex = narrationCues.findIndex((cue) =>
     relativeVideoTime >= parseClock(cue.start) && relativeVideoTime < parseClock(cue.end),
   );
+
+  useEffect(() => {
+    if (!drawerOpen || drawerTab !== 'narration') setRehearsalPlaying(false);
+  }, [drawerOpen, drawerTab]);
 
   useEffect(() => {
     if (drawerOpen && drawerTab === 'video' && activeCueIndex >= 0) {
@@ -340,6 +354,7 @@ function App() {
       data-drawer-open={drawerOpen}
       data-side-drawer={drawerOpen && !compact}
       data-side-open={slidesOpen}
+      data-rehearsal={drawerOpen && drawerTab === 'narration' && rehearsal}
     >
       <main className="stage" aria-label="Préparation de la soutenance">
         <div className="stage-ident">
@@ -347,16 +362,21 @@ function App() {
             <Icon name="list" />
           </button>
           <div className="stage-ident-copy">
-            <span>SOUTENANCE FMFP · {String(currentSlide.number).padStart(2, '0')} / {slides.length}</span>
+            <span>PRÉPARATION DE LA SOUTENANCE</span>
             <strong>{currentSlide.title}</strong>
           </div>
         </div>
 
-        <div className="stage-actions">
+        <div className="stage-progress" role="progressbar" aria-label="Progression dans les diapositives" aria-valuemin="1" aria-valuemax={slides.length} aria-valuenow={currentSlide.number}>
+          <span style={{ width: `${slideProgress}%` }} />
+        </div>
+
+        <div className="stage-actions" role="group" aria-label="Commandes de présentation">
+          <button className="rehearsal-launch" onClick={() => { setRehearsal(true); setRehearsalPlaying(false); openDrawer('narration'); }}><Icon name="repeat" /><span>Répéter</span></button>
           <div className="view-switch" role="group" aria-label="Affichage des diapositives">
-            {!compact && <button className={viewMode === 'compare' ? 'active' : ''} onClick={() => setViewMode('compare')} aria-pressed={viewMode === 'compare'}><Icon name="compare" /><span>Comparer</span></button>}
-            <button className={viewMode === 'maquette' ? 'active' : ''} onClick={() => setViewMode('maquette')} aria-pressed={viewMode === 'maquette'}><Icon name="pen" /><span>Maquette</span></button>
-            <button className={viewMode === 'hifi' ? 'active' : ''} onClick={() => setViewMode('hifi')} aria-pressed={viewMode === 'hifi'}><Icon name="image" /><span>Rendu PDF</span></button>
+            {!compact && <button className={viewMode === 'compare' ? 'active' : ''} onClick={() => setViewMode('compare')} aria-pressed={viewMode === 'compare'} aria-label="Comparer les deux rendus" title="Comparer les deux rendus"><Icon name="compare" /><span>Comparer</span></button>}
+            <button className={viewMode === 'maquette' ? 'active' : ''} onClick={() => setViewMode('maquette')} aria-pressed={viewMode === 'maquette'} aria-label="Afficher la maquette" title="Afficher la maquette"><Icon name="pen" /><span>Maquette</span></button>
+            <button className={viewMode === 'hifi' ? 'active' : ''} onClick={() => setViewMode('hifi')} aria-pressed={viewMode === 'hifi'} aria-label="Afficher le rendu PDF" title="Afficher le rendu PDF"><Icon name="image" /><span>Rendu PDF</span></button>
           </div>
           <div className="tools-wrap">
             <button className="float-button tools-trigger" onClick={() => setToolsOpen((open) => !open)} aria-label="Ouvrir les outils" aria-expanded={toolsOpen}><Icon name="tools" /></button>
@@ -414,17 +434,26 @@ function App() {
       {drawerOpen && (
         <section className={`notes-drawer ${!compact ? 'notes-drawer--side' : ''}`} aria-label={drawerTab === 'video' ? 'Chronologie vidéo' : 'Notes orateur'}>
           <div className="drawer-heading bottom-heading">
-            <div className="drawer-tabs" role="tablist" aria-label="Panneau inférieur">
+            {drawerTab === 'narration' ? <div className="practice-header"><span className="practice-mark"><Icon name={rehearsal ? 'repeat' : 'note'} /></span><div><small>SOUTENANCE FMFP</small><strong>{rehearsal ? 'Studio de répétition' : 'Notes orateur'}</strong></div></div> : <div className="drawer-tabs" role="tablist" aria-label="Panneau inférieur">
               <button role="tab" aria-selected={drawerTab === 'narration'} className={drawerTab === 'narration' ? 'selected' : ''} onClick={() => selectDrawerTab('narration')}><Icon name="note" /> Narration</button>
               <button role="tab" aria-selected={drawerTab === 'video'} className={drawerTab === 'video' ? 'selected' : ''} onClick={() => selectDrawerTab('video')}><Icon name="time" /> Chronologie vidéo</button>
+            </div>}
+            <div className="practice-header-actions">
+              {drawerTab === 'narration' && <button className="practice-video-link" onClick={() => selectDrawerTab('video')} aria-label="Ouvrir la chronologie vidéo" title="Chronologie vidéo"><Icon name="time" /></button>}
+              <button className="float-button close-drawer" onClick={() => setDrawerOpen(false)} aria-label="Fermer le panneau"><Icon name="close" /></button>
             </div>
-            <button className="float-button close-drawer" onClick={() => setDrawerOpen(false)} aria-label="Fermer le panneau"><Icon name="close" /></button>
           </div>
-          {drawerTab === 'narration' ? (
+          {drawerTab === 'narration' && <div className="practice-modes" role="group" aria-label="Mode des notes"><button aria-pressed={!rehearsal} onClick={() => { setRehearsal(false); setRehearsalPlaying(false); }}><Icon name="pen" />Écrire</button><button aria-pressed={rehearsal} onClick={() => { setRehearsal(true); setRehearsalPlaying(false); }}><Icon name="repeat" />Répéter</button><span>Discours & transitions</span></div>}
+          {drawerTab === 'narration' && rehearsal ? (
+            <Rehearsal key={slide.id} slide={currentSlide} playing={rehearsalPlaying} setPlaying={setRehearsalPlaying} onNext={() => selectSlide(slideIndex + 1)} onPrevious={() => selectSlide(slideIndex - 1)} first={slideIndex === 0} last={slideIndex === slides.length - 1} nextTitle={slides[slideIndex + 1]?.title} slideCount={slides.length} videoUrl={demoVideoUrl} />
+          ) : drawerTab === 'narration' ? (
             <div className="notes-editor">
               <div className="narration-field">
                 <div className="narration-field-heading">
-                  <label className="narration-title" htmlFor={`narration-${slide.id}`}>Diapositive {String(currentSlide.number).padStart(2, '0')}</label>
+                  <div className="narration-meta">
+                    <label className="narration-title" htmlFor={`narration-${slide.id}`}>Diapositive {String(currentSlide.number).padStart(2, '0')} · {currentSlide.title}</label>
+                    <span className="word-count">{narrationWordCount} mots · environ {formatSlideDuration(currentSlide.durationSeconds)}</span>
+                  </div>
                   <label className="duration-field"><span>Durée</span><span className="duration-input-wrap"><input aria-label="Durée de la diapositive en secondes" type="number" min="0" max={MAX_DURATION} step="5" value={currentSlide.durationSeconds} onChange={(event) => editSlide({ durationSeconds: boundedDuration(event.target.value) })} /><small>sec</small></span></label>
                 </div>
                 <textarea id={`narration-${slide.id}`} value={currentSlide.narration} onChange={(event) => editSlide({ narration: event.target.value })} placeholder="Rédigez la narration de cette diapositive…" rows="4" />
@@ -454,7 +483,11 @@ function App() {
                   </button>
                 </div>
                 {videoPreviewOpen ? (
-                  videoLoadError ? (
+                  !demoVideoUrl ? (
+                    <div className="video-load-error" role="status">
+                      Le montage reste disponible en local et n’est pas inclus dans la version publiée.
+                    </div>
+                  ) : videoLoadError ? (
                     <div className="video-load-error" role="status">
                       La vidéo n’a pas pu être lue. <a href={demoVideoUrl} target="_blank" rel="noreferrer">Ouvrir le MP4</a>
                     </div>
@@ -590,8 +623,7 @@ function SlideWireframe({ slide, onZoom, onOpenVideo }) {
 }
 
 function SlideHighFidelity({ slide, onZoom, allowZoom }) {
-  const filename = `slide-${String(slide.number).padStart(2, '0')}.jpg`;
-  const source = `${import.meta.env.BASE_URL}slides-hifi/${filename}`;
+  const source = `${import.meta.env.BASE_URL}${slideImagePath(slide.number)}`;
   const image = <img src={source} alt={`Diapositive ${slide.number} : ${slide.title}`} draggable="false" />;
   return (
     <article className="preview-card final-card">

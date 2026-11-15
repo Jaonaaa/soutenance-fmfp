@@ -1,32 +1,34 @@
 # Soutenance : discours et scénario de démonstration
 
-Version du 2 novembre 2026 · 29 diapositives. Le cas textile introduit à la diapositive 6 sert de fil conducteur aux exemples de la partie 4 et à la démonstration vidéo actuelle de 5 min 36. Les notes orateur Canva doivent être reportées séparément : ce document ne confirme pas leur mise à jour.
+Version du 14 novembre 2026 · 29 diapositives, discours simplifié pour l’oral. Le cas textile présenté à la diapositive 7 revient dans les exemples et dans la démonstration vidéo de 5 min 36. Les notes orateur Canva doivent être reportées séparément : ce document ne confirme pas leur mise à jour.
 
-L’ouverture de la couverture est conservée telle que validée. Les transitions conduisent d’une diapositive à la suivante, avec une pause sur les six intercalaires. Les repères orateur ne sont pas destinés à être lus.
+Ces phrases sont des repères, pas un texte à réciter. Garder les faits importants et les précautions, mais parler avec ses propres mots et à son rythme. Les repères orateur ne sont pas à lire. Faire une courte pause sur les diapositives qui ouvrent une partie. Les captures des diapositives 17 à 21 préparent la vidéo; elles ne sont pas une deuxième démonstration. Prononcer les lettres F-M-F-P séparément. Sur la diapositive 6, arrondir les durées à l’oral; les chiffres exacts restent affichés.
 
 La démonstration garde le même cas textile, d’abord côté entreprise puis côté évaluateur. Le montage montre l’orientation, le conseil contextualisé, la correction des retombées, le remplacement du CV et l’audit ; il poursuit avec l’analyse, les comparables et l’appréciation assistée. Les pièces sont fictives. Le brouillon n’est pas soumis ; le commentaire évaluateur est enregistré sans envoi et la grille reste vide.
 
 Sources : [Canva V2](https://www.canva.com/design/DAHZaZtOuqk/01PuTDUUC4YzCQptHQfSJw/edit), [mémoire révisé](https://docs.google.com/document/d/1RErKYxmuakrnbvYlpcl3dBbDCQG5QqD0sEkyAWJItVc/edit).
 
-La partie 5 conserve les preuves techniques et les limites essentielles. Les détails chiffrés et les points d’exploitation restent dans les repères orateur pour les questions. Durée indicative de cette partie, hors intercalaire : 1 min 20 s.
+La diapositive 6 présente le repère historique sur les réserves et les délais. La diapositive 27 décrit le pilote proposé pour mesurer l’apport de l’assistance.
+
+La partie 5 conserve les preuves techniques et les limites essentielles. Les détails chiffrés et les points d’exploitation restent dans les repères orateur pour les questions. Durée indicative de cette partie, hors intercalaire : 1 min 35 s.
 
 ## 01. Couverture
 
-Durée indicative : 40 s
+Durée indicative : 55 s
 
-Bonjour à toutes et à tous, merci d’être présents. Je vais vous présenter mon projet de fin d’études, intitulé « Conception d’un système intelligent de scoring, de recommandations et d’aide à la décision pour la gestion des financements de la formation professionnelle ». Je présenterai la démarche de réalisation et les principales fonctionnalités, puis une démonstration du système, avant de revenir sur les résultats et les perspectives de ce travail.
+Bonjour à toutes et à tous. Mon projet de fin d’études porte sur l’aide à la gestion des financements de la formation professionnelle. Je l’ai réalisé au Fonds Malgache de Formation Professionnelle, le FMFP. Il aide les entreprises à s’orienter, les évaluateurs à examiner les demandes et les équipes à suivre les corrections. La décision reste aux équipes.
 
-Transition : Voici le plan de cette présentation.
+Transition : Voici les étapes de la présentation.
 
-Repère orateur — ne pas lire : Annoncer le sujet et le déroulement de la présentation. Garder le contexte du FMFP, les utilisateurs et le problème métier pour les diapositives suivantes.
+Repère orateur — ne pas lire : Le titre complet reste affiché. Présenter le sujet avec des mots simples.
 
 ## 02. Le fil de la présentation
 
 Durée indicative : 25 s
 
-Le fil conducteur sera le parcours d’une demande de financement. Après le contexte et les objectifs, je présenterai les choix qui ont guidé la réalisation. Nous verrons ensuite la solution et ses fonctionnalités, avec des exemples à l’écran. Les résultats et les limites permettront enfin de dégager les prochaines étapes.
+Je vais d’abord présenter le besoin, puis la solution et comment je l’ai construite. Nous verrons ensuite son fonctionnement à travers un cas et une démonstration. Je terminerai par les résultats, les limites et les suites possibles.
 
-Transition : Commençons par les deux côtés de cette demande : l’entreprise et le FMFP.
+Transition : Commençons par voir qui utilise ce dossier.
 
 Repère orateur — ne pas lire : Annonce des six parties affichées. Ne pas annoncer une diapositive détaillée sur l’organisme : la page 4 présente les deux utilisateurs.
 
@@ -40,9 +42,9 @@ Laisser apparaître le titre de cette partie avant de poursuivre.
 
 Durée indicative : 40 s
 
-Le Fonds Malgache de Formation Professionnelle, le FMFP, accompagne le financement de la formation à Madagascar. Pour demander ce financement, l’entreprise doit expliquer son besoin, choisir un dispositif et préparer son dossier. Côté FMFP, les équipes doivent examiner ces informations, appliquer les règles et motiver un avis. Le projet se situe à cette rencontre : un même dossier, mais des besoins différents selon la personne qui l’utilise.
+Le FMFP aide les entreprises à financer la formation de leurs équipes. L’entreprise explique ce qu’elle veut faire et prépare sa demande. Au FMFP, l’équipe vérifie le dossier, puis l’évaluateur donne son avis. Mon projet cherche à faciliter ces deux étapes.
 
-Transition : Ce dossier passe ensuite par plusieurs étapes.
+Transition : Voyons les étapes d’une demande.
 
 Repère orateur — ne pas lire : L’assistance complète à la préparation côté entreprise reste une perspective ; l’orientation avant dépôt est disponible.
 
@@ -50,169 +52,169 @@ Repère orateur — ne pas lire : L’assistance complète à la préparation c�
 
 Durée indicative : 45 s
 
-L’entreprise prépare sa demande, puis la dépose sur la plateforme. Viennent ensuite l’instruction, l’évaluation, la décision et le suivi. À l’évaluation, il faut rapprocher le besoin de formation, les modules, les bénéficiaires et le budget. Ces éléments sont présents dans l’application, mais répartis entre plusieurs rubriques. Mon travail a donc consisté à ajouter de l’aide dans ce parcours existant, aux moments où les informations doivent être rapprochées.
+La demande suit plusieurs étapes, depuis sa préparation jusqu’au suivi après la décision. Les informations utiles se trouvent à différents endroits du dossier. Il faut les mettre côte à côte pour bien le comprendre. L’aide doit s’intégrer à la façon de travailler actuelle.
 
-Transition : Prenons un cas concret pour voir ce que cela représente.
+Transition : Les anciens dossiers donnent aussi une idée des délais.
 
 Repère orateur — ne pas lire : L’évaluateur formule une appréciation ; la décision de financement reste dans le circuit officiel. Les six étapes sont un parcours métier, pas six fonctions IA déjà livrées.
 
-## 06. Une demande de formation textile
+## 06. Réserves et délais
 
 Durée indicative : 45 s
 
-Prenons le cas de BEMA, une entreprise textile qui prépare une formation à la sécurité au travail et à la qualité des finitions. Le scénario porte sur douze agents de production. Dans le brouillon, la retombée attendue est formulée ainsi : « Les équipes seront mieux formées ». Cette phrase exprime une intention, mais ne permet pas de suivre un progrès. Le cahier des charges du scénario propose un repère mesurable : au moins neuf contrôles sur dix correctement appliqués en mise en situation. Je garderai ce même dossier pour les exemples qui suivent.
+Dans les dossiers terminés dont les dates sont connues, le délai moyen est d’un peu moins de huit jours pour 77 dossiers sans commentaire de réserve. Pour 51 dossiers avec au moins deux commentaires de réserve, il est d’environ dix-neuf jours. L’écart est d’environ onze jours. Ces délais incluent les attentes. On observe un écart, mais cela ne prouve pas que les réserves en sont la cause. L’effet de l’assistance reste à mesurer.
 
-Transition : C’est à partir de ce besoin que j’ai formulé la question du projet.
+Transition : Prenons un exemple pour rendre cela plus concret.
 
-Repère orateur — ne pas lire : Le 9/10 est une cible du scénario, pas un résultat atteint. Les pièces utilisées dans la démonstration sont fictives.
+Repère orateur — ne pas lire : Source : mémoire révisé, section 9.5 et annexe N. 77 dossiers sans commentaire : moyenne 7,95 j; 51 dossiers avec au moins deux commentaires : moyenne 18,81 j. Écart : 10,86 j. Le groupe à un commentaire compte un seul dossier (10,17 j), donc aucune tendance ne peut en être déduite. Le compteur porte sur l’événement « Commentaire réserve » en Résultat / Prévalidation; il ne recense ni toutes les réserves actives ni les cycles complets. Le délai va de la première soumission identifiable à la décision documentée, attentes comprises. L’usage de l’IA n’est pas relié à chaque dossier : aucune causalité ni réduction du délai par l’IA n’est démontrée. L’objectif concerne les réserves évitables; les réserves justifiées restent nécessaires. Les illustrations évoquent les échanges de correction; elles ne représentent pas des cycles reconstitués à partir de ces données. Les badges bleus et orange illustrent l’absence ou la présence de commentaires de réserve; la coche ne signifie ni conformité globale ni décision de financement.
 
-## 07. La réponse au besoin
+## 07. Une demande de formation textile
+
+Durée indicative : 45 s
+
+Je vais garder le même exemple pour la suite. Une entreprise veut former douze agents à la sécurité et à la qualité des finitions. Dans sa demande, elle écrit seulement : « les équipes seront mieux formées ». On va voir comment rendre ce résultat plus clair. L’objectif de réussir neuf contrôles sur dix est prévu pour la démonstration; ce n’est pas un vrai résultat de formation.
+
+Transition : Cet exemple m’amène à la question du projet.
+
+Repère orateur — ne pas lire : Le 9/10 est une cible du scénario, pas un résultat déjà obtenu. Les pièces du dossier sont fictives.
+
+## 08. La réponse au besoin
 
 Intercalaire — La réponse au besoin.
 
 Laisser apparaître le titre de cette partie avant de poursuivre.
 
-## 08. La question du projet
+## 09. Comment aider les entreprises à préparer des dossiers plus complets et cohérents, tout en facilitant leur analyse ?
 
 Durée indicative : 35 s
 
-Comment aider les entreprises à préparer des dossiers plus complets et cohérents, tout en facilitant leur analyse ? Cette question relie les deux utilisateurs que nous venons de voir. Côté entreprise, il s’agit de mieux orienter et préparer la demande. Côté FMFP, il faut rendre les vérifications plus accessibles. Dans les deux cas, les résultats de l’assistance doivent pouvoir être examinés et discutés.
+Je me suis demandé comment aider les entreprises à mieux préparer leurs demandes et faciliter leur examen. Il faut aider l’entreprise avant le dépôt, puis aider l’équipe à examiner le dossier. Dans les deux cas, les conseils doivent être faciles à comprendre et à vérifier.
 
-Transition : Cette question conduit à trois objectifs concrets.
+Transition : À partir de cette question, j’ai fixé trois objectifs.
 
-Repère orateur — ne pas lire : Prononcer la question affichée sans la remplacer par une problématique centrée uniquement sur le scoring.
+Repère orateur — ne pas lire : Expliquer la question avec ses mots; inutile de lire le titre mot à mot.
 
-## 09. Trois objectifs pour le dossier
+## 10. Trois objectifs pour le dossier
 
 Durée indicative : 40 s
 
-D’abord, mieux orienter l’entreprise vers un dispositif compatible avec son besoin. Ensuite, mieux analyser le dossier en repérant les informations manquantes et les écarts entre rubriques. Enfin, mieux suivre les demandes de correction, les versions et les échanges. Ces trois objectifs portent sur la qualité du dossier et le travail nécessaire pour le traiter.
+Le projet a trois objectifs : aider l’entreprise à trouver un programme adapté, examiner les demandes plus facilement et mieux suivre les corrections. Ensemble, ils couvrent plusieurs étapes, du premier choix jusqu’aux corrections.
 
-Transition : Il faut maintenant distinguer ces objectifs du périmètre déjà réalisé.
+Transition : Voyons maintenant ce qui est déjà disponible.
 
 Repère orateur — ne pas lire : Les objectifs ne constituent pas des résultats métier déjà démontrés.
 
-## 10. Un périmètre à annoncer clairement
+## 11. Un périmètre à annoncer clairement
 
 Durée indicative : 45 s
 
-La réalisation comprend une orientation avant dépôt, des contrôles et des outils de suivi. L’assistant du dossier intervient surtout auprès de l’évaluateur, sur la demande reçue. La préparation entièrement guidée côté entreprise reste une extension. La lecture des pièces et la pertinence des constats demandent aussi des validations complémentaires. Ce périmètre fixe ce que je vais vous présenter, puis ce qu’il restera à évaluer.
+L’orientation avant le dépôt, certains contrôles et le suivi des corrections sont déjà disponibles. L’aide complète à la préparation de la demande reste à développer. La lecture des pièces et la justesse des remarques doivent aussi être vérifiées avec les utilisateurs.
 
-Transition : Pour le construire, j’ai choisi la méthode adaptée à chaque tâche.
+Transition : Pour répondre à ce besoin, j’ai choisi les outils selon leur rôle.
 
-Repère orateur — ne pas lire : Transition vers la partie « Construire dans l’existant », après l’intercalaire 11.
+Repère orateur — ne pas lire : Transition vers la partie « Construire dans l’existant », après l’intercalaire 12.
 
-## 11. Construire dans l’existant
+## 12. Construire dans l’existant
 
 Intercalaire — Construire dans l’existant.
 
 Laisser apparaître le titre de cette partie avant de poursuivre.
 
-## 12. Le bon outil pour chaque tâche
+## 13. Le bon outil pour chaque tâche
 
 Durée indicative : 50 s
 
-Une exigence connue se vérifie avec une règle explicite. Une suite stable de contrôles s’organise dans un workflow. Pour une question sur le dossier, l’assistant mobilise les informations et les outils autorisés. Le modèle de scoring V2 estime un risque de rejet à partir des décisions passées ; il apporte un signal complémentaire. J’ai combiné ces méthodes, du plus simple au plus complexe, pour garder des résultats explicables et une solution que l’équipe puisse tester et maintenir. Une méthode plus complexe ne se justifie que si elle apporte un gain mesurable.
+Chaque besoin demande un outil adapté. Les règles connues sont vérifiées par des contrôles simples. Les tâches qui se répètent suivent un parcours défini. L’assistant aide à retrouver les informations dans le dossier. Un modèle estime le risque de rejet à partir des décisions passées. Il donne une indication, mais ne prend pas la décision à la place de l’évaluateur.
 
-Transition : Restait à intégrer ces choix dans une plateforme déjà utilisée.
+Transition : Il fallait ensuite intégrer ces outils à la plateforme.
 
 Repère orateur — ne pas lire : Le multi-agents est une piste à comparer, pas une réalisation à annoncer. Référence : mémoire, sections 3.3 et 3.4.
 
-## 13. Construire par étapes vérifiables
+## 14. Construire par étapes vérifiables
 
 Durée indicative : 45 s
 
-J’ai avancé progressivement. Le cadrage a permis de préciser les besoins et les règles. La preuve de concept a vérifié la chaîne, avant l’intégration aux écrans et aux droits existants. Les tests accompagnaient les étapes suivantes jusqu’au déploiement, avec des revues auprès des équipes. L’idée était de vérifier avant de poursuivre, tout en conservant les formulaires et le parcours officiel.
+J’ai avancé par étapes. J’ai d’abord précisé le besoin et testé les règles sur une première version. Ensuite, j’ai intégré les fonctions aux écrans et aux règles d’accès déjà en place. J’ai vérifié les résultats à chaque étape et échangé avec les équipes. La demande suit toujours le parcours habituel.
 
-Transition : Cette façon de travailler a conduit à séparer les responsabilités du système.
+Transition : La plateforme et le service d’analyse ont chacun leur rôle.
 
 Repère orateur — ne pas lire : Les vérifications et captures réalisées après le stage complètent les preuves sans dater automatiquement la livraison des fonctions. Ce point sert de repère pour les questions.
 
-## 14. Des responsabilités séparées
+## 15. Des responsabilités séparées
 
 Durée indicative : 50 s
 
-La plateforme conserve les accès, les écrans, la grille et le suivi du dossier. À côté, le service analytique effectue les contrôles et prépare les aides en consultant les données métier en lecture seule. Les propositions reviennent à l’évaluateur, qui les vérifie et renseigne sa grille. Certains traitements utilisent un modèle de langage externe ; les conditions de confidentialité de ces appels restent à valider. Cette séparation permet d’intégrer l’assistance dans le parcours existant.
+La plateforme gère les accès, les écrans et le suivi. Le service d’analyse vérifie le dossier à partir des données, sans les modifier. L’évaluateur vérifie les résultats et donne son avis. La décision reste dans le circuit habituel. Certains traitements utilisent un modèle externe. Il reste à vérifier comment les informations sont protégées lorsqu’elles sont envoyées.
 
-Transition : Voyons maintenant comment cette organisation se traduit dans les fonctionnalités.
+Transition : Passons à un exemple pour voir ces outils en action.
 
 Repère orateur — ne pas lire : Cette page termine la démarche en exposant un choix d’intégration et prépare la partie 4. Éviter de refaire une seconde présentation de la même architecture après l’intercalaire. Détail si demandé : CodeIgniter 3, Python/FastAPI, contrat JSON versionné et vérification des droits côté plateforme.
 
-## 15. L’assistance en action
+## 16. L’assistance en action
 
-Intercalaire — Architecture et fonctionnalités.
+Intercalaire — L’assistance en action.
 
 Laisser apparaître le titre de cette partie avant de poursuivre.
 
-## 16. Avant le dépôt : trouver une orientation
+## 17. Avant le dépôt : trouver une orientation
 
 Durée indicative : 40 s
 
-L’entreprise décrit son besoin de formation en atelier textile. Le conseiller de guichet utilise l’objectif et le contexte de l’entreprise pour proposer une orientation expliquée. Il s’agit d’une piste avant dépôt, pas d’une admission ni d’une décision de financement. Je poursuis avec le brouillon préparé pour ce même besoin.
+Avant de déposer son dossier, l’entreprise peut décrire son besoin. Le conseiller lui indique une aide qui pourrait convenir et explique pourquoi. Cette suggestion aide à commencer le dossier, mais ne garantit ni son acceptation ni le financement.
 
-Transition : Je garde cette demande en fil conducteur pour examiner le conseil et le dossier.
+Transition : Ensuite, l’entreprise peut préciser le résultat attendu.
 
-Repère orateur — ne pas lire : L’adéquation affichée ne garantit pas la recevabilité ni le financement.
-
-## 17. Du besoin au contrôle final
-
-Durée indicative : 45 s
-
-Je garde une seule demande comme fil conducteur. Elle concerne douze agents à former à la sécurité et à la qualité textile. Le cahier des charges donne une cible de démonstration : neuf contrôles sur dix appliqués correctement. Je vais examiner le retour du conseiller IA, corriger la formulation des retombées, vérifier le CV du formateur et terminer par les trois annexes. Le parcours s’arrête à l’audit, avant l’envoi.
-
-Transition : Je commence par le conseiller IA et sa réponse sur les résultats observables.
-
-Repère orateur — ne pas lire : Le brouillon est local et n’est pas soumis. Ne pas présenter 9/10 comme un résultat de formation mesuré.
+Repère orateur — ne pas lire : Une orientation n’est ni une admission ni une décision de financement.
 
 ## 18. Le conseiller IA éclaire le dossier
 
 Durée indicative : 50 s
 
-Dans le volet du conseiller IA, je demande quels résultats observables l’entreprise pourra suivre après la formation. La réponse reprend le critère du cahier des charges — neuf contrôles sur dix — et le relie à la sécurité au travail et à la qualité des finitions. Elle aide à formuler une piste à partir du dossier. Elle ne prouve pas que les participants ont déjà atteint cette cible et ne modifie pas le champ à la place de l’entreprise.
+Dans l’exemple, l’entreprise demande comment savoir si la formation a été utile. L’assistant retrouve un objectif dans le document de référence et le relie au besoin décrit. Cela donne une idée plus précise, que l’entreprise peut vérifier avant de l’ajouter à son dossier.
 
-Transition : Je vérifie maintenant cette proposition sur le champ des retombées.
+Transition : Voyons comment elle ajoute cette idée à son dossier.
 
-Repère orateur — ne pas lire : Montrer la question, le retour contextualisé et son lien au cahier des charges. Laisser le temps de lire la réponse, puis avancer.
+Repère orateur — ne pas lire : Ne pas présenter la cible 9/10 comme un résultat déjà atteint. La réponse du chat est une piste à vérifier.
 
-## 19. Je transforme le conseil en cible vérifiable
+## 19. Je vérifie le conseil sur le champ des retombées
 
 Durée indicative : 50 s
 
-La phrase initiale — « Les équipes seront mieux formées » — ne précise pas ce qui sera observé. Je retrouve dans le cahier des charges la cible de neuf contrôles correctement appliqués sur dix pendant une mise en situation. L’entreprise saisit elle-même une formulation mesurable dans le champ des retombées, puis enregistre la rubrique. Le contrôle indique l’état de la saisie ; seule une évaluation ultérieure permettra de savoir si les participants ont atteint la cible.
+Au départ, le résultat attendu était trop général. L’entreprise le précise avec un objectif qu’on peut vérifier : réussir au moins neuf contrôles sur dix pendant un exercice pratique. Cet objectif est prévu pour la démonstration, pas mesuré en situation réelle. L’entreprise reste responsable de ce qu’elle écrit dans sa demande.
 
-Transition : Je passe au CV obligatoire du formateur dans le même dossier.
+Transition : Après le résultat attendu, regardons les pièces.
 
-Repère orateur — ne pas lire : La correction est faite manuellement par l’entreprise ; le chat ne remplit pas le champ automatiquement.
+Repère orateur — ne pas lire : La cible de neuf sur dix est celle du cahier des charges de démonstration ; ne pas la présenter comme un résultat observé.
 
 ## 20. Le CV du formateur : quatre points à corriger
 
 Durée indicative : 45 s
 
-Le contrôle du premier CV fictif relève quatre écarts de canevas : les dates obligatoires, les sections attendues, la mise en page et la signature. Je vérifie ces constats, retire le fichier incorrect, puis ajoute le CV fictif de démonstration au bon format. Le contrôle porte sur la structure du document. Il ne juge pas les compétences du formateur et ne certifie pas l’authenticité d’une signature.
+Le contrôle trouve quatre différences avec le modèle de CV demandé. Je vérifie les remarques, puis je remplace le fichier incomplet par un CV fictif au bon format. Ce contrôle vérifie la présentation du document. Il ne dit rien sur les compétences du formateur ni sur l’authenticité de sa signature.
 
-Transition : Je vérifie que les trois annexes sont présentes et je m’arrête avant l’envoi.
+Transition : Il reste à vérifier que les autres pièces sont présentes.
 
-Repère orateur — ne pas lire : Les deux CV et les autres pièces sont des spécimens de démonstration. Masquer les noms de fichiers à l’écran.
+Repère orateur — ne pas lire : Le CV présenté est un document fictif de démonstration. Le contrôle signale quatre écarts de canevas : dates obligatoires, sections, mise en page et signature. Ce contrôle de structure ne juge pas la compétence du formateur.
 
 ## 21. Vérifier les trois annexes avant l’envoi
 
 Durée indicative : 55 s
 
-Après le remplacement du CV, les trois annexes du brouillon sont présentes : le plan annuel fictif, la lettre de demande fictive et le CV au format du canevas. Je descends jusqu’au bloc du CV pour le rendre entièrement lisible, puis je reviens au contrôle final. « Dossier cohérent » décrit le résultat de ce contrôle de complétude. Il ne vaut ni décision d’éligibilité ni accord de financement. Je m’arrête avant le bouton de soumission : aucune demande n’est envoyée.
+Les trois documents demandés sont maintenant présents, et le contrôle affiche « Dossier cohérent ». Cela veut seulement dire que les pièces attendues sont là. Cela ne signifie pas que la demande sera acceptée ou financée. Je garde le dossier en brouillon et je ne l’envoie pas.
 
-Transition : Je reprends maintenant le même cas textile dans le montage de 5 min 36, du dépôt à l’évaluation.
+Transition : La vidéo continue ce parcours et montre aussi le travail de l’évaluateur.
 
-Repère orateur — ne pas lire : Montrer les trois cartes sans s’attarder sur le résultat final. Le bouton Soumettre reste non cliqué.
+Repère orateur — ne pas lire : Montrer les trois annexes et le résultat du contrôle final. Le brouillon n’est pas soumis. La vidéo présente ensuite le point de vue évaluateur dans le même scénario ; ne pas laisser entendre que le brouillon vient de lui être transmis.
 
-## 22. Démonstration · reprendre le même parcours
+## 22. Démonstration · du dépôt à l’évaluation
 
 Durée indicative : 5 min 36
 
-Je suis le même cas textile du point de vue de l’entreprise, puis de l’évaluateur. Le premier parcours va de l’orientation à l’audit du brouillon : conseil IA, correction manuelle, CV et annexes. Le second montre l’analyse et ses sources, les dossiers comparables, le chat contextualisé et une appréciation reformulée puis enregistrée sans envoi. La grille reste vide ; aucune décision n’est prise. La demande entreprise n’est pas soumise.
+La vidéo reprend d’abord la préparation de la demande, puis montre les outils de l’évaluateur. Tous les documents sont fictifs. La demande de l’entreprise n’est pas envoyée. L’évaluateur enregistre son commentaire sans l’envoyer et laisse la grille vide. Regardons comment il vérifie les informations avant de donner son avis.
 
-Transition : Passons maintenant aux résultats et aux limites de cette réalisation.
+Transition : Après la vidéo, je vais parler des vérifications réalisées.
 
-Repère orateur — ne pas lire : Le montage courant dure 5 min 36, transitions comprises. Les notifications et toasts sont masqués. Garder la barre latérale fixe et ne faire défiler que le contenu principal. Ne pas cliquer sur Soumettre ; ne saisir aucun score ni aucune décision dans la partie évaluateur.
+Repère orateur — ne pas lire : Le montage des trois prises et des deux transitions dure 5 min 36. Les pièces sont fictives ; la demande entreprise reste non soumise. Le commentaire évaluateur est enregistré sans envoi, la grille reste vide et aucune décision n’est prise.
 
 ## 23. Preuves et limites
 
@@ -224,19 +226,19 @@ Laisser apparaître le titre de cette partie avant de poursuivre.
 
 Durée indicative : 40 s
 
-Après la démonstration, que peut-on retenir ? L’audit technique rapporte 1 252 tests réussis localement. Un essai à blanc sur 150 dossiers a aussi permis d’ajuster les contrôles. Ces éléments documentent les vérifications du logiciel et de ses règles. Ils ne démontrent pas encore une amélioration de la qualité des dossiers ou un gain de temps pour les équipes.
+En local, 1 252 tests du logiciel ont réussi. Un test sur 150 dossiers a servi à régler les contrôles. Ces tests montrent que le logiciel a bien été vérifié. On ne sait pas encore si cela fait gagner du temps ou améliore les dossiers dans le travail réel.
 
-Transition : Ces vérifications laissent encore des limites à prendre en compte.
+Transition : Le modèle de prédiction, lui, donne des résultats plus limités.
 
-Repère orateur — ne pas lire : Si le jury demande les détails : couverture de 87,79 % dans l’audit technique ; sur les 150 dossiers de l’essai à blanc, les dossiers signalés passent de 143 à 88 après réglage. Une baisse des alertes ne prouve pas leur justesse. Références : mémoire, sections 9.3 et 9.4.
+Repère orateur — ne pas lire : Si le jury demande les détails : couverture de 87,78 % dans l’audit technique ; sur les 150 dossiers de l’essai à blanc, les dossiers signalés passent de 143 à 88 après réglage. Une baisse des alertes ne prouve pas leur justesse. Références : mémoire, sections 9.3 et 9.4.
 
 ## 25. Ce qui reste à valider
 
 Durée indicative : 55 s
 
-Il faut distinguer ce résultat du score indicatif montré à l’écran d’évaluation. Ici, il s’agit du score prédictif V2, appris sur les décisions passées pour estimer le risque de rejet. Sur des dossiers traités ensuite, il ne repère que cinq à huit des cent dossiers réellement rejetés. Sa fiabilité pour de futurs dossiers n’est donc pas établie. L’utilité de l’assistance doit aussi être mesurée avec les utilisateurs, notamment la justesse des constats et le temps de vérification. Enfin, la confidentialité des appels à un modèle externe reste à valider.
+Le modèle essaie de prévoir quels dossiers risquent d’être rejetés à partir des décisions passées. Lors d’un test sur des dossiers plus récents, il n’a repéré que 5 à 8 des 100 dossiers qui ont réellement été rejetés. Cela ne suffit pas pour prévoir correctement les futurs rejets. Il faudra aussi vérifier si les réponses des autres fonctions sont justes, combien de temps il faut pour les contrôler et comment les données sont protégées quand un service externe est utilisé.
 
-Transition : Ces limites conduisent à la première perspective : mesurer l’aide en situation réelle.
+Transition : Pour savoir si l’aide est utile, il faut l’essayer dans le travail quotidien.
 
 Repère orateur — ne pas lire : Le dénominateur du rappel est le nombre de rejets réels, pas tous les dossiers. Test temporel : apprentissage sur 261 dossiers anciens, test sur les 1 374 suivants ; le jeu total de 1 635 dossiers n’est pas l’effectif d’apprentissage de ce test. Les validations directes et avec réserves sont regroupées. Les droits d’accès, la lecture seule, la trace des appels et le parcours manuel existent ; ils ne garantissent ni la pertinence des réponses ni la confidentialité de tous les appels externes. Si demandé : reprise après retour arrière, charge et supervision restent à valider. Références : mémoire, sections 9.2 et 8.6.
 
@@ -250,19 +252,19 @@ Laisser apparaître le titre de cette partie avant de poursuivre.
 
 Durée indicative : 50 s
 
-Le pilote proposé comparerait des dossiers avec et sans assistance, à partir d’annotations réalisées par deux experts. Il examinerait la qualité du dépôt, la justesse des constats et l’effort total. Le temps de vérification et de correction des réponses de l’assistant ferait partie de cet effort. On pourrait ainsi juger l’aide sur le résultat du travail, en tenant compte du temps qu’elle demande aux utilisateurs.
+Je propose de comparer des dossiers similaires avec et sans aide, en faisant participer plusieurs évaluateurs. On regardera si les demandes sont complètes dès le premier dépôt, quelles erreurs restent à corriger, quelles réserves auraient pu être évitées et le temps réellement passé, sans compter les attentes. Une même grille aidera à vérifier si les remarques sont justes et si des problèmes importants n’ont pas été repérés. Cette comparaison reste à faire. Avoir moins de réserves ne suffit pas si des problèmes importants ne sont pas repérés.
 
-Transition : Ces mesures permettraient de prioriser les évolutions.
+Transition : Les résultats aideront à choisir les prochaines améliorations.
 
-Repère orateur — ne pas lire : Le pilote n’a pas été exécuté. Les cibles de complétude, d’erreurs et de temps évoquées dans le mémoire sont des hypothèses à tester, pas des résultats acquis. Référence : section 9.5.
+Repère orateur — ne pas lire : Pilote proposé, non réalisé. Comparer des dossiers de difficulté et de guichet similaires, répartis entre plusieurs évaluateurs, avec et sans assistance. Une grille commune reliera les constats aux pièces et aux règles. Un identifiant pseudonymisé reliera les fonctions présentées et utilisées aux étapes et corrections. Mesurer le temps actif séparément des attentes et analyser les résultats par fonction. Une baisse brute des réserves ne suffit pas : distinguer les réserves évitables des réserves justifiées et vérifier que les problèmes importants restent détectés. Références : mémoire, section 9.5, tableau 13 et annexe N.
 
 ## 28. La suite : étendre l’aide, prouver son intérêt
 
 Durée indicative : 45 s
 
-Je commencerais par valider les constats avec les utilisateurs et lever les questions d’exploitation. Ensuite, j’étendrais la préparation guidée côté entreprise, avant d’approfondir les outils liés aux pièces et aux clarifications. Une évolution vers un agent plus autonome ou plusieurs agents devrait être comparée au workflow actuel, en tenant compte de la qualité, de l’effort, du coût et de la maintenance.
+La suite commencerait par des essais avec les utilisateurs et par des vérifications sur la façon d’utiliser les services externes. Ensuite, on pourrait aider davantage les entreprises à préparer leurs demandes et mieux lire les pièces. On pourrait aussi comparer le fonctionnement actuel à un système où plusieurs assistants d’IA se partagent le travail, en regardant la qualité, le temps, le coût et la facilité d’entretien.
 
-Transition : Pour conclure, je retiens surtout la place que cette assistance doit garder dans le travail.
+Transition : Pour finir, je résume ce que le stage a apporté.
 
 Repère orateur — ne pas lire : Respecter l’ordre des trois perspectives affichées. Le multi-agents n’est pas présenté comme livré ni comme une suite déjà décidée.
 
@@ -270,9 +272,9 @@ Repère orateur — ne pas lire : Respecter l’ordre des trois perspectives aff
 
 Durée indicative : 45 s
 
-Ce stage m’a appris à partir d’un besoin métier, à l’intégrer dans une application existante, puis à examiner les preuves disponibles. La réalisation aide à retrouver les informations, préparer les vérifications et suivre les corrections. L’IA éclaire ainsi le dossier, tandis que l’humain conserve son appréciation et la décision. L’effet sur la qualité et le temps de travail devra être établi avec les utilisateurs. Je remercie les équipes et mes tuteurs pour leur accompagnement, et vous remercie pour votre attention.
+Pendant ce stage, je suis parti d’un besoin des équipes et j’ai ajouté de nouvelles aides à la plateforme. Elles facilitent la recherche d’informations, les contrôles et le suivi des corrections. L’évaluateur garde la responsabilité de son avis, et la décision suit le parcours officiel. Il reste à vérifier avec les utilisateurs si ces aides améliorent les dossiers ou réduisent le temps de travail. Merci aux équipes et à mes tuteurs pour leur aide.
 
-Transition : Je suis prêt à répondre à vos questions.
+Transition : Merci pour votre attention. Je répondrai à vos questions.
 
 Repère orateur — ne pas lire : Marquer une pause après le message affiché. Ne pas terminer en affirmant un gain de temps non mesuré.
 
