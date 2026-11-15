@@ -16,7 +16,7 @@ La partie 5 conserve les preuves techniques et les limites essentielles. Les dé
 
 Durée indicative : 55 s
 
-Bonjour Mesdames et Messieurs les membres du jury. Je vais vous présenter le fruit du travail que j’ai réalisé durant mon stage au sein du Fonds Malgache de Formation Professionnelle, le FMFP. Mon travail s’intitule : « Conception d’un système intelligent de scoring, de recommandations et d’aide à la décision pour la gestion des financements de la formation professionnelle ». Il vise à faciliter l’examen des demandes de financement et le suivi des corrections, tout en laissant la décision finale aux équipes du FMFP.
+Bonjour Messieurs les membres du jury. Je vais vous présenter le fruit du travail que j’ai réalisé durant mon stage au sein du Fonds Malgache de Formation Professionnelle, le FMFP. Mon travail s’intitule : « Conception d’un système intelligent de scoring, de recommandations et d’aide à la décision pour la gestion des financements de la formation professionnelle ». Dans ce projet, j’ai conçu une assistance pour faciliter l’analyse des demandes de financement et le suivi des corrections. Mon objectif était d’aider les équipes dans leur travail, tout en leur laissant la décision finale.
 
 Transition : Voici les étapes de la présentation.
 
