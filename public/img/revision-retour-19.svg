@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#f7f6f1" stroke="none" stroke-width="1"/>
+<text x="100" y="76" fill="#365d9d" font-family="Nunito" font-size="19" font-weight="700" font-style="normal" text-anchor="start">06 · MESURER ET POURSUIVRE</text>
+<text x="100" y="154" fill="#222326" font-family="Playfair Display" font-size="58" font-weight="400" font-style="italic" text-anchor="start">Bilan des livrables et prochaines étapes</text>
+<path d="M100 188 H1500" fill="none" stroke="#e2dfd6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="105" y="230" width="452" height="413" rx="23" fill="#eeebe3" stroke="none" stroke-width="1"/>
+<rect x="100" y="224" width="452" height="413" rx="23" fill="#fffefa" stroke="#e2dfd6" stroke-width="1.5"/>
+<circle cx="326" cy="328" r="70" fill="#e6edf9" stroke="none" stroke-width="1"/>
+<path d="M250 332 Q326 242 402 330" fill="none" stroke="#e6edf9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(325 323) scale(1.3)">
+<rect x="-31" y="-24" width="57" height="43" rx="5" fill="#fffefa" stroke="#365d9d" stroke-width="2.5"/>
+<path d="M-31 -13 H26 M-23 -19 H-20 M-15 -19 H-12 M-21 1 H-4 M-21 9 H-8" fill="none" stroke="#365d9d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="23" cy="17" r="15" fill="#fffefa" stroke="#365d9d" stroke-width="2.5"/>
+<path d="M16 17 l5 5 10 -11" fill="none" stroke="#365d9d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path d="M402 270 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z" fill="#365d9d" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="126" y="424" width="400" height="47" rx="18" fill="#e6edf9" stroke="none" stroke-width="1"/>
+<text x="326" y="456" fill="#365d9d" font-family="Nunito" font-size="28" font-weight="700" font-style="normal" text-anchor="middle">En production</text>
+<circle cx="135" cy="500" r="3" fill="#365d9d" stroke="none" stroke-width="1"/>
+<text x="151" y="507" fill="#222326" font-family="Nunito" font-size="22" font-weight="400" font-style="normal" text-anchor="start">Historique des dossiers</text>
+<circle cx="135" cy="531" r="3" fill="#365d9d" stroke="none" stroke-width="1"/>
+<text x="151" y="538" fill="#222326" font-family="Nunito" font-size="22" font-weight="400" font-style="normal" text-anchor="start">Messagerie</text>
+<circle cx="135" cy="562" r="3" fill="#365d9d" stroke="none" stroke-width="1"/>
+<text x="151" y="569" fill="#222326" font-family="Nunito" font-size="22" font-weight="400" font-style="normal" text-anchor="start">Tableau de bord</text>
+<path d="M127 590 H525" fill="none" stroke="#e2dfd6" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="127" y="619" fill="#626875" font-family="Nunito" font-size="20" font-weight="400" font-style="normal" text-anchor="start">Effet sur le suivi à mesurer</text>
+<rect x="579" y="230" width="452" height="413" rx="23" fill="#eeebe3" stroke="none" stroke-width="1"/>
+<rect x="574" y="224" width="452" height="413" rx="23" fill="#fffefa" stroke="#e2dfd6" stroke-width="1.5"/>
+<circle cx="800" cy="328" r="70" fill="#e6edf9" stroke="none" stroke-width="1"/>
+<path d="M724 332 Q800 242 876 330" fill="none" stroke="#e6edf9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(799 323) scale(1.3)">
+<rect x="-31" y="-22" width="59" height="44" rx="5" fill="#fffefa" stroke="#365d9d" stroke-width="2.5"/>
+<path d="M-30 -11 H27 M-22 10 L-12 0 -3 5 6 -4 17 -4" fill="none" stroke="#365d9d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="25" cy="18" r="11" fill="#fffefa" stroke="#365d9d" stroke-width="2.5"/>
+<path d="M33 26 l10 10" fill="none" stroke="#365d9d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path d="M876 270 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z" fill="#365d9d" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="600" y="424" width="400" height="47" rx="18" fill="#e6edf9" stroke="none" stroke-width="1"/>
+<text x="800" y="456" fill="#365d9d" font-family="Nunito" font-size="28" font-weight="700" font-style="normal" text-anchor="middle">En préproduction</text>
+<circle cx="609" cy="500" r="3" fill="#365d9d" stroke="none" stroke-width="1"/>
+<text x="625" y="507" fill="#222326" font-family="Nunito" font-size="22" font-weight="400" font-style="normal" text-anchor="start">Score V2</text>
+<circle cx="609" cy="531" r="3" fill="#365d9d" stroke="none" stroke-width="1"/>
+<text x="625" y="538" fill="#222326" font-family="Nunito" font-size="22" font-weight="400" font-style="normal" text-anchor="start">Assistants</text>
+<circle cx="609" cy="562" r="3" fill="#365d9d" stroke="none" stroke-width="1"/>
+<text x="625" y="569" fill="#222326" font-family="Nunito" font-size="22" font-weight="400" font-style="normal" text-anchor="start">Dossiers comparables</text>
+<path d="M601 590 H999" fill="none" stroke="#e2dfd6" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="601" y="619" fill="#626875" font-family="Nunito" font-size="20" font-weight="400" font-style="normal" text-anchor="start">Utilité métier à évaluer</text>
+<rect x="1053" y="230" width="452" height="413" rx="23" fill="#eeebe3" stroke="none" stroke-width="1"/>
+<rect x="1048" y="224" width="452" height="413" rx="23" fill="#fffefa" stroke="#e2dfd6" stroke-width="1.5"/>
+<circle cx="1274" cy="328" r="70" fill="#f3e9db" stroke="none" stroke-width="1"/>
+<path d="M1198 332 Q1274 242 1350 330" fill="none" stroke="#f3e9db" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(1273 323) scale(1.3)">
+<rect x="-22" y="-24" width="36" height="47" rx="5" fill="#fffefa" stroke="#936b38" stroke-width="2.5"/>
+<path d="M-14 -12 H5 M-14 -2 H2 M-14 8 H-2" fill="none" stroke="#936b38" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="18" cy="13" r="14" fill="#fffefa" stroke="#936b38" stroke-width="2.5"/>
+<path d="M28 23 l11 11 M18 6 v8 M18 19 v1" fill="none" stroke="#936b38" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path d="M1350 270 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z" fill="#936b38" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1074" y="424" width="400" height="47" rx="18" fill="#f3e9db" stroke="none" stroke-width="1"/>
+<text x="1274" y="456" fill="#936b38" font-family="Nunito" font-size="28" font-weight="700" font-style="normal" text-anchor="middle">Activation à confirmer</text>
+<circle cx="1083" cy="500" r="3" fill="#936b38" stroke="none" stroke-width="1"/>
+<text x="1099" y="507" fill="#222326" font-family="Nunito" font-size="22" font-weight="400" font-style="normal" text-anchor="start">Contrôle CV</text>
+<circle cx="1083" cy="531" r="3" fill="#936b38" stroke="none" stroke-width="1"/>
+<text x="1099" y="538" fill="#222326" font-family="Nunito" font-size="22" font-weight="400" font-style="normal" text-anchor="start">Détection d’anomalies</text>
+<path d="M1075 590 H1473" fill="none" stroke="#e2dfd6" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1075" y="619" fill="#626875" font-family="Nunito" font-size="20" font-weight="400" font-style="normal" text-anchor="start">Validation métier à poursuivre</text>
+<rect x="100" y="686" width="1400" height="97" rx="17" fill="#e6edf9" stroke="none" stroke-width="1"/>
+<circle cx="153" cy="734" r="27" fill="#365d9d" stroke="none" stroke-width="1"/>
+<path d="M141 734 H163 M155 726 l8 8 -8 8" fill="none" stroke="#fffefa" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="203" y="727" fill="#365d9d" font-family="Nunito" font-size="27" font-weight="700" font-style="normal" text-anchor="start">Prochaines étapes</text>
+<text x="203" y="759" fill="#222326" font-family="Nunito" font-size="24" font-weight="400" font-style="normal" text-anchor="start">Valider avec les utilisateurs, puis approfondir l’aide au dépôt et à la lecture des pièces.</text>
+<path d="M100 813 H1500" fill="none" stroke="#e2dfd6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="102" y="856" fill="#365d9d" font-family="Caveat" font-size="29" font-weight="400" font-style="normal" text-anchor="start">États de mise en service · mémoire, tableau 14</text>
+<text x="1415" y="863" fill="#365d9d" font-family="Georgia" font-size="23" font-weight="400" font-style="normal" text-anchor="start">19/20</text>
+</svg>

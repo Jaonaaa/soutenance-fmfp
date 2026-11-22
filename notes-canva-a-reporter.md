@@ -1,5 +1,7 @@
 # Soutenance : discours et scénario de démonstration
 
+**Repère de version locale :** le texte ci-dessous documente la version de 29 diapositives. Pour la présentation locale actuelle de 20 diapositives, consulter [le discours court](discours-soutenance-version-courte.md). Les modifications locales ne sont pas synchronisées avec les notes Canva.
+
 Version du 14 novembre 2026 · 29 diapositives, discours simplifié pour l’oral. Le cas textile présenté à la diapositive 7 revient dans les exemples et dans la démonstration vidéo de 5 min 36. Les notes orateur Canva doivent être reportées séparément : ce document ne confirme pas leur mise à jour.
 
 Ces phrases sont des repères, pas un texte à réciter. Garder les faits importants et les précautions, mais parler avec ses propres mots et à son rythme. Les repères orateur ne sont pas à lire. Faire une courte pause sur les diapositives qui ouvrent une partie. Les captures des diapositives 17 à 21 préparent la vidéo; elles ne sont pas une deuxième démonstration. Prononcer les lettres F-M-F-P séparément. Sur la diapositive 6, arrondir les durées à l’oral; les chiffres exacts restent affichés.
@@ -110,7 +112,7 @@ Durée indicative : 45 s
 
 L’orientation avant le dépôt, certains contrôles et le suivi des corrections sont déjà disponibles. L’aide complète à la préparation de la demande reste à développer. La lecture des pièces et la justesse des remarques doivent aussi être vérifiées avec les utilisateurs.
 
-Transition : Pour répondre à ce besoin, j’ai choisi les outils selon leur rôle.
+Transition : Restait à décider comment intégrer cette aide à la plateforme.
 
 Repère orateur — ne pas lire : Transition vers la partie « Construire dans l’existant », après l’intercalaire 12.
 
@@ -120,15 +122,15 @@ Intercalaire — Construire dans l’existant.
 
 Laisser apparaître le titre de cette partie avant de poursuivre.
 
-## 13. Le bon outil pour chaque tâche
+## 13. Pourquoi un service interne ?
 
-Durée indicative : 50 s
+Durée indicative : 30 s
 
-Chaque besoin demande un outil adapté. Les règles connues sont vérifiées par des contrôles simples. Les tâches qui se répètent suivent un parcours défini. L’assistant aide à retrouver les informations dans le dossier. Un modèle estime le risque de rejet à partir des décisions passées. Il donne une indication, mais ne prend pas la décision à la place de l’évaluateur.
+Les règles seules couvrent les contrôles connus. Pour aller plus loin, j’ai comparé l’intégration directe, un service externe et une réécriture. J’ai choisi un service interne pour garder le parcours du FMFP et faire évoluer l’aide séparément. Ce choix demande un contrat d’échange entre les deux composants et une supervision du service.
 
-Transition : Il fallait ensuite intégrer ces outils à la plateforme.
+Transition : Pour vérifier que cette architecture convenait, j’ai avancé par étapes.
 
-Repère orateur — ne pas lire : Le multi-agents est une piste à comparer, pas une réalisation à annoncer. Référence : mémoire, sections 3.3 et 3.4.
+Repère orateur — ne pas lire : Mémoire, section 4.4, tableau 4. Les règles métier restent utiles dans la solution retenue. Certains traitements du service interne font appel à un fournisseur externe.
 
 ## 14. Construire par étapes vérifiables
 
@@ -224,13 +226,13 @@ Laisser apparaître le titre de cette partie avant de poursuivre.
 
 ## 24. Ce qui a été testé
 
-Durée indicative : 40 s
+Durée indicative : 25 s
 
-En local, 1 252 tests du logiciel ont réussi. Un test sur 150 dossiers a servi à régler les contrôles. Ces tests montrent que le logiciel a bien été vérifié. On ne sait pas encore si cela fait gagner du temps ou améliore les dossiers dans le travail réel.
+Après le stage, 1 349 tests ont réussi, 2 ont été ignorés et la couverture était de 86,89 %. Un essai sur 150 dossiers a aussi servi à ajuster les contrôles. L’utilité pour les équipes reste à mesurer.
 
 Transition : Le modèle de prédiction, lui, donne des résultats plus limités.
 
-Repère orateur — ne pas lire : Si le jury demande les détails : couverture de 87,78 % dans l’audit technique ; sur les 150 dossiers de l’essai à blanc, les dossiers signalés passent de 143 à 88 après réglage. Une baisse des alertes ne prouve pas leur justesse. Références : mémoire, sections 9.3 et 9.4.
+Repère orateur — ne pas lire : Relevé local après le stage : 1 349 tests réussis, 2 ignorés, 86,89 % de couverture. Sur les 150 dossiers de l’essai à blanc, le nombre de dossiers signalés passe de 143 à 88 après réglage. La justesse reste à mesurer. Mémoire, sections 9.3 et 9.4 et annexe D.
 
 ## 25. Ce qui reste à valider
 
@@ -258,15 +260,15 @@ Transition : Les résultats aideront à choisir les prochaines améliorations.
 
 Repère orateur — ne pas lire : Pilote proposé, non réalisé. Comparer des dossiers de difficulté et de guichet similaires, répartis entre plusieurs évaluateurs, avec et sans assistance. Une grille commune reliera les constats aux pièces et aux règles. Un identifiant pseudonymisé reliera les fonctions présentées et utilisées aux étapes et corrections. Mesurer le temps actif séparément des attentes et analyser les résultats par fonction. Une baisse brute des réserves ne suffit pas : distinguer les réserves évitables des réserves justifiées et vérifier que les problèmes importants restent détectés. Références : mémoire, section 9.5, tableau 13 et annexe N.
 
-## 28. La suite : étendre l’aide, prouver son intérêt
+## 28. Bilan des livrables et prochaines étapes
 
-Durée indicative : 45 s
+Durée indicative : 30 s
 
-La suite commencerait par des essais avec les utilisateurs et par des vérifications sur la façon d’utiliser les services externes. Ensuite, on pourrait aider davantage les entreprises à préparer leurs demandes et mieux lire les pièces. On pourrait aussi comparer le fonctionnement actuel à un système où plusieurs assistants d’IA se partagent le travail, en regardant la qualité, le temps, le coût et la facilité d’entretien.
+L’historique, la messagerie et le tableau de bord sont en production. Le score et les assistants restent en préproduction. L’activation du contrôle CV et des alertes reste à confirmer. Ma priorité est de valider l’aide avec les utilisateurs, puis d’étendre la préparation et la lecture des pièces.
 
 Transition : Pour finir, je résume ce que le stage a apporté.
 
-Repère orateur — ne pas lire : Respecter l’ordre des trois perspectives affichées. Le multi-agents n’est pas présenté comme livré ni comme une suite déjà décidée.
+Repère orateur — ne pas lire : Mémoire, tableau 14. Les pourcentages d’avancement par livrable ne sont pas documentés. Le statut décrit la mise en service et la validation disponible.
 
 ## 29. L’apport du stage
 

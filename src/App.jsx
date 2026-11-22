@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Rehearsal from './Rehearsal';
 import slides from './data/slides.json';
 import timeline from './data/video-timeline.json';
-import { slideImagePath } from './deck-assets.mjs';
+import { customSlideImagePath, slideImagePath } from './deck-assets.mjs';
 
 const demoVideoUrl = import.meta.env.DEV
   ? `${import.meta.env.BASE_URL}video/out/1&2&3.mp4`
@@ -188,6 +188,7 @@ function App() {
   const videoRef = useRef(null);
   const playerShellRef = useRef(null);
   const activeCueRef = useRef(null);
+  const speechDocumentRef = useRef(null);
 
   const slide = slides[slideIndex];
   const scene = videoScenes.find((item) => item.id === sceneId) || videoScenes[0];
@@ -282,6 +283,12 @@ function App() {
     ...current,
     [slide.id]: { ...current[slide.id], ...patch },
   }));
+  const openSpeechDocument = () => {
+    setRehearsalPlaying(false);
+    const dialog = speechDocumentRef.current;
+    dialog.showModal();
+    dialog.querySelector('.speech-document-scroll').focus();
+  };
   const editScene = (id, patch) => setSceneEdits((current) => ({
     ...current,
     [id]: { ...current[id], ...patch },
@@ -373,6 +380,7 @@ function App() {
 
         <div className="stage-actions" role="group" aria-label="Commandes de présentation">
           <button className="rehearsal-launch" onClick={() => { setRehearsal(true); setRehearsalPlaying(false); openDrawer('narration'); }}><Icon name="repeat" /><span>Répéter</span></button>
+          <button className="speech-document-launch" onClick={openSpeechDocument} aria-haspopup="dialog" aria-label="Lire le discours complet" title="Lire le discours complet"><Icon name="note" /><span>Discours complet</span></button>
           <div className="view-switch" role="group" aria-label="Affichage des diapositives">
             {!compact && <button className={viewMode === 'compare' ? 'active' : ''} onClick={() => setViewMode('compare')} aria-pressed={viewMode === 'compare'} aria-label="Comparer les deux rendus" title="Comparer les deux rendus"><Icon name="compare" /><span>Comparer</span></button>}
             <button className={viewMode === 'maquette' ? 'active' : ''} onClick={() => setViewMode('maquette')} aria-pressed={viewMode === 'maquette'} aria-label="Afficher la maquette" title="Afficher la maquette"><Icon name="pen" /><span>Maquette</span></button>
@@ -439,6 +447,7 @@ function App() {
               <button role="tab" aria-selected={drawerTab === 'video'} className={drawerTab === 'video' ? 'selected' : ''} onClick={() => selectDrawerTab('video')}><Icon name="time" /> Chronologie vidéo</button>
             </div>}
             <div className="practice-header-actions">
+              {drawerTab === 'narration' && <button className="practice-video-link" onClick={openSpeechDocument} aria-haspopup="dialog" aria-label="Lire le discours complet" title="Discours complet"><Icon name="note" /></button>}
               {drawerTab === 'narration' && <button className="practice-video-link" onClick={() => selectDrawerTab('video')} aria-label="Ouvrir la chronologie vidéo" title="Chronologie vidéo"><Icon name="time" /></button>}
               <button className="float-button close-drawer" onClick={() => setDrawerOpen(false)} aria-label="Fermer le panneau"><Icon name="close" /></button>
             </div>
@@ -597,8 +606,67 @@ function App() {
       )}
 
       {notice && <div className="notice" role="status"><span>{notice}</span><button onClick={() => setNotice('')} aria-label="Fermer le message">×</button></div>}
+      <SpeechDocument dialogRef={speechDocumentRef} slideEdits={slideEdits} sceneEdits={sceneEdits} videoSeconds={totalVideoSeconds} />
       {zoomImage && <div className="app-zoom" role="dialog" aria-modal="true" aria-label="Aperçu agrandi" onClick={() => setZoomImage('')}><button onClick={() => setZoomImage('')} aria-label="Fermer l’aperçu">×</button><img src={zoomImage} alt={`Diapositive ${slide.number} agrandie`} /></div>}
     </div>
+  );
+}
+
+function SpeechDocument({ dialogRef, slideEdits, sceneEdits, videoSeconds }) {
+  const previewRef = useRef(null);
+  const [previewSlide, setPreviewSlide] = useState(null);
+
+  const openPreview = (slide) => {
+    setPreviewSlide(slide);
+    previewRef.current.showModal();
+  };
+
+  return (
+    <>
+      <dialog ref={dialogRef} className="speech-document" aria-label="Discours complet" onKeyDown={(event) => event.stopPropagation()}>
+        <button className="float-button speech-document-close" onClick={() => dialogRef.current.close()} aria-label="Fermer le discours"><Icon name="close" /></button>
+        <div className="speech-document-scroll" tabIndex={0} aria-label="Texte du discours">
+          <article className="speech-document-paper">
+            {slides.map((slide) => {
+              const narration = slideEdits[slide.id]?.narration ?? slide.narration;
+              return (
+                <section className="speech-document-section" key={slide.id} aria-label={`Diapositive ${slide.number}`}>
+                  <div className="speech-document-copy">
+                    {narration.trim() && <p>{narration}</p>}
+                    {slide.demoAfter && (
+                      <details className="speech-document-demo">
+                        <summary>Démonstration · {formatTime(videoSeconds)} <span>Texte à dire pendant la vidéo</span></summary>
+                        {videoScenes.filter((scene) => !scene.silent).map((scene) => {
+                          const text = sceneEdits[scene.id]?.narration ?? scene.narration;
+                          const cues = parseNarrationCues(text);
+                          return (
+                            <div className="speech-document-clip" key={scene.id}>
+                              <h4>{scene.title.replace(/^\d+\s*·\s*/, '')}</h4>
+                              {cues.length ? cues.map((cue) => (
+                                <p key={cue.start}><time>{formatTime(scene.videoStartSeconds + parseClock(cue.start))}</time>{cue.text}</p>
+                              )) : <p>{text}</p>}
+                            </div>
+                          );
+                        })}
+                      </details>
+                    )}
+                    {slide.transition.trim() && <p className="speech-document-transition">{slide.transition}</p>}
+                  </div>
+                  <button type="button" className="speech-slide-thumbnail" onClick={() => openPreview(slide)} aria-haspopup="dialog" aria-label={`Agrandir la diapositive ${slide.number} : ${slide.title}`}>
+                    <span className="speech-slide-thumbnail-image"><img src={slidePreviewSource(slide)} alt="" loading="lazy" /></span>
+                    <span className="speech-slide-number">{String(slide.number).padStart(2, '0')}</span>
+                  </button>
+                </section>
+              );
+            })}
+          </article>
+        </div>
+      </dialog>
+      <dialog ref={previewRef} className="speech-slide-preview" aria-label={previewSlide ? `Aperçu de la diapositive ${previewSlide.number}` : 'Aperçu de la diapositive'} onClose={() => setPreviewSlide(null)} onKeyDown={(event) => event.stopPropagation()}>
+        <button type="button" className="float-button" onClick={() => previewRef.current.close()} aria-label="Fermer l’aperçu"><Icon name="close" /></button>
+        {previewSlide && <img src={slidePreviewSource(previewSlide)} alt={previewSlide.title} />}
+      </dialog>
+    </>
   );
 }
 
@@ -622,12 +690,16 @@ function SlideWireframe({ slide, onZoom, onOpenVideo }) {
   );
 }
 
+function slidePreviewSource(slide) {
+  return `${import.meta.env.BASE_URL}${slide.customImage ? customSlideImagePath(slide.customImage) : slideImagePath(slide.sourceNumber ?? slide.number)}`;
+}
+
 function SlideHighFidelity({ slide, onZoom, allowZoom }) {
-  const source = `${import.meta.env.BASE_URL}${slideImagePath(slide.number)}`;
+  const source = slidePreviewSource(slide);
   const image = <img src={source} alt={`Diapositive ${slide.number} : ${slide.title}`} draggable="false" />;
   return (
     <article className="preview-card final-card">
-      <div className="preview-card-heading"><span className="preview-dot final-dot" /><strong>Rendu haute fidélité · PDF</strong></div>
+      <div className="preview-card-heading"><span className="preview-dot final-dot" /><strong>Rendu haute fidélité</strong></div>
       {allowZoom
         ? <button className="hifi-canvas" onClick={() => onZoom(source)} aria-label={`Agrandir la diapositive ${slide.number}`}>{image}</button>
         : <div className="hifi-canvas hifi-canvas--static">{image}</div>}

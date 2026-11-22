@@ -6,7 +6,7 @@ const words = tokenizeSpeech;
 const clock = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
 
 export default function Rehearsal({ slide, playing, setPlaying, onNext, onPrevious, first, last, nextTitle, slideCount, videoUrl }) {
-  const demo = slide.id === 'slide-22';
+  const demo = slide.demoAfter === true;
   const narration = words(slide.narration);
   const transition = words(slide.transition);
   const [phase, setPhase] = useState('speech');
@@ -149,7 +149,7 @@ export default function Rehearsal({ slide, playing, setPlaying, onNext, onPrevio
     {voice.error && <p className="voice-notice" role="alert">{voice.error}</p>}
     {finished ? <div className="rehearsal-message" role="status"><strong>Répétition terminée.</strong><p>Prenez un instant avant les questions du jury.</p></div>
       : phase === 'video' ? <div className="rehearsal-video">
-        <video ref={video} src={videoUrl} playsInline controls
+        <video ref={video} src={videoUrl} playsInline muted controls
           onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)}
           onEnded={() => { setElapsed(0); setPhase('transition'); setPlaying(true); }}
           onError={() => { setVideoError(true); setPlaying(false); }} />

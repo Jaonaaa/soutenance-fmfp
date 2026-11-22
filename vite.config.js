@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import { readFileSync } from 'node:fs';
-import { DECK_IMAGE_VERSION, slideImagePath } from './src/deck-assets.mjs';
+import { customSlideImagePath, DECK_IMAGE_VERSION, slideImagePath } from './src/deck-assets.mjs';
+
+const slides = JSON.parse(readFileSync(new URL('./src/data/slides.json', import.meta.url), 'utf8'));
 
 const base = '/soutenance-fmfp/';
 const publicAssets = [
@@ -16,7 +18,9 @@ const publicAssets = [
   'img/bema-cv-a-corriger.png',
   'img/bema-audit-final.png',
   `img/reserves-delais.svg?v=${DECK_IMAGE_VERSION}`,
-  ...Array.from({ length: 29 }, (_, index) => slideImagePath(index + 1)),
+  ...slides.map((slide) => slide.customImage
+    ? customSlideImagePath(slide.customImage)
+    : slideImagePath(slide.sourceNumber ?? slide.number)),
 ];
 
 function offlineShell() {
