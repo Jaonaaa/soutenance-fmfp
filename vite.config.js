@@ -13,6 +13,7 @@ const publicAssets = [
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/icon-maskable-512.png',
+  'img/couverture-titre-complet.svg?v=13',
   'img/figure-11-textile.svg',
   'img/bema-chat-conseil.png',
   'img/bema-cv-a-corriger.png',

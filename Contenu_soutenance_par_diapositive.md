@@ -160,7 +160,7 @@ Une contrainte connue se vérifie avec une règle explicite. Un enchaînement st
 - Dans l’existant : conserver les droits, les formulaires et le parcours officiel.
 
 ### Vérifier au fil de l’intégration
-Le cadrage des besoins précède la preuve de concept, puis l’intégration aux formulaires et aux droits existants. Les tests et les échanges avec les équipes accompagnent cette progression. Certaines captures et vérifications sont postérieures au stage : elles complètent les preuves sans permettre de dater toutes les fonctions de la période du stage. Références : mémoire, chapitres 5 et 9.
+Le cadrage des besoins précède la preuve de concept, puis l’intégration aux formulaires et aux droits existants. Les tests et les échanges avec les équipes accompagnent cette progression. Les captures et les vérifications complémentaires documentent les fonctions présentées. Références : mémoire, chapitres 5 et 9.
 
 ## 15 | Des responsabilités séparées
 
@@ -276,7 +276,7 @@ Cette partie examine les preuves disponibles après la démonstration. Elle pré
 - Les bénéfices métier restent à mesurer.
 
 ### Ce que ces vérifications établissent
-L’audit rapporte 87,78 % de couverture. Sur les 150 dossiers de l’essai à blanc, le réglage fait passer de 143 à 88 le nombre de dossiers signalés. Ces vérifications complémentaires sont postérieures au stage. Elles étayent le fonctionnement technique, mais ne mesurent ni la justesse des alertes ni un gain de temps pour les équipes.
+Le relevé local rapporte 86,89 % de couverture. Sur les 150 dossiers de l’essai à blanc, le réglage fait passer de 143 à 88 le nombre de dossiers signalés. Ces vérifications complémentaires étayent le fonctionnement technique, mais ne mesurent ni la justesse des alertes ni un gain de temps pour les équipes.
 
 ## 25 | Ce qui reste à valider
 
@@ -306,7 +306,7 @@ Cette partie propose une méthode pour mesurer l’intérêt de l’assistance d
 - Effort de traitement : temps actif hors attentes, cycles et délais de correction.
 
 ### Un protocole proposé, encore à réaliser
-Des dossiers de difficulté et de guichet similaires seront comparés avec et sans assistance, auprès de plusieurs évaluateurs. Une grille commune permettra de juger les constats à partir des pièces et des règles. Un identifiant pseudonymisé reliera les fonctions présentées et utilisées aux étapes et corrections. Le temps actif inclura la vérification des réponses et sera séparé des attentes. Les résultats seront analysés par fonction. Une baisse brute des réserves ne suffit pas : le pilote doit distinguer réserves évitables et réserves justifiées, tout en vérifiant que les problèmes importants restent détectés. Références : mémoire, section 9.5, tableau 13 et annexe N.
+Des dossiers de difficulté et de guichet similaires seront comparés avec et sans assistance, auprès de plusieurs évaluateurs. Une grille commune permettra de juger les constats à partir des pièces et des règles. Un identifiant pseudonymisé reliera les fonctions présentées et utilisées aux étapes et corrections. Le temps actif inclura la vérification des réponses et sera séparé des attentes. Les résultats seront analysés par fonction. Une baisse brute des réserves ne suffit pas : le pilote doit distinguer réserves évitables et réserves justifiées, tout en vérifiant que les problèmes importants restent détectés. Références : mémoire, section 9.5, tableau 14 et annexe N.
 
 ## 28 | La suite : étendre l’aide, prouver son intérêt
 

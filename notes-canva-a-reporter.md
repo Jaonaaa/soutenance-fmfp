@@ -58,7 +58,7 @@ La demande suit plusieurs étapes, depuis sa préparation jusqu’au suivi aprè
 
 Transition : Les anciens dossiers donnent aussi une idée des délais.
 
-Repère orateur — ne pas lire : L’évaluateur formule une appréciation ; la décision de financement reste dans le circuit officiel. Les six étapes sont un parcours métier, pas six fonctions IA déjà livrées.
+Repère orateur — ne pas lire : L’évaluateur formule une appréciation ; la décision de financement reste dans le circuit officiel. Les six étapes sont un parcours métier, pas six fonctions IA déjà livrées. Si demandé : dix étapes de la soumission au paiement, 26 groupes d’utilisateurs, socle CodeIgniter 3.1.10 avec PHP 7.2 et MySQL 5.7 en production (mémoire, sections 4.1 à 4.3).
 
 ## 06. Réserves et délais
 
@@ -114,7 +114,7 @@ L’orientation avant le dépôt, certains contrôles et le suivi des correction
 
 Transition : Restait à décider comment intégrer cette aide à la plateforme.
 
-Repère orateur — ne pas lire : Transition vers la partie « Construire dans l’existant », après l’intercalaire 12.
+Repère orateur — ne pas lire : Transition vers la partie « Construire dans l’existant », après l’intercalaire 12. Si demandé : au 2 octobre, fin du stage, le service couvrait le score, l’orientation et le cadrage, le contrôle de CV, les anomalies et la proposition d’évaluation. L’assistant du dossier et son chat, les dossiers comparables et le contrôle de cohérence complètent le périmètre présenté (mémoire, section 10).
 
 ## 12. Construire dans l’existant
 
@@ -130,7 +130,7 @@ Les règles seules couvrent les contrôles connus. Pour aller plus loin, j’ai 
 
 Transition : Pour vérifier que cette architecture convenait, j’ai avancé par étapes.
 
-Repère orateur — ne pas lire : Mémoire, section 4.4, tableau 4. Les règles métier restent utiles dans la solution retenue. Certains traitements du service interne font appel à un fournisseur externe.
+Repère orateur — ne pas lire : Mémoire, section 4.4, tableau 5 ; benchmark en section 3.3.8 et tableau 3. Les règles métier restent utiles dans la solution retenue. Certains traitements du service interne font appel à un fournisseur externe. Si demandé : un SaaS (Submittable, SmartSimple, Fluxx) hébergerait tout le dossier et imposerait de reconstruire les règles du FMFP ; ici, seuls des extraits sélectionnés partent vers le fournisseur, en phase de test, et l’usage en production attend l’autorisation écrite de la direction. Les fonds homologues (FDFP Connect, 3FPT) dématérialisent le dépôt, sans assistance à l’instruction.
 
 ## 14. Construire par étapes vérifiables
 
@@ -140,7 +140,7 @@ J’ai avancé par étapes. J’ai d’abord précisé le besoin et testé les r
 
 Transition : La plateforme et le service d’analyse ont chacun leur rôle.
 
-Repère orateur — ne pas lire : Les vérifications et captures réalisées après le stage complètent les preuves sans dater automatiquement la livraison des fonctions. Ce point sert de repère pour les questions.
+Repère orateur — ne pas lire : Les captures et les vérifications complémentaires documentent les fonctions présentées. Ce point sert de repère pour les questions. Planning : 86 jours de charge estimés pour 84 jours ouvrés de stage (8 juin – 2 octobre, hors 26 juin) ; le budget valorise ces 84 jours à 64 000 Ar, soit 5 376 000 Ar.
 
 ## 15. Des responsabilités séparées
 
@@ -176,7 +176,7 @@ Dans l’exemple, l’entreprise demande comment savoir si la formation a été 
 
 Transition : Voyons comment elle ajoute cette idée à son dossier.
 
-Repère orateur — ne pas lire : Ne pas présenter la cible 9/10 comme un résultat déjà atteint. La réponse du chat est une piste à vérifier.
+Repère orateur — ne pas lire : Ne pas présenter la cible 9/10 comme un résultat déjà atteint. La réponse du chat est une piste à vérifier. Présenter le chat comme un complément de l’assistant du dossier.
 
 ## 19. Je vérifie le conseil sur le champ des retombées
 
@@ -228,11 +228,11 @@ Laisser apparaître le titre de cette partie avant de poursuivre.
 
 Durée indicative : 25 s
 
-Après le stage, 1 349 tests ont réussi, 2 ont été ignorés et la couverture était de 86,89 %. Un essai sur 150 dossiers a aussi servi à ajuster les contrôles. L’utilité pour les équipes reste à mesurer.
+Lors des vérifications locales, 1 349 tests ont réussi, 2 ont été ignorés et la couverture était de 86,89 %. Un essai sur 150 dossiers a aussi servi à ajuster les contrôles. L’utilité pour les équipes reste à mesurer.
 
 Transition : Le modèle de prédiction, lui, donne des résultats plus limités.
 
-Repère orateur — ne pas lire : Relevé local après le stage : 1 349 tests réussis, 2 ignorés, 86,89 % de couverture. Sur les 150 dossiers de l’essai à blanc, le nombre de dossiers signalés passe de 143 à 88 après réglage. La justesse reste à mesurer. Mémoire, sections 9.3 et 9.4 et annexe D.
+Repère orateur — ne pas lire : Relevé des tests locaux : 1 349 tests réussis, 2 ignorés, 86,89 % de couverture. Sur les 150 dossiers de l’essai à blanc, le nombre de dossiers signalés passe de 143 à 88 après réglage. La justesse reste à mesurer. Mémoire, sections 9.3 et 9.4 et annexe D.
 
 ## 25. Ce qui reste à valider
 
@@ -258,17 +258,17 @@ Je propose de comparer des dossiers similaires avec et sans aide, en faisant par
 
 Transition : Les résultats aideront à choisir les prochaines améliorations.
 
-Repère orateur — ne pas lire : Pilote proposé, non réalisé. Comparer des dossiers de difficulté et de guichet similaires, répartis entre plusieurs évaluateurs, avec et sans assistance. Une grille commune reliera les constats aux pièces et aux règles. Un identifiant pseudonymisé reliera les fonctions présentées et utilisées aux étapes et corrections. Mesurer le temps actif séparément des attentes et analyser les résultats par fonction. Une baisse brute des réserves ne suffit pas : distinguer les réserves évitables des réserves justifiées et vérifier que les problèmes importants restent détectés. Références : mémoire, section 9.5, tableau 13 et annexe N.
+Repère orateur — ne pas lire : Pilote proposé, non réalisé. Comparer des dossiers de difficulté et de guichet similaires, répartis entre plusieurs évaluateurs, avec et sans assistance. Une grille commune reliera les constats aux pièces et aux règles. Un identifiant pseudonymisé reliera les fonctions présentées et utilisées aux étapes et corrections. Mesurer le temps actif séparément des attentes et analyser les résultats par fonction. Une baisse brute des réserves ne suffit pas : distinguer les réserves évitables des réserves justifiées et vérifier que les problèmes importants restent détectés. Références : mémoire, section 9.5, tableau 14 et annexe N.
 
 ## 28. Bilan des livrables et prochaines étapes
 
 Durée indicative : 30 s
 
-L’historique, la messagerie et le tableau de bord sont en production. Le score et les assistants restent en préproduction. L’activation du contrôle CV et des alertes reste à confirmer. Ma priorité est de valider l’aide avec les utilisateurs, puis d’étendre la préparation et la lecture des pièces.
+L’historique, la messagerie et le tableau de bord sont en production. Le score et les assistants restent en préproduction, c’est-à-dire en test sur le serveur du FMFP. L’activation du contrôle CV et des alertes reste à confirmer. Ma priorité est de valider l’aide avec les utilisateurs, puis d’étendre la préparation et la lecture des pièces.
 
 Transition : Pour finir, je résume ce que le stage a apporté.
 
-Repère orateur — ne pas lire : Mémoire, tableau 14. Les pourcentages d’avancement par livrable ne sont pas documentés. Le statut décrit la mise en service et la validation disponible.
+Repère orateur — ne pas lire : Mémoire, tableau 15. Les pourcentages d’avancement par livrable ne sont pas documentés. Le statut décrit la mise en service et la validation disponible.
 
 ## 29. L’apport du stage
 

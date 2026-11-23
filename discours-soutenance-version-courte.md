@@ -14,7 +14,7 @@ Je vais partir du besoin, puis présenter la solution que j’ai construite. Je 
 
 ## 3. Une demande de financement, deux besoins
 
-Une demande de financement concerne deux acteurs : l’entreprise qui prépare son dossier et l’équipe du FMFP qui l’examine. J’ai cherché à faciliter leur travail à tous les deux.
+Les besoins se situent à deux moments : aider l’entreprise à s’orienter, puis aider l’équipe du FMFP à examiner le dossier. L’accompagnement complet de l’entreprise reste à développer.
 
 *Transition* — Pour les aider, j’ai regardé comment le dossier passe de l’un à l’autre.
 
@@ -26,13 +26,13 @@ Le parcours existe déjà, mais les informations sont réparties dans plusieurs 
 
 ## 5. Réserves et délais
 
-Avant de concevoir l’aide, j’ai regardé les dossiers passés. Entre le premier dépôt identifiable et la décision, j’observe environ huit jours sans commentaire de réserve, contre dix-neuf jours avec au moins deux. Ces délais incluent l’attente. Ils me donnent un point de départ, sans expliquer à eux seuls l’écart.
+Sur 129 dossiers avec des dates traçables, le délai moyen observé est d’environ huit jours pour 77 dossiers sans commentaire de réserve, et de dix-neuf jours pour 51 dossiers avec au moins deux commentaires. L’attente est comprise. Cette association ne démontre ni que les réserves allongent le délai, ni que l’IA le réduit.
 
 *Transition* — Dans un dossier, voyons ce qui peut rendre une demande difficile à vérifier.
 
 ## 6. Une demande de formation textile
 
-Pour illustrer la suite, je prends un exemple fictif : une entreprise veut former douze agents. Elle écrit simplement que les équipes seront mieux formées. Comment rendre ce résultat vérifiable ?
+Dans le cas fictif que je reprendrai en démonstration, BEMA, une entreprise textile, prévoit de former 12 agents. Dans sa demande, la retombée est formulée ainsi : « les équipes seront mieux formées ». Comment la rendre vérifiable ?
 
 *Transition* — Cet exemple m’amène à la question du projet.
 
@@ -56,7 +56,7 @@ J’ai pris les règles métier comme point de départ. Pour intégrer les autre
 
 ## 10. Mon travail, du besoin à la solution
 
-J’ai travaillé en itérations courtes, inspirées de Scrum, avec un backlog Trello et des revues avec mon tuteur. Le cadrage prévoyait 86 jours ; la réalisation a pris davantage de temps, sans mesure précise de l’écart. La confidentialité et la fiabilité restent à valider.
+J’ai travaillé en itérations courtes, inspirées de Scrum, avec un backlog Trello et des revues avec mon tuteur. Le cadrage prévoyait 86 jours de charge pour 84 jours ouvrés de stage ; la réalisation a pris davantage de temps, sans mesure précise de l’écart. La confidentialité et la fiabilité restent à valider.
 
 *Transition* — La plateforme et le service d’analyse ont chacun leur rôle.
 
@@ -94,13 +94,13 @@ Les trois annexes sont présentes et la demande reste en brouillon. Dans la vid�
 
 ## 16. Ce qui a été testé
 
-Après le stage, 1 349 tests ont réussi, 2 ont été ignorés et la couverture était de 86,89 %. Un essai sur 150 dossiers a aussi servi à ajuster les contrôles. L’utilité pour les équipes reste à mesurer.
+Lors des vérifications locales, 1 349 tests ont réussi, 2 ont été ignorés et la couverture était de 86,89 %. Un essai sur 150 dossiers a aussi servi à ajuster les contrôles. L’utilité pour les équipes reste à mesurer.
 
 *Transition* — Le modèle de prédiction, lui, donne des résultats plus limités.
 
 ## 17. Ce qui reste à valider
 
-Sur des dossiers plus récents, le modèle ne repère que 5 à 8 rejets réels sur 100. L’évaluateur ne peut donc pas compter sur le score pour signaler tous les dossiers à examiner. Il reste aussi à vérifier la justesse des autres aides et la confidentialité des appels externes.
+Dans le test sur des dossiers plus récents, le modèle n’a détecté que 5 à 8 rejets parmi 100 dossiers finalement rejetés. L’évaluateur ne peut donc pas compter sur le score pour signaler tous les dossiers à examiner. Il reste aussi à vérifier la justesse des autres aides et la confidentialité des appels externes.
 
 *Transition* — Pour savoir si l’aide est utile, il faut l’essayer dans le travail quotidien.
 
@@ -112,7 +112,7 @@ Je propose un pilote avec des dossiers similaires, avec et sans aide. Il permett
 
 ## 19. Bilan des livrables et prochaines étapes
 
-L’historique, la messagerie et le tableau de bord sont en production. Le score, les assistants et les dossiers comparables sont en préproduction. Pour le contrôle du CV et les alertes, l’activation reste à confirmer. Je commencerais par valider les aides déjà en test avec les équipes avant d’élargir le périmètre.
+L’historique, la messagerie et le tableau de bord sont en production. Le score, les assistants et les dossiers comparables sont en préproduction, c’est-à-dire en test sur le serveur du FMFP. Pour le contrôle du CV et les alertes, l’activation reste à confirmer. Je commencerais par valider les aides déjà en test avec les équipes avant d’élargir le périmètre.
 
 *Transition* — Pour finir, je résume ce que le stage a apporté.
 
