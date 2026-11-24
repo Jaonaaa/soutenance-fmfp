@@ -723,7 +723,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px
 }
 .speech-slide-preview > img {
   display: block;
-  max-width: min(1280px, calc(100vw - 42px));
+  width: min(1280px, calc(100vw - 42px));
   max-height: calc(100dvh - 84px);
   object-fit: contain;
 }

@@ -30,27 +30,27 @@ Silence — carton « On prépare la demande ».
 
 **00:00–00:14**
 
-Après l’orientation, je reprends le dossier de la même entreprise.
+Une fois orientée, BEMA passe à la préparation de sa demande.
 
 **00:14–00:27**
 
-Je décris le besoin. La première phrase sur les résultats est vague : « les équipes seront mieux formées ». On ne peut pas encore vérifier les progrès.
+BEMA décrit son besoin, mais le résultat attendu reste vague. « Les équipes seront mieux formées. » Comment vérifier leurs progrès ?
 
 **00:27–00:43**
 
-Je complète les objectifs de formation et les informations importantes en suivant le document de référence.
+Le document de référence aide à préciser les objectifs de la formation et à compléter les rubriques du dossier.
 
 **00:43–00:57**
 
-Je précise le nombre de participants et le budget. Le plan annuel et la lettre sont déjà joints. Il reste le CV.
+On renseigne ensuite les participants et le budget. Le plan annuel et la lettre sont déjà joints. Il manque encore le CV.
 
 **00:57–01:17**
 
-Je demande au conseiller quels résultats on devrait observer après la formation. Il retrouve dans le document de référence un objectif : réussir au moins neuf contrôles sur dix pendant un exercice pratique.
+Pour préciser le résultat attendu, BEMA se tourne vers le conseiller. Il retrouve un objectif dans le document de référence. Pendant un exercice pratique, les équipes doivent réussir au moins neuf contrôles sur dix.
 
 **01:17–01:30**
 
-Je précise le résultat attendu avec cette cible. Le contrôle confirme que cette partie est remplie.
+Cette cible devient le résultat attendu dans la demande. Le contrôle confirme que la rubrique est renseignée.
 
 **01:30–01:37**
 
@@ -58,15 +58,15 @@ Le contrôle signale qu’il manque le CV demandé.
 
 **01:37–01:51**
 
-Je teste le contrôle avec un CV volontairement incomplet. Il signale quatre points à corriger.
+Avec un CV volontairement incomplet, le contrôle signale quatre points à corriger.
 
 **01:51–02:07**
 
-Je remplace le fichier par un CV fictif au bon format. Le contrôle vérifie la présentation, pas les compétences du formateur.
+On remplace le fichier par un CV fictif au bon format. Le contrôle porte sur la présentation du document.
 
 **02:07–02:15**
 
-Le contrôle affiche « Dossier cohérent ». Je garde la demande en brouillon et je ne l’envoie pas.
+Le contrôle affiche « Dossier cohérent ». La demande reste en brouillon.
 
 ### Transition 2 · montage 2:40–2:42
 
@@ -76,35 +76,35 @@ Silence — carton « Place à l’évaluation ».
 
 **00:00–00:15**
 
-Je passe maintenant du côté de l’évaluateur. Je vais montrer comment il peut examiner le dossier et préparer son avis.
+On passe maintenant du côté de l’évaluateur, qui examine le dossier pour préparer son avis.
 
 **00:15–00:58**
 
-Le score général donne une indication. Ce n’est pas une décision. Il s’appuie sur les décisions passées et les règles du FMFP. L’évaluateur doit encore remplir la grille. Chaque remarque renvoie à une pièce du dossier. J’ouvre une pièce pour voir d’où vient l’alerte.
+Le score général sert de repère pour l’analyse. L’évaluateur s’appuie sur les constats et les pièces du dossier pour remplir sa grille. Ici, on ouvre la pièce liée à l’alerte pour vérifier ce qui l’a déclenchée.
 
 **00:58–01:22**
 
-Le contrôle compare les informations du dossier. Ici, je vérifie les objectifs, la durée et le nombre de participants. L’outil signale ce qu’il faut regarder. Il ne corrige pas la demande à ma place.
+Le contrôle rapproche les informations du dossier. Ici, il compare les objectifs, la durée et le nombre de participants. Les écarts signalés indiquent où regarder de plus près.
 
 **01:22–01:50**
 
-Je regarde des dossiers précédents qui ressemblent à celui-ci. L’IA propose des exemples proches et explique pourquoi. Je vérifie ensuite les différences, comme le nombre de participants ou les dates. Ces exemples aident à examiner le dossier, mais ne donnent pas la décision.
+L’outil propose ensuite des dossiers similaires et explique ce qu’ils ont en commun avec celui de BEMA. L’évaluateur peut comparer les dates ou le nombre de participants pour juger si le rapprochement est pertinent.
 
 **01:50–02:02**
 
-Je demande à l’assistant quelles pièces appuient le projet et ce qu’il faut encore vérifier. Puis je compare sa réponse aux documents.
+L’assistant indique quelles pièces appuient le projet et quels points restent à vérifier. On confronte ensuite sa réponse aux documents.
 
 **02:02–02:29**
 
-Je demande à l’assistant de reformuler l’avis sur la partie « Pertinence ». Il rappelle le lien avec la sécurité et la qualité des finitions. Je vérifie que le texte correspond au dossier. Je peux encore le modifier avant de l’utiliser.
+Pour la rubrique « Pertinence », l’assistant propose une reformulation qui relie le projet à la sécurité et à la qualité des finitions. L’évaluateur la relit et peut l’ajuster avant de la reprendre.
 
 **02:29–02:42**
 
-Après relecture, j’ajoute le texte à la partie « Pertinence ». J’enregistre le commentaire sans l’envoyer.
+Après relecture, le texte est ajouté à la rubrique « Pertinence » et enregistré en brouillon.
 
 **02:42–02:54**
 
-Le commentaire est enregistré, mais la grille reste vide. Aucun score n’est saisi, aucune décision n’est prise et le dossier n’est pas envoyé.
+À ce stade, l’évaluateur a un commentaire à reprendre. Il lui reste à remplir la grille et à rendre son avis.
 
 ## Repères de réalisation
 

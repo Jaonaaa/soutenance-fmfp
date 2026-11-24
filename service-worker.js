@@ -1,4 +1,4 @@
-const CACHE_NAME = 'soutenance-fmfp-preparation-v81';
+const CACHE_NAME = 'soutenance-fmfp-preparation-v82';
 const APP_BASE = '__APP_BASE__';
 const PRECACHE = __PRECACHE__;
 // These same-origin static files are identical across the hosting server's Origin variants.

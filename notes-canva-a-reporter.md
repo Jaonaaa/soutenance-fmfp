@@ -64,7 +64,7 @@ Repère orateur — ne pas lire : L’évaluateur formule une appréciation ; la
 
 Durée indicative : 45 s
 
-Dans les dossiers terminés dont les dates sont connues, le délai moyen est d’un peu moins de huit jours pour 77 dossiers sans commentaire de réserve. Pour 51 dossiers avec au moins deux commentaires de réserve, il est d’environ dix-neuf jours. L’écart est d’environ onze jours. Ces délais incluent les attentes. On observe un écart, mais cela ne prouve pas que les réserves en sont la cause. L’effet de l’assistance reste à mesurer.
+Sur 129 dossiers dont les dates sont traçables, le délai moyen est d’environ huit jours pour les 77 dossiers sans commentaire de réserve. Il atteint dix-neuf jours pour les 51 dossiers qui en comptent au moins deux. Ces délais incluent aussi les périodes d’attente. On voit un écart, mais les dossiers seuls ne nous disent pas ce qui l’explique. Et l’effet de l’assistance reste à mesurer, notamment pendant le pilote.
 
 Transition : Prenons un exemple pour rendre cela plus concret.
 
@@ -74,7 +74,7 @@ Repère orateur — ne pas lire : Source : mémoire révisé, section 9.5 et ann
 
 Durée indicative : 45 s
 
-Je vais garder le même exemple pour la suite. Une entreprise veut former douze agents à la sécurité et à la qualité des finitions. Dans sa demande, elle écrit seulement : « les équipes seront mieux formées ». On va voir comment rendre ce résultat plus clair. L’objectif de réussir neuf contrôles sur dix est prévu pour la démonstration; ce n’est pas un vrai résultat de formation.
+Je vais garder le même exemple pour la suite. BEMA, une entreprise textile, veut former ses équipes à la sécurité et à la qualité des finitions. Dans sa demande, elle écrit seulement : « les équipes seront mieux formées ». On va voir comment rendre ce résultat plus clair. L’objectif de réussir neuf contrôles sur dix est prévu pour la démonstration; ce n’est pas un vrai résultat de formation.
 
 Transition : Cet exemple m’amène à la question du projet.
 
@@ -264,7 +264,7 @@ Repère orateur — ne pas lire : Pilote proposé, non réalisé. Comparer des d
 
 Durée indicative : 30 s
 
-L’historique, la messagerie et le tableau de bord sont en production. Le score et les assistants restent en préproduction, c’est-à-dire en test sur le serveur du FMFP. L’activation du contrôle CV et des alertes reste à confirmer. Ma priorité est de valider l’aide avec les utilisateurs, puis d’étendre la préparation et la lecture des pièces.
+L’historique, la messagerie et le tableau de bord sont en production. Le score, les assistants, les dossiers comparables, le contrôle du CV et les alertes sont en préproduction, c’est-à-dire en test sur le serveur du FMFP. Ma priorité est de valider les aides avec les utilisateurs, puis d’étendre la préparation et la lecture des pièces.
 
 Transition : Pour finir, je résume ce que le stage a apporté.
 
@@ -274,7 +274,7 @@ Repère orateur — ne pas lire : Mémoire, tableau 15. Les pourcentages d’ava
 
 Durée indicative : 45 s
 
-Pendant ce stage, je suis parti d’un besoin des équipes et j’ai ajouté de nouvelles aides à la plateforme. Elles facilitent la recherche d’informations, les contrôles et le suivi des corrections. L’évaluateur garde la responsabilité de son avis, et la décision suit le parcours officiel. Il reste à vérifier avec les utilisateurs si ces aides améliorent les dossiers ou réduisent le temps de travail. Merci aux équipes et à mes tuteurs pour leur aide.
+Pendant ce stage, je suis parti d’un besoin des équipes et j’ai ajouté de nouvelles aides à la plateforme. Je les ai testées, de l’orientation à l’évaluation, à partir de données issues de dossiers de financement réels. Ces essais m’ont permis d’en vérifier l’utilité sur les cas évalués. L’évaluateur garde la responsabilité de son avis, et la décision suit le parcours officiel. Il reste à mesurer plus largement leur effet sur la qualité des dossiers et le temps de travail. Merci aux équipes et à mes tuteurs pour leur aide.
 
 Transition : Merci pour votre attention. Je répondrai à vos questions.
 

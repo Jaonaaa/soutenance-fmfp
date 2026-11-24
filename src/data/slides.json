@@ -80,7 +80,7 @@
     "cue": "Comparer les deux groupes, puis relier les réserves évitables à l’objectif de l’assistance.",
     "reminder": "Source : mémoire révisé, section 9.5 et annexe N. 77 dossiers sans commentaire : moyenne 7,95 j; 51 dossiers avec au moins deux commentaires : moyenne 18,81 j. Écart : 10,86 j. Le groupe à un commentaire compte un seul dossier (10,17 j), donc aucune tendance ne peut en être déduite. Le compteur porte sur l’événement « Commentaire réserve » en Résultat / Prévalidation; il ne recense ni toutes les réserves actives ni les cycles complets. Le délai va de la première soumission identifiable à la décision documentée, attentes comprises. L’usage de l’IA n’est pas relié à chaque dossier : aucune causalité ni réduction du délai par l’IA n’est démontrée. L’objectif concerne les réserves évitables; les réserves justifiées restent nécessaires. Les illustrations évoquent les échanges de correction; elles ne représentent pas des cycles reconstitués à partir de ces données. Les badges bleus et orange illustrent l’absence ou la présence de commentaires de réserve; la coche ne signifie ni conformité globale ni décision de financement.",
     "transition": "Dans un dossier, voyons ce qui peut rendre une demande difficile à vérifier.",
-    "narration": "Sur 129 dossiers avec des dates traçables, le délai moyen observé est d’environ huit jours pour 77 dossiers sans commentaire de réserve, et de dix-neuf jours pour 51 dossiers avec au moins deux commentaires. L’attente est comprise. Cette association ne démontre ni que les réserves allongent le délai, ni que l’IA le réduit.",
+    "narration": "Sur 129 dossiers dont les dates sont traçables, le délai moyen est d’environ huit jours pour les 77 dossiers sans commentaire de réserve. Il atteint dix-neuf jours pour les 51 dossiers qui en comptent au moins deux. Ces délais incluent aussi les périodes d’attente. On voit un écart, mais les dossiers seuls ne nous disent pas ce qui l’explique. Et l’effet de l’assistance reste à mesurer, notamment pendant le pilote.",
     "sourceNumber": 6,
     "customImage": "slides-numbered/slide-05.jpg"
   },
@@ -97,7 +97,7 @@
     "cue": "Présenter le cas comme le fil conducteur des exemples qui suivent.",
     "reminder": "Le 9/10 est une cible du scénario, pas un résultat déjà obtenu. Les pièces du dossier sont fictives.",
     "transition": "Cet exemple m’amène à la question du projet.",
-    "narration": "Dans le cas fictif que je reprendrai en démonstration, BEMA, une entreprise textile, prévoit de former 12 agents. Dans sa demande, la retombée est formulée ainsi : « les équipes seront mieux formées ». Comment la rendre vérifiable ?",
+    "narration": "Pour la démonstration, je reprendrai le cas fictif de BEMA, une entreprise textile qui souhaite former ses équipes. Dans sa demande, le résultat attendu est formulé ainsi : « les équipes seront mieux formées ». Comment le rendre vérifiable ?",
     "sourceNumber": 7,
     "customImage": "slides-numbered/slide-06.jpg"
   },
@@ -319,7 +319,7 @@
     "cue": "Distinguer état de mise en service et validation métier.",
     "reminder": "Mémoire, tableau 15. Les pourcentages d’avancement par livrable ne sont pas documentés. Le statut décrit la mise en service et la validation disponible.",
     "transition": "Pour finir, je résume ce que le stage a apporté.",
-    "narration": "L’historique, la messagerie et le tableau de bord sont en production. Le score, les assistants et les dossiers comparables sont en préproduction, c’est-à-dire en test sur le serveur du FMFP. Pour le contrôle du CV et les alertes, l’activation reste à confirmer. Je commencerais par valider les aides déjà en test avec les équipes avant d’élargir le périmètre.",
+    "narration": "L’historique, la messagerie et le tableau de bord sont en production. Le score, les assistants, les dossiers comparables, le contrôle du CV et les alertes sont en préproduction, c’est-à-dire en test sur le serveur du FMFP. Je commencerais par valider les aides déjà en test avec les équipes avant d’élargir le périmètre.",
     "sourceNumber": 28,
     "customImage": "img/revision-retour-19.svg"
   },
@@ -336,7 +336,7 @@
     "cue": "Terminer sur la contribution et sa limite, puis laisser le jury parler.",
     "reminder": "Marquer une pause après le message affiché. Ne pas terminer en affirmant un gain de temps non mesuré.",
     "transition": "",
-    "narration": "J’ai conçu, intégré et testé des aides autour d’un dossier de financement, de l’orientation jusqu’à l’évaluation. J’ai appris à les intégrer dans un parcours déjà utilisé par les équipes. La prochaine preuve à obtenir, c’est leur utilité sur des dossiers réels. Merci pour votre attention.",
+    "narration": "J’ai conçu, intégré et testé ces aides, de l’orientation à l’évaluation, à partir de données issues de dossiers de financement réels. Ces essais m’ont permis d’en vérifier l’utilité sur les cas évalués. J’ai aussi appris à les intégrer dans un parcours déjà utilisé par les équipes. Il reste à mesurer plus largement leur effet sur la qualité des dossiers et le temps de travail. Merci pour votre attention.",
     "sourceNumber": 29,
     "customImage": "slides-numbered/slide-20.jpg"
   }

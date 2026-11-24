@@ -32,7 +32,7 @@ Sur 129 dossiers avec des dates traçables, le délai moyen observé est d’env
 
 ## 6. Une demande de formation textile
 
-Dans le cas fictif que je reprendrai en démonstration, BEMA, une entreprise textile, prévoit de former 12 agents. Dans sa demande, la retombée est formulée ainsi : « les équipes seront mieux formées ». Comment la rendre vérifiable ?
+Pour la démonstration, je reprendrai le cas fictif de BEMA, une entreprise textile qui souhaite former ses équipes. Dans sa demande, le résultat attendu est formulé ainsi : « les équipes seront mieux formées ». Comment le rendre vérifiable ?
 
 *Transition* — Cet exemple m’amène à la question du projet.
 
@@ -112,10 +112,10 @@ Je propose un pilote avec des dossiers similaires, avec et sans aide. Il permett
 
 ## 19. Bilan des livrables et prochaines étapes
 
-L’historique, la messagerie et le tableau de bord sont en production. Le score, les assistants et les dossiers comparables sont en préproduction, c’est-à-dire en test sur le serveur du FMFP. Pour le contrôle du CV et les alertes, l’activation reste à confirmer. Je commencerais par valider les aides déjà en test avec les équipes avant d’élargir le périmètre.
+L’historique, la messagerie et le tableau de bord sont en production. Le score, les assistants, les dossiers comparables, le contrôle du CV et les alertes sont en préproduction, c’est-à-dire en test sur le serveur du FMFP. Je commencerais par valider les aides déjà en test avec les équipes avant d’élargir le périmètre.
 
 *Transition* — Pour finir, je résume ce que le stage a apporté.
 
 ## 20. L’apport du stage
 
-J’ai conçu, intégré et testé des aides autour d’un dossier de financement, de l’orientation jusqu’à l’évaluation. J’ai appris à les intégrer dans un parcours déjà utilisé par les équipes. La prochaine preuve à obtenir, c’est leur utilité sur des dossiers réels. Merci pour votre attention.
+J’ai conçu, intégré et testé ces aides, de l’orientation à l’évaluation, à partir de données issues de dossiers de financement réels. Ces essais m’ont permis d’en vérifier l’utilité sur les cas évalués. J’ai aussi appris à les intégrer dans un parcours déjà utilisé par les équipes. Il reste à mesurer plus largement leur effet sur la qualité des dossiers et le temps de travail. Merci pour votre attention.
