@@ -29,6 +29,10 @@ execFileSync('ffmpeg', [
   '-v', 'error', '-ss', '101.9', '-i', path.join(videoDir, 'out/02-deposer.mp4'),
   '-frames:v', '1', '-y', path.join(outputDir, '02-cv-frame.png'),
 ]);
+execFileSync('ffmpeg', [
+  '-v', 'error', '-ss', '45.8', '-i', path.join(videoDir, 'out/03-evaluer.mp4'),
+  '-frames:v', '1', '-y', path.join(outputDir, '03-plan-frame.png'),
+]);
 const browser = await chromium.launch({channel: 'chrome', headless: true});
 try {
   const context = await browser.newContext({
@@ -76,6 +80,9 @@ try {
   await page.goto(pathToFileURL(path.join(sceneDir, '02-cv-ancre.html')).href);
   await page.locator('img').evaluate((image) => image.decode());
   await page.screenshot({path: path.join(outputDir, '02-cv-ancre.png')});
+  await page.goto(pathToFileURL(path.join(sceneDir, '03-plan-annuel.html')).href);
+  await page.locator('img').evaluate((image) => image.decode());
+  await page.screenshot({path: path.join(outputDir, '03-plan-annuel.png')});
   await context.close();
 } finally {
   await browser.close();

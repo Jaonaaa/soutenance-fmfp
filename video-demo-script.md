@@ -100,7 +100,7 @@ L’assistant indique quelles pièces appuient le projet et quels points restent
 
 **02:02–02:29**
 
-Pour la rubrique « Pertinence », l’assistant propose une reformulation qui relie le projet à la sécurité et à la qualité des finitions. L’évaluateur la relit et peut l’ajuster avant de la reprendre.
+Pour la rubrique « Pertinence », l’évaluateur demande une reformulation en deux phrases. La proposition relie la formation à la sécurité en atelier et à la qualité des finitions. Il la relit avant de la reprendre.
 
 **02:29–02:42**
 
