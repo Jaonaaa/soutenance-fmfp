@@ -28,11 +28,11 @@ Le parcours existe déjà, mais les informations sont réparties dans plusieurs 
 
 Sur 129 dossiers dont les dates sont connues, le délai moyen est d’environ huit jours pour les 77 dossiers sans commentaire de réserve, contre dix-neuf jours pour les 51 dossiers avec au moins deux commentaires de réserve. Dans ces cas, le délai s’allonge avec le temps nécessaire à l’entreprise pour répondre et apporter les corrections demandées. L’assistance vise à repérer les problèmes plus tôt pour limiter les réserves évitables et les allers-retours qu’elles entraînent.
 
-*Transition* — Voyons maintenant comment rendre le résultat attendu mesurable.
+*Transition* — Voyons maintenant un exemple concret de demande qui risque d’entraîner une réserve.
 
 ## 6. Une demande de formation textile
 
-Dans cet exemple fictif, BEMA est une entreprise textile qui veut former douze agents à la sécurité et à la qualité des finitions. Dans son dossier, le résultat attendu reste vague : « les équipes seront mieux formées à la sécurité et à la qualité ». Cet objectif ambigu et non mesurable risque de provoquer une réserve. Pour le rendre mesurable, on fixe une cible : appliquer correctement au moins neuf contrôles de sécurité et de qualité sur dix lors d’un examen en fin de formation.
+Prenons le cas de BEMA, une entreprise textile qui veut former douze agents à la sécurité et à la qualité des finitions. Dans son dossier, le résultat attendu reste vague : « les équipes seront mieux formées à la sécurité et à la qualité ». Cet objectif ambigu et non mesurable risque de provoquer une réserve. Pour le rendre mesurable, on fixe une cible : appliquer correctement au moins neuf contrôles de sécurité et de qualité sur dix lors d’un examen en fin de formation.
 
 *Transition* — À partir de ce besoin, j’ai posé la question centrale de mon projet.
 

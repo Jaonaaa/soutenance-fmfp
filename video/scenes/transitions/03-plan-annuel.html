@@ -13,28 +13,29 @@ article{position:absolute;left:217px;top:222px;width:572px;height:504px;padding:
 .doc-head{display:flex;align-items:center;gap:10px;padding-bottom:11px;border-bottom:1px solid #e2e8ee}
 .doc-icon{width:29px;height:29px;display:grid;place-items:center;border-radius:7px;background:#eaf2f8;color:#1d5a7d;font-weight:700;font-size:12px}
 .doc-kind{font-size:11px;line-height:1.2;letter-spacing:.7px;font-weight:700;color:#586c80}
-.doc-sub{margin-top:4px;font-size:11px;letter-spacing:.2px;color:#718295}
 .demo{margin-left:auto;padding:5px 7px;border-radius:4px;background:#f2f5f8;color:#66788a;font-size:9px;font-weight:700;white-space:nowrap}
-h1{margin:12px 0 5px;font-size:20px;line-height:1.2;color:#1d3044}
-.meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0;color:#40566c;font-size:12px}
-.meta span{padding:4px 7px;border-radius:4px;background:#f3f6f8}
+h1{margin:13px 0 6px;font-size:21px;line-height:1.2;color:#1d3044}
+.meta{margin:0;color:#40566c;font-size:12px}
 .dates{margin-top:5px;color:#65778a;font-size:12px}
-.need{margin-top:11px;padding:9px 11px;border:1px solid #dbe6ef;border-left:3px solid #2c6688;border-radius:5px;background:#f7fafc}
+.need{margin-top:12px;padding:9px 12px;border:1px solid #dbe6ef;border-left:3px solid #2c6688;border-radius:6px;background:#f7fafc}
 .label{margin-bottom:4px;font-size:10px;letter-spacing:.55px;font-weight:700;color:#61788e}
-.need p,.module p{margin:0}
-.need p{font-size:13px;line-height:1.35}
-.program{display:flex;align-items:center;gap:7px;margin:12px 0 7px;font-size:11px;letter-spacing:.55px;font-weight:700;color:#617489}
+.need-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:0}
+.need-item + .need-item{padding-left:14px;border-left:1px solid #dbe6ef}
+.need-item strong{display:block;margin-bottom:3px;font-size:9px;letter-spacing:.5px;color:#2c6688}
+.need-item p,.module p{margin:0}
+.need-item p{font-size:12px;line-height:1.35}
+.program{display:flex;align-items:center;gap:7px;margin:13px 0 8px;font-size:11px;letter-spacing:.55px;font-weight:700;color:#617489}
 .program:after{content:"";height:1px;flex:1;background:#e3e9ee}
-.module{padding:9px 10px 8px;margin-bottom:7px;border:1px solid #dce4eb;border-radius:5px;background:#fff}
+.module{padding:11px 13px 10px;margin-bottom:10px;border:1px solid #dce4eb;border-radius:6px;background:#fff}
 .module-head{display:flex;align-items:center;gap:7px;min-height:22px}
 .num{width:19px;height:19px;display:grid;place-items:center;flex:0 0 19px;border-radius:50%;background:#e8f0f6;color:#1d5b7f;font-size:9px;font-weight:700}
 .module-title{font-size:13px;font-weight:700;color:#263b50}
 .duration{margin-left:auto;padding:4px 6px;border-radius:4px;background:#f1f5f8;color:#586f83;font-size:10px;font-weight:700;white-space:nowrap}
-.content{margin:5px 0 5px 26px;color:#52667a;font-size:12px;line-height:1.3}
-.result{display:flex;align-items:flex-start;gap:8px;margin-left:26px;padding-top:5px;border-top:1px solid #edf0f3}
-.result .label{flex:0 0 122px;margin:2px 0 0;font-size:9px;letter-spacing:.35px;white-space:nowrap}
-.result p{font-size:11.5px;line-height:1.3;color:#344c62}
-.target{display:inline-block;margin-right:4px;padding:2px 5px;border-radius:4px;background:#eaf4ee;color:#2e704b;font-weight:700;white-space:nowrap}
+.content{margin:6px 0 6px 26px;color:#52667a;font-size:12.5px;line-height:1.3}
+.result{display:flex;align-items:center;gap:7px;margin-left:26px;padding-top:7px;border-top:1px solid #edf0f3}
+.result .label{flex:0 0 72px;margin:0;font-size:9.5px;letter-spacing:.25px;white-space:nowrap}
+.result p{font-size:12px;line-height:1.35;color:#344c62}
+.target{display:inline-block;margin-right:4px;padding:3px 7px;border-radius:4px;background:#eaf4ee;color:#2e704b;font-weight:700;white-space:nowrap}
 .summary{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #e1e7ec;color:#50657a;font-size:11px}
 .total{padding:5px 8px;border-radius:4px;background:#eaf2f8;color:#1e5878;font-weight:700;white-space:nowrap}
 .summary strong{color:#2d4054}
@@ -44,31 +45,30 @@ h1{margin:12px 0 5px;font-size:20px;line-height:1.2;color:#1d3044}
 <article>
   <header class="doc-head">
     <div class="doc-icon">PF</div>
-    <div>
-      <div class="doc-kind">PLAN DE FORMATION ANNUEL · 2026</div>
-      <div class="doc-sub">PRODUCTION TEXTILE · BEMA</div>
-    </div>
+    <div class="doc-kind">PLAN DE FORMATION ANNUEL · 2026</div>
     <span class="demo">DOCUMENT FICTIF</span>
   </header>
   <h1>Sécurité et qualité en atelier textile</h1>
-  <p class="meta"><span>12 participants</span><span>Analamanga</span></p>
+  <p class="meta">BEMA · 12 participants · Analamanga</p>
   <div class="dates">02–07 décembre 2026 · Formation externe · Présentiel</div>
 
   <section class="need">
-    <div class="label">BESOIN DE L’ENTREPRISE</div>
-    <p>Réduire les incidents de sécurité et les défauts de finition lors des changements de série.</p>
+    <div class="need-grid">
+      <div class="need-item"><strong>BESOIN · SÉCURITÉ</strong><p>Réduire les incidents dans l’atelier.</p></div>
+      <div class="need-item"><strong>BESOIN · QUALITÉ</strong><p>Limiter les défauts de finition lors des changements de série.</p></div>
+    </div>
   </section>
 
   <div class="program">PROGRAMME · 2 MODULES</div>
   <section class="module">
     <div class="module-head"><span class="num">1</span><span class="module-title">Prévention des risques</span><span class="duration">8 h · THÉORIE</span></div>
     <p class="content">Gestes sûrs · repérage des risques · EPI · signalement</p>
-    <div class="result"><span class="label">RÉSULTAT ATTENDU</span><p>Appliquer les consignes et signaler les risques.</p></div>
+    <div class="result"><span class="label">RÉSULTAT</span><p>Appliquer les consignes et signaler les risques.</p></div>
   </section>
   <section class="module">
     <div class="module-head"><span class="num">2</span><span class="module-title">Contrôle qualité textile</span><span class="duration">8 h · PRATIQUE</span></div>
     <p class="content">Points de contrôle · défauts de finition · exercices en situation</p>
-    <div class="result"><span class="label">RÉSULTAT ATTENDU</span><p><span class="target">Au moins 9 / 10</span> contrôles appliqués correctement en mise en situation.</p></div>
+    <div class="result"><span class="label">RÉSULTAT</span><p><span class="target">Au moins 9 / 10</span> contrôles correctement appliqués en situation.</p></div>
   </section>
 
   <footer class="summary"><span class="total">TOTAL · 16 h</span><span><strong>4 h par jour</strong> pendant 4 jours · Attestation</span></footer>
