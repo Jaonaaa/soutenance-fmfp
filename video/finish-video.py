@@ -16,11 +16,11 @@ for i in range(count):
  ok,f=cap.read()
  if not ok:raise RuntimeError('Missing frame')
  t=i/fps-base
- if 44.5<=t<48:
+ if 44.1<=t<48:
   f[222:726,217:789]=plan[222:726,217:789]
  # Scroll the detail areas without moving the app's fixed controls.
  evidence_scroll_distance=0
- for start,end,pixels,x,y,w,h in [(37.5,44.25,260,300,110,1215,770),(99.5,110,180,820,285,690,595)]:
+ for start,end,pixels,x,y,w,h in [(37.5,44.1,260,300,110,1215,770),(99.5,110,180,820,285,690,595)]:
   if start<=t<end:
    progress=min(1,(t-start)/.85)
    distance=round(pixels*progress*progress*(3-2*progress))
@@ -41,7 +41,7 @@ for i in range(count):
     cv2.line(f,(832,681),(1494,681),(80,126,37),2)
     cv2.line(f,(832,675),(832,681),(80,126,37),2)
     cv2.line(f,(1494,675),(1494,681),(80,126,37),2)
- if 37.5 <= t < 44.25:
+ if 37.5 <= t < 44.1:
   state='neutral' if t<38.35 else ('analysis' if t<40.9 else 'evidence')
   patch=evidence[state]
   patch_y=695-evidence_scroll_distance
@@ -52,7 +52,6 @@ for i in range(count):
    f[810:875,1340:1530]=sticky
  for start,end,name,x,y in [
      (141.53,151.2,'panel',954,31),
-     (151.2,156.5,'rubric',688,309),
      (158.0,162.3,'editor',470,343),
      (165.16,174.1,'saved',1220,551),
  ]:

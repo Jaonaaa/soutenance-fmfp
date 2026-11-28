@@ -6,11 +6,13 @@ try {
  const page=await browser.newPage({viewport:{width:1600,height:900}});
  for(const [name,width,height,heading,color,line] of [
   ['proposal',312,517,false,'#ffffff',21],
-  ['rubric',806,206,false,'#fafcf9',23],
+  ['rubric',819,76,false,'#ffffff',23,'field'],
+  ['rubric-scrolled',819,76,false,'#ffffff',23,'plain'],
   ['editor',658,266,true,'#ffffff',21],
   ['saved',301,349,false,'#ffffff',20],
  ]) {
-  await page.setContent('<style>body{margin:0}div{box-sizing:border-box;font:13px/'+line+'px Arial,sans-serif;color:#18232f;width:'+width+'px;height:'+height+'px;padding:10px;background:'+color+'}strong{display:block;margin-bottom:15px;font-size:13px}</style><div></div>');
+  const fieldClass=name==='rubric'?'field':name==='rubric-scrolled'?'plain':'';
+  await page.setContent('<style>body{margin:0}div{box-sizing:border-box;font:13px/'+line+'px Arial,sans-serif;color:#18232f;width:'+width+'px;height:'+height+'px;padding:10px;background:'+color+'}div.field{border:3px solid #39835c;border-radius:10px;padding:8px 4px;background:#fff}div.plain{border:0;padding:11px 7px;background:#fff}strong{display:block;margin-bottom:15px;font-size:13px}</style><div class="'+fieldClass+'"></div>');
   await page.locator('div').evaluate((el,{text,heading})=>{
    if(heading){const title=document.createElement('strong');title.textContent='Pertinence';el.append(title);}
    el.append(document.createTextNode(text));

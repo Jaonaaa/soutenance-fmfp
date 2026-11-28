@@ -224,23 +224,23 @@ Intercalaire — Preuves et limites.
 
 Laisser apparaître le titre de cette partie avant de poursuivre.
 
-## 24. Ce qui a été testé
+## 24. Vérifications réalisées
 
 Durée indicative : 25 s
 
-Lors des vérifications locales, 1 349 tests ont réussi, 2 ont été ignorés et la couverture était de 86,89 %. Un essai sur 150 dossiers a aussi servi à ajuster les contrôles. L’utilité pour les équipes reste à mesurer.
+J’ai vérifié le logiciel avec 1 349 tests réussis, et utilisé 150 dossiers passés pour ajuster les contrôles. Ce sont des vérifications techniques. Elles ne disent pas encore si les remarques sont justes ni si les équipes gagnent du temps.
 
-Transition : Le modèle de prédiction, lui, donne des résultats plus limités.
+Transition : Ces vérifications ne suffisent pas à prouver que toutes les aides sont fiables.
 
 Repère orateur — ne pas lire : Relevé des tests locaux : 1 349 tests réussis, 2 ignorés, 86,89 % de couverture. Sur les 150 dossiers de l’essai à blanc, le nombre de dossiers signalés passe de 143 à 88 après réglage. La justesse reste à mesurer. Mémoire, sections 9.3 et 9.4 et annexe D.
 
-## 25. Ce qui reste à valider
+## 25. Ce que les essais ne prouvent pas encore
 
 Durée indicative : 55 s
 
-Le modèle essaie de prévoir quels dossiers risquent d’être rejetés à partir des décisions passées. Lors d’un test sur des dossiers plus récents, il n’a repéré que 5 à 8 des 100 dossiers qui ont réellement été rejetés. Cela ne suffit pas pour prévoir correctement les futurs rejets. Il faudra aussi vérifier si les réponses des autres fonctions sont justes, combien de temps il faut pour les contrôler et comment les données sont protégées quand un service externe est utilisé.
+Le test du modèle prédictif montre une limite : parmi 100 dossiers réellement rejetés, il n’en repère que 5 à 8. Il ne faut donc pas s’y fier pour détecter les rejets. Les autres aides doivent aussi être vérifiées pour leur justesse, le temps qu’elles demandent et la protection des données.
 
-Transition : Pour savoir si l’aide est utile, il faut l’essayer dans le travail quotidien.
+Transition : La prochaine étape est donc de mesurer les aides directement dans le travail quotidien.
 
 Repère orateur — ne pas lire : Le dénominateur du rappel est le nombre de rejets réels, pas tous les dossiers. Test temporel : apprentissage sur 261 dossiers anciens, test sur les 1 374 suivants ; le jeu total de 1 635 dossiers n’est pas l’effectif d’apprentissage de ce test. Les validations directes et avec réserves sont regroupées. Les droits d’accès, la lecture seule, la trace des appels et le parcours manuel existent ; ils ne garantissent ni la pertinence des réponses ni la confidentialité de tous les appels externes. Si demandé : reprise après retour arrière, charge et supervision restent à valider. Références : mémoire, sections 9.2 et 8.6.
 
@@ -254,7 +254,7 @@ Laisser apparaître le titre de cette partie avant de poursuivre.
 
 Durée indicative : 50 s
 
-Je propose de comparer des dossiers similaires avec et sans aide, en faisant participer plusieurs évaluateurs. On regardera si les demandes sont complètes dès le premier dépôt, quelles erreurs restent à corriger, quelles réserves auraient pu être évitées et le temps réellement passé, sans compter les attentes. Une même grille aidera à vérifier si les remarques sont justes et si des problèmes importants n’ont pas été repérés. Cette comparaison reste à faire. Avoir moins de réserves ne suffit pas si des problèmes importants ne sont pas repérés.
+Pour savoir si l’assistance apporte un bénéfice, je propose un pilote : comparer des dossiers similaires, préparés avec et sans aide. Une grille commune permettra de vérifier la complétude et la justesse des remarques. On mesurera aussi les corrections et le temps de travail actif. Ce pilote reste à mener.
 
 Transition : Les résultats aideront à choisir les prochaines améliorations.
 
