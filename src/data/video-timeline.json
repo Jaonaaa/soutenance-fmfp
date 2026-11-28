@@ -1,6 +1,6 @@
 {
   "title": "Démo BEMA · du dépôt à l’évaluation",
-  "note": "Trois prises · deux cartons · 5 min 36. Cliquez une séquence pour y placer le lecteur. Les timecodes de voix off sont relatifs au clip. Le dossier entreprise reste non soumis ; le commentaire évaluateur est enregistré sans envoi et la grille reste vide.",
+  "note": "Trois prises · un aperçu des conditions · deux cartons · 5 min 38. Cliquez une séquence pour y placer le lecteur. Les timecodes de voix off sont relatifs au clip. Le dossier entreprise reste non soumis ; le commentaire évaluateur est enregistré sans envoi et la grille reste vide.",
   "scenes": [
     {
       "id": "orientation",
@@ -9,8 +9,8 @@
       "type": "clip",
       "title": "01 · Orientation",
       "description": "Besoin textile, guichet recommandé et conditions de l’appel.",
-      "durationSeconds": 22.4,
-      "narration": "00:00–00:07 — L’entreprise veut former ses équipes à la sécurité et à la qualité des finitions.\n00:07–00:14 — Le conseiller compare le besoin de l’entreprise aux aides disponibles.\n00:14–00:22 — Il propose une piste et en explique les conditions. Ce n’est pas un accord de financement."
+      "durationSeconds": 29.4,
+      "narration": "00:00–00:07 — L’entreprise veut former ses équipes à la sécurité et à la qualité des finitions.\n00:07–00:14 — Le conseiller compare le besoin de l’entreprise aux guichets disponibles.\n00:14–00:22 — Il recommande le guichet Requête individuelle, avec l’appel RIE39 affiché.\n00:22–00:29 — Avant de commencer, l’entreprise vérifie les conditions du guichet, notamment ses cotisations et son droit de tirage."
     },
     {
       "id": "transition-depot",
@@ -29,8 +29,8 @@
       "type": "clip",
       "title": "02 · Dépôt et contrôles",
       "description": "Même brouillon · conseil IA · correction · remplacement du CV · audit final.",
-      "durationSeconds": 134.733333,
-      "narration": "00:00–00:14 — Une fois orientée, BEMA passe à la préparation de sa demande.\n00:14–00:27 — BEMA décrit son besoin, mais le résultat attendu reste vague. « Les équipes seront mieux formées. » Comment vérifier leurs progrès ?\n00:27–00:43 — Le document de référence aide à préciser les objectifs de la formation et à compléter les rubriques du dossier.\n00:43–00:57 — On renseigne ensuite les participants et le budget. Le plan annuel et la lettre sont déjà joints. Il manque encore le CV.\n00:57–01:17 — Pour préciser le résultat attendu, BEMA se tourne vers le conseiller. Il retrouve un objectif dans le document de référence. Pendant un exercice pratique, les équipes doivent réussir au moins neuf contrôles sur dix.\n01:17–01:30 — Cette cible devient le résultat attendu dans la demande. Le contrôle confirme que la rubrique est renseignée.\n01:30–01:37 — Le contrôle signale qu’il manque le CV demandé.\n01:37–01:51 — Avec un CV volontairement incomplet, le contrôle signale quatre points à corriger.\n01:51–02:07 — On remplace le fichier par un CV fictif au bon format. Le contrôle porte sur la présentation du document.\n02:07–02:15 — Le contrôle affiche « Dossier cohérent ». La demande reste en brouillon."
+      "durationSeconds": 129.733333,
+      "narration": "00:00–00:14 — Une fois orientée, BEMA passe à la préparation de sa demande.\n00:14–00:27 — BEMA décrit son besoin, mais le résultat attendu reste vague. « Les équipes seront mieux formées à la sécurité et à la qualité. » Comment vérifier leurs progrès ?\n00:27–00:43 — BEMA précise le format de la formation et le nombre de participants, puis fixe un critère de mesure dans le cahier des charges.\n00:43–00:57 — BEMA complète le budget. Dans les annexes, le plan annuel et la lettre sont déjà joints. Il manque encore le CV.\n00:57–01:12 — BEMA demande une relecture. Le conseiller propose de préciser le résultat attendu avec le critère des neuf contrôles sur dix. Il signale aussi que le CV obligatoire manque.\n01:12–01:25 — BEMA reporte la cible dans les retombées attendues. Le même critère figure ainsi dans les deux rubriques, ce qui réduit le risque de réserve sur ce point.\n01:25–01:32 — Le contrôle de soumission confirme que le CV manquant bloque le dépôt.\n01:32–01:46 — Avec un CV volontairement incomplet, le contrôle signale quatre points à corriger.\n01:46–02:02 — On remplace le fichier par un CV fictif au bon format. Le contrôle porte sur la présentation du document.\n02:02–02:10 — Le contrôle affiche « Dossier cohérent ». La demande reste en brouillon."
     },
     {
       "id": "transition-evaluation",
@@ -50,7 +50,7 @@
       "title": "03 · Évaluation assistée",
       "description": "Analyse, cohérence, comparables, chat contextualisé et appréciation.",
       "durationSeconds": 174.033334,
-      "narration": "00:00–00:15 — On passe maintenant du côté de l’évaluateur, qui examine le dossier pour préparer son avis.\n00:15–00:58 — Le score général sert de repère pour l’analyse. L’évaluateur s’appuie sur les constats et les pièces du dossier pour remplir sa grille. Ici, on ouvre la pièce liée à l’alerte pour vérifier ce qui l’a déclenchée.\n00:58–01:22 — Le contrôle rapproche les informations du dossier. Ici, il compare les objectifs, la durée et le nombre de participants. Les écarts signalés indiquent où regarder de plus près.\n01:22–01:50 — L’outil propose ensuite des dossiers similaires et explique ce qu’ils ont en commun avec celui de BEMA. L’évaluateur peut comparer les dates ou le nombre de participants pour juger si le rapprochement est pertinent.\n01:50–02:02 — L’assistant indique quelles pièces appuient le projet et quels points restent à vérifier. On confronte ensuite sa réponse aux documents.\n02:02–02:29 — Pour la rubrique « Pertinence », l’assistant propose une reformulation qui relie le projet à la sécurité et à la qualité des finitions. L’évaluateur la relit et peut l’ajuster avant de la reprendre.\n02:29–02:42 — Après relecture, le texte est ajouté à la rubrique « Pertinence » et enregistré en brouillon.\n02:42–02:54 — À ce stade, l’évaluateur a un commentaire à reprendre. Il lui reste à remplir la grille et à rendre son avis."
+      "narration": "00:00–00:15 — On retrouve le cas BEMA dans un dossier de test distinct. L’évaluateur l’examine pour préparer son avis.\n00:15–00:58 — Le score général sert de repère pour l’analyse. La grille de l’évaluateur reste à remplir. Ici, il consulte la pièce associée à un constat pour vérifier ce que le dossier permet de confirmer.\n00:58–01:22 — Le contrôle rapproche les informations du dossier. Ici, il compare les objectifs, la durée et le nombre de participants. Les écarts signalés indiquent où regarder de plus près.\n01:22–01:50 — L’outil propose ensuite des dossiers similaires et explique ce qu’ils ont en commun avec le dossier examiné. L’évaluateur peut comparer les dates ou le nombre de participants pour juger si le rapprochement est pertinent.\n01:50–02:02 — L’assistant indique quelles pièces appuient le projet et quels points restent à vérifier. On confronte ensuite sa réponse aux documents.\n02:02–02:29 — Pour la rubrique « Pertinence », l’assistant propose une reformulation qui relie le projet à la sécurité et à la qualité des finitions. L’évaluateur la relit et peut l’ajuster avant de la reprendre.\n02:29–02:42 — Après relecture, l’évaluateur reprend le texte dans la rubrique « Pertinence » et l’enregistre en brouillon.\n02:42–02:54 — Le commentaire est enregistré sans être envoyé. La grille est encore vide."
     }
   ]
 }

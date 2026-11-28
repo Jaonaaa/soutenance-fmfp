@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Conditions du guichet Requête individuelle</title>
+  <link rel="stylesheet" href="../../../../fmfp/assets/fmfp_assets/css/entreprise-ai-suggest.css">
+  <link rel="stylesheet" href="../../../../fmfp/assets/global/plugins/font-awesome/css/font-awesome.min.css">
+  <style>
+    :root {
+      --fmfp-paper: #fff;
+      --fmfp-paper-2: #f1f3f5;
+      --fmfp-ink: #111b2c;
+      --fmfp-ink-2: #3b485a;
+      --fmfp-ink-3: #6b7585;
+      --fmfp-blue: #24467e;
+      --fmfp-rule: #d9e0e8;
+      --fmfp-ok: #397b50;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 12px system-ui, sans-serif; }
+    .recorded-frame { display: block; width: 1600px; height: 900px; }
+    .ent-suggest-analysis-modal { align-items: start; padding: 61px 0 0; }
+    .ent-suggest-analysis-modal__dialog {
+      width: 70%;
+      max-height: none;
+      border-radius: 21px;
+    }
+    .ent-suggest-analysis-modal__header {
+      height: 96px;
+      padding: 30px 34px 0;
+    }
+    .ent-suggest-conditions-modal__titleline { gap: 11px; }
+    .ent-suggest-analysis-modal__header h2 {
+      font-size: 27px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .ent-suggest-conditions-modal__code {
+      min-height: 30px;
+      padding: 4px 11px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .ent-suggest-analysis-modal__header p { margin-top: 6px; font-size: 17px; }
+    .ent-suggest-analysis-modal__close {
+      flex-basis: 52px;
+      width: 52px;
+      height: 52px;
+      border-radius: 13px;
+      font-size: 19px;
+    }
+    .ent-suggest-analysis-modal__body { padding: 27px 34px 36px; }
+    .ent-suggest-conditions-modal__body .ent-suggest__guichet-conditions .ent-suggest-conditions-modal__item {
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 15px;
+      padding: 18px 0;
+    }
+    .ent-suggest-conditions-modal__item-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      font-size: 14px;
+    }
+    .ent-suggest-conditions-modal__item-copy {
+      padding-top: 4px;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+    .ent-suggest-conditions-modal__item-copy strong {
+      margin-bottom: 2px;
+      font-size: 16px;
+      font-weight: 650;
+    }
+    .reconstruction {
+      position: fixed;
+      z-index: 2147483001;
+      bottom: 20px;
+      left: 24px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      background: #0e1a2a;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <img class="recorded-frame" src="../../out/transitions/01-guichet-frame.png" alt="">
+  <div class="ent-suggest-analysis-modal ent-suggest-conditions-modal is-open" role="dialog"
+       aria-modal="true" aria-labelledby="title" aria-describedby="intro">
+    <div class="ent-suggest-analysis-modal__backdrop"></div>
+    <div class="ent-suggest-analysis-modal__dialog ent-suggest-conditions-modal__dialog">
+      <header class="ent-suggest-analysis-modal__header">
+        <div class="ent-suggest-conditions-modal__heading">
+          <div class="ent-suggest-conditions-modal__titleline">
+            <h2 id="title">Requête individuelle</h2>
+            <span class="ent-suggest-conditions-modal__code">RI</span>
+          </div>
+          <p id="intro">Points à vérifier avant de commencer un dossier.</p>
+        </div>
+        <button type="button" class="ent-suggest-analysis-modal__close" aria-label="Fermer les conditions">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </header>
+      <div class="ent-suggest-analysis-modal__body ent-suggest-conditions-modal__body">
+        <ul class="ent-suggest__guichet-conditions"></ul>
+      </div>
+    </div>
+  </div>
+  <span class="reconstruction">Reconstitution de la fenêtre</span>
+  <script>
+    const conditions = [
+      ['', 'Projet de formation porté par une seule entreprise et financé par son droit de tirage.'],
+      ['Secteur', 'Le secteur doit être vérifié selon les conditions de l’appel.'],
+      ['Entreprises', 'Exactement une entreprise dans le projet.'],
+      ['Cotisations', 'À jour pour déposer un dossier.'],
+      ['Droit de tirage', 'Le solde doit couvrir le montant envisagé.'],
+      ['Appel ouvert dans la prise', 'RIE39.'],
+    ];
+    const list = document.querySelector('.ent-suggest__guichet-conditions');
+
+    conditions.forEach(([label, detail], index) => {
+      const available = index === conditions.length - 1;
+      const row = document.createElement('li');
+      row.className = 'ent-suggest-conditions-modal__item';
+      row.classList.toggle('is-available', available);
+
+      const icon = document.createElement('span');
+      icon.className = 'ent-suggest-conditions-modal__item-icon';
+      icon.setAttribute('aria-hidden', 'true');
+      const glyph = document.createElement('i');
+      glyph.className = available ? 'fa fa-check' : 'fa fa-circle-o';
+      icon.append(glyph);
+
+      const copy = document.createElement('span');
+      copy.className = 'ent-suggest-conditions-modal__item-copy';
+      if (label) {
+        const heading = document.createElement('strong');
+        heading.textContent = label;
+        copy.append(heading);
+      }
+      const text = document.createElement('span');
+      text.textContent = detail;
+      copy.append(text);
+      row.append(icon, copy);
+      list.append(row);
+    });
+  </script>
+</body>
+</html>

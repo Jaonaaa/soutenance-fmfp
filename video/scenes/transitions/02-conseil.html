@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Conseil pour préciser les résultats attendus</title>
+<style>
+  body { margin: 0; font: 13px/1.38 Arial, sans-serif; color: #172c40; }
+  img { display: block; width: 1600px; height: 900px; }
+  article {
+    position: absolute; top: 343px; left: 1083px; width: 469px; height: 132px;
+    box-sizing: border-box; padding: 2px; background: #f8fafb;
+    font-size: 12px; line-height: 19px; color: #162332;
+  }
+  article p { margin: 0 0 9px; }
+  article p:last-child { margin-bottom: 0; }
+  .question { position: absolute; top: 247px; left: 1130px; width: 435px; height: 71px; box-sizing: border-box; border-radius: 5px; background: #194f70; color: white; padding: 8px 10px; }
+  .input { position: absolute; top: 769px; left: 1083px; width: 420px; background: white; padding: 6px 4px; }
+  .send-cursor { position: absolute; left: 1540px; top: 786px; font: 24px Arial, sans-serif; color: white; text-shadow: 1px 1px 2px #0e1a2a, -1px -1px 2px #0e1a2a; }
+  .send-pulse { position: absolute; left: 1518px; top: 768px; width: 37px; height: 37px; border: 3px solid #75acdf; border-radius: 12px; }
+</style>
+</head>
+<body>
+<img src="../../out/transitions/02-conseil-frame.png" alt="">
+<div class="question"></div>
+<article>
+  <p>Dans <strong>Retombées attendues</strong>, le résultat est trop vague pour être vérifié.</p>
+  <p>Reprenez le critère du cahier des charges : en mise en situation, les 12 agents devront réussir <strong>au moins 9 contrôles de sécurité et de qualité sur 10</strong>. Notez les résultats sur une grille.</p>
+  <p>Côté <strong>Annexes</strong>, le plan annuel et la lettre sont joints. Il manque le <strong>CV du formateur</strong>, obligatoire pour soumettre le dossier.</p>
+</article>
+<script>
+  const question = 'Peux-tu relire mon dossier avant le dépôt et me signaler les points qui pourraient entraîner une réserve ?';
+  const bubble = document.querySelector('.question');
+  bubble.textContent = question;
+  if (location.hash === '#input' || location.hash === '#send') {
+    document.querySelector('img').src = '../../out/transitions/02-conseil-input.png';
+    document.querySelector('article').remove();
+    bubble.className = 'input';
+    if (location.hash === '#send') {
+      const pulse = document.createElement('span');
+      pulse.className = 'send-pulse';
+      const cursor = document.createElement('span');
+      cursor.className = 'send-cursor';
+      cursor.textContent = '↖';
+      document.body.append(pulse, cursor);
+    }
+  }
+</script>
+</body>
+</html>

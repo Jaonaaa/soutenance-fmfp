@@ -1,12 +1,15 @@
 import {chromium} from 'playwright';
 import fs from 'node:fs';
-import {CURSOR,glide,click,type,startRec,waitReady} from '../lib.mjs';
+import {CURSOR,click,type,startRec,waitReady} from '../lib.mjs';
 
-const b=await chromium.launch({channel:'chrome',headless:true});
+const args=process.env.DEMO_LOCAL_LOOPBACK
+  ? ['--host-resolver-rules=MAP plateforme-fmfp.local 127.0.0.1'] : [];
+const b=await chromium.launch({channel:'chrome',headless:true,args});
 const c=await b.newContext({viewport:{width:1600,height:900},locale:'fr-FR',storageState:process.env.STATE||'.state/ent.json'});
 await c.addInitScript(CURSOR);
 const p=await c.newPage();
 await p.goto('http://plateforme-fmfp.local/entreprises/appel_projet');
+if(new URL(p.url()).pathname==='/connexion') throw new Error('La session entreprise a expiré.');
 await waitReady(p);
 
 const stop=await startRec(p,'out/rec-01');
@@ -107,6 +110,9 @@ const resizeResult=await p.evaluate(()=>{
 });
 if(!resizeResult) throw new Error('Could not enlarge the FMFP advisor panel.');
 await p.addStyleTag({content:`
+  .sb-org .name,.sb-org .role,.sb-org .avatar,#topUserBtn > .nm,#topUserBtn > .avatar {
+    filter:blur(7px)!important;
+  }
   #enterpriseSuggestV2 .ent-suggest{font-size:14px!important;line-height:1.55!important}
   #enterpriseSuggestV2 .ent-suggest__intro p{font-size:13px!important}
   #enterpriseSuggestV2 .ent-suggest__eyebrow{font-size:12px!important}
@@ -144,8 +150,14 @@ await halo('#entSuggestGuichet','provisional_orientation','blue',1400);
 const recommended=p.locator('#entSuggestGuichetsSection .ent-suggest__guichet-item.is-recommended').first();
 const recommendedText=(await recommended.innerText()).replace(/\s+/g,' ').trim();
 await halo('#entSuggestGuichetsSection .ent-suggest__guichet-item.is-recommended','recommended_guichet','green',3600);
-await glide(p,1360,770,650);
-await pause(900);
+const conditionsButton='#entSuggestGuichetsSection .is-recommended .ent-suggest__conditions-button';
+await halo(conditionsButton,'conditions_button','blue',650);
+await click(p,conditionsButton,450);
+const conditions=p.locator('#entSuggestConditionsList');
+await conditions.locator('li').first().waitFor({state:'visible',timeout:5000});
+const conditionItems=await conditions.locator('li').allInnerTexts();
+mark('conditions_open','#entSuggestConditionsList',await conditions.boundingBox());
+await pause(5200);
 mark('end');
 
 const frameCount=await stop();
@@ -157,6 +169,7 @@ fs.writeFileSync('out/01.events.json',JSON.stringify({
   trimmedLoadingSeconds,
   objective,
   recommendedGuichet:recommendedText,
+  conditions:conditionItems,
 },null,2)+'\n');
 console.log(JSON.stringify({events:ev,frames:frameCount,trimmedLoadingSeconds,recommendedGuichet:recommendedText}));
 await c.close();

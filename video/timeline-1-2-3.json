@@ -14,6 +14,13 @@
       "speed": 1.0
     },
     {
+      "name": "01 · Aperçu des conditions du guichet",
+      "type": "image",
+      "file": "out/transitions/01-conditions.png",
+      "duration": 7,
+      "speed": 1.0
+    },
+    {
       "name": "Transition · Préparer la demande",
       "type": "image",
       "file": "out/transitions/01-orientation-depot.png",
@@ -24,6 +31,42 @@
       "name": "02 · Dépôt et contrôles",
       "file": "out/02-deposer.mp4",
       "start": 0,
+      "end": 58.5,
+      "speed": 1.0
+    },
+    {
+      "name": "02 · Question au conseiller",
+      "file": "out/transitions/02-conseil-question.mp4",
+      "speed": 1.0
+    },
+    {
+      "name": "02 · Envoi de la question",
+      "file": "out/transitions/02-conseil-envoi.mp4",
+      "speed": 1.0
+    },
+    {
+      "name": "02 · Conseil en gros plan",
+      "file": "out/transitions/02-conseil-zoom.mp4",
+      "speed": 1.0
+    },
+    {
+      "name": "02 · Dépôt et contrôles",
+      "file": "out/02-deposer.mp4",
+      "start": 77.2,
+      "end": 97.567,
+      "speed": 1.0
+    },
+    {
+      "name": "02 · Détails du CV rattachés à la carte",
+      "type": "image",
+      "file": "out/transitions/02-cv-ancre.png",
+      "duration": 4.333,
+      "speed": 1.0
+    },
+    {
+      "name": "02 · Dépôt et contrôles",
+      "file": "out/02-deposer.mp4",
+      "start": 101.9,
       "end": null,
       "speed": 1.0
     },

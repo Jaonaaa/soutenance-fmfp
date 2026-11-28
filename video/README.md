@@ -1,6 +1,6 @@
 # Vidéo de démonstration FMFP — guide pour un autre agent
 
-Objectif : une vidéo d'environ 5 min 36 qui suit un seul brouillon fictif BEMA textile : orienter → remplir → demander un conseil IA → corriger → vérifier le CV et les annexes → évaluer avec les outils IA. Deux cartons illustrés annoncent les étapes entre les trois clips. Ajouter zooms, surlignages, voix off de l’orateur et sous-titres. **Le script, le déroulé et la voix off font foi** : `../video-demo-script.md`. Ne pas changer un chiffre ou une affirmation sans relire le mémoire (`AGENTS.md` racine). Aucun gain de temps annoncé, aucune note officielle enregistrée et aucune soumission.
+Le montage de 5 min 38 suit le cas fictif BEMA : orientation, préparation du brouillon, contrôle des pièces et évaluation sur un dossier de test distinct. L’aperçu des conditions du guichet dure sept secondes. Deux cartons annoncent les changements d’étape.
 
 ## Pipeline
 1. **Capture** (`scenes/NN-*.mjs`) : Playwright + Chrome pilotent l'app ; capture par CDP `Page.screencast` (JPEG q92, 1600×900) vers `out/rec-NN/` ; chaque scène écrit un **journal d'événements** `{k, t}` (temps, marqueur) sur la sortie standard → à enregistrer en `out/NN.events.json` pour caler zooms et halos au montage.

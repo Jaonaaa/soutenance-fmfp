@@ -162,7 +162,7 @@ Laisser apparaître le titre de cette partie avant de poursuivre.
 
 Durée indicative : 40 s
 
-Avant de déposer son dossier, l’entreprise peut décrire son besoin. Le conseiller lui indique une aide qui pourrait convenir et explique pourquoi. Cette suggestion aide à commencer le dossier, mais ne garantit ni son acceptation ni le financement.
+Avant le dépôt, BEMA décrit son besoin de formation. Le conseiller recommande le guichet Requête individuelle et affiche l’appel RIE39. L’entreprise peut consulter les conditions avant de commencer.
 
 Transition : Ensuite, l’entreprise peut préciser le résultat attendu.
 
@@ -172,7 +172,7 @@ Repère orateur — ne pas lire : Une orientation n’est ni une admission ni un
 
 Durée indicative : 50 s
 
-Dans l’exemple, l’entreprise demande comment savoir si la formation a été utile. L’assistant retrouve un objectif dans le document de référence et le relie au besoin décrit. Cela donne une idée plus précise, que l’entreprise peut vérifier avant de l’ajouter à son dossier.
+Le conseiller reprend le critère déjà saisi dans le cahier des charges : appliquer correctement au moins neuf contrôles de sécurité et de qualité sur dix en mise en situation. BEMA s’en sert pour préciser le résultat attendu.
 
 Transition : Voyons comment elle ajoute cette idée à son dossier.
 

@@ -1,7 +1,7 @@
 import {chromium} from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
-import {CURSOR,click,glide,startRec,type,waitReady} from '../lib.mjs';
+import {smoothScrollTo,CURSOR,click,glide,startRec,type,waitReady} from '../lib.mjs';
 
 const baseUrl=process.env.DEMO_BASE_URL||'http://plateforme-fmfp.local';
 const fixturePath=process.env.DEMO_EVALUATOR_FIXTURE||'.state/evaluator-fixture.json';
@@ -95,7 +95,7 @@ const mark=async(k,selector,targetOverride)=>{
 const pause=ms=>page.waitForTimeout(ms);
 const highlight=async(selector,k,color='blue',hold=1400)=>{
   const target=typeof selector==='string'?page.locator(selector).first():selector;
-  await target.scrollIntoViewIfNeeded();
+  await smoothScrollTo(target);
   const rect=await target.boundingBox();
   if(!rect) throw new Error(`Cannot highlight off-screen target: ${selector}`);
   await glide(page,rect.x+Math.min(rect.width*.55,rect.width-2),rect.y+Math.min(rect.height*.5,rect.height-2),420);

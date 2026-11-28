@@ -1,5 +1,5 @@
 import {chromium} from 'playwright';
-import {CURSOR,click,glide,type,startRec,waitReady} from '../lib.mjs';
+import {smoothScrollTo,CURSOR,click,glide,type,startRec,waitReady} from '../lib.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -236,7 +236,7 @@ const scrollDownThroughAudit=async key=>{
 };
 const halo=async(selector,key,color='blue',hold=350)=>{
   const target=p.locator(selector).last();
-  await target.scrollIntoViewIfNeeded();
+  await smoothScrollTo(target);
   const box=await target.boundingBox();
   if(!box) {mark(key,selector);return;}
   const colors={blue:'#2D5AA6',red:'#D94A42',green:'#25804A',amber:'#E59A27'};
@@ -278,7 +278,7 @@ const scrollElementToY=async(selector,targetTop,key)=>{
     });
   }
   const target=p.locator(selector).first();
-  await target.scrollIntoViewIfNeeded();
+  await smoothScrollTo(target);
   let box=await target.boundingBox();
   if(!box) {mark(key,selector);return;}
   let delta=box.y-targetTop;
@@ -317,7 +317,7 @@ const clearDemoScrollTail=async()=>p.evaluate(()=>{
 const fill=async(selector,value,key,color='blue')=>{
   const field=p.locator(selector).first();
   if(await field.count()===0) throw new Error(`Missing field ${selector}`);
-  await field.scrollIntoViewIfNeeded();
+  await smoothScrollTo(field);
   const standout=new Set([
     'title','training_start','training_end','training_need','beneficiary_objective',
     'behavior_objective','module_title','cdc_objectifs_apprentissage','beneficiary_count',
@@ -403,7 +403,7 @@ const ensureChecked=async(selector,key)=>{
 const saveWizardStep=async(nextStep)=>{
   const selector=nextStep===6?'#btnSubmit':'#btnNext';
   const button=p.locator(selector);
-  await button.scrollIntoViewIfNeeded();
+  await smoothScrollTo(button);
   const box=await button.boundingBox();
   if(box) await glide(p,box.x+box.width*.5,box.y+box.height*.5,180);
   mark('save_section_'+(nextStep-1),selector,box);
@@ -530,7 +530,7 @@ for(const field of ['niveau_competence','categorie_prestataire']) {
   const select=p.locator(`[name="cdc[${moduleId}][${field}]"]`);
   const options=await select.locator('option').evaluateAll(items=>items.map(x=>x.value).filter(Boolean));
   if(!options.length) throw new Error(`No available option for ${field}.`);
-  await select.scrollIntoViewIfNeeded();
+  await smoothScrollTo(select);
   await select.selectOption(options[0]);
   mark(`cdc_${field}_selected`,`[name="cdc[${moduleId}][${field}]"]`,await select.boundingBox());
 }
@@ -588,7 +588,7 @@ await route('/formulaire/soumission/annexes_section1/22778','annexes','#annexesF
 await route('/formulaire/soumission/synthese/22778','assistant_review','#blockingAlert');
 const firstBlockers=(await p.locator('#blockingAlert').innerText()).replace(/\s+/g,' ').trim();
 const aiReviewReply=await askAssistant(
-  'À partir du besoin décrit et des objectifs saisis, quels résultats observables l’entreprise pourrait-elle suivre après cette formation ? Reste fidèle aux informations du dossier.',
+  'Peux-tu relire mon dossier avant le dépôt et me signaler les points qui pourraient entraîner une réserve ?',
   'assistant_feedback_on_expected_impacts'
 );
 

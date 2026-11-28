@@ -14,7 +14,7 @@
     "transition": "Voici le fil de ma présentation.",
     "narration": "Bonjour Messieurs les membres du jury. Aujourd’hui, je vais vous parler du projet que j’ai mené pendant mon stage au Fonds Malgache de Formation Professionnelle, le FMFP. Mon travail s’intitule : « Conception d’un système intelligent de scoring, de recommandations et d’aide à la décision pour la gestion des financements de la formation professionnelle ». Dans ce projet, j’ai conçu une assistance pour faciliter l’analyse des demandes de financement et le suivi des corrections. Mon objectif était d’aider les équipes dans leur travail, tout en leur laissant la décision finale.",
     "sourceNumber": 1,
-    "customImage": "img/couverture-jury.svg"
+    "customImage": "img/couverture-jury-export.jpg"
   },
   {
     "id": "slide-02",
@@ -28,7 +28,7 @@
     "contentHtml": "<h2>Le fil de la présentation</h2><div class=\"som\"><div><b>01</b>Contexte et problématique</div><div><b>02</b>La solution proposée</div><div><b>03</b>Construire dans l’existant</div><div><b>04</b>L’assistance en action</div><div><b>05</b>Preuves et limites</div><div><b>06</b>Mesurer et poursuivre</div></div><div class=\"dz p-tr\"><svg viewBox=\"0 0 90 80\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 18h26l8 8h40v44H8z\" fill=\"#DCE6F5\"/><path d=\"M8 32h74\"/></g></svg></div>",
     "cue": "Annoncer une progression, sans réciter le sommaire.",
     "reminder": "Annoncer le fil en une phrase. La diapositive 3 présente les deux utilisateurs.",
-    "transition": "Commençons par voir qui utilise ce dossier.",
+    "transition": "Je commence par les deux acteurs au cœur de ce projet : l’entreprise et l’équipe du FMFP.",
     "narration": "Je vais partir du besoin, puis présenter la solution que j’ai construite. Je montrerai ensuite son fonctionnement, avant de revenir sur les résultats et les suites possibles.",
     "sourceNumber": 2,
     "customImage": "slides-numbered/slide-02.jpg"
@@ -45,8 +45,8 @@
     "contentHtml": "<h2>Une demande de financement, deux besoins</h2><div class=\"duo\"><div class=\"role-card\"><span class=\"eyebrow\">Entreprise</span><h3>Présenter un projet compréhensible</h3><p>Choisir le dispositif, décrire le besoin, réunir les informations.</p></div><div class=\"role-card evaluator\"><span class=\"eyebrow\">Équipe d’instruction et évaluateur</span><h3>Comprendre et vérifier le dossier</h3><p>Appliquer les règles, examiner les pièces, motiver l’avis.</p></div></div><div class=\"takeaway\">Un même dossier relie les deux côtés.</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 100 100\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"40\" cy=\"38\" r=\"11\" fill=\"#fff\"/><path d=\"M36 37h.1M44 37h.1M37 43c2-1 4.5-1 6.5 0\"/><path d=\"M40 49v26M40 57l-11 9M40 57l9-6 3-10\"/><path d=\"M40 75l-8 16M40 75l9 16\"/><path d=\"M66 14c0-6 10-6 10 0 0 5-5 5-5 10M71 30v.5\"/><path d=\"M57 34c4-2 4-6 7-8\" stroke-dasharray=\"2 4\"/></g></svg></div>",
     "cue": "Présenter les utilisateurs avant les technologies.",
     "reminder": "L’assistance complète à la préparation côté entreprise reste une perspective ; l’orientation avant dépôt est disponible.",
-    "transition": "Pour les aider, j’ai regardé comment le dossier passe de l’un à l’autre.",
-    "narration": "Les besoins se situent à deux moments : aider l’entreprise à s’orienter, puis aider l’équipe du FMFP à examiner le dossier. L’accompagnement complet de l’entreprise reste à développer.",
+    "transition": "Pour comprendre leurs besoins, j’ai d’abord retracé le parcours d’une demande.",
+    "narration": "Les besoins se situent à deux moments : aider l’entreprise à s’orienter, puis aider l’équipe du FMFP à examiner le dossier.",
     "sourceNumber": 4,
     "customImage": "slides-numbered/slide-03.jpg"
   },
@@ -62,7 +62,7 @@
     "contentHtml": "<h2>Le parcours existe déjà</h2><div class=\"journey\"><div><span>01</span>Préparer</div><div><span>02</span>Déposer</div><div><span>03</span>Instruire</div><div><span>04</span>Évaluer</div><div><span>05</span>Décider</div><div><span>06</span>Suivre</div></div><div class=\"duo compact\"><div class=\"role-card\"><h3>Le dossier</h3><p>Besoin · objectifs · modules · bénéficiaires · budget · pièces</p></div><div class=\"role-card\"><h3>La difficulté</h3><p>Les éléments sont répartis entre plusieurs rubriques.</p></div></div><div class=\"takeaway\">Ajouter de l’aide dans le parcours de travail.</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 80 90\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M40 12c-14 0-22 10-22 21 0 9 6 13 9 19 1 3 1 6 1 8h24c0-2 0-5 1-8 3-6 9-10 9-19 0-11-8-21-22-21z\" fill=\"#DCE6F5\"/><path d=\"M30 68h20M32 75h16M36 82h8\"/><path d=\"M40 2v4M10 14l4 3M70 14l-4 3M4 38h5M71 38h5\"/></g></svg></div>",
     "cue": "Montrer où intervient l’assistance dans le système existant.",
     "reminder": "L’évaluateur formule une appréciation ; la décision de financement reste dans le circuit officiel. Les six étapes sont un parcours métier, pas six fonctions IA déjà livrées. Si demandé : dix étapes de la soumission au paiement, 26 groupes d’utilisateurs, socle CodeIgniter 3.1.10 avec PHP 7.2 et MySQL 5.7 en production (mémoire, sections 4.1 à 4.3).",
-    "transition": "Les anciens dossiers donnent aussi une idée des délais.",
+    "transition": "J’ai ensuite comparé les délais observés selon le nombre de commentaires de réserve.",
     "narration": "Le parcours existe déjà, mais les informations sont réparties dans plusieurs rubriques. Mon objectif était d’apporter une aide directement dans ce parcours.",
     "sourceNumber": 5,
     "customImage": "slides-numbered/slide-04.jpg"
@@ -79,8 +79,8 @@
     "contentHtml": "<img class=\"reserve-slide-art\" src=\"img/reserves-delais.svg?v=reserves-20261107-9\" alt=\"Réserves et délai jusqu’à la décision. Sans commentaire : 7,95 jours pour 77 dossiers; deux commentaires ou plus : 18,81 jours pour 51 dossiers. Écart moyen : 10,86 jours. Attentes incluses, effet de l’IA encore à mesurer.\">",
     "cue": "Comparer les deux groupes, puis relier les réserves évitables à l’objectif de l’assistance.",
     "reminder": "Source : mémoire révisé, section 9.5 et annexe N. 77 dossiers sans commentaire : moyenne 7,95 j; 51 dossiers avec au moins deux commentaires : moyenne 18,81 j. Écart : 10,86 j. Le groupe à un commentaire compte un seul dossier (10,17 j), donc aucune tendance ne peut en être déduite. Le compteur porte sur l’événement « Commentaire réserve » en Résultat / Prévalidation; il ne recense ni toutes les réserves actives ni les cycles complets. Le délai va de la première soumission identifiable à la décision documentée, attentes comprises. L’usage de l’IA n’est pas relié à chaque dossier : aucune causalité ni réduction du délai par l’IA n’est démontrée. L’objectif concerne les réserves évitables; les réserves justifiées restent nécessaires. Les illustrations évoquent les échanges de correction; elles ne représentent pas des cycles reconstitués à partir de ces données. Les badges bleus et orange illustrent l’absence ou la présence de commentaires de réserve; la coche ne signifie ni conformité globale ni décision de financement.",
-    "transition": "Dans un dossier, voyons ce qui peut rendre une demande difficile à vérifier.",
-    "narration": "Sur 129 dossiers dont les dates sont traçables, le délai moyen est d’environ huit jours pour les 77 dossiers sans commentaire de réserve. Il atteint dix-neuf jours pour les 51 dossiers qui en comptent au moins deux. Ces délais incluent aussi les périodes d’attente. On voit un écart, mais les dossiers seuls ne nous disent pas ce qui l’explique. Et l’effet de l’assistance reste à mesurer, notamment pendant le pilote.",
+    "transition": "Voyons maintenant comment rendre le résultat attendu mesurable.",
+    "narration": "Sur 129 dossiers dont les dates sont connues, le délai moyen est d’environ huit jours pour les 77 dossiers sans commentaire de réserve, contre dix-neuf jours pour les 51 dossiers avec au moins deux commentaires de réserve. Dans ces cas, le délai s’allonge avec le temps nécessaire à l’entreprise pour répondre et apporter les corrections demandées. L’assistance vise à repérer les problèmes plus tôt pour limiter les réserves évitables et les allers-retours qu’elles entraînent.",
     "sourceNumber": 6,
     "customImage": "slides-numbered/slide-05.jpg"
   },
@@ -96,8 +96,8 @@
     "contentHtml": "<h2>Une demande de formation textile</h2><div class=\"case-title\">Sécurité au travail · qualité des finitions</div><div class=\"duo\"><div class=\"role-card warning\"><span class=\"eyebrow\">Effectif du scénario</span><div class=\"case-number\">12 agents</div><p>12 agents de production à former dans l’entreprise.</p></div><div class=\"role-card warning\"><span class=\"eyebrow\">Retombée attendue</span><h3>Formulation trop vague</h3><p>« Les équipes seront mieux formées » ne permet pas de mesurer les progrès.</p></div></div><div class=\"takeaway\">Cible du scénario : au moins 9 contrôles sur 10 correctement appliqués.</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 90 90\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M45 8c20 0 37 15 37 37S66 82 45 82 8 66 8 45 24 8 45 8z\" fill=\"#DCE6F5\"/><path d=\"M27 46l12 12 25-27\" stroke-width=\"3\"/></g></svg></div>",
     "cue": "Présenter le cas comme le fil conducteur des exemples qui suivent.",
     "reminder": "Le 9/10 est une cible du scénario, pas un résultat déjà obtenu. Les pièces du dossier sont fictives.",
-    "transition": "Cet exemple m’amène à la question du projet.",
-    "narration": "Pour la démonstration, je reprendrai le cas fictif de BEMA, une entreprise textile qui souhaite former ses équipes. Dans sa demande, le résultat attendu est formulé ainsi : « les équipes seront mieux formées ». Comment le rendre vérifiable ?",
+    "transition": "À partir de ce besoin, j’ai posé la question centrale de mon projet.",
+    "narration": "Dans cet exemple fictif, BEMA est une entreprise textile qui veut former douze agents à la sécurité et à la qualité des finitions. Dans son dossier, le résultat attendu reste vague : « les équipes seront mieux formées à la sécurité et à la qualité ». Cet objectif ambigu et non mesurable risque de provoquer une réserve. Pour le rendre mesurable, on fixe une cible : appliquer correctement au moins neuf contrôles de sécurité et de qualité sur dix lors d’un examen en fin de formation.",
     "sourceNumber": 7,
     "customImage": "slides-numbered/slide-06.jpg"
   },
@@ -113,8 +113,8 @@
     "contentHtml": "<img src=\"img/problematique-objectifs.svg\" alt=\"Problématique et trois objectifs\" style=\"width:100%;height:100%;object-fit:contain\">",
     "cue": "Relier la problématique aux deux utilisateurs.",
     "reminder": "Expliquer la question avec ses mots; inutile de lire le titre mot à mot.",
-    "transition": "Voici ce que j’ai pu mettre en place pendant le stage.",
-    "narration": "Ma question était de savoir comment aider à préparer des dossiers plus complets et plus faciles à examiner. J’ai retenu trois objectifs : mieux orienter, faciliter l’analyse et suivre les corrections.",
+    "transition": "J’ai ensuite délimité ce que je pouvais réaliser pendant le stage.",
+    "narration": "Comment aider les entreprises à préparer des dossiers plus complets et cohérents, tout en facilitant leur analyse ? Pour y répondre, j’ai retenu trois objectifs : mieux orienter les entreprises, faciliter l’analyse des dossiers et suivre les corrections.",
     "sourceNumber": 9,
     "customImage": "img/problematique-objectifs.svg"
   },
@@ -130,7 +130,7 @@
     "contentHtml": "<h2>Un périmètre à annoncer clairement</h2><div class=\"duo\"><div class=\"role-card\"><span class=\"status\">Intégré</span><h3>Orientation, contrôles et suivi</h3><p>Assistance au dossier surtout côté évaluateur.</p></div><div class=\"role-card warning\"><span class=\"status pending\">À étendre et à valider</span><h3>Préparation guidée de bout en bout</h3><p>Lecture des pièces, pertinence métier et bénéfices à mesurer.</p></div></div><div class=\"takeaway\">L’orientation avant dépôt est disponible ; l’accompagnement complet reste à construire.</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 100 100\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"62\" cy=\"26\" r=\"11\" fill=\"#fff\"/><path d=\"M58 25h.1M66 25h.1M58 31c2.5 1.6 5 1.6 7.5 0\"/><path d=\"M62 37v28M62 46l-26-10M62 46l12 12\"/><path d=\"M62 65l-9 18M62 65l9 18\"/><path d=\"M30 34l-8-3 3 8\" /></g></svg></div>",
     "cue": "Assumer la différence entre la vision du projet et le périmètre réalisé.",
     "reminder": "Le périmètre présenté distingue les fonctions mises en place et les extensions à valider. Si demandé : au 2 octobre, fin du stage, le service couvrait le score, l’orientation et le cadrage, le contrôle de CV, les anomalies et la proposition d’évaluation. L’assistant du dossier et son chat, les dossiers comparables et le contrôle de cohérence complètent le périmètre présenté (mémoire, section 10).",
-    "transition": "Restait à décider comment intégrer cette aide à la plateforme.",
+    "transition": "Une fois le périmètre établi, il me restait à choisir l’architecture adaptée.",
     "narration": "L’orientation, certains contrôles et le suivi sont disponibles. L’accompagnement complet de la préparation reste à développer ; la pertinence des résultats doit encore être validée avec les utilisateurs.",
     "sourceNumber": 11,
     "customImage": "slides-numbered/slide-08.jpg"
@@ -147,8 +147,8 @@
     "contentHtml": "<img src=\"img/revision-retour-09.svg\" alt=\"Pourquoi un service interne ?\" style=\"width:100%;height:100%;object-fit:contain\">",
     "cue": "Montrer le service interne, puis désigner les options à droite de la diapositive.",
     "reminder": "Mémoire, section 4.4, tableau 5 ; benchmark en section 3.3.8 et tableau 3. Les règles métier restent utiles dans la solution retenue. Certains traitements du service interne font appel à un fournisseur externe. Si demandé : un SaaS (Submittable, SmartSimple, Fluxx) hébergerait tout le dossier et imposerait de reconstruire les règles du FMFP ; ici, seuls des extraits sélectionnés partent vers le fournisseur, en phase de test, et l’usage en production attend l’autorisation écrite de la direction. Les fonds homologues (FDFP Connect, 3FPT) dématérialisent le dépôt, sans assistance à l’instruction.",
-    "transition": "Pour vérifier que cette architecture convenait, j’ai avancé par étapes.",
-    "narration": "J’ai pris les règles métier comme point de départ. Pour intégrer les autres aides, j’ai comparé l’ajout direct à la plateforme, le recours à un fournisseur externe et la réécriture. J’ai retenu un service interne pour préserver le parcours du FMFP et faire évoluer les traitements séparément. En contrepartie, il faut maintenir les échanges et surveiller le service.",
+    "transition": "Une fois ce choix fait, j’ai organisé le travail en étapes successives.",
+    "narration": "J’ai pris les règles métier comme point de départ. Pour intégrer les autres aides, j’ai comparé l’ajout direct à la plateforme, le recours à un fournisseur externe et la réécriture. J’ai retenu un service interne pour préserver le parcours du FMFP et faire évoluer les traitements séparément.",
     "sourceNumber": 13,
     "customImage": "img/revision-retour-09.svg"
   },
@@ -164,8 +164,8 @@
     "contentHtml": "<h2>Mon travail, du besoin à la solution</h2><div class=\"journey\"><div><span>01</span>Cadrer</div><div><span>02</span>Éprouver</div><div><span>03</span>Intégrer</div><div><span>04</span>Tester</div><div><span>05</span>Déployer</div></div><div class=\"duo compact\"><div class=\"role-card\"><h3>Itérations et revues</h3><p>Scrum adapté · backlog Trello · revue avec le tuteur.</p></div><div class=\"role-card\"><h3>Prévu et réalisé</h3><p>86 jours estimés pour 84 jours ouvrés ; réalisation plus longue, écart non quantifié.</p></div></div><div class=\"takeaway\">Risques ouverts : confidentialité · fiabilité du score</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 90 90\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"36\" cy=\"36\" r=\"22\" fill=\"#F2F6FC\"/><path d=\"M26 30c2-5 6-8 11-8\"/><path d=\"M52 53l22 22\" stroke-width=\"5\"/></g></svg></div>",
     "cue": "Avancer par étapes et vérifier avant de poursuivre.",
     "reminder": "86 jours est une estimation de charge initiale, pas une durée réelle mesurée. Le surplus n’est pas quantifiable avec les données disponibles. Le stage compte 84 jours ouvrés (8 juin – 2 octobre, hors 26 juin). Le budget valorise ces 84 jours à 64 000 Ar, soit 5 376 000 Ar.",
-    "transition": "La plateforme et le service d’analyse ont chacun leur rôle.",
-    "narration": "J’ai travaillé en itérations courtes, inspirées de Scrum, avec un backlog Trello et des revues avec mon tuteur. Le cadrage prévoyait 86 jours de charge pour 84 jours ouvrés de stage ; la réalisation a pris davantage de temps, sans mesure précise de l’écart. La confidentialité et la fiabilité restent à valider.",
+    "transition": "Cette démarche se retrouve dans l’architecture : la plateforme et le service analytique ont chacun un rôle précis.",
+    "narration": "J’ai avancé par itérations courtes, avec un backlog Trello et des revues avec mon tuteur. Le cadrage prévoyait 86 jours de charge pour 84 jours ouvrés de stage.",
     "sourceNumber": 14,
     "customImage": "img/revision-retour-10.svg"
   },
@@ -181,8 +181,8 @@
     "contentHtml": "<h2>Des responsabilités séparées</h2><div class=\"architecture\"><div class=\"role-card\"><span class=\"eyebrow\">Plateforme</span><h3>Accès et parcours officiel</h3><p>Écrans · droits · grille · suivi</p></div><div class=\"flow-link\">↔<small>demande et réponse validées</small></div><div class=\"role-card\"><span class=\"eyebrow\">Service analytique</span><h3>Contrôles et assistance</h3><p>Règles · outils · explications</p></div></div><div class=\"takeaway\">Modèle simplifié : dossier relié à l’entreprise, aux annexes et à l’évaluation.</div><div class=\"architecture-foot\"><span>Données du dossier : lecture seule</span><span>Appels IA externes : confidentialité à valider</span></div><div class=\"takeaway\">Parcours : orienter, contrôler, évaluer · Données : dossier, pièces, versions · Lecture seule et droits contrôlés · Objectif de couverture ≥ 80 %.</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 100 100\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"40\" cy=\"38\" r=\"11\" fill=\"#fff\"/><path d=\"M36 37h.1M44 37h.1M37 43c2-1 4.5-1 6.5 0\"/><path d=\"M40 49v26M40 57l-11 9M40 57l9-6 3-10\"/><path d=\"M40 75l-8 16M40 75l9 16\"/><path d=\"M66 14c0-6 10-6 10 0 0 5-5 5-5 10M71 30v.5\"/><path d=\"M57 34c4-2 4-6 7-8\" stroke-dasharray=\"2 4\"/></g></svg></div>",
     "cue": "Inclure le fournisseur externe et sa limite de confidentialité.",
     "reminder": "Vue simplifiée de la figure 12, annexe E du mémoire : liens logiques, sans cardinalités. Le service analytique lit les données métier ; la plateforme conserve les écritures.",
-    "transition": "Passons à un exemple pour voir ces outils en action.",
-    "narration": "La plateforme conserve les droits et le parcours, tandis que le service analytique apporte les contrôles. Pour concevoir cette aide, je me suis appuyé sur le modèle de données : le dossier est relié notamment à l’entreprise, aux annexes et à l’évaluation. Les données métier sont consultées en lecture seule.",
+    "transition": "Je reprends maintenant le cas de BEMA pour montrer comment cette aide intervient dans le parcours.",
+    "narration": "La plateforme gère les droits et le parcours. Le service analytique contrôle le dossier à partir de données consultées en lecture seule.",
     "sourceNumber": 15,
     "customImage": "img/architecture-modele-donnees.svg"
   },
@@ -198,8 +198,8 @@
     "contentHtml": "<h2>Avant le dépôt : trouver une orientation</h2><div class=\"product-view\"><button class=\"shot product-shot\" data-zoom=\"img/figure-11-textile.svg\" aria-label=\"Agrandir : Conseiller de guichet · exemple textile\"><img src=\"img/figure-11-textile.svg\" alt=\"Conseiller de guichet · exemple textile\" loading=\"lazy\"></button><div class=\"product-points\"><div><span>01</span><p>Décrire le besoin</p></div><div><span>02</span><p>Filtrer les dispositifs incompatibles</p></div><div><span>03</span><p>Expliquer la proposition</p></div></div></div><div class=\"dz p-tr\"><svg viewBox=\"0 0 90 90\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M45 8c20 0 37 15 37 37S66 82 45 82 8 66 8 45 24 8 45 8z\" fill=\"#DCE6F5\"/><path d=\"M27 46l12 12 25-27\" stroke-width=\"3\"/></g></svg></div>",
     "cue": "Parler d’orientation, sans promettre l’éligibilité ni le financement.",
     "reminder": "Une orientation n’est ni une admission ni une décision de financement.",
-    "transition": "Une fois le guichet repéré, elle précise ce qu’elle veut obtenir de la formation.",
-    "narration": "On retrouve notre entreprise textile. Avant le dépôt, elle décrit son besoin. Le conseiller lui propose une piste et explique les conditions du guichet.",
+    "transition": "Une fois le guichet repéré, BEMA peut préciser ce qu’elle attend de la formation.",
+    "narration": "BEMA décrit son besoin de formation. Le conseiller recommande le guichet Requête individuelle et affiche l’appel RIE39. L’entreprise peut consulter les conditions avant de commencer.",
     "sourceNumber": 17,
     "customImage": "slides-numbered/slide-12.jpg"
   },
@@ -215,8 +215,8 @@
     "contentHtml": "<h2>Le conseiller IA éclaire le dossier</h2><div class=\"product-view\"><button class=\"shot product-shot\" data-zoom=\"img/bema-chat-conseil.png\" aria-label=\"Agrandir : Conseiller IA · réponse fondée sur le dossier textile\"><img src=\"img/bema-chat-conseil.png\" alt=\"Conseiller IA · réponse fondée sur le dossier textile\" loading=\"lazy\"></button><div class=\"product-points\"><div><span>01</span><p>Demander les résultats observables</p></div><div><span>02</span><p>Relier sécurité et qualité au module</p></div><div><span>03</span><p>Retrouver la cible 9/10 du cahier des charges</p></div></div></div><div class=\"dz p-tr\"><svg viewBox=\"0 0 90 90\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"45\" cy=\"45\" r=\"18\" fill=\"#DCE6F5\"/><circle cx=\"45\" cy=\"45\" r=\"7\" fill=\"#fff\"/><path d=\"M45 15v9M45 66v9M15 45h9M66 45h9M24 24l6 6M60 60l6 6M66 24l-6 6M30 60l-6 6\"/></g></svg></div>",
     "cue": "Le chat répond à partir des informations saisies dans le brouillon.",
     "reminder": "Ne pas présenter la cible 9/10 comme un résultat déjà atteint. La réponse du chat est une piste à vérifier. Présenter le chat comme un complément de l’assistant du dossier.",
-    "transition": "Une fois le résultat précisé, je passe à la vérification des pièces.",
-    "narration": "À partir du document de référence, l’assistant propose une cible vérifiable : réussir au moins neuf contrôles sur dix pendant un exercice. L’entreprise vérifie cette proposition avant de la retenir.",
+    "transition": "Après l’objectif de formation, je passe aux pièces qui accompagnent le dossier.",
+    "narration": "Le conseiller reprend le critère déjà saisi dans le cahier des charges : appliquer correctement au moins neuf contrôles de sécurité et de qualité sur dix en mise en situation. BEMA s’en sert pour préciser le résultat attendu.",
     "sourceNumber": 18,
     "customImage": "slides-numbered/slide-13.jpg"
   },
@@ -229,13 +229,13 @@
     "durationSeconds": 20,
     "divider": false,
     "className": "",
-    "contentHtml": "<h2>Le CV du formateur : quatre points à corriger</h2><div class=\"product-view\"><button class=\"shot product-shot\" data-zoom=\"img/bema-cv-a-corriger.png\" aria-label=\"Agrandir : Contrôle du CV fictif dans le dossier de formation\"><img src=\"img/bema-cv-a-corriger.png\" alt=\"Contrôle du CV fictif dans le dossier de formation\" loading=\"lazy\"></button><div class=\"product-points\"><div><span>01</span><p>Lire le contrôle du premier CV fictif</p></div><div><span>02</span><p>Vérifier dates, sections, mise en page et signature</p></div><div><span>03</span><p>Remplacer le fichier et vérifier le format</p></div></div></div><div class=\"dz p-tr\"><svg viewBox=\"0 0 100 100\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"62\" cy=\"26\" r=\"11\" fill=\"#fff\"/><path d=\"M58 25h.1M66 25h.1M58 31c2.5 1.6 5 1.6 7.5 0\"/><path d=\"M62 37v28M62 46l-26-10M62 46l12 12\"/><path d=\"M62 65l-9 18M62 65l9 18\"/><path d=\"M30 34l-8-3 3 8\" /></g></svg></div>",
+    "contentHtml": "<h2>Le CV du formateur : quatre points à corriger</h2><div class=\"product-view\"><button class=\"shot product-shot\" data-zoom=\"img/bema-cv-a-corriger.png\" aria-label=\"Agrandir : Contrôle du CV incomplet dans le dossier de formation\"><img src=\"img/bema-cv-a-corriger.png\" alt=\"Contrôle du CV incomplet dans le dossier de formation\" loading=\"lazy\"></button><div class=\"product-points\"><div><span>01</span><p>Lire le contrôle du CV incomplet</p></div><div><span>02</span><p>Vérifier dates, sections, mise en page et signature</p></div><div><span>03</span><p>Remplacer le fichier et vérifier le format</p></div></div></div><div class=\"dz p-tr\"><svg viewBox=\"0 0 100 100\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"62\" cy=\"26\" r=\"11\" fill=\"#fff\"/><path d=\"M58 25h.1M66 25h.1M58 31c2.5 1.6 5 1.6 7.5 0\"/><path d=\"M62 37v28M62 46l-26-10M62 46l12 12\"/><path d=\"M62 65l-9 18M62 65l9 18\"/><path d=\"M30 34l-8-3 3 8\" /></g></svg></div>",
     "cue": "Montrer les quatre constats de structure, sans les confondre avec une évaluation des compétences.",
     "reminder": "Les quatre écarts sont les dates, les sections, la mise en page et la signature ; les trois numéros du visuel décrivent les étapes.",
-    "transition": "Il reste à vérifier que les autres pièces sont présentes.",
-    "narration": "J’ai testé le contrôle avec un CV fictif volontairement incomplet. Il signale quatre points : les dates, les sections, la mise en page et la signature. Je remplace ensuite le fichier.",
+    "transition": "J’élargis maintenant le contrôle aux autres pièces du dossier.",
+    "narration": "J’ai testé le contrôle avec un CV incomplet. Il signale quatre points à corriger : les dates, les sections, la mise en page et la signature. Je remplace ensuite le fichier.",
     "sourceNumber": 20,
-    "customImage": "slides-numbered/slide-14.jpg"
+    "customImage": "slides-numbered/slide-14-cv-incomplet.png"
   },
   {
     "id": "slide-21",
@@ -248,9 +248,9 @@
     "className": "",
     "contentHtml": "<h2>Vérifier les trois annexes avant l’envoi</h2><div class=\"product-view\"><button class=\"shot product-shot\" data-zoom=\"img/bema-audit-final.png\" aria-label=\"Agrandir : Vérification finale du brouillon\"><img src=\"img/bema-audit-final.png\" alt=\"Vérification finale du brouillon\" loading=\"lazy\"></button><div class=\"product-points\"><div><span>01</span><p>Plan annuel fictif présent</p></div><div><span>02</span><p>Lettre de financement fictive présente</p></div><div><span>03</span><p>CV de démonstration conforme</p></div></div></div><div class=\"dz p-tr\"><svg viewBox=\"0 0 80 90\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 8h36l16 16v58H14z\" fill=\"#fff\"/><path d=\"M50 8v16h16\"/><path d=\"M24 40h30M24 50h30M24 60h20\"/><path d=\"M48 66l6 6 12-14\" stroke=\"#2D5AA6\" stroke-width=\"2.2\"/></g></svg></div>",
     "cue": "Le statut « Dossier cohérent » décrit le contrôle de complétude, pas une décision de financement.",
-    "reminder": "Lancer la vidéo de 5 min 36 maintenant et la commenter avec le script de démonstration. Reprendre la transition à la fin de la vidéo, puis passer à la diapositive 16. La scène évaluateur illustre l’autre côté du parcours. Le brouillon entreprise reste non soumis.",
-    "transition": "On vient de voir le parcours. Voyons maintenant ce que j’ai vérifié par les tests.",
-    "narration": "Les trois annexes sont présentes et la demande reste en brouillon. Dans la vidéo, regardez comment l’entreprise vérifie sa préparation, puis comment un évaluateur peut examiner un dossier dans ce même scénario.",
+    "reminder": "Lancer la vidéo de 5 min 38 maintenant et la commenter avec le script de démonstration. Reprendre la transition à la fin de la vidéo, puis passer à la diapositive 16. La scène évaluateur illustre l’autre côté du parcours. Le brouillon entreprise reste non soumis.",
+    "transition": "Après cette démonstration, revenons aux vérifications réalisées.",
+    "narration": "Les trois annexes sont présentes et la demande reste en brouillon. Je passe maintenant à la démonstration : vous verrez la préparation côté entreprise, puis les outils de l’évaluateur.",
     "sourceNumber": 21,
     "customImage": "slides-numbered/slide-15.jpg",
     "demoAfter": true
@@ -267,7 +267,7 @@
     "contentHtml": "<h2>Ce qui a été testé</h2><div class=\"duo\"><div class=\"role-card\"><span class=\"eyebrow\">Logiciel · audit technique</span><div class=\"case-number\">1 349</div><p>tests réussis localement<br>2 ignorés · 86,89 % de couverture</p></div><div class=\"role-card\"><span class=\"eyebrow\">Contrôles · essai à blanc</span><div class=\"case-number\">150</div><p>dossiers pour ajuster les règles</p></div></div><div class=\"takeaway\">Vérifications complémentaires · bénéfices métier à mesurer.</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 100 100\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"40\" cy=\"38\" r=\"11\" fill=\"#fff\"/><path d=\"M36 37h.1M44 37h.1M37 43c2-1 4.5-1 6.5 0\"/><path d=\"M40 49v26M40 57l-11 9M40 57l9-6 3-10\"/><path d=\"M40 75l-8 16M40 75l9 16\"/><path d=\"M66 14c0-6 10-6 10 0 0 5-5 5-5 10M71 30v.5\"/><path d=\"M57 34c4-2 4-6 7-8\" stroke-dasharray=\"2 4\"/></g></svg></div>",
     "cue": "Retenir deux preuves : les tests du logiciel et l’essai à blanc des contrôles.",
     "reminder": "Relevé des tests locaux : 1 349 tests réussis, 2 ignorés, 86,89 % de couverture. Sur les 150 dossiers de l’essai à blanc, le nombre de dossiers signalés passe de 143 à 88 après réglage. La justesse reste à mesurer. Mémoire, sections 9.3 et 9.4 et annexe D.",
-    "transition": "Le modèle de prédiction, lui, donne des résultats plus limités.",
+    "transition": "J’ai aussi évalué le score prédictif, et les résultats montrent une limite importante.",
     "narration": "Lors des vérifications locales, 1 349 tests ont réussi, 2 ont été ignorés et la couverture était de 86,89 %. Un essai sur 150 dossiers a aussi servi à ajuster les contrôles. L’utilité pour les équipes reste à mesurer.",
     "sourceNumber": 24,
     "customImage": "img/revision-retour-16.svg"
@@ -284,7 +284,7 @@
     "contentHtml": "<h2>Ce qui reste à valider</h2><div class=\"duo\"><div class=\"role-card warning\"><span class=\"eyebrow\">Score prédictif V2 · risque de rejet</span><div class=\"case-number\">5 à 8 %</div><p>rejets réels repérés sur des dossiers traités ensuite</p></div><div class=\"role-card warning\"><span class=\"eyebrow\">Utilité pour les équipes</span><h3>À mesurer</h3><p>Justesse des constats · temps de vérification</p></div></div><div class=\"takeaway\">Confidentialité des appels externes : validation encore nécessaire.</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 80 90\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M40 12c-14 0-22 10-22 21 0 9 6 13 9 19 1 3 1 6 1 8h24c0-2 0-5 1-8 3-6 9-10 9-19 0-11-8-21-22-21z\" fill=\"#DCE6F5\"/><path d=\"M30 68h20M32 75h16M36 82h8\"/><path d=\"M40 2v4M10 14l4 3M70 14l-4 3M4 38h5M71 38h5\"/></g></svg></div>",
     "cue": "Les 5 à 8 % décrivent le rappel du modèle prédictif V2 sur les rejets, pas le score global provisoire de l’écran.",
     "reminder": "Le dénominateur du rappel est le nombre de rejets réels, pas tous les dossiers. Test temporel : apprentissage sur 261 dossiers anciens, test sur les 1 374 suivants ; le jeu total de 1 635 dossiers n’est pas l’effectif d’apprentissage de ce test. Les validations directes et avec réserves sont regroupées. Les droits d’accès, la lecture seule, la trace des appels et le parcours manuel existent ; ils ne garantissent ni la pertinence des réponses ni la confidentialité de tous les appels externes. Si demandé : reprise après retour arrière, charge et supervision restent à valider. Références : mémoire, sections 9.2 et 8.6.",
-    "transition": "Pour savoir si l’aide est utile, il faut l’essayer dans le travail quotidien.",
+    "transition": "Il reste une question pratique : qu’apporte cette assistance au travail quotidien ?",
     "narration": "Dans le test sur des dossiers plus récents, le modèle n’a détecté que 5 à 8 rejets parmi 100 dossiers finalement rejetés. L’évaluateur ne peut donc pas compter sur le score pour signaler tous les dossiers à examiner. Il reste aussi à vérifier la justesse des autres aides et la confidentialité des appels externes.",
     "sourceNumber": 25,
     "customImage": "slides-numbered/slide-17.jpg"
@@ -301,7 +301,7 @@
     "contentHtml": "<h2>Mesurer le progrès sur le travail réel</h2><div class=\"triptych\"><div class=\"role-card\"><h3>Qualité du dépôt</h3><p>Complétude initiale<br>Omissions à corriger<br>Réserves évitables</p></div><div class=\"role-card\"><h3>Qualité de l’aide</h3><p>Constats corrects<br>Problèmes importants manqués<br>Pertinence des comparables</p></div><div class=\"role-card\"><h3>Effort de traitement</h3><p>Temps actif hors attentes<br>Cycles de correction<br>Délais de correction</p></div></div><div class=\"takeaway\">Pilote : dossiers similaires (difficulté, guichet), avec et sans assistance.</div><div class=\"dz p-tr\"><svg viewBox=\"0 0 90 90\"><g fill=\"none\" stroke=\"#242424\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"45\" cy=\"45\" r=\"18\" fill=\"#DCE6F5\"/><circle cx=\"45\" cy=\"45\" r=\"7\" fill=\"#fff\"/><path d=\"M45 15v9M45 66v9M15 45h9M66 45h9M24 24l6 6M60 60l6 6M66 24l-6 6M30 60l-6 6\"/></g></svg></div>",
     "cue": "Distinguer le repère historique de la diapo 6 et le pilote qui mesurera l’apport de l’assistance.",
     "reminder": "Pilote proposé, non réalisé. Comparer des dossiers de difficulté et de guichet similaires, répartis entre plusieurs évaluateurs, avec et sans assistance. Une grille commune reliera les constats aux pièces et aux règles. Un identifiant pseudonymisé reliera les fonctions présentées et utilisées aux étapes et corrections. Mesurer le temps actif séparément des attentes et analyser les résultats par fonction. Une baisse brute des réserves ne suffit pas : distinguer les réserves évitables des réserves justifiées et vérifier que les problèmes importants restent détectés. Références : mémoire, section 9.5, tableau 14 et annexe N.",
-    "transition": "Avant de lancer ce pilote, voici où en sont les livrables.",
+    "transition": "Avant de conclure, je fais le point sur les livrables en service et ceux qui restent à valider.",
     "narration": "Je propose un pilote avec des dossiers similaires, avec et sans aide. Il permettra de comparer la qualité des dossiers, la justesse des remarques et le temps de travail actif. Cette mesure reste à réaliser.",
     "sourceNumber": 27,
     "customImage": "slides-numbered/slide-18.jpg"
@@ -318,7 +318,7 @@
     "contentHtml": "<img src=\"img/revision-retour-19.svg\" alt=\"Bilan des livrables et prochaines étapes\" style=\"width:100%;height:100%;object-fit:contain\">",
     "cue": "Distinguer état de mise en service et validation métier.",
     "reminder": "Mémoire, tableau 15. Les pourcentages d’avancement par livrable ne sont pas documentés. Le statut décrit la mise en service et la validation disponible.",
-    "transition": "Pour finir, je résume ce que le stage a apporté.",
+    "transition": "Après ce bilan, je peux résumer l’apport du stage et les prochaines étapes.",
     "narration": "L’historique, la messagerie et le tableau de bord sont en production. Le score, les assistants, les dossiers comparables, le contrôle du CV et les alertes sont en préproduction, c’est-à-dire en test sur le serveur du FMFP. Je commencerais par valider les aides déjà en test avec les équipes avant d’élargir le périmètre.",
     "sourceNumber": 28,
     "customImage": "img/revision-retour-19.svg"

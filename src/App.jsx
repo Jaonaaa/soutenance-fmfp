@@ -28,8 +28,35 @@ function readSavedState() {
     if (saved?.schemaVersion !== 1) {
       return { slides: {}, scenes: {}, activeSlideId: slides[0].id, restored: false };
     }
+    const savedSlides = saved.slides && typeof saved.slides === 'object' ? saved.slides : {};
+    const narrationMigrations = [
+      {
+        slideId: 'slide-reserves-delais',
+        isOutdated: (text) => text.startsWith('Sur 129 dossiers dont les dates sont traçables,')
+          || text.startsWith('Sur 129 dossiers avec des dates traçables,'),
+      },
+      { slideId: 'slide-06', isOutdated: (text) => text.startsWith('Je prends le dossier fictif de BEMA,') },
+      { slideId: 'slide-20', isOutdated: (text) => text.startsWith('J’ai testé le contrôle avec un CV fictif') },
+      { slideId: 'slide-21', isOutdated: (text) => text.includes('Dans la vidéo, regardez comment l’entreprise vérifie sa préparation') },
+      {
+        slideId: 'slide-08',
+        isOutdated: (text) => text.startsWith('J’ai donc retenu trois objectifs')
+          || text.startsWith('Pour y répondre, j’ai retenu trois objectifs'),
+      },
+    ];
+    let restoredSlides = savedSlides;
+    for (const migration of narrationMigrations) {
+      const narration = restoredSlides[migration.slideId]?.narration;
+      const latest = slides.find((slide) => slide.id === migration.slideId)?.narration;
+      if (typeof narration === 'string' && migration.isOutdated(narration) && latest) {
+        restoredSlides = {
+          ...restoredSlides,
+          [migration.slideId]: { ...restoredSlides[migration.slideId], narration: latest },
+        };
+      }
+    }
     return {
-      slides: saved.slides && typeof saved.slides === 'object' ? saved.slides : {},
+      slides: restoredSlides,
       scenes: saved.videoScenes && typeof saved.videoScenes === 'object' ? saved.videoScenes : {},
       activeSlideId: slides.some((slide) => slide.id === saved.activeSlideId)
         ? saved.activeSlideId
@@ -197,7 +224,6 @@ function App() {
     ...scene,
     narration: sceneEdits[scene.id]?.narration ?? scene.narration,
   };
-  const narrationWordCount = currentSlide.narration.trim().split(/\s+/).filter(Boolean).length;
   const slideProgress = ((currentSlide.number / slides.length) * 100).toFixed(2);
   const totalSlideSeconds = useMemo(() => slides.reduce(
     (total, item) => total + (slideEdits[item.id]?.durationSeconds ?? item.durationSeconds), 0,
@@ -440,39 +466,33 @@ function App() {
       )}
 
       {drawerOpen && (
-        <section className={`notes-drawer ${!compact ? 'notes-drawer--side' : ''}`} aria-label={drawerTab === 'video' ? 'Chronologie vidéo' : 'Notes orateur'}>
-          <div className="drawer-heading bottom-heading">
-            {drawerTab === 'narration' ? <div className="practice-header"><span className="practice-mark"><Icon name={rehearsal ? 'repeat' : 'note'} /></span><div><small>SOUTENANCE FMFP</small><strong>{rehearsal ? 'Studio de répétition' : 'Notes orateur'}</strong></div></div> : <div className="drawer-tabs" role="tablist" aria-label="Panneau inférieur">
+        <section className={`notes-drawer ${!compact ? 'notes-drawer--side' : ''} ${drawerTab === 'narration' && !rehearsal ? 'notes-drawer--simple' : ''}`} aria-label={drawerTab === 'video' ? 'Chronologie vidéo' : 'Notes orateur'}>
+          <div className={`drawer-heading bottom-heading ${drawerTab === 'narration' && !rehearsal ? 'simple-heading' : ''}`}>
+            {drawerTab === 'narration' && rehearsal ? <div className="practice-header"><span className="practice-mark"><Icon name="repeat" /></span><div><small>SOUTENANCE FMFP</small><strong>Studio de répétition</strong></div></div> : drawerTab === 'narration' ? null : <div className="drawer-tabs" role="tablist" aria-label="Panneau inférieur">
               <button role="tab" aria-selected={drawerTab === 'narration'} className={drawerTab === 'narration' ? 'selected' : ''} onClick={() => selectDrawerTab('narration')}><Icon name="note" /> Narration</button>
               <button role="tab" aria-selected={drawerTab === 'video'} className={drawerTab === 'video' ? 'selected' : ''} onClick={() => selectDrawerTab('video')}><Icon name="time" /> Chronologie vidéo</button>
             </div>}
             <div className="practice-header-actions">
-              {drawerTab === 'narration' && <button className="practice-video-link" onClick={openSpeechDocument} aria-haspopup="dialog" aria-label="Lire le discours complet" title="Discours complet"><Icon name="note" /></button>}
-              {drawerTab === 'narration' && <button className="practice-video-link" onClick={() => selectDrawerTab('video')} aria-label="Ouvrir la chronologie vidéo" title="Chronologie vidéo"><Icon name="time" /></button>}
+              {drawerTab === 'narration' && rehearsal && <button className="practice-video-link" onClick={() => { setRehearsal(false); setRehearsalPlaying(false); }} aria-label="Revenir au discours" title="Revenir au discours"><Icon name="pen" /></button>}
+              {drawerTab === 'narration' && rehearsal && <button className="practice-video-link" onClick={openSpeechDocument} aria-haspopup="dialog" aria-label="Lire le discours complet" title="Discours complet"><Icon name="note" /></button>}
+              {drawerTab === 'narration' && rehearsal && <button className="practice-video-link" onClick={() => selectDrawerTab('video')} aria-label="Ouvrir la chronologie vidéo" title="Chronologie vidéo"><Icon name="time" /></button>}
               <button className="float-button close-drawer" onClick={() => setDrawerOpen(false)} aria-label="Fermer le panneau"><Icon name="close" /></button>
             </div>
           </div>
-          {drawerTab === 'narration' && <div className="practice-modes" role="group" aria-label="Mode des notes"><button aria-pressed={!rehearsal} onClick={() => { setRehearsal(false); setRehearsalPlaying(false); }}><Icon name="pen" />Écrire</button><button aria-pressed={rehearsal} onClick={() => { setRehearsal(true); setRehearsalPlaying(false); }}><Icon name="repeat" />Répéter</button><span>Discours & transitions</span></div>}
           {drawerTab === 'narration' && rehearsal ? (
             <Rehearsal key={slide.id} slide={currentSlide} playing={rehearsalPlaying} setPlaying={setRehearsalPlaying} onNext={() => selectSlide(slideIndex + 1)} onPrevious={() => selectSlide(slideIndex - 1)} first={slideIndex === 0} last={slideIndex === slides.length - 1} nextTitle={slides[slideIndex + 1]?.title} slideCount={slides.length} videoUrl={demoVideoUrl} />
           ) : drawerTab === 'narration' ? (
-            <div className="notes-editor">
-              <div className="narration-field">
-                <div className="narration-field-heading">
-                  <div className="narration-meta">
-                    <label className="narration-title" htmlFor={`narration-${slide.id}`}>Diapositive {String(currentSlide.number).padStart(2, '0')} · {currentSlide.title}</label>
-                    <span className="word-count">{narrationWordCount} mots · environ {formatSlideDuration(currentSlide.durationSeconds)}</span>
-                  </div>
-                  <label className="duration-field"><span>Durée</span><span className="duration-input-wrap"><input aria-label="Durée de la diapositive en secondes" type="number" min="0" max={MAX_DURATION} step="5" value={currentSlide.durationSeconds} onChange={(event) => editSlide({ durationSeconds: boundedDuration(event.target.value) })} /><small>sec</small></span></label>
-                </div>
-                <textarea id={`narration-${slide.id}`} value={currentSlide.narration} onChange={(event) => editSlide({ narration: event.target.value })} placeholder="Rédigez la narration de cette diapositive…" rows="4" />
-              </div>
-              <div className="speaker-cues">
-                <span>Repères</span>
-                {currentSlide.cue && <p>{currentSlide.cue}</p>}
-                {currentSlide.reminder && <p className="reminder-copy"><b>À garder en tête</b>{currentSlide.reminder}</p>}
-                {currentSlide.transition && <p className="transition-copy"><b>Pour enchaîner</b>« {currentSlide.transition} »</p>}
-              </div>
+            <div className="notes-editor notes-editor--simple">
+              <textarea
+                id={`narration-${slide.id}`}
+                className="simple-narration"
+                aria-label="Discours à lire"
+                value={currentSlide.narration}
+                onChange={(event) => editSlide({ narration: event.target.value })}
+                placeholder="Discours à lire…"
+                rows="4"
+              />
+              {currentSlide.transition && <p className="simple-transition">{currentSlide.transition}</p>}
             </div>
           ) : (
             <div className="video-editor">
