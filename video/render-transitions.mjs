@@ -82,6 +82,9 @@ try {
   await page.screenshot({path: path.join(outputDir, '02-cv-ancre.png')});
   await page.goto(pathToFileURL(path.join(sceneDir, '03-plan-annuel.html')).href);
   await page.locator('img').evaluate((image) => image.decode());
+  await page.evaluate(() => document.fonts.ready);
+  const planFontLoaded = await page.evaluate(() => document.fonts.check('13px "Open Sans"'));
+  if (!planFontLoaded) throw new Error('Open Sans did not load for the annual plan');
   await page.screenshot({path: path.join(outputDir, '03-plan-annuel.png')});
   await context.close();
 } finally {
